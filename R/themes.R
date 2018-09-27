@@ -34,7 +34,6 @@
 #'
 #' @examples
 #'
-#'
 #' library(ggplot2)
 #' library(boeChartr)
 #'
@@ -54,7 +53,8 @@
 #' # Now apply mcg pub theme
 #'
 #' p +
-#'  theme_mcg_pub()
+#'  theme_mcg_pub() +
+#'  scale_y_continuous(position = "right")
 #'
 #' @import ggplot2
 #' @export
@@ -121,5 +121,101 @@ theme_mcg_pub <- function(base_size = 12,
     complete = FALSE
 
   )
+}
+
+
+#' A \code{ggplot2} theme for BOE Inflation Report chart styling
+#' 
+#' @description Provides a theme to produce
+#' Inflation Report style visualisations in \code{ggplot2}.
+#' See \code{ggplot2::scale_y_continuous} for positioning y-axis on the right.
+#' 
+#' @param base_size Sets the base size of text for the plot.
+#' Defaults to \code{12}
+#'
+#' @param base_colour Sets the default colour of titles and labels.
+#' Must be a named R colour or hexadecimal colour code
+#' (e.g. "#FF0000"). Defaults to \code{#2b2b2b}
+#' 
+#' @param plot_title_size plot title size
+#' 
+#' @param plot_margin plot margin (specify with \code{ggplot2::margin()})
+#'
+#' @return Will not return anything of itself, but when used in conjuntion
+#' with \code{\link{ggplot}} and (e.g.) \code{\link{geom_point}} from the
+#' package \code{ggplot2}, will apply styling to a plot.
+#' 
+#' @export
+#'
+#' @examples
+#' 
+#' library(ggplot2)
+#' library(boeChartr)
+#'
+#' p <- ggplot(mtcars) +
+#'    aes(
+#'    x = mpg,
+#'    y = wt
+#'    ) +
+#'    geom_point() +
+#'     labs(title = "A Lovely Plot")
+#'
+#' # Plot without any theme applied
+#'
+#' p
+#'
+#' # Now apply mcg pub theme
+#'
+#' p +
+#'  theme_inflation_report() +
+#'  scale_y_continuous(position = "right", sec.axis = dup_axis(labels=NULL))
+
+theme_inflation_report = function(base_size = 12,
+                                  base_colour = "#2b2b2b",
+                                  plot_title_size = 12,
+                                  plot_margin = ggplot2::margin(10, 10, 10, 50)) {
+  
+  # set global parameters
+  fontSize = base_size
+  allText = ggplot2::element_text(size = fontSize, colour = base_colour, family = "sans", color= "black")
+  
+  tickLength = 0.4
+  tickLabelMargin = 100 * tickLength - 20
+  
+  # create theme, based on ggplot2's theme_bw
+  ggplot2::theme_bw() +
+    ggplot2::theme(
+      
+      # legend
+      legend.text = allText,
+      legend.title = allText,
+      
+      # axes
+      axis.text = allText,
+      axis.text.x = ggplot2::element_text(colour = base_colour, margin = ggplot2::margin(t = tickLabelMargin)),
+      axis.text.y.right = ggplot2::element_text(colour = base_colour, margin = ggplot2::margin(l = tickLabelMargin)),
+      axis.text.y.left = ggplot2::element_text(colour = base_colour, margin = ggplot2::margin(r = tickLabelMargin)),
+      axis.title.x = ggplot2::element_blank(),
+      axis.title.y = ggplot2::element_blank(),
+      axis.ticks.length = ggplot2::unit(-tickLength, "cm"),
+      
+      # titling
+      plot.title = ggplot2::element_text(size = plot_title_size, family = "sans", color= base_colour, hjust = 1.0),
+      plot.subtitle = ggplot2::element_text(size = plot_title_size, family = "sans", color= base_colour, hjust = 1.0),
+      
+      # grid
+      panel.background = ggplot2::element_blank(),
+      panel.grid.major = ggplot2::element_blank(),
+      panel.grid.minor = ggplot2::element_blank(),
+      plot.margin = plot_margin,
+      
+      # strip attributes (for facetting)
+      strip.background =   ggplot2::element_blank(),
+      strip.text =         ggplot2::element_text(color = base_colour, size = fontSize),
+      strip.text.x =       ggplot2::element_text(color = base_colour, size = fontSize),
+      strip.text.y =       ggplot2::element_text(color = base_colour, size = fontSize, angle = -90),
+      
+      complete = FALSE
+    )
 }
 
