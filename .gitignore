@@ -1,0 +1,12 @@
+inst/doc
+.Rproj.user
+.Rhistory
+*.RData
+*.Rdata
+*.rda
+*.csv
+*.html
+*.xlsx
+*.xls
+*.tar.gz
+*.zip

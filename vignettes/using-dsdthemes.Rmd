@@ -1,0 +1,127 @@
+---
+title: "Using dsdthemes"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Using dsdthemes}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.width = 7, fig.height = 4, cache=FALSE, dev = 'svg', fig.dpi = 96
+)
+
+```
+
+The `dsdthemes` package provides tools to help build and productionise charts with `ggplot2` that are suitable for use around the Bank. This includes base themes for publications, recognised colour palettes, and helpful utilities for things like formatting date labels.
+
+## Colour palettes
+
+To get Bank palettes in your plots, use `scale_colour_boe` and `scale_fill_boe` as part of a standard `ggplot2` workflow. Both of these functions contain a `palette` argument, which should be set to your palette of choice. You can see the options available by calling `boe_palettes`.
+
+```{r}
+# load package
+library(dsdthemes)
+
+boe_palettes
+```
+
+You can preview the colours in a palette with `check_pal` (notice that each palette is available in a vector, too).
+
+```{r}
+check_pal(x = boe_cols_rich)
+```
+
+#### Bank-wide palettes
+
+Apply colour schemes lifted from [Bank visual identity guidelines](http://intranet/BankNews/Pages/Updated-visual-identity-g-636195499604295252.aspx), like those seen in the [website's statistics section](https://www.bankofengland.co.uk/statistics/visual-summaries/effective-interest-rates). Here's the "boe" palette.
+
+```{r boe_pal}
+# load package
+library(ggplot2)
+
+# make a plot
+ggplot(nfc_deposits, aes(x = date, y = pct_change, colour = industry)) +
+  geom_line() +
+  labs(title = "Deposits by selected non-financial industries",
+       y="Percentage\nchanges\non a year\nearlier", x=NULL) +
+  theme_minimal() +
+  # apply boe palette
+  scale_colour_boe(palette = "boe")
+
+
+```
+
+#### Business area / publication-ready palettes
+
+Use colour schemes for your own business area or publications. For example, use colours seen in [historic Money & Credit statistical releases](https://www.bankofengland.co.uk/-/media/boe/files/statistics/money-and-credit/2017/october-2017.pdf?la=en&hash=F91456AC176039665F053EEE634CC2DB6D2DA506) with the "mcg" palette.
+
+```{r mcg_pal}
+
+# make a plot
+ggplot(nfc_deposits, aes(x = date, y = pct_change, colour = industry)) +
+  geom_line() +
+  labs(title = "Deposits by selected non-financial industries",
+       y="Percentage\nchanges\non a year\nearlier", x=NULL) +
+  theme_minimal() +
+  # apply mcg palette
+  scale_colour_boe(palette = "mcg")
+
+```
+
+
+## Chart themes
+
+Go beyond palettes, and control the appearance of all (non-data) chart elements with **themes** to produce Bank-style plots.
+
+### MCG Publications
+
+A theme that approximates the design of plots in [new Money & Credit statistical releases](https://www.bankofengland.co.uk/statistics/money-and-credit/2018/may-2018) is found in `theme_mcg_pub()`. Note the additional use of `scale_y_continuous(position = "right")` to achieve the correct y-axis position (as well as `scale_colour_boe`, seen earlier, to do the colours).
+
+```{r mcg_theme}
+
+# make a plot
+ggplot(nfc_deposits, aes(x = date, y = pct_change, colour = industry)) +
+  geom_line() +
+  labs(title = "Deposits by selected non-financial industries",
+       y="Percentage\nchanges\non a year\nearlier", x=NULL) +
+  theme_minimal() +
+  # apply boe palette
+  scale_colour_boe(palette = "boe") +
+  # add MCG theme
+  theme_mcg_pub() +
+  # position y-axis on the right
+  scale_y_continuous(position = "right")
+```
+
+
+## Chart utilities
+
+Helper functions to fine-tune charts for publication readiness.
+
+### Date formatting
+
+There is a known preference in some areas for producing date labels that only include the year if it hasn't appeared on the chart previously i.e. a 'new' year appears. This style of date labelling can be achieved with `boe_date_labels()`.
+
+```{r}
+
+# make a plot
+ggplot(nfc_deposits, aes(x = date, y = pct_change, colour = industry)) +
+  geom_line() +
+  labs(title = "Deposits by selected non-financial industries",
+       y="Percentage\nchanges\non a year\nearlier", x=NULL) +
+  theme_minimal() +
+  # apply boe palette
+  scale_colour_boe(palette = "boe") +
+  # add MCG theme
+  theme_mcg_pub() +
+  # position y-axis on the right
+  scale_y_continuous(position = "right") +
+  # set date label style
+  scale_x_datetime(date_breaks = "3 months", labels = boe_date_labels())
+```
+
+

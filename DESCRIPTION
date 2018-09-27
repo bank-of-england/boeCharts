@@ -1,0 +1,21 @@
+Package: boeCharts
+Type: Package
+Title: Bank Chart Themes and Styling for 'ggplot2'
+Version: 1.0.0
+Authors@R: c(person("Ewen", "Henderson", email = "ewen.henderson@bankofengland.co.uk",
+    role = c("aut", "cre")),
+    person("Alastair", "Firrell", email = "alastair.firrell@bankofengland.co.uk",
+    role = c("aut")),
+    person("Joshua", "Allen", email = "joshua.allen@bankofengland.co.uk", role = c("ctb"))
+    )
+Maintainer: Ewen Henderson <ewen.henderson@bankofengland.co.uk>
+Description: A compilation of 'ggplot2' themes, scale and helpers to replicate the look of Bank charts.
+Depends: R (>= 3.0.0)
+License: MIT + file LICENSE
+Encoding: UTF-8
+LazyData: true
+Imports: ggplot2
+RoxygenNote: 6.0.1
+Suggests: knitr,
+    rmarkdown
+VignetteBuilder: knitr

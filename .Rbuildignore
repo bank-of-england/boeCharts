@@ -1,0 +1,7 @@
+^.*\.Rproj$
+^\.Rproj\.user$
+^data-raw$
+^README\.md$
+^README\.Rmd$
+^README-.*\.png$
+^figures$
