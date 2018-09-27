@@ -2,13 +2,14 @@
 % Please edit documentation in R/formatting.R
 \name{currency_format}
 \alias{currency_format}
-\title{Currency formatter for use e.g. in chart axis labels}
+\title{Currency formatter for use in chart axis labels}
 \usage{
-currency_format(prefix = "£", suffix = "", largest_with_pence = 1e+05,
-  ..., big.mark = ",", negative_parens = FALSE)
+currency_format(prefix = "\\\\u00A3", suffix = "",
+  largest_with_pence = 1e+05, ..., big.mark = ",",
+  negative_parens = FALSE)
 }
 \arguments{
-\item{prefix}{Symbol to display before amount, defaults to 'u00A3', aka the pound sign}
+\item{prefix}{Symbol to display before amount, defaults to 'u00A3' (aka the pound sign)}
 
 \item{suffix}{Symbol to display after amount}
 
@@ -21,17 +22,16 @@ currency_format(prefix = "£", suffix = "", largest_with_pence = 1e+05,
 \item{negative_parens}{Should negative values be shown with parentheses}
 }
 \value{
-a function with single parameter x, a numeric vector, that returns a character vector
+a character vector
 }
 \description{
-Currency formatter for use e.g. in chart axis labels
+Helper function to format a vector of values as currency.
+Wraps the \code{dollar_format} function from the \code{scales} package.
 }
 \examples{
-currency_format()(100.75)
-currency_format(prefix ="EUR")(100.75)
-currency_format(prefix = "", suffix = "\\u20ac")(c(100.75, 251))
+currency_format()(100)
+currency_format(prefix ="EUR")(100)
 }
 \seealso{
 \link{pound_format}
 }
-\keyword{internal}

@@ -5,28 +5,21 @@
 \title{Formatter function to round values to a given a number of decimal places and
 return as strings}
 \usage{
-format_decimal_places(DP)
+format_decimal_places(dp)
 }
 \arguments{
-\item{DP}{Number of decimal places to format to}
+\item{dp}{Number of decimal places to format to}
 }
 \value{
-a function with single parameter x, a numeric vector, that returns
-a character vector of values in x formatted to DP decimal places
+a character vector
 }
 \description{
-Used for e.g. formatting chart axis labels (particularly via wrappers
-for specified number of decimal places e.g. format_one_dp())
+Format chart axis labels to decimal places (particularly via wrappers
+for specified number of decimal places e.g. \code{format_one_dp()})
 }
 \examples{
-## Example 1: format some numbers
-format_decimal_places(1)(seq(0, 1, by = 0.01))
 
-## Example 2: format ggplot axis labels
-if (require(ggplot2)) {
-  format_4dp = format_decimal_places(4)
-  ggplot(mtcars, aes(x = disp, y = wt, color = carb)) +
+ggplot(mtcars, aes(x = disp, y = wt, color = carb)) +
     geom_point() +
-    scale_y_continuous(labels = format_4dp, position = "right")
-  }
+    scale_y_continuous(labels = format_decimal_places(4), position = "right")
 }

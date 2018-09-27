@@ -8,20 +8,13 @@ return as strings}
 format_one_dp(x)
 }
 \value{
-a function with single parameter x, a numeric vector, that returns
-a character vector of values in x formatted to one decimal place
+a character vector
 }
 \description{
-Used for e.g. formatting chart axis labels.
+Format chart axis labels to one decimal place.
 }
 \examples{
-## Example 1: format some numbers
-format_one_dp()(seq(0, 1, by = 0.01))
-
-## Example 2: format ggplot axis labels
-if (require(ggplot2)) {
-  ggplot(mtcars, aes(x = disp, y = wt, color = carb)) +
-    geom_point() +
-    scale_y_continuous(labels = format_one_dp, position = "right")
-  }
+ggplot(mtcars, aes(x = disp, y = wt, color = carb)) +
+ geom_point() +
+ scale_y_continuous(labels = format_one_dp, position = "right")
 }

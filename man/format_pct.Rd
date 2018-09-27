@@ -2,32 +2,27 @@
 % Please edit documentation in R/formatting.R
 \name{format_pct}
 \alias{format_pct}
-\title{Round values to a given a number of decimal places and return as strings}
+\title{Formatter function to display values as percentages and return as strings}
 \usage{
-format_pct(DP, separate_with_space = F)
+format_pct(dp, separate_with_space = F)
 }
 \arguments{
-\item{DP}{Number of decimal places to format to}
+\item{dp}{Number of decimal places to format to}
 
 \item{separate_with_space}{Whether to put a space between the number and the
 percent sign}
 }
 \value{
-Vector of characters: values in x formatted to DP decimal places
+a character vector
 }
 \description{
-Used for e.g. formatting chart axis labels (particularly via wrappers
-for specified number of decimal places e.g. )
+Helper function to format a vector of values as percentages.
 }
 \examples{
-## Example 1: format some numbers
-format_pct(DP = 1)(seq(0, 1, by = 0.01))
-
-## Example 2: format ggplot axis labels
-if (require(ggplot2)) {
-  percent2DP = format_pct(DP = 2, separate_with_space = TRUE)
-  ggplot(mtcars, aes(x = disp, y = wt, color = carb)) +
-    geom_point() +
-    scale_y_continuous(labels = percent2dp, position = "right")
-  }
+ggplot(mtcars, aes(x = disp, y = wt, color = carb)) +
+ geom_point() +
+ scale_y_continuous(
+ labels = format_pct(dp = 2), 
+ position = "right"
+ )
 }

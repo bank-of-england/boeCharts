@@ -39,21 +39,23 @@ boe_date_labels <- function() {
 #' @description Helper function to format a vector of values as currency.
 #' Wraps the \code{dollar_format} function from the \code{scales} package.
 #'
-#' @param prefix Symbol to display before amount, defaults to 'u00A3', aka the pound sign
+#' @param prefix Symbol to display before amount, defaults to 'u00A3' (aka the pound sign)
 #' @param suffix Symbol to display after amount
 #' @param largest_with_pence the value that all values of x must be less than in order for the pence to be displayed
 #' @param ... Other arguments passed on to format
 #' @param big.mark Character used between every 3 digits
 #' @param negative_parens Should negative values be shown with parentheses
 #'
-#' @return a function with single parameter x, a numeric vector, that returns a character vector
+#' @return a character vector
+#' 
 #' @export
+#' 
 #' @seealso \link{pound_format}
 #'
 #' @examples
-#' currency_format()(100.75)
-#' currency_format(prefix ="EUR")(100.75)
-#' currency_format(prefix = "", suffix = "\u20ac")(c(100.75, 251))
+#' currency_format()(100)
+#' currency_format(prefix ="EUR")(100)
+
 currency_format = function(prefix = "\u00A3", suffix = "", largest_with_pence = 1e+05, ...,
                            big.mark = ",", negative_parens = FALSE) {
   
@@ -72,7 +74,7 @@ currency_format = function(prefix = "\u00A3", suffix = "", largest_with_pence = 
 #' @param big.mark Character used between every 3 digits
 #' @param negative_parens Should negative values be shown with parentheses
 #'
-#' @return a function with single parameter x, a numeric vector, that returns a character vector
+#' @return a character vector
 #' @export
 #'
 #' @seealso \link{currency_format}
@@ -80,6 +82,7 @@ currency_format = function(prefix = "\u00A3", suffix = "", largest_with_pence = 
 #' @examples
 #' pound_format()(100.75)
 #' pound_format(negative_parens = TRUE)(c(100.75, 251))
+
 pound_format = function(suffix = "", largest_with_pence = 1e+05, ...,
                         big.mark = ",", negative_parens = FALSE) {
   
@@ -100,21 +103,16 @@ pound_format = function(suffix = "", largest_with_pence = 1e+05, ...,
 #'
 #' @param dp Number of decimal places to format to
 #'
-#' @return a function with single parameter x, a numeric vector, that returns
-#' a character vector of values in x formatted to DP decimal places
+#' @return a character vector
+#' 
 #' @export
 #'
 #' @examples
-#' ## Example 1: format some numbers
-#' format_decimal_places(1)(seq(0, 1, by = 0.01))
-#'
-#' ## Example 2: format ggplot axis labels
-#' if (require(ggplot2)) {
-#'   format_4dp = format_decimal_places(4)
-#'   ggplot(mtcars, aes(x = disp, y = wt, color = carb)) +
+#' 
+#' ggplot(mtcars, aes(x = disp, y = wt, color = carb)) +
 #'     geom_point() +
-#'     scale_y_continuous(labels = format_4dp, position = "right")
-#'   }
+#'     scale_y_continuous(labels = format_decimal_places(4), position = "right")
+
 format_decimal_places = function(dp) {
   function(x) {
     sprintf(paste0("%.", dp, "f"), x)
@@ -127,20 +125,15 @@ format_decimal_places = function(dp) {
 #'
 #' @description Format chart axis labels to one decimal place.
 #'
-#' @return a function with single parameter x, a numeric vector, that returns
-#' a character vector of values in x formatted to one decimal place
+#' @return a character vector
+#' 
 #' @export
 #'
 #' @examples
-#' ## Example 1: format some numbers
-#' format_one_dp()(seq(0, 1, by = 0.01))
-#'
-#' ## Example 2: format ggplot axis labels
-#' if (require(ggplot2)) {
-#'   ggplot(mtcars, aes(x = disp, y = wt, color = carb)) +
-#'     geom_point() +
-#'     scale_y_continuous(labels = format_one_dp, position = "right")
-#'   }
+#' ggplot(mtcars, aes(x = disp, y = wt, color = carb)) +
+#'  geom_point() +
+#'  scale_y_continuous(labels = format_one_dp, position = "right")
+
 format_one_dp = format_decimal_places(1)
 
 
@@ -150,18 +143,14 @@ format_one_dp = format_decimal_places(1)
 #'
 #' @return a function with single parameter x, a numeric vector, that returns
 #' a character vector of values in x formatted as integers
+#' 
 #' @export
 #'
 #' @examples
-#' ## Example 1: format some numbers
-#' format_zero_dp()(seq(0, 1, by = 0.01))
-#'
-#' ## Example 2: format ggplot axis labels
-#' if (require(ggplot2)) {
-#'   ggplot(mtcars, aes(x = disp, y = wt, color = carb)) +
-#'     geom_point() +
-#'     scale_y_continuous(labels = format_zero_dp, position = "right")
-#'   }
+#' ggplot(mtcars, aes(x = disp, y = wt, color = carb)) +
+#'  geom_point() +
+#'  scale_y_continuous(labels = format_zero_dp, position = "right")
+
 format_zero_dp = format_decimal_places(0)
 
 #' Formatter function to display values as percentages and return as strings
@@ -169,24 +158,22 @@ format_zero_dp = format_decimal_places(0)
 #' Helper function to format a vector of values as percentages.
 #'
 #' @param dp Number of decimal places to format to
+#' 
 #' @param separate_with_space Whether to put a space between the number and the
 #' percent sign
 #'
-#' @return Vector of characters: values in x formatted to dp decimal places with percentages
-#' suffixed
+#' @return a character vector
+#' 
 #' @export
 #'
 #' @examples
-#' ## Example 1: format some numbers
-#' format_pct(dp = 1)(seq(0, 1, by = 0.01))
-#'
-#' ## Example 2: format ggplot axis labels
-#' if (require(ggplot2)) {
-#'   percent2DP = format_pct(dp = 2, separate_with_space = TRUE)
-#'   ggplot(mtcars, aes(x = disp, y = wt, color = carb)) +
-#'     geom_point() +
-#'     scale_y_continuous(labels = percent2dp, position = "right")
-#'   }
+#' ggplot(mtcars, aes(x = disp, y = wt, color = carb)) +
+#'  geom_point() +
+#'  scale_y_continuous(
+#'  labels = format_pct(dp = 2), 
+#'  position = "right"
+#'  )
+
 format_pct = function(dp, separate_with_space = F) {
   
   function(x) {

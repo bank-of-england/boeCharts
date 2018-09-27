@@ -11,16 +11,10 @@ a function with single parameter x, a numeric vector, that returns
 a character vector of values in x formatted as integers
 }
 \description{
-Used for e.g. formatting chart axis labels.
+Format chart axis labels to zero decimal places.
 }
 \examples{
-## Example 1: format some numbers
-format_zero_dp()(seq(0, 1, by = 0.01))
-
-## Example 2: format ggplot axis labels
-if (require(ggplot2)) {
-  ggplot(mtcars, aes(x = disp, y = wt, color = carb)) +
-    geom_point() +
-    scale_y_continuous(labels = format_zero_dp, position = "right")
-  }
+ggplot(mtcars, aes(x = disp, y = wt, color = carb)) +
+ geom_point() +
+ scale_y_continuous(labels = format_zero_dp, position = "right")
 }

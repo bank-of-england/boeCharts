@@ -2,7 +2,7 @@
 % Please edit documentation in R/formatting.R
 \name{pound_format}
 \alias{pound_format}
-\title{Pounds sterling formatter for use e.g. in chart axis labels}
+\title{Pounds sterling formatter for use in chart axis labels}
 \usage{
 pound_format(suffix = "", largest_with_pence = 1e+05, ..., big.mark = ",",
   negative_parens = FALSE)
@@ -19,10 +19,10 @@ pound_format(suffix = "", largest_with_pence = 1e+05, ..., big.mark = ",",
 \item{negative_parens}{Should negative values be shown with parentheses}
 }
 \value{
-a function with single parameter x, a numeric vector, that returns a character vector
+a character vector
 }
 \description{
-Pounds sterling formatter for use e.g. in chart axis labels
+Helper function to format a vector of values as pounds sterling.
 }
 \examples{
 pound_format()(100.75)
