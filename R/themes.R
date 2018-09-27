@@ -36,7 +36,7 @@
 #'
 #'
 #' library(ggplot2)
-#' library(dsdthemes)
+#' library(boeChartr)
 #'
 #' p <- ggplot(mtcars) +
 #'    aes(
