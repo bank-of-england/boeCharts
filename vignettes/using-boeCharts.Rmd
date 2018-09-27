@@ -1,8 +1,8 @@
 ---
-title: "Using dsdthemes"
+title: "Using boeCharts"
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{Using dsdthemes}
+  %\VignetteIndexEntry{Using boeCharts}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
@@ -16,7 +16,7 @@ knitr::opts_chunk$set(
 
 ```
 
-The `dsdthemes` package provides tools to help build and productionise charts with `ggplot2` that are suitable for use around the Bank. This includes base themes for publications, recognised colour palettes, and helpful utilities for things like formatting date labels.
+The `boeCharts` package provides tools to help build and productionise charts with `ggplot2` that are suitable for use around the Bank. This includes base themes for publications, recognised colour palettes, and helpful utilities for things like formatting date labels.
 
 ## Colour palettes
 
@@ -24,7 +24,7 @@ To get Bank palettes in your plots, use `scale_colour_boe` and `scale_fill_boe` 
 
 ```{r}
 # load package
-library(dsdthemes)
+library(boeCharts)
 
 boe_palettes
 ```
@@ -44,10 +44,11 @@ Apply colour schemes lifted from [Bank visual identity guidelines](http://intran
 library(ggplot2)
 
 # make a plot
-ggplot(nfc_deposits, aes(x = date, y = pct_change, colour = industry)) +
+ggplot(data = FANG, aes(x = date, y = close, colour = symbol)) +
   geom_line() +
-  labs(title = "Deposits by selected non-financial industries",
-       y="Percentage\nchanges\non a year\nearlier", x=NULL) +
+  labs(title = "BoE Palette Test",
+       subtitle="A plot for demonstration purposes",
+       y="Closing\nprice", x=NULL) +
   theme_minimal() +
   # apply boe palette
   scale_colour_boe(palette = "boe")
@@ -62,10 +63,11 @@ Use colour schemes for your own business area or publications. For example, use 
 ```{r mcg_pal}
 
 # make a plot
-ggplot(nfc_deposits, aes(x = date, y = pct_change, colour = industry)) +
+ggplot(data = FANG, aes(x = date, y = close, colour = symbol)) +
   geom_line() +
-  labs(title = "Deposits by selected non-financial industries",
-       y="Percentage\nchanges\non a year\nearlier", x=NULL) +
+  labs(title = "BoE Palette Test",
+       subtitle="A plot for demonstration purposes",
+       y="Closing\nprice", x=NULL) +
   theme_minimal() +
   # apply mcg palette
   scale_colour_boe(palette = "mcg")
@@ -84,11 +86,11 @@ A theme that approximates the design of plots in [new Money & Credit statistical
 ```{r mcg_theme}
 
 # make a plot
-ggplot(nfc_deposits, aes(x = date, y = pct_change, colour = industry)) +
+ggplot(data = FANG, aes(x = date, y = close, colour = symbol)) +
   geom_line() +
-  labs(title = "Deposits by selected non-financial industries",
-       y="Percentage\nchanges\non a year\nearlier", x=NULL) +
-  theme_minimal() +
+  labs(title = "BoE Palette Test",
+       subtitle="A plot for demonstration purposes",
+       y="Closing\nprice", x=NULL) +
   # apply boe palette
   scale_colour_boe(palette = "boe") +
   # add MCG theme
@@ -109,11 +111,11 @@ There is a known preference in some areas for producing date labels that only in
 ```{r}
 
 # make a plot
-ggplot(nfc_deposits, aes(x = date, y = pct_change, colour = industry)) +
+ggplot(data = FANG, aes(x = date, y = close, colour = symbol)) +
   geom_line() +
-  labs(title = "Deposits by selected non-financial industries",
-       y="Percentage\nchanges\non a year\nearlier", x=NULL) +
-  theme_minimal() +
+  labs(title = "BoE Palette Test",
+       subtitle="A plot for demonstration purposes",
+       y="Closing\nprice", x=NULL) +
   # apply boe palette
   scale_colour_boe(palette = "boe") +
   # add MCG theme
@@ -121,7 +123,6 @@ ggplot(nfc_deposits, aes(x = date, y = pct_change, colour = industry)) +
   # position y-axis on the right
   scale_y_continuous(position = "right") +
   # set date label style
-  scale_x_datetime(date_breaks = "3 months", labels = boe_date_labels())
+  scale_x_date(date_breaks = "3 months", labels = boe_date_labels())
 ```
-
 
