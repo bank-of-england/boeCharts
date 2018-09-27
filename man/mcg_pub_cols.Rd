@@ -18,7 +18,7 @@ from current MCG publication colours.
 \examples{
 
 library(ggplot2)
-library(dsdthemes)
+library(boeChartr)
 
    ggplot(mtcars) +
    aes(

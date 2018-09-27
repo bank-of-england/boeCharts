@@ -19,7 +19,7 @@ taken from the 'Highlights' colour palette, as part of the Bank of England
 \examples{
 
 library(ggplot2)
-library(dsdthemes)
+library(boeChartr)
 
    ggplot(mtcars) +
    aes(

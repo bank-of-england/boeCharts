@@ -48,7 +48,7 @@ to give a plot a feel more in line with MCG publications.
 
 
 library(ggplot2)
-library(dsdthemes)
+library(boeChartr)
 
 p <- ggplot(mtcars) +
    aes(
