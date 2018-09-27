@@ -1,12 +1,19 @@
-#' Deposits by selected non-financial industries
+#' Stock prices for the "FANG" stocks.
 #'
-#' A dataset containing the year-on-year percentage change in non-financial industry deposits.
+#' A dataset containing the daily historical stock prices for the "FANG" tech stocks,
+#' "FB", "AMZN", "NFLX", and "GOOG", spanning from the beginning of
+#' 2013 through the end of 2016.
 #'
-#' @format A data frame with 148 rows and 3 variables:
+#' @format A "tibble" ("tidy" data frame) with 4,032 rows and 8 variables:
 #' \describe{
-#'   \item{date}{reporting period}
-#'   \item{industry}{industry type}
-#'   \item{pct_change}{percentage change ona  year earlier}
+#'   \item{symbol}{stock ticker symbol}
+#'   \item{date}{trade date}
+#'   \item{open}{stock price at the open of trading, in USD}
+#'   \item{high}{stock price at the highest point during trading, in USD}
+#'   \item{low}{stock price at the lowest point during trading, in USD}
+#'   \item{close}{stock price at the close of trading, in USD}
+#'   \item{volume}{number of shares traded}
+#'   \item{adjusted}{stock price at the close of trading adjusted for stock splits, in USD}
 #' }
-#' @source \file{//MFSD/Data/DATA/MS/GRP/Outputs/Statistical Releases/Money & Credit/Backing tables/Part 1. deposits and loans of financial and non-financial businesses.xlsx}
-"nfc_deposits"
+#' @source \url{http://www.investopedia.com/terms/f/fang-stocks-fb-amzn.asp}
+"FANG"
