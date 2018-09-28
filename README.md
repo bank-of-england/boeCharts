@@ -6,7 +6,7 @@ The **boeCharts** R package contains Bank styles for [ggplot2](https://github.co
 
 -   [BoE website](https://www.bankofengland.co.uk/statistics/visual-summaries/effective-interest-rates)
 -   [Inflation Report](https://www.bankofengland.co.uk/inflation-report/2018/august-2018/global-economic-and-financial-market-developments)
--   [DSD Statistical Publications](https://www.bankofengland.co.uk/-/media/boe/files/statistics/money-and-credit/2018/february-2018.pdf?la=en&hash=D5A6531045C648B4169D5FD480723AE4CFBD75F9) 9
+-   [DSD Statistical Publications](https://www.bankofengland.co.uk/-/media/boe/files/statistics/money-and-credit/2018/february-2018.pdf?la=en&hash=D5A6531045C648B4169D5FD480723AE4CFBD75F9)
 
 Install
 -------

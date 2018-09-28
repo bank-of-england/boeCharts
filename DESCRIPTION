@@ -1,7 +1,7 @@
 Package: boeCharts
 Type: Package
 Title: Bank Chart Themes and Styling for 'ggplot2'
-Version: 1.0.0
+Version: 1.0.0.9000
 Authors@R: c(person("Ewen", "Henderson", email = "ewen.henderson@bankofengland.co.uk",
     role = c("aut", "cre")),
     person("Alastair", "Firrell", email = "alastair.firrell@bankofengland.co.uk",
