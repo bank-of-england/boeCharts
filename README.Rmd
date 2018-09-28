@@ -11,7 +11,8 @@ knitr::opts_chunk$set(
   collapse = TRUE,
   comment = "#>",
   fig.path = "figures/",
-  dpi=150, fig.width=9, fig.height=6
+  dpi = 105, fig.width = 6,
+  fig.asp = 0.618
 )
 ```
 
