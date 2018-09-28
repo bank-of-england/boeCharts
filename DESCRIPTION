@@ -18,6 +18,9 @@ Imports:
     ggplot2 (>= 2.2.1),
     scales (>= 0.5.0)
 RoxygenNote: 6.0.1
-Suggests: knitr,
-    rmarkdown
+Suggests: 
+    knitr,
+    rmarkdown,
+    spelling
 VignetteBuilder: knitr
+Language: en-GB
