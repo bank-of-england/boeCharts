@@ -14,6 +14,9 @@ a character vector of values in x formatted as integers
 Format chart axis labels to zero decimal places.
 }
 \examples{
+
+library(ggplot2)
+
 ggplot(mtcars, aes(x = disp, y = wt, color = carb)) +
  geom_point() +
  scale_y_continuous(labels = format_zero_dp, position = "right")

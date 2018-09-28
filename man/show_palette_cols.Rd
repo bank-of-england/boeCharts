@@ -14,11 +14,11 @@ A pie chart displaying the colour scheme.
 }
 \description{
 \code{\link{show_palette_cols}} produces a pie chart of colours
-that make up a \code{boeChartr} palette.
+that make up a \code{boeCharts} palette.
 }
 \examples{
 
-library(boeChartr)
+library(boeCharts)
 
 show_palette_cols(
 x = boe_cols_rich

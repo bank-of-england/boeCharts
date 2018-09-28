@@ -19,6 +19,9 @@ a character vector
 Helper function to format a vector of values as percentages.
 }
 \examples{
+
+library(ggplot2)
+
 ggplot(mtcars, aes(x = disp, y = wt, color = carb)) +
  geom_point() +
  scale_y_continuous(

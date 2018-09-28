@@ -2,19 +2,20 @@
 Overview
 --------
 
-The **dsdthemes** R package helps the user apply Bank styles to charts created with the R package [ggplot2](https://github.com/hadley/ggplot2), including those found in:
+The **boeCharts** R package contains Bank styles for [ggplot2](https://github.com/hadley/ggplot2) charts. It currently houses designs to help you approximate charts found in:
 
 -   [BoE website](https://www.bankofengland.co.uk/statistics/visual-summaries/effective-interest-rates)
--   [DSD Statistical Publications](https://www.bankofengland.co.uk/-/media/boe/files/statistics/money-and-credit/2018/february-2018.pdf?la=en&hash=D5A6531045C648B4169D5FD480723AE4CFBD75F9)
+-   [Inflation Report](https://www.bankofengland.co.uk/inflation-report/2018/august-2018/global-economic-and-financial-market-developments)
+-   [DSD Statistical Publications](https://www.bankofengland.co.uk/-/media/boe/files/statistics/money-and-credit/2018/february-2018.pdf?la=en&hash=D5A6531045C648B4169D5FD480723AE4CFBD75F9) 9
 
-Installation
-------------
+Install
+-------
 
-Using **dsdthemes** also requires the prerequisites described below.
+Using **boeCharts** also requires the prerequisites described below.
 
 1.  R & R Studio, installed from the [software catalogue](http://sccm-wl-mgt-01/CMApplicationCatalog)
 
-You can install **dsdthemes** as follows (from an R session):
+You can install **boeCharts** as follows (from an R session):
 
 ``` r
 # install devtools (required for installation)
@@ -22,45 +23,52 @@ if (!require("devtools")) {
     install.packages("devtools")
 }
 
-# install dsdthemes from collaborate
-install.packages("http://collaborate/workspaces/RHelpCentre/R%20documents/Packages/dsdthemes_0.2.0.zip", repos = NULL, type = "binary")
+# install boeCharts from collaborate
+install.packages("http://collaborate/workspaces/RHelpCentre/R%20documents/Packages/boeCharts_1.0.0.zip", repos = NULL, type = "binary")
 
-# install dsdthemes' dependencies from CRAN
-devtools::install_deps(find.package("dsdthemes"))
+# install boeCharts' dependencies from CRAN
+devtools::install_deps(find.package("boeCharts"))
 ```
 
-Using dsdthemes
----------------
+Use
+---
 
 ``` r
 # load packages
-library(dsdthemes)
+library(boeCharts)
 library(ggplot2)
 
 # create chart
-ggplot(nfc_deposits, aes(x = date, y = pct_change, colour = industry)) +
-  geom_line(size = 1) +
-  geom_hline(yintercept = 0, size = 0.5) +
-  labs(title = "Deposits by selected non-financial industries",
-       y="%\nchanges\non a year\nearlier", x=NULL) +
+ggplot(data = FANG, aes(x = date, y = close, colour = symbol)) +
+  geom_line() +
+  labs(title = "BoE Palette Test",
+       subtitle="A plot for demonstration purposes",
+       y="Closing\nprice", x=NULL) +
   theme_minimal() +
   # apply boe palette
   scale_colour_boe(palette = "boe") +
   # apply MCG theme
   theme_mcg_pub() +
   # apply axis settings
-  scale_y_continuous(position = "right", limits = c(-5, 20), breaks = seq(-5, 20, 5), expand = c(0, 0)) +
-  scale_x_datetime(date_breaks = "3 months", labels = boe_date_labels(), expand = c(0, 0))
+  scale_y_continuous(expand = c(0, 0), breaks = seq(0, 1250, 250), limits = c(0, 1250), position = "right") +
+  scale_x_date(expand = c(0, 0), breaks = seq(min(FANG$date), max(FANG$date), by = "3 months"), labels = boe_date_labels())
 ```
 
 ![](figures/example-1.png)
 
-For more detailed guidance, refer to the package [vignette](https://tfsapp-liv/tfs/DefaultCollection/Bankwide%20Shared%20Analytical%20Code/_versionControl?path=%24%2FBankwide%20Shared%20Analytical%20Code%2FR%20Packages%2Fdsdthemes%2Finst%2Fdoc%2Fexamples.Rmd&_a=contents) (also included in the package documentation, accessible from R).
+For more detailed guidance, refer to the package [vignette](https://tfsapp-liv/tfs/UnmanagedCollection/Shared%20Analytical%20Code/_git/boeCharts?path=%2Fvignettes%2Fusing-boeCharts.Rmd&version=GBmaster&_a=contents) (also included in the package documentation, accessible from R).
 
-Collaborators
--------------
+Contribute
+----------
 
-If you want to contribute to the package:
+This is an ongoing project to abstract and consolidate Bank charting guidelines, and any/all contributions are encouraged. Inspecting the source code in this repository will help with understanding how to make a custom palette, or building a chart theme for your business area. The following resources are also helpful (and inspired much of this effort):
+
+-   [Modify components of a theme](https://ggplot2.tidyverse.org/reference/theme.html)
+-   [govstyle](https://github.com/ukgovdatascience/govstyle)
+-   [hrbrthemes](https://github.com/hrbrmstr/hrbrthemes)
+-   [Building a new theme](https://bookdown.org/rdpeng/RProgDA/building-a-new-theme.html)
+
+Also, for general consideration when contributing to the package:
 
 -   I observed a lot of the principles in Hadley Wickham's [R Packages book](http://r-pkgs.had.co.nz/)
 -   Follow the Git fork/pull request model, or [contact Ewen](mailto:ewen.henderson@bankofengland.co.uk)

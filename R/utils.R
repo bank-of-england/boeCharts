@@ -1,7 +1,7 @@
 #' @title Show colours in a Bank colour palette
 #'
 #' @description \code{\link{show_palette_cols}} produces a pie chart of colours
-#' that make up a \code{boeChartr} palette.
+#' that make up a \code{boeCharts} palette.
 #'
 #' @param x a named character vector of colours e.g. \code{\link{boe_cols_rich}}
 #'
@@ -9,7 +9,7 @@
 #'
 #' @examples
 #'
-#' library(boeChartr)
+#' library(boeCharts)
 #'
 #' show_palette_cols(
 #' x = boe_cols_rich

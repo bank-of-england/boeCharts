@@ -10,7 +10,7 @@
 #' @examples
 #'
 #' library(ggplot2)
-#' library(boeChartr)
+#' library(boeCharts)
 #'
 #'    ggplot(mtcars) +
 #'    aes(
@@ -47,7 +47,7 @@ boe_cols <- c(
 #' @examples
 #'
 #' library(ggplot2)
-#' library(boeChartr)
+#' library(boeCharts)
 #'
 #'    ggplot(mtcars) +
 #'    aes(
@@ -82,7 +82,7 @@ boe_cols_rich <- c(
 #' @examples
 #'
 #' library(ggplot2)
-#' library(boeChartr)
+#' library(boeCharts)
 #'
 #'    ggplot(mtcars) +
 #'    aes(
@@ -117,7 +117,7 @@ boe_cols_highlights <- c(
 #' @examples
 #'
 #' library(ggplot2)
-#' library(boeChartr)
+#' library(boeCharts)
 #'
 #'    ggplot(mtcars) +
 #'    aes(
@@ -152,7 +152,7 @@ boe_cols_soft <- c(
 #' @examples
 #'
 #' library(ggplot2)
-#' library(boeChartr)
+#' library(boeCharts)
 #'
 #'    ggplot(mtcars) +
 #'    aes(
@@ -185,7 +185,7 @@ boe_cols_neutral <- c(
 #' @examples
 #'
 #' library(ggplot2)
-#' library(boeChartr)
+#' library(boeCharts)
 #'
 #'    ggplot(mtcars) +
 #'    aes(

@@ -17,12 +17,14 @@ knitr::opts_chunk$set(
 
 ## Overview
 
-The **boeCharts** R package helps the user apply Bank styles to charts created with the R package [ggplot2](https://github.com/hadley/ggplot2), including those found in:
+The **boeCharts** R package contains Bank styles for [ggplot2](https://github.com/hadley/ggplot2) charts. It currently houses designs to help you approximate charts found in:
 
 - [BoE website](https://www.bankofengland.co.uk/statistics/visual-summaries/effective-interest-rates)
+- [Inflation Report](https://www.bankofengland.co.uk/inflation-report/2018/august-2018/global-economic-and-financial-market-developments)
 - [DSD Statistical Publications](https://www.bankofengland.co.uk/-/media/boe/files/statistics/money-and-credit/2018/february-2018.pdf?la=en&hash=D5A6531045C648B4169D5FD480723AE4CFBD75F9)
+9
 
-## Installation
+## Install
 
 Using **boeCharts** also requires the prerequisites described below.
 
@@ -44,7 +46,7 @@ devtools::install_deps(find.package("boeCharts"))
 ```
 
 
-## Using boeCharts
+## Use
 
 ```{r, example}
 # load packages
@@ -70,9 +72,17 @@ ggplot(data = FANG, aes(x = date, y = close, colour = symbol)) +
 
 For more detailed guidance, refer to the package [vignette](https://tfsapp-liv/tfs/UnmanagedCollection/Shared%20Analytical%20Code/_git/boeCharts?path=%2Fvignettes%2Fusing-boeCharts.Rmd&version=GBmaster&_a=contents) (also included in the package documentation, accessible from R).
 
-## Collaborators
 
-If you want to contribute to the package:
+## Contribute
+
+This is an ongoing project to abstract and consolidate Bank charting guidelines, and any/all contributions are encouraged. Inspecting the source code in this repository will help with understanding how to make a custom palette, or building a chart theme for your business area. The following resources are also helpful (and inspired much of this effort):
+
+- [Modify components of a theme](https://ggplot2.tidyverse.org/reference/theme.html)
+- [govstyle](https://github.com/ukgovdatascience/govstyle)
+- [hrbrthemes](https://github.com/hrbrmstr/hrbrthemes)
+- [Building a new theme](https://bookdown.org/rdpeng/RProgDA/building-a-new-theme.html)
+
+Also, for general consideration when contributing to the package:
 
 - I observed a lot of the principles in Hadley Wickham's [R Packages book](http://r-pkgs.had.co.nz/)
 - Follow the Git fork/pull request model, or [contact Ewen](mailto:ewen.henderson@bankofengland.co.uk)

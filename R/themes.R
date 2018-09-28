@@ -35,7 +35,7 @@
 #' @examples
 #'
 #' library(ggplot2)
-#' library(boeChartr)
+#' library(boeCharts)
 #'
 #' p <- ggplot(mtcars) +
 #'    aes(
@@ -150,7 +150,7 @@ theme_mcg_pub <- function(base_size = 12,
 #' @examples
 #' 
 #' library(ggplot2)
-#' library(boeChartr)
+#' library(boeCharts)
 #'
 #' p <- ggplot(mtcars) +
 #'    aes(

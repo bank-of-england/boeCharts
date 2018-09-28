@@ -20,7 +20,7 @@ Note: BoE colours that don't comply to Web Content Accessibility Guidelines
 \examples{
 
 library(ggplot2)
-library(boeChartr)
+library(boeCharts)
 
    ggplot(mtcars) +
    aes(

@@ -19,7 +19,7 @@ taken from the 'Soft' colour palette, as part of the Bank of England
 \examples{
 
 library(ggplot2)
-library(boeChartr)
+library(boeCharts)
 
    ggplot(mtcars) +
    aes(

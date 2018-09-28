@@ -13,11 +13,13 @@ Customised month-year date label format for use in \code{ggplot2}. Labels are ab
 \examples{
 
 library(ggplot2)
-library(boeChartr)
+library(boeCharts)
 
-ggplot(nfc_deposits, aes(x = date, y = pct_change)) +
-geom_line(aes(colour=factor(industry)), size=1) +
-geom_hline(yintercept = 0, size=0.5) +
-scale_x_datetime(date_breaks = "3 months", labels = boe_date_labels())
+ggplot(data = FANG, aes(x = date, y = close, colour = symbol)) +
+  geom_line() +
+  labs(title = "BoE Palette Test",
+       subtitle="A plot for demonstration purposes",
+       y="Closing price", x=NULL) +
+  scale_x_date(date_breaks = "3 months", labels = boe_date_labels())
 
 }

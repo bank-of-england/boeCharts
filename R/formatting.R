@@ -6,12 +6,14 @@
 #' @examples
 #'
 #' library(ggplot2)
-#' library(boeChartr)
+#' library(boeCharts)
 #'
-#' ggplot(nfc_deposits, aes(x = date, y = pct_change)) +
-#' geom_line(aes(colour=factor(industry)), size=1) +
-#' geom_hline(yintercept = 0, size=0.5) +
-#' scale_x_datetime(date_breaks = "3 months", labels = boe_date_labels())
+#' ggplot(data = FANG, aes(x = date, y = close, colour = symbol)) +
+#'   geom_line() +
+#'   labs(title = "BoE Palette Test",
+#'        subtitle="A plot for demonstration purposes",
+#'        y="Closing price", x=NULL) +
+#'   scale_x_date(date_breaks = "3 months", labels = boe_date_labels())
 #'
 #' @export
 
@@ -108,6 +110,8 @@ pound_format = function(suffix = "", largest_with_pence = 1e+05, ...,
 #'
 #' @examples
 #' 
+#' library(ggplot2)
+#' 
 #' ggplot(mtcars, aes(x = disp, y = wt, color = carb)) +
 #'     geom_point() +
 #'     scale_y_continuous(labels = format_decimal_places(4), position = "right")
@@ -129,6 +133,9 @@ format_decimal_places = function(dp) {
 #' @export
 #'
 #' @examples
+#' 
+#' library(ggplot2)
+#' 
 #' ggplot(mtcars, aes(x = disp, y = wt, color = carb)) +
 #'  geom_point() +
 #'  scale_y_continuous(labels = format_one_dp, position = "right")
@@ -146,6 +153,9 @@ format_one_dp = format_decimal_places(1)
 #' @export
 #'
 #' @examples
+#' 
+#' library(ggplot2)
+#' 
 #' ggplot(mtcars, aes(x = disp, y = wt, color = carb)) +
 #'  geom_point() +
 #'  scale_y_continuous(labels = format_zero_dp, position = "right")
@@ -166,6 +176,9 @@ format_zero_dp = format_decimal_places(0)
 #' @export
 #'
 #' @examples
+#' 
+#' library(ggplot2)
+#' 
 #' ggplot(mtcars, aes(x = disp, y = wt, color = carb)) +
 #'  geom_point() +
 #'  scale_y_continuous(

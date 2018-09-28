@@ -32,7 +32,7 @@ See \code{ggplot2::scale_y_continuous} for positioning y-axis on the right.
 \examples{
 
 library(ggplot2)
-library(boeChartr)
+library(boeCharts)
 
 p <- ggplot(mtcars) +
    aes(

@@ -19,6 +19,8 @@ for specified number of decimal places e.g. \code{format_one_dp()})
 }
 \examples{
 
+library(ggplot2)
+
 ggplot(mtcars, aes(x = disp, y = wt, color = carb)) +
     geom_point() +
     scale_y_continuous(labels = format_decimal_places(4), position = "right")

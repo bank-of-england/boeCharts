@@ -14,6 +14,9 @@ a character vector
 Format chart axis labels to one decimal place.
 }
 \examples{
+
+library(ggplot2)
+
 ggplot(mtcars, aes(x = disp, y = wt, color = carb)) +
  geom_point() +
  scale_y_continuous(labels = format_one_dp, position = "right")

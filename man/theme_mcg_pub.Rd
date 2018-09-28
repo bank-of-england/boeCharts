@@ -47,7 +47,7 @@ to give a plot a feel more in line with MCG publications.
 \examples{
 
 library(ggplot2)
-library(boeChartr)
+library(boeCharts)
 
 p <- ggplot(mtcars) +
    aes(
