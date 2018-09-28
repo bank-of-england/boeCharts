@@ -70,7 +70,7 @@ ggplot(data = FANG, aes(x = date, y = close, colour = symbol)) +
   
 ```
 
-For more detailed guidance, refer to the package [vignette](https://tfsapp-liv/tfs/UnmanagedCollection/Shared%20Analytical%20Code/_git/boeCharts?path=%2Fvignettes%2Fusing-boeCharts.Rmd&version=GBmaster&_a=contents) (also included in the package documentation, accessible from R).
+For more detailed guidance, refer to the package [vignettes](https://tfsapp-liv/tfs/UnmanagedCollection/Shared%20Analytical%20Code/_git/boeCharts?path=%2Fvignettes&version=GBmaster&_a=contents) (also included in the package documentation, accessible from R).
 
 
 ## Contribute
