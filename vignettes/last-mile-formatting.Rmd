@@ -15,7 +15,7 @@ knitr::opts_chunk$set(
 )
 ```
 
-Once you've applied `boeCharts` theme and palette approximations, there may still be fine-tuning necessary to faithfully produce a publication-ready chart. Functions to assist with these 'last-mile' aesthetic tasks are detailed here, some implemented within this package and some general `ggplot2` pointers.
+Once you've applied `boeCharts` theme and palette approximations (detailed in [using boeCharts](using-boeCharts.html)), there may still be fine-tuning necessary to faithfully produce a publication-ready chart. Functions to assist with these 'last-mile' aesthetic tasks are detailed here, some implemented within this package and some general `ggplot2` pointers.
 
 
 ## Axis labels

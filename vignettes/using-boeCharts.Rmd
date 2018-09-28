@@ -76,6 +76,8 @@ Go beyond palettes, and control the appearance of all (non-data) chart elements 
 
 ### Inflation Report
 
+A theme that approximates the design of charts in [the Inflation Report](https://www.bankofengland.co.uk/inflation-report/2018/august-2018/the-labour-market-and-pay). Note the arguments passed to `scale_y_continuous()` to achieve the correct y-axis format (as well as `scale_colour_boe`, seen earlier, to do the colours).
+
 ```{r ir_theme}
 
 p +
@@ -83,13 +85,15 @@ p +
   scale_colour_boe(palette = "boe") +
   # add MCG theme
   theme_inflation_report() +
-  # position y-axis on the right
+  # axis settings
   scale_y_continuous(position = "right", expand = c(0, 0), limits = c(0, 1250), breaks = seq(0, 1250, 250))
 ```
 
-### MCG Publications
+### DSD Publications
 
-A theme that approximates the design of plots in [new Money & Credit statistical releases](https://www.bankofengland.co.uk/statistics/money-and-credit/2018/may-2018) is found in `theme_mcg_pub()`. Note the additional use of `scale_y_continuous(position = "right")` to achieve the correct y-axis position (as well as `scale_colour_boe`, seen earlier, to do the colours).
+### Money & Credit
+
+A theme that approximates the design of charts in [Money & Credit statistical releases](https://www.bankofengland.co.uk/statistics/money-and-credit/2018/may-2018) is found in `theme_mcg_pub()`.
 
 ```{r mcg_theme}
 
@@ -98,6 +102,7 @@ p +
   scale_colour_boe(palette = "boe") +
   # add MCG theme
   theme_mcg_pub() +
-  # position y-axis on the right
-  scale_y_continuous(position = "right")
+  # axis settings
+  scale_y_continuous(position = "right", expand = c(0, 0), limits = c(0, 1250), breaks = seq(0, 1250, 250)) +
+  scale_x_date(expand = c(0, 0), breaks = seq(min(FANG$date), max(FANG$date), by = "3 months"), labels = boe_date_labels())
 ```
