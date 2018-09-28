@@ -29,10 +29,10 @@ library(boeCharts)
 boe_palettes
 ```
 
-You can preview the colours in a palette with `check_pal` (notice that each palette is available in a vector, too).
+You can preview the colours in a palette with `show_palette_cols` (notice that each palette is available in a vector, too).
 
 ```{r}
-check_pal(x = boe_cols_rich)
+show_palette_cols(x = boe_cols_rich)
 ```
 
 #### Bank-wide palettes
@@ -46,13 +46,12 @@ library(ggplot2)
 # make a plot
 ggplot(data = FANG, aes(x = date, y = close, colour = symbol)) +
   geom_line() +
-  labs(title = "BoE Palette Test",
+  labs(title = "BoE palette test",
        subtitle="A plot for demonstration purposes",
        y="Closing\nprice", x=NULL) +
   theme_minimal() +
   # apply boe palette
   scale_colour_boe(palette = "boe")
-
 
 ```
 
@@ -65,7 +64,7 @@ Use colour schemes for your own business area or publications. For example, use 
 # make a plot
 ggplot(data = FANG, aes(x = date, y = close, colour = symbol)) +
   geom_line() +
-  labs(title = "BoE Palette Test",
+  labs(title = "MCG palette test",
        subtitle="A plot for demonstration purposes",
        y="Closing\nprice", x=NULL) +
   theme_minimal() +
@@ -79,6 +78,23 @@ ggplot(data = FANG, aes(x = date, y = close, colour = symbol)) +
 
 Go beyond palettes, and control the appearance of all (non-data) chart elements with **themes** to produce Bank-style plots.
 
+### Inflation Report
+
+```{r ir_theme}
+
+# make a plot
+ggplot(data = FANG, aes(x = date, y = close, colour = symbol)) +
+  geom_line() +
+  labs(title = "Closing price",
+       x=NULL) +
+  # apply boe palette
+  scale_colour_boe(palette = "boe") +
+  # add MCG theme
+  theme_inflation_report() +
+  # position y-axis on the right
+  scale_y_continuous(position = "right")
+```
+
 ### MCG Publications
 
 A theme that approximates the design of plots in [new Money & Credit statistical releases](https://www.bankofengland.co.uk/statistics/money-and-credit/2018/may-2018) is found in `theme_mcg_pub()`. Note the additional use of `scale_y_continuous(position = "right")` to achieve the correct y-axis position (as well as `scale_colour_boe`, seen earlier, to do the colours).
@@ -88,7 +104,7 @@ A theme that approximates the design of plots in [new Money & Credit statistical
 # make a plot
 ggplot(data = FANG, aes(x = date, y = close, colour = symbol)) +
   geom_line() +
-  labs(title = "BoE Palette Test",
+  labs(title = "MCG theme test",
        subtitle="A plot for demonstration purposes",
        y="Closing\nprice", x=NULL) +
   # apply boe palette

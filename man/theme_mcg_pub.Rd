@@ -46,7 +46,6 @@ to give a plot a feel more in line with MCG publications.
 }
 \examples{
 
-
 library(ggplot2)
 library(boeChartr)
 
@@ -66,6 +65,7 @@ p
 # Now apply mcg pub theme
 
 p +
- theme_mcg_pub()
+ theme_mcg_pub() +
+ scale_y_continuous(position = "right")
 
 }

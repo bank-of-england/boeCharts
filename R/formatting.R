@@ -39,7 +39,7 @@ boe_date_labels <- function() {
 #' @description Helper function to format a vector of values as currency.
 #' Wraps the \code{dollar_format} function from the \code{scales} package.
 #'
-#' @param prefix Symbol to display before amount, defaults to 'u00A3' (aka the pound sign)
+#' @param prefix Symbol to display before amount, defaults to \code{intToUtf8(0x00A3)} (aka a pound sign)
 #' @param suffix Symbol to display after amount
 #' @param largest_with_pence the value that all values of x must be less than in order for the pence to be displayed
 #' @param ... Other arguments passed on to format
@@ -56,7 +56,7 @@ boe_date_labels <- function() {
 #' currency_format()(100)
 #' currency_format(prefix ="EUR")(100)
 
-currency_format = function(prefix = "\u00A3", suffix = "", largest_with_pence = 1e+05, ...,
+currency_format = function(prefix = intToUtf8(0x00A3), suffix = "", largest_with_pence = 1e+05, ...,
                            big.mark = ",", negative_parens = FALSE) {
   
   scales::dollar_format(prefix = prefix, suffix = suffix, largest_with_cents = largest_with_pence,
@@ -86,8 +86,7 @@ currency_format = function(prefix = "\u00A3", suffix = "", largest_with_pence = 
 pound_format = function(suffix = "", largest_with_pence = 1e+05, ...,
                         big.mark = ",", negative_parens = FALSE) {
   
-  currency_format(prefix = "\u00A3",
-                  suffix = suffix,
+  currency_format(suffix = suffix,
                   largest_with_pence = largest_with_pence,
                   ...,
                   big.mark = big.mark,

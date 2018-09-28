@@ -4,12 +4,12 @@
 \alias{currency_format}
 \title{Currency formatter for use in chart axis labels}
 \usage{
-currency_format(prefix = "\\\\u00A3", suffix = "",
+currency_format(prefix = intToUtf8(163), suffix = "",
   largest_with_pence = 1e+05, ..., big.mark = ",",
   negative_parens = FALSE)
 }
 \arguments{
-\item{prefix}{Symbol to display before amount, defaults to 'u00A3' (aka the pound sign)}
+\item{prefix}{Symbol to display before amount, defaults to \code{intToUtf8(0x00A3)} (aka a pound sign)}
 
 \item{suffix}{Symbol to display after amount}
 
