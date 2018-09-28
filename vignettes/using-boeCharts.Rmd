@@ -16,7 +16,7 @@ knitr::opts_chunk$set(
 
 ```
 
-The `boeCharts` package provides tools to help build and productionise charts with `ggplot2` that are suitable for use around the Bank. This includes base themes for publications, recognised colour palettes, and helpful utilities for things like formatting date labels.
+The `boeCharts` package provides tools to help build and productionise charts with `ggplot2` that are suitable for use around the Bank. This includes base themes for publications, recognised colour palettes, and helpful 'last-mile' utilities (detailed in ['Last-mile' formatting](last-mile-formatting.html)) for things like formatting date labels.
 
 ## Colour palettes
 
@@ -44,12 +44,14 @@ Apply colour schemes lifted from [Bank visual identity guidelines](http://intran
 library(ggplot2)
 
 # make a plot
-ggplot(data = FANG, aes(x = date, y = close, colour = symbol)) +
+p <- ggplot(data = FANG, aes(x = date, y = close, colour = symbol)) +
   geom_line() +
   labs(title = "BoE palette test",
        subtitle="A plot for demonstration purposes",
        y="Closing\nprice", x=NULL) +
-  theme_minimal() +
+  theme_minimal()
+
+p +
   # apply boe palette
   scale_colour_boe(palette = "boe")
 
@@ -61,13 +63,7 @@ Use colour schemes for your own business area or publications. For example, use 
 
 ```{r mcg_pal}
 
-# make a plot
-ggplot(data = FANG, aes(x = date, y = close, colour = symbol)) +
-  geom_line() +
-  labs(title = "MCG palette test",
-       subtitle="A plot for demonstration purposes",
-       y="Closing\nprice", x=NULL) +
-  theme_minimal() +
+p +
   # apply mcg palette
   scale_colour_boe(palette = "mcg")
 
@@ -82,17 +78,13 @@ Go beyond palettes, and control the appearance of all (non-data) chart elements 
 
 ```{r ir_theme}
 
-# make a plot
-ggplot(data = FANG, aes(x = date, y = close, colour = symbol)) +
-  geom_line() +
-  labs(title = "Closing price",
-       x=NULL) +
+p +
   # apply boe palette
   scale_colour_boe(palette = "boe") +
   # add MCG theme
   theme_inflation_report() +
   # position y-axis on the right
-  scale_y_continuous(position = "right")
+  scale_y_continuous(position = "right", expand = c(0, 0), limits = c(0, 1250), breaks = seq(0, 1250, 250))
 ```
 
 ### MCG Publications
@@ -101,12 +93,7 @@ A theme that approximates the design of plots in [new Money & Credit statistical
 
 ```{r mcg_theme}
 
-# make a plot
-ggplot(data = FANG, aes(x = date, y = close, colour = symbol)) +
-  geom_line() +
-  labs(title = "MCG theme test",
-       subtitle="A plot for demonstration purposes",
-       y="Closing\nprice", x=NULL) +
+p +
   # apply boe palette
   scale_colour_boe(palette = "boe") +
   # add MCG theme
@@ -114,31 +101,3 @@ ggplot(data = FANG, aes(x = date, y = close, colour = symbol)) +
   # position y-axis on the right
   scale_y_continuous(position = "right")
 ```
-
-
-## Chart utilities
-
-Helper functions to fine-tune charts for publication readiness.
-
-### Date formatting
-
-There is a known preference in some areas for producing date labels that only include the year if it hasn't appeared on the chart previously i.e. a 'new' year appears. This style of date labelling can be achieved with `boe_date_labels()`.
-
-```{r}
-
-# make a plot
-ggplot(data = FANG, aes(x = date, y = close, colour = symbol)) +
-  geom_line() +
-  labs(title = "BoE Palette Test",
-       subtitle="A plot for demonstration purposes",
-       y="Closing\nprice", x=NULL) +
-  # apply boe palette
-  scale_colour_boe(palette = "boe") +
-  # add MCG theme
-  theme_mcg_pub() +
-  # position y-axis on the right
-  scale_y_continuous(position = "right") +
-  # set date label style
-  scale_x_date(date_breaks = "3 months", labels = boe_date_labels())
-```
-

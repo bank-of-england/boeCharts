@@ -1,0 +1,71 @@
+---
+title: "'Last-mile' formatting"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{'Last-mile' formatting}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.width = 7, fig.height = 4, cache=FALSE, dev = 'svg', fig.dpi = 96
+)
+```
+
+Once you've applied `boeCharts` theme and palette approximations, there may still be fine-tuning necessary to faithfully produce a publication-ready chart. Functions to assist with these 'last-mile' aesthetic tasks are detailed here, some implemented within this package and some general `ggplot2` pointers.
+
+
+## Axis labels
+
+#### Dates
+
+There is an established preference in some areas for date labels that include the year if it hasn't appeared on the chart previously i.e. only when a 'new' year appears. This style of date labelling isn implemented with `boe_date_labels()`.
+
+```{r}
+
+library(ggplot2)
+library(boeCharts)
+
+# create chart
+p <- ggplot(data = FANG, aes(x = date, y = close, colour = symbol)) +
+  geom_line() +
+  labs(title = "BoE Palette Test", subtitle = "A plot for demonstration purposes",
+       y = "Closing\nprice", x = NULL)
+
+p +
+  # set axis date label style
+  scale_x_date(date_breaks = "3 months", labels = boe_date_labels())
+
+```
+
+#### Currencies
+
+When plotting numeric values that represent currencies, it's helpful to denote this while retaining the numeric class of your values. Below is an example of `pound_format()`.
+
+```{r}
+
+p +
+  # set axis currency label style
+  scale_y_continuous(labels = pound_format())
+
+```
+
+
+## Axis scales
+
+#### End on tick marks
+
+Make sure your axes start and end on tick marks by explicitly setting the `expand`, `limits` and `breaks` settings in `scale...` functions of `ggplot2`.
+
+```{r}
+p +
+  # apply MCG theme
+  theme_mcg_pub() +
+  # apply axis scale settings
+  scale_y_continuous(expand = c(0, 0), breaks = seq(0, 1250, 250), limits = c(0, 1250), position = "right") +
+  scale_x_date(expand = c(0, 0), breaks = seq(min(FANG$date), max(FANG$date), by = "3 months"), labels = boe_date_labels())
+```
+

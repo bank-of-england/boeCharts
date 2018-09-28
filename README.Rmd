@@ -60,7 +60,6 @@ ggplot(data = FANG, aes(x = date, y = close, colour = symbol)) +
   labs(title = "BoE Palette Test",
        subtitle="A plot for demonstration purposes",
        y="Closing\nprice", x=NULL) +
-  theme_minimal() +
   # apply boe palette
   scale_colour_boe(palette = "boe") +
   # apply MCG theme
