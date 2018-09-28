@@ -2,8 +2,6 @@
 #'
 #' @description \code{\link{boe_cols}} Provides a vector of named colours taken from the Bank's
 #' \href{http://intranet/BankNews/Pages/Updated-visual-identity-g-636195499604295252.aspx}{visual identity guidelines}.
-#' Note: BoE colours that don't comply to Web Content Accessibility Guidelines
-#' (WCAG) 2.0 standards are excluded.
 #'
 #' @return A list of named hexadecimal colours.
 #'
@@ -29,10 +27,18 @@ boe_cols <- c(
   stone          = "#CAC0B6",
   dark_teal      = "#005E6E",
   dark_blue      = "#002A42",
-  plum           = "#752864",
+  light_blue     = "#63B1E5",
   mid_blue       = "#165788",
+  teal           = "#00839D",
   maroon         = "#6C0721",
-  purple         = "#4E3780"
+  lavender       = "#AC98DB",
+  purple         = "#4E3780",
+  fuchsia        = "#A31A7E",
+  plum           = "#752864",
+  light_green    = "#7AB800",
+  dark_green     = "#50882E",
+  yellow         = "#EEAF30",
+  orange         = "#E05206"
 )
 
 
