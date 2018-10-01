@@ -32,7 +32,7 @@ library(boeCharts)
 # create chart
 p <- ggplot(data = FANG, aes(x = date, y = close, colour = symbol)) +
   geom_line() +
-  labs(title = "BoE Palette Test", subtitle = "A plot for demonstration purposes",
+  labs(title = "Formatting Tests", subtitle = "A plot for demonstration purposes",
        y = "Closing\nprice", x = NULL)
 
 p +

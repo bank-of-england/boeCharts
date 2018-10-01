@@ -46,7 +46,7 @@ library(ggplot2)
 # make a plot
 p <- ggplot(data = FANG, aes(x = date, y = close, colour = symbol)) +
   geom_line() +
-  labs(title = "BoE palette test",
+  labs(title = "BoE palette & theme test",
        subtitle="A plot for demonstration purposes",
        y="Closing\nprice", x=NULL) +
   theme_minimal()
