@@ -5,7 +5,7 @@
 \title{A \code{ggplot2} theme for BOE Inflation Report chart styling}
 \usage{
 theme_inflation_report(base_size = 12, base_colour = "#2b2b2b",
-  plot_title_size = 12, plot_margin = ggplot2::margin(10, 10, 10, 50))
+  plot_title_size = 12, plot_margin = ggplot2::margin(10, 10, 10, 10))
 }
 \arguments{
 \item{base_size}{Sets the base size of text for the plot.

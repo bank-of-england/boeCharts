@@ -6,8 +6,12 @@
 \usage{
 theme_mcg_pub(base_size = 12, base_colour = "#2b2b2b",
   plot_title_size = 18, plot_title_face = "bold", subtitle_size = 12,
-  caption_size = 9, caption_margin = 10, axis_title_size = 12,
-  facet_text_size = 12, plot_margin = ggplot2::margin(10, 10, 10, 50))
+  subtitle_face = "plain", caption_size = 9, caption_margin = 10,
+  caption_face = "plain", axis_title_size = base_size,
+  axis_title_face = "plain", axis_text_size = base_size,
+  strip_text_size = 12, strip_text_face = "plain",
+  plot_margin = ggplot2::margin(10, 10, 10, 10), axis_col = "#2b2b2b",
+  ticks_col = "#2b2b2b", grid = FALSE, grid_col = "#cccccc")
 }
 \arguments{
 \item{base_size}{Sets the base size of text for the plot.
@@ -19,15 +23,23 @@ Must be a named R colour or hexadecimal colour code
 
 \item{plot_title_size, plot_title_face}{plot title size and face}
 
-\item{subtitle_size}{subtitle size}
+\item{subtitle_size, subtitle_face}{subtitle size and face}
 
-\item{caption_size, caption_margin}{caption size and margin}
+\item{caption_size, caption_margin, caption_face}{caption size, margin and face}
 
-\item{axis_title_size}{axis title size}
+\item{axis_title_size, axis_title_face}{axis title size and face}
 
-\item{facet_text_size}{facet label size}
+\item{axis_text_size}{axis text size}
+
+\item{strip_text_size, strip_text_face}{facet label size and face}
 
 \item{plot_margin}{plot margin (specify with \code{ggplot2::margin()})}
+
+\item{axis_col, ticks_col}{axis & ticks colours; both default to `#2b2b2b`}
+
+\item{grid}{panel grid (`TRUE`, `FALSE`, or a combination of `X`, `x`, `Y`, `y`)}
+
+\item{grid_col}{grid colour, defaults to `#cccccc`}
 }
 \value{
 Will not return anything of itself, but when used in conjuntion
