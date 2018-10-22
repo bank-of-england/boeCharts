@@ -75,7 +75,7 @@ theme_mcg_pub <- function(base_size = 12, base_colour = "#2b2b2b",
                           axis_title_size = base_size, axis_title_face = "plain",
                           axis_text_size = base_size,
                           strip_text_size = 12, strip_text_face = "plain",
-                          plot_margin = ggplot2::margin(10, 10, 10, 10),
+                          plot_margin = ggplot2::margin(30, 30, 30, 30),
                           axis_col = "#2b2b2b", ticks_col = "#2b2b2b",
                           grid = FALSE, grid_col = "#cccccc") {
 
@@ -200,7 +200,7 @@ theme_mcg_pub <- function(base_size = 12, base_colour = "#2b2b2b",
 theme_inflation_report = function(base_size = 12,
                                   base_colour = "#2b2b2b",
                                   plot_title_size = 12,
-                                  plot_margin = ggplot2::margin(10, 10, 10, 10)) {
+                                  plot_margin = ggplot2::margin(30, 30, 30, 30)) {
   
   # set global parameters
   fontSize = base_size

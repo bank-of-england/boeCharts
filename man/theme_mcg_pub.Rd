@@ -10,7 +10,7 @@ theme_mcg_pub(base_size = 12, base_colour = "#2b2b2b",
   caption_face = "plain", axis_title_size = base_size,
   axis_title_face = "plain", axis_text_size = base_size,
   strip_text_size = 12, strip_text_face = "plain",
-  plot_margin = ggplot2::margin(10, 10, 10, 10), axis_col = "#2b2b2b",
+  plot_margin = ggplot2::margin(30, 30, 30, 30), axis_col = "#2b2b2b",
   ticks_col = "#2b2b2b", grid = FALSE, grid_col = "#cccccc")
 }
 \arguments{

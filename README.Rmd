@@ -56,7 +56,7 @@ library(ggplot2)
 
 # create chart
 ggplot(data = FANG, aes(x = date, y = close, colour = symbol)) +
-  geom_line() +
+  geom_line(size = 0.7) +
   labs(title = "BoE Palette Test",
        subtitle="A plot for demonstration purposes",
        y="Closing\nprice", x=NULL) +
