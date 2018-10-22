@@ -63,7 +63,8 @@ ggplot(data = FANG, aes(x = date, y = close, colour = symbol)) +
   # apply boe palette
   scale_colour_boe(palette = "boe") +
   # apply MCG theme
-  theme_mcg_pub() +
+  theme_mcg_pub(axis_text_size = 11) +
+  theme(legend.position = "top") +
   # apply axis settings
   scale_y_continuous(expand = c(0, 0), breaks = seq(0, 1250, 250), limits = c(0, 1250), position = "right") +
   scale_x_date(expand = c(0, 0), breaks = seq(min(FANG$date), max(FANG$date), by = "3 months"), labels = boe_date_labels())
