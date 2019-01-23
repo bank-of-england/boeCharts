@@ -67,13 +67,13 @@ boe_cols <- c(
 #'
 
 boe_cols_rich <- c(
-  dark_blue = "#002b4c",
-  dark_teal = "#00566a",
-  green = "#3a7030",
-  dark_orange = "#c94c1a",
-  dark_violet = "#180639",
-  dark_purple = "#5c1f48",
-  deep_pink = "#a90a3c"
+  rich_blue = "#00294E",
+  rich_teal = "#005E6E",
+  rich_green = "#3A7130",
+  rich_orange = "#C94D1B",
+  rich_purple = "#2B1E56",
+  rich_plum = "#5D2049",
+  rich_red = "#AA0B3C"
 )
 
 
@@ -102,13 +102,13 @@ boe_cols_rich <- c(
 #'
 
 boe_cols_highlights <- c(
-  cyan = "#1488c9",
-  persian_green = "#00a091",
-  lime_green = "#a2c516",
-  mango = "#ef7a00",
-  mauve = "#6f6baf",
-  purple = "#b0348b",
-  vivid_pink = "#e61b57"
+  red = "#E9496A",
+  fuchsia = "#B0358B",
+  purple = "#706CB0",
+  orange = "#EF7B00",
+  green = "#A2C617",
+  teal = "#47AA9C",
+  blue = "#1488CA"
 )
 
 
@@ -137,13 +137,13 @@ boe_cols_highlights <- c(
 #'
 
 boe_cols_soft <- c(
-  cyan = "#84c9f0",
-  mabel = "#cae7e9",
-  gold = "#dce069",
-  bold_yellow = "#fcc41e",
-  lilac = "#d2cde7",
-  pink = "#da9cc5",
-  light_pink = "#facfc5"
+  peach = "#FAD0C5",
+  light_pink = "#DA9CC6",
+  mauve = "#D2CDE8",
+  yellow = "#FDC41F",
+  light_green = "#DCE169",
+  light_teal = "#B3DBCD",
+  light_blue = "#85C9F0"
 )
 
 
@@ -172,12 +172,11 @@ boe_cols_soft <- c(
 #'
 
 boe_cols_neutral <- c(
-  black = "#000000",
-  regal_blue = "#869ba7",
-  blue_gray = "#c8cccf",
-  light_gray = "#ebebeb",
-  white_smoke = "#f6f6f6",
-  link_water = "#d9cec1"
+  light_grey = "#EBEBEB",
+  grey = "#C8CCCF",
+  dark_grey = "#6B7E87",
+  black = "#1E1E1E",
+  stone = "#D9CEC1"
 )
 
 
