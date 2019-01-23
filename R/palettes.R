@@ -27,7 +27,7 @@ boe_palettes <- list(
 #' @keywords internal
 #'
 #' @export
-boe_pal <- function(palette="boe", reverse = FALSE) {
+boe_pal <- function(palette = "boe", reverse = FALSE) {
   function(n) {
 
     colors <- boe_palettes[[palette]]
