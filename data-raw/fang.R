@@ -4,4 +4,4 @@ FANG <- read.csv(file = "//bankwide/files/Bankwide Data/r-data-training/FANG.csv
                  "numeric", "numeric", "numeric"))
 
 
-devtools::use_data(FANG, overwrite = TRUE, compress = 'xz')
+usethis::use_data(FANG, overwrite = TRUE, compress = 'xz')

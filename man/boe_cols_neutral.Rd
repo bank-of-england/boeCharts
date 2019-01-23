@@ -4,7 +4,7 @@
 \name{boe_cols_neutral}
 \alias{boe_cols_neutral}
 \title{A vector of colours from the Bank's 'Neutral' colour palette.}
-\format{An object of class \code{character} of length 6.}
+\format{An object of class \code{character} of length 5.}
 \usage{
 boe_cols_neutral
 }

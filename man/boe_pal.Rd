@@ -12,4 +12,5 @@ Bank colour palettes for plots.
 \seealso{
 Other colour boe: \code{\link{scale_colour_boe}}
 }
+\concept{colour boe}
 \keyword{internal}

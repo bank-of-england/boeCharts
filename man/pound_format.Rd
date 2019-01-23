@@ -4,8 +4,8 @@
 \alias{pound_format}
 \title{Pounds sterling formatter for use in chart axis labels}
 \usage{
-pound_format(suffix = "", largest_with_pence = 1e+05, ..., big.mark = ",",
-  negative_parens = FALSE)
+pound_format(suffix = "", largest_with_pence = 1e+05, ...,
+  big.mark = ",", negative_parens = FALSE)
 }
 \arguments{
 \item{suffix}{Symbol to display after amount}

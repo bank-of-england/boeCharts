@@ -180,6 +180,22 @@ boe_cols_neutral <- c(
 )
 
 
+#' @title A vector of colours from the Bank's 'Screen-use' colour palette.
+#'
+#' @description \code{\link{boe_cols_screen}} Provides a vector of named colours
+#' taken from the 'Screen-use' colour palette, as part of the Bank of England
+#' 2018 brand update. For use as background colours on screens only.
+#'
+#' @return A list of named hexadecimal colours.
+#'
+#' @export
+#'
+
+boe_cols_screen <- c(
+  boe_background = "#F6F6F6"
+)
+
+
 #' @title A vector of the current MCG publication colours
 #'
 #' @description \code{\link{mcg_pub_cols}} Provides a vector of named colours
