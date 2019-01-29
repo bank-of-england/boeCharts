@@ -34,16 +34,12 @@ Using **boeCharts** also requires the prerequisites described below.
 You can install **boeCharts** as follows (from an R session):
 
 ```{r install, eval=FALSE}
-# install devtools (required for installation)
-if (!require("devtools")) {
-    install.packages("devtools")
-}
+# install remotes (required for installation)
+if (!require("remotes")) install.packages("remotes")
 
-# install boeCharts from collaborate
-install.packages("http://collaborate/workspaces/RHelpCentre/R%20documents/Packages/boeCharts_1.0.0.zip", repos = NULL, type = "binary")
+# install boeCharts
+remotes::install_url("http://collaborate/workspaces/RHelpCentre/R%20documents/Packages/boeCharts_1.0.0.zip", dependencies = TRUE)
 
-# install boeCharts' dependencies from CRAN
-devtools::install_deps(find.package("boeCharts"))
 ```
 
 

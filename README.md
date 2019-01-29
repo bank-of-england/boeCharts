@@ -18,16 +18,11 @@ Using **boeCharts** also requires the prerequisites described below.
 You can install **boeCharts** as follows (from an R session):
 
 ``` r
-# install devtools (required for installation)
-if (!require("devtools")) {
-    install.packages("devtools")
-}
+# install remotes (required for installation)
+if (!require("remotes")) install.packages("remotes")
 
-# install boeCharts from collaborate
-install.packages("http://collaborate/workspaces/RHelpCentre/R%20documents/Packages/boeCharts_1.0.0.zip", repos = NULL, type = "binary")
-
-# install boeCharts' dependencies from CRAN
-devtools::install_deps(find.package("boeCharts"))
+# install boeCharts
+remotes::install_url("http://collaborate/workspaces/RHelpCentre/R%20documents/Packages/boeCharts_1.0.0.zip", dependencies = TRUE)
 ```
 
 Use
@@ -37,6 +32,7 @@ Use
 # load packages
 library(boeCharts)
 library(ggplot2)
+#> Warning: package 'ggplot2' was built under R version 3.5.2
 
 # create chart
 ggplot(data = FANG, aes(x = date, y = close, colour = symbol)) +
