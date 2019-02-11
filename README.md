@@ -21,8 +21,11 @@ You can install **boeCharts** as follows (from an R session):
 # install remotes (required for installation)
 if (!require("remotes")) install.packages("remotes")
 
-# install boeCharts
-remotes::install_url("http://collaborate/workspaces/RHelpCentre/R%20documents/Packages/boeCharts_1.0.0.zip", dependencies = TRUE)
+# install boeCharts from collaborate
+install.packages("http://collaborate/workspaces/RHelpCentre/R%20documents/Packages/boeCharts_1.0.0.zip", repos = NULL, type = "binary")
+
+# install boeCharts' dependencies from CRAN
+remotes::install_deps(find.package("boeCharts"))
 ```
 
 Use
