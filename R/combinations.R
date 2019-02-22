@@ -1,9 +1,9 @@
-#' @title A vector of colours from the Bank's harmonious colour combinations
+#' @title Vectors of colours from the Bank's harmonious colour combinations
 #'
-#' @description Provides a vector of named colours taken from the Bank's
+#' @description Vectors of named colours taken from the Bank's
 #' \href{https://bankofengland.frontify.com/d/RPk6pMZziBFw/bank-standards#/brand-elements/colour-palette/colour-combinations}{Harmonious colour combinations}.
 #'
-#' @return A list of named hexadecimal colours.
+#' @return A vector of named hexadecimal colours.
 #' 
 #' @keywords internal
 #'
