@@ -10,7 +10,7 @@ scale_colour_boe(palette = "boe", reverse = FALSE, ...)
 scale_fill_boe(palette = "boe", reverse = FALSE, ...)
 }
 \arguments{
-\item{palette}{charachter string indicating the palette to use. Options
+\item{palette}{character string indicating the palette to use. Options
 available are in \code{\link{boe_palettes}} (e.g. "boe rich")}
 
 \item{reverse}{Sets the order of colours in the scale - should they be reversed

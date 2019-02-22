@@ -104,12 +104,12 @@ theme_mcg_pub <- function(base_size = 12, base_colour = "#2b2b2b",
 
     # legend
     legend.position = "bottom",
-    legend.title =     ggplot2::element_blank(),
-    legend.background= ggplot2::element_blank(),
-    legend.key =       ggplot2::element_rect(fill = "transparent", colour = "transparent"),
-    legend.spacing.x = ggplot2::unit(5, 'pt'),
-    legend.spacing.y = ggplot2::unit(5, 'pt'),
-    legend.spacing =   ggplot2::unit(5, 'pt'),
+    legend.title =      ggplot2::element_blank(),
+    legend.background = ggplot2::element_blank(),
+    legend.key =        ggplot2::element_rect(fill = "transparent", colour = "transparent"),
+    legend.spacing.x =  ggplot2::unit(5, 'pt'),
+    legend.spacing.y =  ggplot2::unit(5, 'pt'),
+    legend.spacing =    ggplot2::unit(5, 'pt'),
 
     # tick marks
     axis.ticks.length = ggplot2::unit(4, "pt"),

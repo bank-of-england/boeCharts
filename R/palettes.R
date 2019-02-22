@@ -5,7 +5,22 @@
 #' @export
 boe_palettes <- list(
   `boe` = boe_cols,
-  `boe rich` = boe_cols_rich,
+  `harmonious blue` = harmonious_blue,
+  `harmonious teal` = harmonious_teal,
+  `harmonious green` = harmonious_green,
+  `harmonious orange` = harmonious_orange,
+  `harmonious purple` = harmonious_purple,
+  `harmonious pink` = harmonious_pink,
+  `harmonious red` = harmonious_red,
+  `harmonious grey` = harmonious_grey,
+  `vibrant A` = vibrant_a,
+  `vibrant B` = vibrant_b,
+  `vibrant C` = vibrant_c,
+  `vibrant D` = vibrant_d,
+  `vibrant E` = vibrant_e,
+  `vibrant F` = vibrant_f,
+  `vibrant G` = vibrant_g,
+  `vibrant H` = vibrant_h,
   `boe highlights` = boe_cols_highlights,
   `boe soft` = boe_cols_soft,
   `boe neutral` = boe_cols_neutral,
@@ -26,6 +41,8 @@ boe_pal <- function(palette = "boe", reverse = FALSE) {
   function(n) {
 
     colors <- boe_palettes[[palette]]
+    
+    check_pal_n(n, max_n = length(colors))
 
     if (reverse == TRUE) colors <- rev(colors)
 
@@ -38,7 +55,7 @@ boe_pal <- function(palette = "boe", reverse = FALSE) {
 #'
 #' Colour scales using the Bank colours.
 #'
-#' @param palette charachter string indicating the palette to use. Options
+#' @param palette character string indicating the palette to use. Options
 #' available are in \code{\link{boe_palettes}} (e.g. "boe rich")
 #'
 #' @param reverse Sets the order of colours in the scale - should they be reversed

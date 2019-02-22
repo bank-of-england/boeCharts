@@ -26,7 +26,7 @@ library(boeCharts)
    x = mpg,
    y = wt
    ) +
-   geom_point(colour=boe_cols_highlights["cyan"]) +
+   geom_point(colour=boe_cols_highlights["fuchsia"]) +
    theme_mcg_pub()
 
 }

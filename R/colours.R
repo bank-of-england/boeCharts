@@ -60,7 +60,7 @@ boe_cols <- c(
 #'    x = mpg,
 #'    y = wt
 #'    ) +
-#'    geom_point(colour=boe_cols_rich["deep_pink"]) +
+#'    geom_point(colour=boe_cols_rich["rich_red"]) +
 #'    theme_mcg_pub()
 #'
 #' @export
@@ -95,7 +95,7 @@ boe_cols_rich <- c(
 #'    x = mpg,
 #'    y = wt
 #'    ) +
-#'    geom_point(colour=boe_cols_highlights["cyan"]) +
+#'    geom_point(colour=boe_cols_highlights["fuchsia"]) +
 #'    theme_mcg_pub()
 #'
 #' @export
@@ -130,7 +130,7 @@ boe_cols_highlights <- c(
 #'    x = mpg,
 #'    y = wt
 #'    ) +
-#'    geom_point(colour=boe_cols_soft["mabel"]) +
+#'    geom_point(colour=boe_cols_soft["peach"]) +
 #'    theme_mcg_pub()
 #'
 #' @export
@@ -165,7 +165,7 @@ boe_cols_soft <- c(
 #'    x = mpg,
 #'    y = wt
 #'    ) +
-#'    geom_point(colour=boe_cols_neutral["black"]) +
+#'    geom_point(colour=boe_cols_neutral["dark_grey"]) +
 #'    theme_mcg_pub()
 #'
 #' @export
@@ -199,7 +199,7 @@ boe_cols_screen <- c(
 #' @title A vector of the current MCG publication colours
 #'
 #' @description \code{\link{mcg_pub_cols}} Provides a vector of named colours
-#' from current MCG publication colours.
+#' from current Money & Credit Group (MCG) publication colours.
 #'
 #' @return A list of named hexadecimal colours.
 #'

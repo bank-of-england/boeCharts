@@ -26,7 +26,7 @@ library(boeCharts)
    x = mpg,
    y = wt
    ) +
-   geom_point(colour=boe_cols_rich["deep_pink"]) +
+   geom_point(colour=boe_cols_rich["rich_red"]) +
    theme_mcg_pub()
 
 }

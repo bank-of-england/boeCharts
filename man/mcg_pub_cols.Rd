@@ -13,7 +13,7 @@ A list of named hexadecimal colours.
 }
 \description{
 \code{\link{mcg_pub_cols}} Provides a vector of named colours
-from current MCG publication colours.
+from current Money & Credit Group (MCG) publication colours.
 }
 \examples{
 
