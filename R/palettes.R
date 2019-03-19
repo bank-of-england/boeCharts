@@ -5,14 +5,17 @@
 #' @export
 boe_palettes <- list(
   `boe` = boe_cols,
-  `harmonyBlue` = harmonious_blue,
-  `harmonyTeal` = harmonious_teal,
-  `harmonyGreen` = harmonious_green,
-  `harmonyOrange` = harmonious_orange,
-  `harmonyPurple` = harmonious_purple,
-  `harmonyPink` = harmonious_pink,
-  `harmonyRed` = harmonious_red,
-  `harmonyGrey` = harmonious_grey,
+  `boeHighlights` = boe_cols_highlights,
+  `boeSoft` = boe_cols_soft,
+  `boeNeutral` = boe_cols_neutral,
+  `harmoniousBlue` = harmonious_blue,
+  `harmoniousTeal` = harmonious_teal,
+  `harmoniousGreen` = harmonious_green,
+  `harmoniousOrange` = harmonious_orange,
+  `harmoniousPurple` = harmonious_purple,
+  `harmoniousPink` = harmonious_pink,
+  `harmoniousRed` = harmonious_red,
+  `harmoniousGrey` = harmonious_grey,
   `vibrantA` = vibrant_a,
   `vibrantB` = vibrant_b,
   `vibrantC` = vibrant_c,
@@ -21,9 +24,6 @@ boe_palettes <- list(
   `vibrantF` = vibrant_f,
   `vibrantG` = vibrant_g,
   `vibrantH` = vibrant_h,
-  `boeHighlights` = boe_cols_highlights,
-  `boeSoft` = boe_cols_soft,
-  `boeNeutral` = boe_cols_neutral,
   `mcg` = mcg_pub_cols
 )
 
