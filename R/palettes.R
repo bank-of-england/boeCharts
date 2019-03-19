@@ -5,6 +5,7 @@
 #' @export
 boe_palettes <- list(
   `boe` = boe_cols,
+  `boeRich` = boe_cols_rich,
   `boeHighlights` = boe_cols_highlights,
   `boeSoft` = boe_cols_soft,
   `boeNeutral` = boe_cols_neutral,
