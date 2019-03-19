@@ -30,18 +30,23 @@
 #' @export
 
 theme_boe <- function(base_family = "Arial Narrow", base_size = 18, base_colour = "#1e1e1e",
-                      plot_title_family = base_family, plot_title_size = 28,
-                      plot_title_face = "bold", plot_title_margin = 10,
-                      subtitle_family = base_family, subtitle_size = 22,
-                      subtitle_face = "plain", subtitle_margin = 15,
-                      strip_text_family = base_family, strip_text_size = 22,
-                      strip_text_face = "plain",
-                      caption_family = base_family, caption_size = 16,
-                      caption_face = "plain", caption_margin = 15,
-                      axis_text_size = base_size, 
+                      plot_title_family = base_family, plot_title_size = 28, 
+                      plot_title_colour = base_colour, plot_title_face = "bold", 
+                      plot_title_margin = 10,
+                      subtitle_family = base_family, subtitle_colour = base_colour, 
+                      subtitle_size = 22, subtitle_face = "plain", subtitle_margin = 15,
+                      strip_text_family = base_family, strip_text_colour = base_colour,
+                      strip_text_size = 22, strip_text_face = "plain",
+                      caption_family = base_family, caption_colour = base_colour,
+                      caption_size = 16, caption_face = "plain", caption_margin = 15,
+                      axis_text_size = base_size, axis_text_colour = base_colour,
                       axis_title_family = subtitle_family,
                       axis_title_size = base_size, axis_title_colour = base_colour,
                       axis_title_face = "plain", axis_title_just = "rt",
+                      legend_title_family = base_family, legend_title_size = base_size, 
+                      legend_title_colour = base_colour, legend_title_face = "plain",
+                      legend_text_family = base_family, legend_text_size = base_size, 
+                      legend_text_colour = base_colour, legend_text_face = "plain",
                       plot_margin = margin(10, 10, 10, 10),
                       grid = "Y", grid_col = "#EBEBEB", 
                       axis = FALSE, axis_col = "#2b2b2b", ticks = TRUE) {
@@ -111,27 +116,29 @@ theme_boe <- function(base_family = "Arial Narrow", base_size = 18, base_colour 
   yj <- switch(tolower(substr(axis_title_just, 2, 2)), b=0, l=0, m=0.5, c=0.5, r=1, t=1)
   
   # chart text + margins
-  ret <- ret + theme(axis.text.x=element_text(size=axis_text_size, margin=margin(t=10)))
-  ret <- ret + theme(axis.text.y=element_text(size=axis_text_size, margin=margin(r=10)))
-  ret <- ret + theme(axis.title=element_text(size=axis_title_size, family=axis_title_family, colour = axis_title_colour))
-  ret <- ret + theme(axis.title.x=element_text(hjust=xj, size=axis_title_size,
-                                               family=axis_title_family, face=axis_title_face, colour = axis_title_colour))
-  ret <- ret + theme(axis.title.y=element_text(hjust=yj, size=axis_title_size,
-                                               family=axis_title_family, face=axis_title_face, colour = axis_title_colour))
-  ret <- ret + theme(axis.title.y.right=element_text(hjust=yj, size=axis_title_size, angle=90,
-                                                     family=axis_title_family, face=axis_title_face, colour = axis_title_colour))
-  ret <- ret + theme(strip.text=element_text(hjust=0, size=strip_text_size,
+  ret <- ret + theme(axis.text.x=element_text(size=axis_text_size, colour = axis_text_colour, margin=margin(t=10)))
+  ret <- ret + theme(axis.text.y=element_text(size=axis_text_size, colour = axis_text_colour, margin=margin(r=10)))
+  ret <- ret + theme(axis.title=element_text(size=axis_title_size, family=axis_title_family, 
+                                             colour = axis_title_colour))
+  ret <- ret + theme(axis.title.x=element_text(hjust=xj, size=axis_title_size, family=axis_title_family, 
+                                               face=axis_title_face, colour = axis_title_colour))
+  ret <- ret + theme(axis.title.y=element_text(hjust=yj, size=axis_title_size, family=axis_title_family, 
+                                               face=axis_title_face, colour = axis_title_colour))
+  ret <- ret + theme(axis.title.y.right=element_text(hjust=yj, size=axis_title_size, angle=90, family=axis_title_family, 
+                                                     face=axis_title_face, colour = axis_title_colour))
+  ret <- ret + theme(strip.text=element_text(hjust=0, size=strip_text_size, colour = strip_text_colour,
                                              face=strip_text_face, family=strip_text_family))
   ret <- ret + theme(panel.spacing=grid::unit(2, "lines"))
-  ret <- ret + theme(plot.title=element_text(hjust=0, size=plot_title_size,
-                                             margin=margin(b=plot_title_margin),
-                                             family=plot_title_family, face=plot_title_face))
-  ret <- ret + theme(plot.subtitle=element_text(hjust=0, size=subtitle_size,
-                                                margin=margin(b=subtitle_margin),
-                                                family=subtitle_family, face=subtitle_face))
-  ret <- ret + theme(plot.caption=element_text(hjust=1, size=caption_size,
-                                               margin=margin(t=caption_margin),
-                                               family=caption_family, face=caption_face))
+  ret <- ret + theme(plot.title=element_text(hjust=0, size=plot_title_size, margin=margin(b=plot_title_margin),
+                                             family=plot_title_family, face=plot_title_face, colour = plot_title_colour))
+  ret <- ret + theme(plot.subtitle=element_text(hjust=0, size=subtitle_size, margin=margin(b=subtitle_margin),
+                                                family=subtitle_family, face=subtitle_face, colour = subtitle_colour))
+  ret <- ret + theme(plot.caption=element_text(hjust=1, size=caption_size, margin=margin(t=caption_margin),
+                                               family=caption_family, face=caption_face, colour = caption_colour))
+  ret <- ret + theme(legend.title = element_text(hjust=0, size=legend_title_size, family = legend_title_family, 
+                                                 face=legend_title_face, colour = legend_title_colour))
+  ret <- ret + theme(legend.text = element_text(hjust=0, size=legend_text_size, family=legend_text_family, 
+                                                 face=legend_text_face, colour = legend_text_colour))
   ret <- ret + theme(plot.margin=plot_margin)
   
   ret
