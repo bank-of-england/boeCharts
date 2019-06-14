@@ -9,7 +9,8 @@ Authors@R: c(person("Ewen", "Henderson", email = "ewen.henderson@bankofengland.c
     person("Joshua", "Allen", email = "joshua.allen@bankofengland.co.uk", role = c("aut"))
     )
 Maintainer: Ewen Henderson <ewen.henderson@bankofengland.co.uk>
-Description: A compilation of 'ggplot2' themes, scales and helpers to replicate the look of Bank charts.
+Description: A compilation of 'ggplot2' themes, scales and helpers to create Bank 
+    publication-ready visualisation.
 Depends: R (>= 3.0.0)
 License: file LICENSE
 Encoding: UTF-8

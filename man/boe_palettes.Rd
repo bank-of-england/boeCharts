@@ -4,7 +4,7 @@
 \name{boe_palettes}
 \alias{boe_palettes}
 \title{List of Bank colour palettes}
-\format{An object of class \code{list} of length 21.}
+\format{An object of class \code{list} of length 22.}
 \usage{
 boe_palettes
 }
