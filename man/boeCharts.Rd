@@ -15,7 +15,11 @@ Bank publication quality charts.
 Authors:
 \itemize{
   \item Alastair Firrell \email{alastair.firrell@bankofengland.co.uk}
-  \item Joshua Allen \email{joshua.allen@bankofengland.co.uk}
+}
+
+Other contributors:
+\itemize{
+  \item Joshua Allen \email{joshua.allen@bankofengland.co.uk} [contributor]
 }
 
 }

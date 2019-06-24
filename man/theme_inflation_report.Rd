@@ -32,23 +32,11 @@ See \code{ggplot2::scale_y_continuous} for positioning y-axis on the right.
 \examples{
 
 library(ggplot2)
-library(boeCharts)
 
-p <- ggplot(mtcars) +
-   aes(
-   x = mpg,
-   y = wt
-   ) +
+ggplot(mtcars, aes(x = mpg, y = wt)) +
    geom_point() +
-    labs(title = "A Lovely Plot")
-
-# Plot without any theme applied
-
-p
-
-# Now apply mcg pub theme
-
-p +
- theme_inflation_report() +
- scale_y_continuous(position = "right", sec.axis = dup_axis(labels=NULL))
+   labs(title = "A Lovely Plot") +
+   theme_inflation_report() +
+   scale_y_continuous(position = "right", 
+                      sec.axis = dup_axis(labels = NULL))
 }

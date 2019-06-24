@@ -4,6 +4,7 @@
 #'
 #' @export
 boe_palettes <- list(
+  
   `boe` = boe_cols,
   `boeRich` = boe_cols_rich,
   `boeHighlights` = boe_cols_highlights,
@@ -29,54 +30,65 @@ boe_palettes <- list(
 )
 
 
-#' Bank colour palettes
+#' A Bank colour palette generator
 #'
-#' Bank colour palettes for plots.
-#'
-#' @family colour boe
-#'
-#' @keywords internal
-#'
-#' @export
-boe_pal <- function(palette = "boe", reverse = FALSE) {
-  function(n) {
-
-    colors <- boe_palettes[[palette]]
-    
-    check_pal_n(n, max_n = length(colors))
-
-    if (reverse == TRUE) colors <- rev(colors)
-
-    unname(colors[seq_len(n)])
-  }
-}
-
-
-#' Bank colour scales
-#'
-#' Colour scales using the Bank colours.
-#'
+#' Create Bank colour palettes for plots.
+#' 
 #' @param palette character string indicating the palette to use. Options
-#' available are in \code{\link{boe_palettes}} (e.g. "boe rich")
-#'
-#' @param reverse Sets the order of colours in the scale - should they be reversed
-#' (defaults to FALSE)
-#'
-#' @inheritParams ggplot2::scale_colour_hue
+#' available are in \code{\link[boeCharts]{boe_palettes}} (e.g. "boe rich").
+#' 
+#' @param n Number of palette colours to use
+#' 
+#' @param reverse Logical, sets the order of colours in the scale. If TRUE,
+#' the palette will be reversed (FALSE by default).
 #'
 #' @family colour boe
 #'
-#' @rdname scale_boe
-#'
-#' @seealso \code{\link{theme_mcg_pub}} for examples.
-#'
 #' @export
-scale_colour_boe <- function(palette = "boe", reverse = FALSE, ...) {
-  ggplot2::discrete_scale(aesthetics = "colour", scale_name = "boe", palette = boe_pal(palette = palette, reverse = reverse), ...)
+#' 
+#' @examples
+#' pal <- boe_pal(palette = "boe", n = 4)
+boe_pal <- function(palette, n, reverse = FALSE) {
+  
+  if (!is.logical(reverse)) stop("reverse must be TRUE or FALSE.")
+  
+  pal <- unname(boe_palettes[[palette]])
+  
+  if (is.null(pal)) stop("Palette not found.")
+  
+  if (missing(n)) {
+    n <- length(pal)
+  }
+  
+  check_pal_n(n, pal)
+  
+  out <- pal[1:n]
+  
+  if (!reverse) out <- rev(out)
+  
+  structure(out, class = "palette", palette = palette)
 }
 
-#' @rdname scale_boe
+pal_pal <- function(palette, reverse) {
+  
+  function(n) {
+    boe_pal(palette = palette, reverse = reverse)
+  }
+  
+}
+
 #' @export
-scale_fill_boe <- function(palette = "boe", reverse = FALSE, ...) {
-  ggplot2::discrete_scale(aesthetics = "fill", scale_name = "boe", palette = boe_pal(palette = palette, reverse = reverse), ...)
+#' @importFrom graphics rect par image text
+#' @importFrom grDevices rgb
+print.palette <- function(x, ...) {
+  
+  n <- length(x)
+  old <- par(mar = c(0.5, 0.5, 0.5, 0.5))
+  on.exit(par(old))
+  
+  image(1:n, 1, as.matrix(1:n), col = x,
+        ylab = "", xaxt = "n", yaxt = "n", bty = "n")
+  
+  rect(0, 0.9, n + 1, 1.1, col = rgb(1, 1, 1, 0.8), border = NA)
+  text((n + 1) / 2, 1, labels = attr(x, "palette"), cex = 1, family = "serif")
 }

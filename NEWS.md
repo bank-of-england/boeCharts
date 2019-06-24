@@ -2,6 +2,7 @@
 
 * Implementation of harmonious and vibrant colour combinations as palettes.
 * Standardisation of palette names, all now camel cased.
+* Implementation of easy-printing methods for palettes.
 
 
 # boeCharts 1.0.0

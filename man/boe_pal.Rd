@@ -2,15 +2,24 @@
 % Please edit documentation in R/palettes.R
 \name{boe_pal}
 \alias{boe_pal}
-\title{Bank colour palettes}
+\title{A Bank colour palette generator}
 \usage{
-boe_pal(palette = "boe", reverse = FALSE)
+boe_pal(palette, n, reverse = FALSE)
+}
+\arguments{
+\item{palette}{Name of desired palette.}
+
+\item{n}{Number of colors desired.}
+
+\item{reverse}{Logical, if TRUE the palette will be reversed.}
 }
 \description{
-Bank colour palettes for plots.
+Create Bank colour palettes for plots.
+}
+\examples{
+pal <- boe_pal(palette = "boe", n = 4)
 }
 \seealso{
 Other colour boe: \code{\link{scale_colour_boe}}
 }
 \concept{colour boe}
-\keyword{internal}

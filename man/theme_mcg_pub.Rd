@@ -11,7 +11,7 @@ theme_mcg_pub(base_size = 12, base_colour = "#2b2b2b",
   axis_title_face = "plain", axis_text_size = base_size,
   strip_text_size = 12, strip_text_face = "plain",
   plot_margin = ggplot2::margin(30, 30, 30, 30), axis_col = "#2b2b2b",
-  ticks_col = "#2b2b2b", grid = FALSE, grid_col = "#cccccc")
+  ticks_col = "#2b2b2b")
 }
 \arguments{
 \item{base_size}{Sets the base size of text for the plot.
@@ -36,10 +36,6 @@ Must be a named R colour or hexadecimal colour code
 \item{plot_margin}{plot margin (specify with \code{ggplot2::margin()})}
 
 \item{axis_col, ticks_col}{axis & ticks colours; both default to `#2b2b2b`}
-
-\item{grid}{panel grid (`TRUE`, `FALSE`, or a combination of `X`, `x`, `Y`, `y`)}
-
-\item{grid_col}{grid colour, defaults to `#cccccc`}
 }
 \value{
 Will not return anything of itself, but when used in conjuntion
@@ -59,25 +55,12 @@ to give a plot a feel more in line with MCG publications.
 \examples{
 
 library(ggplot2)
-library(boeCharts)
 
-p <- ggplot(mtcars) +
-   aes(
-   x = mpg,
-   y = wt
-   ) +
+ggplot(mtcars, aes(x = mpg, y = wt)) +
    geom_point() +
-    labs(title = "A Lovely Plot",
-         subtitle = "What can the subtitle tell us?")
-
-# Plot without any theme applied
-
-p
-
-# Now apply mcg pub theme
-
-p +
- theme_mcg_pub() +
- scale_y_continuous(position = "right")
+   labs(title = "A Lovely Plot",
+        subtitle = "An enticing subtitle.") +
+   theme_mcg_pub() +
+   scale_y_continuous(position = "right")
 
 }

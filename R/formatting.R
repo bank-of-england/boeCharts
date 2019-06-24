@@ -61,8 +61,8 @@ boe_date_labels <- function() {
 currency_format = function(prefix = intToUtf8(0x00A3), suffix = "", largest_with_pence = 1e+05, ...,
                            big.mark = ",", negative_parens = FALSE) {
   
-  scales::dollar_format(prefix = prefix, suffix = suffix, largest_with_cents = largest_with_pence,
-                        ..., big.mark = big.mark, negative_parens = negative_parens)
+  dollar_format(prefix = prefix, suffix = suffix, largest_with_cents = largest_with_pence,
+                ..., big.mark = big.mark, negative_parens = negative_parens)
 }
 
 
@@ -117,7 +117,9 @@ pound_format = function(suffix = "", largest_with_pence = 1e+05, ...,
 #'     scale_y_continuous(labels = format_decimal_places(4), position = "right")
 
 format_decimal_places = function(dp) {
+  
   function(x) {
+    
     sprintf(paste0("%.", dp, "f"), x)
   }
 }
@@ -189,10 +191,14 @@ format_zero_dp = format_decimal_places(0)
 format_pct = function(dp, separate_with_space = F) {
   
   function(x) {
+    
     suffix = "%%"
+    
     if (separate_with_space) {
+      
       suffix = paste0(" ", suffix)
     }
+    
     sprintf(paste0("%.", dp, "f", suffix), x)
   }
 }

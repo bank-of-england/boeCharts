@@ -19,8 +19,6 @@
 #'    theme_mcg_pub()
 #'
 #' @export
-#'
-
 boe_cols <- c(
   red            = "#A51140",
   black          = "#1E1E1E",
@@ -64,8 +62,6 @@ boe_cols <- c(
 #'    theme_mcg_pub()
 #'
 #' @export
-#'
-
 boe_cols_rich <- c(
   rich_blue = "#00294E",
   rich_teal = "#005E6E",
@@ -99,8 +95,6 @@ boe_cols_rich <- c(
 #'    theme_mcg_pub()
 #'
 #' @export
-#'
-
 boe_cols_highlights <- c(
   red = "#E9496A",
   fuchsia = "#B0358B",
@@ -134,8 +128,6 @@ boe_cols_highlights <- c(
 #'    theme_mcg_pub()
 #'
 #' @export
-#'
-
 boe_cols_soft <- c(
   peach = "#FAD0C5",
   light_pink = "#DA9CC6",
@@ -169,8 +161,6 @@ boe_cols_soft <- c(
 #'    theme_mcg_pub()
 #'
 #' @export
-#'
-
 boe_cols_neutral <- c(
   light_grey = "#EBEBEB",
   grey = "#C8CCCF",
@@ -189,8 +179,6 @@ boe_cols_neutral <- c(
 #' @return A list of named hexadecimal colours.
 #'
 #' @export
-#'
-
 boe_cols_screen <- c(
   boe_background = "#F6F6F6"
 )
@@ -217,8 +205,6 @@ boe_cols_screen <- c(
 #'    theme_mcg_pub()
 #'
 #' @export
-#'
-
 mcg_pub_cols <- c(
   fuschia        = "#ff00ff",
   dark_blue      = "#000066",
@@ -227,4 +213,3 @@ mcg_pub_cols <- c(
   maroon         = "#993366",
   orange         = "#fd9900"
 )
-

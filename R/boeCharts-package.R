@@ -6,5 +6,6 @@
 #' @md
 #' @name boeCharts
 #' @docType package
-#' @import ggplot2 scales
+#' @import ggplot2
+#' @importFrom scales dollar_format
 "_PACKAGE"

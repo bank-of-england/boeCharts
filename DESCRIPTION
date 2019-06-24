@@ -6,7 +6,7 @@ Authors@R: c(person("Ewen", "Henderson", email = "ewen.henderson@bankofengland.c
     role = c("aut", "cre")),
     person("Alastair", "Firrell", email = "alastair.firrell@bankofengland.co.uk",
     role = c("aut")),
-    person("Joshua", "Allen", email = "joshua.allen@bankofengland.co.uk", role = c("aut"))
+    person("Joshua", "Allen", email = "joshua.allen@bankofengland.co.uk", role = c("ctb"))
     )
 Maintainer: Ewen Henderson <ewen.henderson@bankofengland.co.uk>
 Description: A compilation of 'ggplot2' themes, scales and helpers to create Bank 
@@ -17,6 +17,7 @@ Encoding: UTF-8
 LazyData: true
 Imports: 
     ggplot2 (>= 2.2.1),
+    grDevices (>= 3.5.0),
     scales (>= 0.5.0)
 RoxygenNote: 6.1.1
 Suggests: 
