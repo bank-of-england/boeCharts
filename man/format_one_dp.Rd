@@ -7,6 +7,9 @@ return as strings}
 \usage{
 format_one_dp(x)
 }
+\arguments{
+\item{x}{numeric vector to format}
+}
 \value{
 a character vector
 }

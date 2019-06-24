@@ -26,7 +26,7 @@ boe_palettes <- list(
   `vibrantF` = vibrant_f,
   `vibrantG` = vibrant_g,
   `vibrantH` = vibrant_h,
-  `mcg` = mcg_pub_cols
+  `mcg` = mcg_cols_pub
 )
 
 
@@ -47,7 +47,7 @@ boe_palettes <- list(
 #' @export
 #' 
 #' @examples
-#' pal <- boe_pal(palette = "boe", n = 4)
+#' boe_pal(palette = "boe", n = 4)
 boe_pal <- function(palette, n, reverse = FALSE) {
   
   if (!is.logical(reverse)) stop("reverse must be TRUE or FALSE.")
@@ -64,7 +64,7 @@ boe_pal <- function(palette, n, reverse = FALSE) {
   
   out <- pal[1:n]
   
-  if (!reverse) out <- rev(out)
+  if (reverse) out <- rev(out)
   
   structure(out, class = "palette", palette = palette)
 }

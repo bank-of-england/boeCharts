@@ -1,6 +1,6 @@
-#' @title A vector of colours from the Bank's colour palette.
+#' @title Colours from the Bank's colour palette
 #'
-#' @description \code{\link{boe_cols}} Provides a vector of named colours taken from the Bank's
+#' @description Provides a vector of named colours taken from the Bank's
 #' \href{http://intranet/BankNews/Pages/Updated-visual-identity-g-636195499604295252.aspx}{visual identity guidelines}.
 #'
 #' @return A list of named hexadecimal colours.
@@ -40,11 +40,11 @@ boe_cols <- c(
 )
 
 
-#' @title A vector of colours from the Bank's 'Rich' colour palette.
+#' @title Colours from the Bank's 'Rich' colour palette
 #'
-#' @description \code{\link{boe_cols_rich}} Provides a vector of named colours
-#' taken from the 'Rich' colour palette, as part of the Bank of England
-#' 2018 brand update.
+#' @description Provides a vector of named colours taken from the 
+#' 'Rich' colour palette, as part of the Bank of England 2018 brand 
+#' update.
 #'
 #' @return A list of named hexadecimal colours.
 #'
@@ -73,11 +73,10 @@ boe_cols_rich <- c(
 )
 
 
-#' @title A vector of colours from the Bank's 'Highlights' colour palette.
+#' @title Colours from the Bank's 'Highlights' colour palette
 #'
-#' @description \code{\link{boe_cols_highlights}} Provides a vector of named colours
-#' taken from the 'Highlights' colour palette, as part of the Bank of England
-#' 2018 brand update.
+#' @description Provides a vector of named colours taken from the 'Highlights' 
+#' colour palette, as part of the Bank of England 2018 brand update.
 #'
 #' @return A list of named hexadecimal colours.
 #'
@@ -106,11 +105,10 @@ boe_cols_highlights <- c(
 )
 
 
-#' @title A vector of colours from the Bank's 'Soft' colour palette.
+#' @title Colours from the Bank's 'Soft' colour palette
 #'
-#' @description \code{\link{boe_cols_soft}} Provides a vector of named colours
-#' taken from the 'Soft' colour palette, as part of the Bank of England
-#' 2018 brand update.
+#' @description Provides a vector of named colours taken from the 'Soft' 
+#' colour palette, as part of the Bank of England 2018 brand update.
 #'
 #' @return A list of named hexadecimal colours.
 #'
@@ -139,11 +137,10 @@ boe_cols_soft <- c(
 )
 
 
-#' @title A vector of colours from the Bank's 'Neutral' colour palette.
+#' @title Colours from the Bank's 'Neutral' colour palette
 #'
-#' @description \code{\link{boe_cols_neutral}} Provides a vector of named colours
-#' taken from the 'Neutral' colour palette, as part of the Bank of England
-#' 2018 brand update.
+#' @description Provides a vector of named colours taken from the 'Neutral' 
+#' colour palette, as part of the Bank of England 2018 brand update.
 #'
 #' @return A list of named hexadecimal colours.
 #'
@@ -170,9 +167,9 @@ boe_cols_neutral <- c(
 )
 
 
-#' @title A vector of colours from the Bank's 'Screen-use' colour palette.
+#' @title Colours from the Bank's 'Screen-use' colour palette
 #'
-#' @description \code{\link{boe_cols_screen}} Provides a vector of named colours
+#' @description Provides a vector of named colours
 #' taken from the 'Screen-use' colour palette, as part of the Bank of England
 #' 2018 brand update. For use as background colours on screens only.
 #'
@@ -184,7 +181,7 @@ boe_cols_screen <- c(
 )
 
 
-#' @title A vector of the current MCG publication colours
+#' @title Colours from MCG publication's colour palette
 #'
 #' @description \code{\link{mcg_pub_cols}} Provides a vector of named colours
 #' from current Money & Credit Group (MCG) publication colours.
@@ -201,11 +198,11 @@ boe_cols_screen <- c(
 #'    x = mpg,
 #'    y = wt
 #'    ) +
-#'    geom_point(colour=mcg_pub_cols["fuschia"]) +
+#'    geom_point(colour = mcg_cols_pub["fuschia"]) +
 #'    theme_mcg_pub()
 #'
 #' @export
-mcg_pub_cols <- c(
+mcg_cols_pub <- c(
   fuschia        = "#ff00ff",
   dark_blue      = "#000066",
   green          = "#008000",
@@ -213,3 +210,5 @@ mcg_pub_cols <- c(
   maroon         = "#993366",
   orange         = "#fd9900"
 )
+
+mcg_pub_cols <- mcg_cols_pub

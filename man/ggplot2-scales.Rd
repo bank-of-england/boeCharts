@@ -28,7 +28,7 @@ library(ggplot2)
 
 ggplot(iris, aes(x = Sepal.Length, y = Sepal.Width, colour = Species)) +
     geom_point() +
-    scale_colour_boe()
+    scale_colour_boe("boeHighlights")
     
 }
 \seealso{

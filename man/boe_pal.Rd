@@ -19,7 +19,7 @@ the palette will be reversed (FALSE by default).}
 Create Bank colour palettes for plots.
 }
 \examples{
-pal <- boe_pal(palette = "boe", n = 4)
+boe_pal(palette = "boe", n = 4)
 }
 \seealso{
 Other colour boe: \code{\link{scale_colour_boe}}

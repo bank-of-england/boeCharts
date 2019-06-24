@@ -129,6 +129,8 @@ format_decimal_places = function(dp) {
 #' return as strings
 #'
 #' @description Format chart axis labels to one decimal place.
+#' 
+#' @param x numeric vector to format
 #'
 #' @return a character vector
 #' 
@@ -148,9 +150,10 @@ format_one_dp = format_decimal_places(1)
 #' Formatter function to round values to integer and return as strings
 #'
 #' @description Format chart axis labels to zero decimal places.
+#' 
+#' @param x numeric vector to format
 #'
-#' @return a function with single parameter x, a numeric vector, that returns
-#' a character vector of values in x formatted as integers
+#' @return character vector
 #' 
 #' @export
 #'

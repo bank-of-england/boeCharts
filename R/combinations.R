@@ -6,6 +6,8 @@
 #' @return A vector of named hexadecimal colours.
 #' 
 #' @keywords internal
+#' 
+#' @noRd
 #'
 #' @export
 
@@ -57,6 +59,20 @@ harmonious_grey <- c(
   boe_cols_neutral["grey"]
 )
 
+
+#' @title Vectors of colours from the Bank's vibrant colour combinations
+#'
+#' @description Vectors of named colours taken from the Bank's
+#' \href{https://bankofengland.frontify.com/d/RPk6pMZziBFw/bank-standards#/brand-elements/colour-palette/colour-combinations}{Vibrant colour combinations}.
+#'
+#' @return A vector of named hexadecimal colours.
+#' 
+#' @keywords internal
+#' 
+#' @noRd
+#'
+#' @export
+
 vibrant_a <- c(
   boe_cols_rich["rich_blue"],
   boe_cols_highlights["red"],
@@ -90,18 +106,18 @@ vibrant_e <- c(
 vibrant_f <- c(
   boe_cols_rich["rich_red"],
   boe_cols_highlights["orange"],
-  boe_cols_neutral["peach"]
+  boe_cols_soft["peach"]
 )
 
 vibrant_g <- c(
   boe_cols_rich["rich_green"],
   boe_cols_highlights["teal"],
-  boe_cols_neutral["mauve"]
+  boe_cols_soft["mauve"]
 )
 
 vibrant_h <- c(
   boe_cols_rich["rich_orange"],
   boe_cols_highlights["fuchsia"],
-  boe_cols_neutral["yellow"]
+  boe_cols_soft["yellow"]
 )
 

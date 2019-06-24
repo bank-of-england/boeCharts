@@ -3,7 +3,7 @@
 \docType{data}
 \name{boe_cols}
 \alias{boe_cols}
-\title{A vector of colours from the Bank's colour palette.}
+\title{Colours from the Bank's colour palette}
 \format{An object of class \code{character} of length 17.}
 \usage{
 boe_cols
@@ -12,7 +12,7 @@ boe_cols
 A list of named hexadecimal colours.
 }
 \description{
-\code{\link{boe_cols}} Provides a vector of named colours taken from the Bank's
+Provides a vector of named colours taken from the Bank's
 \href{http://intranet/BankNews/Pages/Updated-visual-identity-g-636195499604295252.aspx}{visual identity guidelines}.
 }
 \examples{

@@ -3,7 +3,7 @@
 \docType{data}
 \name{boe_cols_screen}
 \alias{boe_cols_screen}
-\title{A vector of colours from the Bank's 'Screen-use' colour palette.}
+\title{Colours from the Bank's 'Screen-use' colour palette}
 \format{An object of class \code{character} of length 1.}
 \usage{
 boe_cols_screen
@@ -12,7 +12,7 @@ boe_cols_screen
 A list of named hexadecimal colours.
 }
 \description{
-\code{\link{boe_cols_screen}} Provides a vector of named colours
+Provides a vector of named colours
 taken from the 'Screen-use' colour palette, as part of the Bank of England
 2018 brand update. For use as background colours on screens only.
 }

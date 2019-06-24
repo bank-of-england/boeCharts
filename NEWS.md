@@ -1,8 +1,8 @@
 # boeCharts 1.1.0
 
-* Implementation of harmonious and vibrant colour combinations as palettes.
-* Standardisation of palette names, all now camel cased.
-* Implementation of easy-printing methods for palettes.
+* Implementation of harmonious and vibrant colour combinations as supported palettes.
+* Standardisation of palette names.
+* Easy-printing methods for palettes (e.g. `boe_pal(palette = "boe", n = 4)`).
 
 
 # boeCharts 1.0.0

@@ -3,7 +3,7 @@
 \docType{data}
 \name{boe_cols_rich}
 \alias{boe_cols_rich}
-\title{A vector of colours from the Bank's 'Rich' colour palette.}
+\title{Colours from the Bank's 'Rich' colour palette}
 \format{An object of class \code{character} of length 7.}
 \usage{
 boe_cols_rich
@@ -12,9 +12,9 @@ boe_cols_rich
 A list of named hexadecimal colours.
 }
 \description{
-\code{\link{boe_cols_rich}} Provides a vector of named colours
-taken from the 'Rich' colour palette, as part of the Bank of England
-2018 brand update.
+Provides a vector of named colours taken from the 
+'Rich' colour palette, as part of the Bank of England 2018 brand 
+update.
 }
 \examples{
 

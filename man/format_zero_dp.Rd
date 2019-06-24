@@ -6,9 +6,11 @@
 \usage{
 format_zero_dp(x)
 }
+\arguments{
+\item{x}{numeric vector to format}
+}
 \value{
-a function with single parameter x, a numeric vector, that returns
-a character vector of values in x formatted as integers
+character vector
 }
 \description{
 Format chart axis labels to zero decimal places.

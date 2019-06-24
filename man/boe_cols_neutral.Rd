@@ -3,7 +3,7 @@
 \docType{data}
 \name{boe_cols_neutral}
 \alias{boe_cols_neutral}
-\title{A vector of colours from the Bank's 'Neutral' colour palette.}
+\title{Colours from the Bank's 'Neutral' colour palette}
 \format{An object of class \code{character} of length 5.}
 \usage{
 boe_cols_neutral
@@ -12,9 +12,8 @@ boe_cols_neutral
 A list of named hexadecimal colours.
 }
 \description{
-\code{\link{boe_cols_neutral}} Provides a vector of named colours
-taken from the 'Neutral' colour palette, as part of the Bank of England
-2018 brand update.
+Provides a vector of named colours taken from the 'Neutral' 
+colour palette, as part of the Bank of England 2018 brand update.
 }
 \examples{
 

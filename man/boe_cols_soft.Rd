@@ -3,7 +3,7 @@
 \docType{data}
 \name{boe_cols_soft}
 \alias{boe_cols_soft}
-\title{A vector of colours from the Bank's 'Soft' colour palette.}
+\title{Colours from the Bank's 'Soft' colour palette}
 \format{An object of class \code{character} of length 7.}
 \usage{
 boe_cols_soft
@@ -12,9 +12,8 @@ boe_cols_soft
 A list of named hexadecimal colours.
 }
 \description{
-\code{\link{boe_cols_soft}} Provides a vector of named colours
-taken from the 'Soft' colour palette, as part of the Bank of England
-2018 brand update.
+Provides a vector of named colours taken from the 'Soft' 
+colour palette, as part of the Bank of England 2018 brand update.
 }
 \examples{
 

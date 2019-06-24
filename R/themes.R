@@ -1,19 +1,4 @@
-#' @title A \code{ggplot2} theme to approximate style of Bank Overground charts
-#'
-#' @description Provides a theme to produce
-#' Bank Overground style visualisations in \code{ggplot2}.
-#' 
-#' @examples
-#'
-#' library(ggplot2)
-#'
-#' ggplot(mtcars, aes(x = mpg,y = wt)) +
-#' geom_point() +
-#' labs(title = "A Lovely Plot",
-#' subtitle = "What can the subtitle tell us?") +
-#' theme_boe_overground()
-
-theme_boe_overground <- function(
+theme_bank_overground <- function(
   base_family = "Arial Narrow", base_size = 18, base_colour = "#1e1e1e",
   plot_title_family = base_family, plot_title_size = 28, 
   plot_title_colour = base_colour, plot_title_face = "bold", plot_title_margin = 10,

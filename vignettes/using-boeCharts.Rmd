@@ -9,50 +9,49 @@ vignette: >
 
 ```{r setup, include = FALSE}
 knitr::opts_chunk$set(
-  collapse = TRUE,
-  comment = "#>",
-  fig.width = 7, fig.height = 4, cache=FALSE, dev = 'svg', fig.dpi = 96
+  collapse = TRUE, comment = "#>", cache = FALSE,
+  fig.width = 7, fig.height = 4, dev = 'svg', fig.dpi = 96
 )
 
 ```
 
-The `boeCharts` package provides tools to help build and productionise charts with `ggplot2` that are suitable for use around the Bank. This includes base themes for publications, recognised colour palettes, and helpful 'last-mile' utilities (detailed in ['Last-mile' formatting](last-mile-formatting.html)) for things like formatting date labels.
+The `boeCharts` package provides tools and helpers to help craft and productionise "Bank-ready" charts, primarily be augmenting [ggplot2](https://ggplot2.tidyverse.org/) graphics. These includes full chart themes for publications, recognised colour palettes, and helpful 'last-mile' utilities (detailed in ['Last-mile' formatting](last-mile-formatting.html)) for common, smaller tasks like formatting date labels.
 
-## Colour palettes
+## Bank colour palettes
 
-To get Bank palettes in your plots, use `scale_colour_boe` and `scale_fill_boe` as part of a standard `ggplot2` workflow. Both of these functions contain a `palette` argument, which should be set to your palette of choice. You can see the options available by calling `boe_palettes`.
+Incorporate Bank palettes into your charts, like those found in [Bank standards on corporate identity](https://bankofengland.frontify.com/d/RPk6pMZziBFw/bank-standards#/brand-elements/colour-palette). 
+
+Check out the options available by calling `boe_palettes`.
 
 ```{r}
 # load package
 library(boeCharts)
 
-boe_palettes
+head(boe_palettes, 5)
 ```
 
-You can preview the colours in a palette with `show_palette_cols` (notice that each palette is available in a vector, too).
+You can preview colours in a supported palette using `boe_pal`:
 
 ```{r}
-show_palette_cols(x = boe_cols_rich)
+boe_pal(palette = "boe", n = 4)
 ```
 
-#### Bank-wide palettes
-
-Apply colour schemes lifted from [Bank visual identity guidelines](http://intranet/BankNews/Pages/Updated-visual-identity-g-636195499604295252.aspx), like those seen in the [website's statistics section](https://www.bankofengland.co.uk/statistics/visual-summaries/effective-interest-rates). Here's the "boe" palette.
+The easiest way to use a palette in a chart is to use `scale_[colour|fill]_boe` as part of a standard `ggplot2` workflow (i.e. use in the same way you would use `scale` functions out-of-the-box in `ggplot2`):
 
 ```{r boe_pal}
 # load package
 library(ggplot2)
 
-# make a plot
+# make a base plot
 p <- ggplot(data = FANG, aes(x = date, y = close, colour = symbol)) +
   geom_line() +
   labs(title = "BoE palette & theme test",
-       subtitle="A plot for demonstration purposes",
-       y="Closing\nprice", x=NULL) +
+       subtitle = "A plot for demonstration purposes",
+       y = "Closing\nprice", x = NULL) +
   theme_minimal()
 
+# apply boe palette
 p +
-  # apply boe palette
   scale_colour_boe(palette = "boe")
 
 ```
@@ -68,7 +67,6 @@ p +
   scale_colour_boe(palette = "mcg")
 
 ```
-
 
 ## Chart themes
 
@@ -86,7 +84,8 @@ p +
   # add MCG theme
   theme_inflation_report() +
   # axis settings
-  scale_y_continuous(position = "right", expand = c(0, 0), limits = c(0, 1250), breaks = seq(0, 1250, 250))
+  scale_y_continuous(position = "right", expand = c(0, 0), 
+                     limits = c(0, 1250), breaks = seq(0, 1250, 250))
 ```
 
 ### DSD Publications
@@ -103,6 +102,8 @@ p +
   # add MCG theme
   theme_mcg_pub() +
   # axis settings
-  scale_y_continuous(position = "right", expand = c(0, 0), limits = c(0, 1250), breaks = seq(0, 1250, 250)) +
-  scale_x_date(expand = c(0, 0), breaks = seq(min(FANG$date), max(FANG$date), by = "3 months"), labels = boe_date_labels())
+  scale_y_continuous(position = "right", expand = c(0, 0), 
+                     limits = c(0, 1250), breaks = seq(0, 1250, 250)) +
+  scale_x_date(expand = c(0, 0), labels = boe_date_labels(),
+               breaks = seq(min(FANG$date), max(FANG$date), by = "3 months"))
 ```
