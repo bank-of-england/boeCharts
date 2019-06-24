@@ -6,11 +6,11 @@
 \usage{
 theme_mcg_pub(base_size = 12, base_colour = "#2b2b2b",
   plot_title_size = 18, plot_title_face = "bold", subtitle_size = 12,
-  subtitle_face = "plain", caption_size = 9, caption_margin = 10,
-  caption_face = "plain", axis_title_size = base_size,
+  subtitle_face = "plain", axis_title_size = base_size,
   axis_title_face = "plain", axis_text_size = base_size,
+  caption_size = 9, caption_margin = 10, caption_face = "plain",
   strip_text_size = 12, strip_text_face = "plain",
-  plot_margin = ggplot2::margin(30, 30, 30, 30), axis_col = "#2b2b2b",
+  plot_margin = c(10, 10, 10, 10), axis_col = "#2b2b2b",
   ticks_col = "#2b2b2b")
 }
 \arguments{
@@ -25,15 +25,15 @@ Must be a named R colour or hexadecimal colour code
 
 \item{subtitle_size, subtitle_face}{subtitle size and face}
 
-\item{caption_size, caption_margin, caption_face}{caption size, margin and face}
-
 \item{axis_title_size, axis_title_face}{axis title size and face}
 
 \item{axis_text_size}{axis text size}
 
+\item{caption_size, caption_margin, caption_face}{caption size, margin (top) and face}
+
 \item{strip_text_size, strip_text_face}{facet label size and face}
 
-\item{plot_margin}{plot margin (specify with \code{ggplot2::margin()})}
+\item{plot_margin}{plot margin (top, right, bottom, left)}
 
 \item{axis_col, ticks_col}{axis & ticks colours; both default to `#2b2b2b`}
 }

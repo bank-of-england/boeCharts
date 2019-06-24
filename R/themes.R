@@ -152,7 +152,7 @@ theme_boe_overground <- function(
 #'
 #' @param subtitle_size,subtitle_face subtitle size and face
 #'
-#' @param caption_size,caption_margin,caption_face caption size, margin and face
+#' @param caption_size,caption_margin,caption_face caption size, margin (top) and face
 #'
 #' @param axis_title_size,axis_title_face axis title size and face
 #' 
@@ -160,7 +160,7 @@ theme_boe_overground <- function(
 #'
 #' @param strip_text_size,strip_text_face facet label size and face
 #'
-#' @param plot_margin plot margin (specify with \code{ggplot2::margin()})
+#' @param plot_margin plot margin (top, right, bottom, left)
 #' 
 #' @param axis_col,ticks_col axis & ticks colours; both default to `#2b2b2b`
 #'
@@ -184,11 +184,11 @@ theme_boe_overground <- function(
 theme_mcg_pub <- function(base_size = 12, base_colour = "#2b2b2b",
                           plot_title_size = 18, plot_title_face = "bold",
                           subtitle_size = 12, subtitle_face = "plain",
-                          caption_size = 9, caption_margin = 10, caption_face = "plain",
                           axis_title_size = base_size, axis_title_face = "plain",
                           axis_text_size = base_size,
+                          caption_size = 9, caption_margin = 10, caption_face = "plain",
                           strip_text_size = 12, strip_text_face = "plain",
-                          plot_margin = ggplot2::margin(30, 30, 30, 30),
+                          plot_margin = c(10, 10, 10, 10),
                           axis_col = "#2b2b2b", ticks_col = "#2b2b2b") {
 
   # create theme, based on classic
@@ -198,15 +198,10 @@ theme_mcg_pub <- function(base_size = 12, base_colour = "#2b2b2b",
     
     # grid
     panel.grid = element_blank(),
-
-    # legend
-    legend.position = "bottom",
-    legend.title =      element_blank(),
-    legend.background = element_blank(),
-    legend.key =        element_rect(fill = "transparent", colour = "transparent"),
-    legend.spacing.x =  ggplot2::unit(5, 'pt'),
-    legend.spacing.y =  ggplot2::unit(5, 'pt'),
-    legend.spacing =    ggplot2::unit(5, 'pt'),
+    
+    # background attributes
+    panel.background = element_blank(),
+    plot.margin =      ggplot2::margin(plot_margin),
 
     # tick marks
     axis.ticks.length = unit(4, "pt"),
@@ -216,32 +211,47 @@ theme_mcg_pub <- function(base_size = 12, base_colour = "#2b2b2b",
     axis.line.x = element_line(size = 0.5, colour = axis_col),
     axis.line.y = element_line(size = 0.5, colour = axis_col),
 
-    # titling
-    text = ggplot2::element_text(
+    # chart text
+    text = element_text(
       colour = base_colour, size = base_size,
       hjust = 0.5, vjust = 0.5, angle = 0, lineheight = 0.8
       ),
-    axis.text.x =        element_text(colour = base_colour, size = axis_text_size, margin = ggplot2::margin(t=3)),
-    axis.text.y =        element_text(colour = base_colour, size = axis_text_size, margin = ggplot2::margin(r=3)),
-    axis.text.y.right =  element_text(colour = base_colour, size = axis_text_size, margin = ggplot2::margin(l=3)),
-    plot.title =         element_text(size = plot_title_size, face = plot_title_face, hjust = 0, colour = base_colour),
-    plot.subtitle =      element_text(colour = base_colour, face = subtitle_face, hjust = 0, size = subtitle_size),
-    plot.caption =       element_text(colour = base_colour, hjust = 1, face = caption_face, size = caption_size, 
-                                      margin = ggplot2::margin(t = caption_margin)),
-    axis.title.x =       element_text(angle = 0, vjust = 1, face = axis_title_face, size = axis_title_size, colour = base_colour),
-    axis.title.y =       element_text(angle = 0, vjust = 1, face = axis_title_face, size = axis_title_size, colour = base_colour),
-    axis.title.y.right = element_text(angle = 0, vjust = 1, hjust = 1, face = axis_title_face, size = axis_title_size, 
-                                      colour = base_colour),
+    axis.text.x =        element_text(colour = base_colour, size = axis_text_size, 
+                                      margin = ggplot2::margin(t=3)),
+    axis.text.y =        element_text(colour = base_colour, size = axis_text_size, 
+                                      margin = ggplot2::margin(r=3)),
+    axis.text.y.right =  element_text(colour = base_colour, size = axis_text_size, 
+                                      margin = ggplot2::margin(l=3)),
+    plot.title =         element_text(size = plot_title_size, face = plot_title_face, 
+                                      hjust = 0, colour = base_colour),
+    plot.subtitle =      element_text(colour = base_colour, face = subtitle_face, 
+                                      hjust = 0, size = subtitle_size),
+    plot.caption =       element_text(colour = base_colour, hjust = 1, face = caption_face, 
+                                      size = caption_size, margin = ggplot2::margin(t = caption_margin)),
+    axis.title.x =       element_text(angle = 0, vjust = 1, face = axis_title_face, 
+                                      size = axis_title_size, colour = base_colour),
+    axis.title.y =       element_text(angle = 0, vjust = 1, face = axis_title_face, 
+                                      size = axis_title_size, colour = base_colour),
+    axis.title.y.right = element_text(angle = 0, vjust = 1, hjust = 1, face = axis_title_face, 
+                                      size = axis_title_size, colour = base_colour),
+    
+    # legend
+    legend.position = "bottom",
+    legend.title =      element_blank(),
+    legend.background = element_blank(),
+    legend.key =        element_rect(fill = "transparent", colour = "transparent"),
+    legend.spacing.x =  ggplot2::unit(5, 'pt'),
+    legend.spacing.y =  ggplot2::unit(5, 'pt'),
+    legend.spacing =    ggplot2::unit(5, 'pt'),
 
-    # background attributes
-    panel.background = element_blank(),
-    plot.margin =      plot_margin,
-
-    # strip attributes (for facetting)
+    # facet attributes
     strip.background =   element_blank(),
-    strip.text =         element_text(color = base_colour, size = strip_text_size, face = strip_text_face),
-    strip.text.x =       element_text(color = base_colour, size = strip_text_size, face = strip_text_face),
-    strip.text.y =       element_text(color = base_colour, size = strip_text_size, face = strip_text_face, angle = -90),
+    strip.text =         element_text(color = base_colour, size = strip_text_size, 
+                                      face = strip_text_face),
+    strip.text.x =       element_text(color = base_colour, size = strip_text_size, 
+                                      face = strip_text_face),
+    strip.text.y =       element_text(color = base_colour, size = strip_text_size, 
+                                      face = strip_text_face, angle = -90),
 
     complete = TRUE
   )
@@ -282,14 +292,14 @@ theme_mcg_pub <- function(base_size = 12, base_colour = "#2b2b2b",
 #'    scale_y_continuous(position = "right", 
 #'                       sec.axis = dup_axis(labels = NULL))
 
-theme_inflation_report = function(base_size = 12,
-                                  base_colour = "#2b2b2b",
-                                  plot_title_size = 12,
-                                  plot_margin = ggplot2::margin(30, 30, 30, 30)) {
+theme_inflation_report = function(
+  base_size = 12, base_colour = "#2b2b2b",
+  plot_title_size = 12, plot_margin = ggplot2::margin(30, 30, 30, 30)) {
   
   # set global parameters
   fontSize = base_size
-  allText = element_text(size = fontSize, colour = base_colour, family = "sans", color= "black")
+  allText = element_text(size = fontSize, colour = base_colour, 
+                         family = "sans", color= "black")
   
   tickLength = 0.4
   tickLabelMargin = 100 * tickLength - 20
@@ -304,16 +314,21 @@ theme_inflation_report = function(base_size = 12,
       
       # axes
       axis.text = allText,
-      axis.text.x = element_text(colour = base_colour, margin = ggplot2::margin(t = tickLabelMargin)),
-      axis.text.y.right = element_text(colour = base_colour, margin = ggplot2::margin(l = tickLabelMargin)),
-      axis.text.y.left = element_text(colour = base_colour, margin = ggplot2::margin(r = tickLabelMargin)),
+      axis.text.x = element_text(colour = base_colour, 
+                                 margin = ggplot2::margin(t = tickLabelMargin)),
+      axis.text.y.right = element_text(colour = base_colour, 
+                                       margin = ggplot2::margin(l = tickLabelMargin)),
+      axis.text.y.left = element_text(colour = base_colour, 
+                                      margin = ggplot2::margin(r = tickLabelMargin)),
       axis.title.x = element_blank(),
       axis.title.y = element_blank(),
       axis.ticks.length = ggplot2::unit(-tickLength, "cm"),
       
       # titling
-      plot.title = element_text(size = plot_title_size, family = "sans", color= base_colour, hjust = 1.0),
-      plot.subtitle = element_text(size = plot_title_size, family = "sans", color= base_colour, hjust = 1.0),
+      plot.title = element_text(size = plot_title_size, family = "sans", 
+                                color = base_colour, hjust = 1.0),
+      plot.subtitle = element_text(size = plot_title_size, family = "sans", 
+                                   color = base_colour, hjust = 1.0),
       
       # grid
       panel.background = element_blank(),
@@ -325,7 +340,8 @@ theme_inflation_report = function(base_size = 12,
       strip.background =   element_blank(),
       strip.text =         element_text(color = base_colour, size = fontSize),
       strip.text.x =       element_text(color = base_colour, size = fontSize),
-      strip.text.y =       element_text(color = base_colour, size = fontSize, angle = -90),
+      strip.text.y =       element_text(color = base_colour, size = fontSize, 
+                                        angle = -90),
       
       complete = TRUE
     )

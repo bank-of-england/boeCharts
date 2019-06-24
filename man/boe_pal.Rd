@@ -7,11 +7,13 @@
 boe_pal(palette, n, reverse = FALSE)
 }
 \arguments{
-\item{palette}{Name of desired palette.}
+\item{palette}{character string indicating the palette to use. Options
+available are in \code{\link[boeCharts]{boe_palettes}} (e.g. "boe rich").}
 
-\item{n}{Number of colors desired.}
+\item{n}{Number of palette colours to use}
 
-\item{reverse}{Logical, if TRUE the palette will be reversed.}
+\item{reverse}{Logical, sets the order of colours in the scale. If TRUE,
+the palette will be reversed (FALSE by default).}
 }
 \description{
 Create Bank colour palettes for plots.
