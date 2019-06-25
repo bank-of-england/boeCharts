@@ -79,7 +79,6 @@ pal_pal <- function(palette, reverse) {
 
 #' @export
 #' @importFrom graphics rect par image text
-#' @importFrom grDevices rgb
 print.palette <- function(x, ...) {
   
   n <- length(x)

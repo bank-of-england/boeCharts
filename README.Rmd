@@ -86,6 +86,5 @@ Also, for general consideration when contributing to the package, try to:
 
 ## TO DO
 
-- Implementation of "colour combinations" described in new identity guidelines
-- Bank Overground theme
-- Release new minor version
+- Chart export functions
+- Release

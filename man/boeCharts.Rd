@@ -9,6 +9,13 @@
 A compilation of 'ggplot2' themes, scales and helpers to create
 Bank publication quality charts.
 }
+\seealso{
+Useful links:
+\itemize{
+  \item \url{https://almplatform/tfs/UnmanagedCollection/Shared%20Analytical%20Code/_git/boeCharts?path=%2FREADME.md&version=GBmaster&_a=contents}
+}
+
+}
 \author{
 \strong{Maintainer}: Ewen Henderson \email{ewen.henderson@bankofengland.co.uk}
 

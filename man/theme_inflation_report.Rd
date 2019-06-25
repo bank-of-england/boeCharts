@@ -2,7 +2,7 @@
 % Please edit documentation in R/themes.R
 \name{theme_inflation_report}
 \alias{theme_inflation_report}
-\title{A \code{ggplot2} theme for BOE Inflation Report chart styling}
+\title{A \code{ggplot2} theme for Inflation Report chart styling}
 \usage{
 theme_inflation_report(base_size = 12, base_colour = "#2b2b2b",
   plot_title_size = 12, plot_margin = ggplot2::margin(30, 30, 30, 30))

@@ -8,4 +8,5 @@
 #' @docType package
 #' @import ggplot2
 #' @importFrom scales dollar_format
+#' @importFrom grDevices windowsFont windowsFonts rgb
 "_PACKAGE"

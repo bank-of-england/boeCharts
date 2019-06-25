@@ -42,22 +42,28 @@ theme_overground(base_family = "Calibri", base_size = 18,
 
 \item{axis_title_family, axis_title_face, axis_title_size}{axis title font family, face and size}
 
-\item{axis_title_just}{axis title font justification, one of \code{[blmcrt]}}
+\item{axis_title_just}{axis title font justification, one of `[blmcrt]`}
 
 \item{plot_margin}{plot margin (top, right, bottom, left)}
 
-\item{grid}{panel grid (\code{TRUE}, \code{FALSE}, or a combination of \code{X}, \code{x}, \code{Y}, \code{y})}
+\item{grid}{panel grid (`TRUE`, `FALSE`, or a combination of `X`, `x`, `Y`, `y`)}
 
-\item{grid_col, axis_col}{grid & axis colors; both default to \code{#cccccc}}
+\item{grid_col, axis_col}{grid & axis colors; both default to `#cccccc`}
 
-\item{axis}{add x or y axes? \code{TRUE} (or \code{XY}), \code{FALSE}, \code{X} or \code{Y}}
+\item{axis}{add x or y axes? `TRUE` (or `XY`), `FALSE`, `X` or `Y`}
 
-\item{ticks}{axis ticks (\code{TRUE} (or \code{XY}), \code{FALSE}, \code{X} or \code{Y})}
+\item{ticks}{axis ticks (`TRUE` (or `XY`), `FALSE`, `X` or `Y`)}
+}
+\value{
+Will not return anything of itself, but when used in conjuntion
+with \code{\link{ggplot}} and (e.g.) \code{\link{geom_point}} from the
+package \code{ggplot2}, will apply styling to a plot.
 }
 \description{
 Provides a theme to produce
-\href{https://www.bankofengland.co.uk/bank-overground}{Bank Overground}
+\href{https://www.bankofengland.co.uk/bank-overground}{Bank Overground} 
 style visualisations in \code{ggplot2}.
+See \code{left_align_titles()} for full left-alignment of chart titles.
 }
 \details{
 Builds on the 'grammar of graphics' framework implement in

@@ -42,11 +42,25 @@ check_pal_n <- function(n, pal) {
 }
 
 # left-align text
-left_align <- function(plot_name, pieces){
+left_align_titles <- function(chart) {
   
-  grob <- ggplotGrob(plot_name)
-  n <- length(pieces)
-  grob$layout$l[grob$layout$name %in% pieces] <- 2
+  grob <- ggplotGrob(chart)
+  grob$layout$l[grob$layout$name %in% c("title", "subtitle")] <- 2
   
   grob
 }
+
+# map font on windows sys
+map_font_win <- function(base_family) {
+  
+  # check if font already mapped
+  if (base_family %in% names(windowsFonts())) return(NULL)
+    
+  # map font to system
+  args <- list()
+  args[[base_family]] <- windowsFont(base_family)
+  do.call(windowsFonts, args)
+    
+}
+
+

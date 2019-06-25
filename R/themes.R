@@ -1,8 +1,9 @@
-#' @title A \code{ggplot2} theme that approximates Bank Overground charts
+#' A \code{ggplot2} theme that approximates Bank Overground charts
 #'
 #' @description Provides a theme to produce
 #' \href{https://www.bankofengland.co.uk/bank-overground}{Bank Overground} 
 #' style visualisations in \code{ggplot2}.
+#' See \code{left_align_titles()} for full left-alignment of chart titles.
 #'
 #' @details Builds on the 'grammar of graphics' framework implement in
 #' ggplot2. Applying \code{theme_overground()} will adjust graphical parameters
@@ -12,7 +13,6 @@
 #' with \code{\link{ggplot}} and (e.g.) \code{\link{geom_point}} from the
 #' package \code{ggplot2}, will apply styling to a plot.
 #'
-#' @md
 #' @param base_family,base_size,base_colour base font family, size and colour
 #' @param plot_title_family,plot_title_face,plot_title_size,plot_title_margin plot title family, face, size and margi
 #' @param subtitle_family,subtitle_face,subtitle_size plot subtitle family, face and size
@@ -64,12 +64,7 @@ theme_overground <- function(
   ) {
   
   # map font family
-  if (.Platform$OS.type == "windows") {
-    if (!base_family %in% names(windowsFonts())) {
-      
-      windowsFonts(base_family = windowsFont(base_family))
-    }
-  }
+  map_font_win(base_family)
   
   # base theme
   p <- theme_minimal(base_family = base_family, base_size = base_size) +
@@ -111,8 +106,8 @@ theme_overground <- function(
         p <- p + theme(axis.line.y = element_line(colour=axis_col, size=0.15))
       }
     } else {
-      p <- p + theme(axis.line.x = element_line(colour=axis_col, size=0.15))
-      p <- p + theme(axis.line.y = element_line(colour=axis_col, size=0.15))
+      p <- p + theme(axis.line.x = element_line(colour=axis_col, size=0.15),
+                     axis.line.y = element_line(colour=axis_col, size=0.15))
     }
   } else {
     p <- p + theme(axis.line = element_blank())
@@ -152,40 +147,41 @@ theme_overground <- function(
   
   # chart text + margins
   p <- p + theme(axis.text.x = element_text(size = axis_text_size, colour = axis_text_colour, 
-                                              margin = margin(t=10)))
-  p <- p + theme(axis.text.y = element_text(size = axis_text_size, colour = axis_text_colour, 
-                                              margin = margin(r=10)))
-  p <- p + theme(axis.title = element_text(size = axis_title_size, family = axis_title_family, 
-                                             colour = axis_title_colour))
-  p <- p + theme(axis.title.x = element_text(hjust = xj, size=axis_title_size, family=axis_title_family, 
-                                               face=axis_title_face, colour = axis_title_colour))
-  p <- p + theme(axis.title.y = element_text(hjust = yj, size=axis_title_size, family=axis_title_family, 
-                                               face = axis_title_face, colour = axis_title_colour))
-  p <- p + theme(axis.title.y.right = element_text(hjust = yj, size=axis_title_size, angle=90, 
-                                                       family=axis_title_family, face = axis_title_face,
-                                                       colour = axis_title_colour))
-  p <- p + theme(strip.text = element_text(hjust = 0, size = strip_text_size, colour = strip_text_colour,
-                                             face = strip_text_face, family = strip_text_family))
-  p <- p + theme(panel.spacing = grid::unit(2, "lines"))
-  p <- p + theme(plot.title = element_text(hjust=0, size=plot_title_size, margin=margin(b=plot_title_margin),
-                                             family=plot_title_family, face=plot_title_face, 
-                                             colour = plot_title_colour))
-  p <- p + theme(plot.subtitle = element_text(hjust=0, size=subtitle_size, margin=margin(b=subtitle_margin),
-                                                family=subtitle_family, face=subtitle_face, colour = subtitle_colour))
-  p <- p + theme(plot.caption=element_text(hjust=1, size=caption_size, margin=margin(t=caption_margin),
-                                               family=caption_family, face=caption_face, colour = caption_colour))
-  p <- p + theme(legend.title = element_text(hjust=0, size=legend_title_size, family = legend_title_family, 
-                                                 face=legend_title_face, colour = legend_title_colour))
-  p <- p + theme(legend.text = element_text(hjust=0, size=legend_text_size, family=legend_text_family, 
-                                                 face=legend_text_face, colour = legend_text_colour))
-  p <- p + theme(plot.margin = ggplot2::margin(plot_margin))
-  
+                                            margin = margin(t=10)),
+                 axis.text.y = element_text(size = axis_text_size, colour = axis_text_colour, 
+                                            margin = margin(r=10)),
+                 axis.title = element_text(size = axis_title_size, family = axis_title_family, 
+                                           colour = axis_title_colour),
+                 axis.title.x = element_text(hjust = xj, size=axis_title_size, family=axis_title_family, 
+                                             face=axis_title_face, colour = axis_title_colour),
+                 axis.title.y = element_text(hjust = yj, size=axis_title_size, family=axis_title_family, 
+                                             face = axis_title_face, colour = axis_title_colour),
+                 axis.title.y.right = element_text(hjust = yj, size=axis_title_size, angle=90, 
+                                                   family=axis_title_family, face = axis_title_face,
+                                                   colour = axis_title_colour),
+                 strip.text = element_text(hjust = 0, size = strip_text_size, colour = strip_text_colour,
+                                           face = strip_text_face, family = strip_text_family),
+                 panel.spacing = grid::unit(2, "lines"),
+                 plot.title = element_text(hjust=0, size=plot_title_size, margin=margin(b=plot_title_margin),
+                                           family=plot_title_family, face=plot_title_face, 
+                                           colour = plot_title_colour),
+                 plot.subtitle = element_text(hjust=0, size=subtitle_size, margin=margin(b=subtitle_margin),
+                                              family=subtitle_family, face=subtitle_face, 
+                                              colour = subtitle_colour),
+                 plot.caption=element_text(hjust=1, size=caption_size, margin=margin(t=caption_margin),
+                                           family=caption_family, face=caption_face, 
+                                           colour = caption_colour),
+                 legend.title = element_text(hjust=0, size=legend_title_size, family = legend_title_family, 
+                                             face=legend_title_face, colour = legend_title_colour),
+                 legend.text = element_text(hjust=0, size=legend_text_size, family=legend_text_family, 
+                                            face=legend_text_face, colour = legend_text_colour),
+                 plot.margin = ggplot2::margin(plot_margin))
+
   p
-  
 }
 
 
-#' @title A \code{ggplot2} theme for MCG publication-ready charts
+#' A \code{ggplot2} theme for MCG publication-ready charts
 #'
 #' @description Provides a theme to produce
 #' Money & Credit Group (MCG) publication style visualisations in \code{ggplot2}.
@@ -305,14 +301,12 @@ theme_mcg_pub <- function(base_size = 12, base_colour = "#2b2b2b",
     strip.text.x =       element_text(color = base_colour, size = strip_text_size, 
                                       face = strip_text_face),
     strip.text.y =       element_text(color = base_colour, size = strip_text_size, 
-                                      face = strip_text_face, angle = -90),
-
-    complete = TRUE
+                                      face = strip_text_face, angle = -90)
   )
 }
 
 
-#' A \code{ggplot2} theme for BOE Inflation Report chart styling
+#' A \code{ggplot2} theme for Inflation Report chart styling
 #' 
 #' @description Provides a theme to produce
 #' Inflation Report style visualisations in \code{ggplot2}.
@@ -395,9 +389,7 @@ theme_inflation_report = function(
       strip.text =         element_text(color = base_colour, size = fontSize),
       strip.text.x =       element_text(color = base_colour, size = fontSize),
       strip.text.y =       element_text(color = base_colour, size = fontSize, 
-                                        angle = -90),
-      
-      complete = TRUE
-    )
+                                        angle = -90)
+      )
 }
 
