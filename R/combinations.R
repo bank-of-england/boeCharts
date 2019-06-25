@@ -6,8 +6,6 @@
 #' @return A vector of named hexadecimal colours.
 #' 
 #' @keywords internal
-#' 
-#' @noRd
 #'
 #' @export
 
@@ -68,8 +66,6 @@ harmonious_grey <- c(
 #' @return A vector of named hexadecimal colours.
 #' 
 #' @keywords internal
-#' 
-#' @noRd
 #'
 #' @export
 

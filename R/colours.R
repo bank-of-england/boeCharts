@@ -211,4 +211,28 @@ mcg_cols_pub <- c(
   orange         = "#fd9900"
 )
 
+
+#' @title Colours from MCG publication's colour palette
+#'
+#' @description \code{\link{mcg_pub_cols}} Provides a vector of named colours
+#' from current Money & Credit Group (MCG) publication colours.
+#'
+#' @return A list of named hexadecimal colours.
+#'
+#' @examples
+#'
+#' library(ggplot2)
+#' library(boeCharts)
+#'
+#'    ggplot(mtcars) +
+#'    aes(
+#'    x = mpg,
+#'    y = wt
+#'    ) +
+#'    geom_point(colour = mcg_cols_pub["fuschia"]) +
+#'    theme_mcg_pub()
+#'
+#' @export
+#' 
+#' @keywords internal
 mcg_pub_cols <- mcg_cols_pub
