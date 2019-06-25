@@ -37,11 +37,6 @@ Must be a named R colour or hexadecimal colour code
 
 \item{axis_col, ticks_col}{axis & ticks colours; both default to `#2b2b2b`}
 }
-\value{
-Will not return anything of itself, but when used in conjuntion
-with \code{\link{ggplot}} and (e.g.) \code{\link{geom_point}} from the
-package \code{ggplot2}, will apply styling to a plot.
-}
 \description{
 Provides a theme to produce
 Money & Credit Group (MCG) publication style visualisations in \code{ggplot2}.

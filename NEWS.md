@@ -1,7 +1,8 @@
 # boeCharts 1.1.0
 
-* Implementation of harmonious and vibrant colour combinations as supported palettes.
-* Standardisation of palette names.
+* Implementation of [harmonious/vibrant colour combinations](https://bankofengland.frontify.com/d/RPk6pMZziBFw/bank-standards#/brand-elements/colour-palette) as supported palettes.
+* A [Bank Overground](https://www.bankofengland.co.uk/bank-overground) theme.
+* Standardisation of palette names in calls to `scale_colour|fill_boe()`.
 * Easy-printing methods for palettes (e.g. `boe_pal(palette = "boe", n = 4)`).
 
 

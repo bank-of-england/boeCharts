@@ -31,7 +31,7 @@ ggplotise <- function(palette, n = -1) {
   unname(palette)
 }
 
-
+# check palette length
 check_pal_n <- function(n, pal) {
   if (n > length(pal)) {
     warning("This palette can handle a maximum of ", length(pal), " values.",
@@ -39,4 +39,14 @@ check_pal_n <- function(n, pal) {
   } else if (n < 0) {
     stop("`n` must be a non-negative integer.")
   }
+}
+
+# left-align text
+left_align <- function(plot_name, pieces){
+  
+  grob <- ggplotGrob(plot_name)
+  n <- length(pieces)
+  grob$layout$l[grob$layout$name %in% pieces] <- 2
+  
+  grob
 }
