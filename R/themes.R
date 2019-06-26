@@ -53,11 +53,12 @@ theme_overground <- function(
   axis_text_size = base_size, axis_text_colour = base_colour,
   axis_title_family = subtitle_family,
   axis_title_size = base_size, axis_title_colour = base_colour,
-  axis_title_face = "plain", axis_title_just = "rt",
+  axis_title_face = "plain", axis_title_just = "mc",
   legend_title_family = base_family, legend_title_size = base_size, 
   legend_title_colour = base_colour, legend_title_face = "plain",
   legend_text_family = base_family, legend_text_size = base_size, 
   legend_text_colour = base_colour, legend_text_face = "plain",
+  legend_position = "bottom",
   plot_margin = c(10, 10, 10, 10),
   grid = "X", grid_col = "#C8CCCF", 
   axis = "X", axis_col = grid_col, ticks = axis
@@ -70,7 +71,8 @@ theme_overground <- function(
   p <- theme_minimal(base_family = base_family, base_size = base_size) +
     
     # legend
-    theme(legend.background = element_blank(), legend.key = element_blank())
+    theme(legend.background = element_blank(), legend.key = element_blank(),
+          legend.position = legend_position)
 
   # chart grid
   if (inherits(grid, "character") | grid == TRUE) {

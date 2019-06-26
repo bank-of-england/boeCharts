@@ -5,27 +5,28 @@ boeCharts
 Overview
 --------
 
-The `boeCharts` R package contains Bank styles for [ggplot2](https://github.com/hadley/ggplot2) charts. It currently houses designs to help you approximate charts found in these places:
+The `boeCharts` R package contains Bank chart styles and themes, for use in conjunction with [ggplot2](https://github.com/hadley/ggplot2). It currently houses designs for approximating charts found within:
 
--   [BoE website](https://www.bankofengland.co.uk/statistics/visual-summaries/effective-interest-rates)
+-   [Bank Overground](https://www.bankofengland.co.uk/bank-overground)
+-   [Bank website - statistics](https://www.bankofengland.co.uk/statistics/visual-summaries/effective-interest-rates)
 -   [Inflation Report](https://www.bankofengland.co.uk/inflation-report/2018/august-2018/global-economic-and-financial-market-developments)
--   [DSD Statistical Publications](https://www.bankofengland.co.uk/-/media/boe/files/statistics/money-and-credit/2018/february-2018.pdf?la=en&hash=D5A6531045C648B4169D5FD480723AE4CFBD75F9)
+-   [Statistical Releases](https://www.bankofengland.co.uk/-/media/boe/files/statistics/money-and-credit/2018/february-2018.pdf?la=en&hash=D5A6531045C648B4169D5FD480723AE4CFBD75F9)
 
 Install
 -------
 
-**boeCharts** is an R package/library best used via R Studio, installed from the [software catalogue](http://sccm-wl-mgt-01/CMApplicationCatalog).
+**boeCharts** is an R package/library best used via R Studio (installed from the [software catalogue](http://sccm-wl-mgt-01/CMApplicationCatalog)).
 
 Get the latest stable version of **boeCharts** by running the below code within an R session:
 
 ``` r
-# install remotes (required for installation)
+# install remotes package (required for local package installs)
 if (!require("remotes")) install.packages("remotes")
 
-# install boeCharts from collaborate
+# install boeCharts
 install.packages("http://collaborate/workspaces/RHelpCentre/R%20documents/Packages/boeCharts_1.0.0.zip", repos = NULL, type = "binary")
 
-# install boeCharts' dependencies from CRAN
+# install any missing dependencies from CRAN
 remotes::install_deps(find.package("boeCharts"))
 ```
 
@@ -58,7 +59,7 @@ ggplot(data = FANG, aes(x = date, y = close, colour = symbol)) +
 
 ![](figures/example-1.png)
 
-For more detailed guidance, refer to the package [vignettes](https://tfsapp-liv/tfs/UnmanagedCollection/Shared%20Analytical%20Code/_git/boeCharts?path=%2Fvignettes&version=GBmaster&_a=contents) (also included in the package documentation, accessible from R).
+For more detailed guidance, refer to the package [vignettes](https://tfsapp-liv/tfs/UnmanagedCollection/Shared%20Analytical%20Code/_git/boeCharts?path=%2Fvignettes&version=GBmaster&_a=contents) (also included in the `boeCharts` documentation, accessible from within R once the package is installed).
 
 Contribute
 ----------
@@ -78,6 +79,5 @@ Also, for general consideration when contributing to the package, try to:
 TO DO
 -----
 
--   Implementation of "colour combinations" described in new identity guidelines
--   Bank Overground theme
--   Release new minor version
+-   Chart export functions
+-   Release
