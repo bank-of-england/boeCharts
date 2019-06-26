@@ -43,25 +43,34 @@ remotes::install_deps(find.package("boeCharts"))
 
 ### A minimal example
 
-Here's an out-of-
-
-Apply a `boeCharts` chart theme by adding a `theme_xxx` layer to a `ggplot2` object. Apply a Bank colour palette in a similar fashion - 
+Here is an out-of-the-box `ggplot2` chart.
 
 ```{r}
-# load packages
-library(boeCharts)
+# load ggplot2
 library(ggplot2)
 
-# create chart
-ggplot(iris, aes(Sepal.Length, Sepal.Width, color = Species)) +
-  geom_jitter(size = 3) +
+# vanilla chart example
+p <- ggplot(iris, aes(Sepal.Length, Sepal.Width, color = Species)) +
+  geom_jitter(size = 3)
+
+p
+```
+
+Below, the [Bank Overground](https://www.bankofengland.co.uk/bank-overground) chart theme and a "vibrant" Bank colour combination are added to the same object.
+
+```{r}
+# load boeCharts
+library(boeCharts)
+
+p +
   # Bank Overground theme
   theme_overground() +
   # a "vibrant" Bank colour combination
   scale_colour_boe(palette = "vibrantC")
 ```
 
-### A c
+### A more in-depth example
+
 ```{r, example}
 # load packages
 library(boeCharts)
