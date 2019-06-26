@@ -153,6 +153,8 @@ theme_overground <- function(
                                             margin = margin(t=10), family = base_family),
                  axis.text.y = element_text(size = axis_text_size, colour = axis_text_colour, 
                                             margin = margin(r=10), family = base_family),
+                 axis.text = element_text(size = axis_text_size, colour = axis_text_colour, 
+                                          family = base_family),
                  axis.title = element_text(size = axis_title_size, family = base_family, 
                                            colour = axis_title_colour),
                  axis.title.x = element_text(hjust = xj, size=axis_title_size, family=base_family, 

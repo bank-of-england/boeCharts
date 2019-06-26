@@ -1,6 +1,8 @@
-inst/doc
 .Rproj.user
 .Rhistory
+doc
+Meta
+tests/figs
 *.RData
 *.Rdata
 *.rda
@@ -10,5 +12,3 @@ inst/doc
 *.xls
 *.tar.gz
 *.zip
-doc
-Meta
