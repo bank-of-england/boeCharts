@@ -59,7 +59,7 @@ library(ggplot2)
 ggplot(mtcars, aes(x = mpg, y = wt)) +
    geom_point() +
    labs(title = "A Lovely Plot",
-        subtitle = "An enticing subtitle.") +
+        subtitle = "A thought-provoking subtitle.") +
    theme_mcg_pub() +
    scale_y_continuous(position = "right")
 

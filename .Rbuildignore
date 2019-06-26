@@ -4,6 +4,5 @@
 ^README\.md$
 ^README\.Rmd$
 ^README-.*\.png$
-^figures$
 ^doc$
 ^Meta$

@@ -5,44 +5,47 @@
 \title{A \code{ggplot2} theme that approximates Bank Overground charts}
 \usage{
 theme_overground(base_family = "Calibri", base_size = 18,
-  base_colour = "#6B7E87", plot_title_family = base_family,
+  base_colour = "#6B7E87", plot_title_face = "bold",
   plot_title_size = 28, plot_title_colour = "#00294E",
-  plot_title_face = "bold", plot_title_margin = 10,
-  subtitle_family = base_family, subtitle_colour = "#1e1e1e",
-  subtitle_size = 22, subtitle_face = "plain", subtitle_margin = 15,
-  strip_text_family = base_family, strip_text_colour = base_colour,
-  strip_text_size = 22, strip_text_face = "plain",
-  caption_family = base_family, caption_colour = base_colour,
-  caption_size = 16, caption_face = "plain", caption_margin = 15,
-  axis_text_size = base_size, axis_text_colour = base_colour,
-  axis_title_family = subtitle_family, axis_title_size = base_size,
+  plot_title_margin = 10, subtitle_face = "plain",
+  subtitle_colour = "#1e1e1e", subtitle_size = 22,
+  subtitle_margin = 15, axis_title_size = base_size,
   axis_title_colour = base_colour, axis_title_face = "plain",
-  axis_title_just = "rt", legend_title_family = base_family,
-  legend_title_size = base_size, legend_title_colour = base_colour,
-  legend_title_face = "plain", legend_text_family = base_family,
+  axis_title_just = "mc", axis_text_size = base_size,
+  axis_text_colour = base_colour, legend_title_size = base_size,
+  legend_title_colour = base_colour, legend_title_face = "plain",
   legend_text_size = base_size, legend_text_colour = base_colour,
-  legend_text_face = "plain", plot_margin = c(10, 10, 10, 10),
-  grid = "X", grid_col = "#C8CCCF", axis = "X",
-  axis_col = grid_col, ticks = axis)
+  legend_position = "bottom", caption_face = "plain",
+  caption_colour = base_colour, caption_size = 16,
+  caption_margin = 15, strip_text_face = "plain",
+  strip_text_colour = base_colour, strip_text_size = 22,
+  plot_margin = c(10, 10, 10, 10), grid = "X", grid_col = "#C8CCCF",
+  axis = "X", axis_col = grid_col, ticks = axis)
 }
 \arguments{
 \item{base_family, base_size, base_colour}{base font family, size and colour}
 
-\item{plot_title_family, plot_title_face, plot_title_size, plot_title_margin}{plot title family, face, size and margi}
+\item{plot_title_face, plot_title_size, plot_title_colour, plot_title_margin}{plot title face, size, colour and margin}
 
-\item{subtitle_family, subtitle_face, subtitle_size}{plot subtitle family, face and size}
+\item{subtitle_face, subtitle_size, subtitle_colour}{plot subtitle face, size and colour}
 
-\item{subtitle_margin}{plot subtitle margin bottom (single numeric value)}
+\item{subtitle_margin}{plot subtitle bottom margin (single numeric value)}
 
-\item{strip_text_family, strip_text_face, strip_text_size}{facet label font family, face and size}
-
-\item{caption_family, caption_face, caption_size, caption_margin}{plot caption family, face, size and margin}
-
-\item{axis_text_size}{font size of axis text}
-
-\item{axis_title_family, axis_title_face, axis_title_size}{axis title font family, face and size}
+\item{axis_title_face, axis_title_size, axis_title_colour}{axis title font face, size and colour}
 
 \item{axis_title_just}{axis title font justification, one of `[blmcrt]`}
+
+\item{axis_text_size, axis_text_colour}{axis text size and colour}
+
+\item{legend_title_face, legend_title_size, legend_title_colour}{legend title font face, size and colour}
+
+\item{legend_text_size, legend_text_colour}{legend text size and colour}
+
+\item{legend_position}{legend position ("none", "left", "right", "bottom", "top", or two-element numeric vector)}
+
+\item{caption_face, caption_size, caption_colour, caption_margin}{plot caption face, size, colour and margin}
+
+\item{strip_text_face, strip_text_size, strip_text_colour}{facet label font face, size and colour}
 
 \item{plot_margin}{plot margin (top, right, bottom, left)}
 
@@ -71,13 +74,15 @@ ggplot2. Applying \code{theme_overground()} will adjust graphical parameters
 to give a plot a feel more in line with Bank Overground publications.
 }
 \examples{
+\dontrun{
 
 library(ggplot2)
 
 ggplot(mtcars, aes(x = mpg, y = wt)) +
    geom_point() +
    labs(title = "A Lovely Plot",
-        subtitle = "An enticing subtitle.") +
+        subtitle = "A thought-provoking subtitle.") +
    theme_overground()
-   
+}
+
 }

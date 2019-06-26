@@ -7,8 +7,7 @@ output:
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
 ```{r, echo = FALSE}
-knitr::opts_chunk$set(collapse = TRUE, comment = "#>", 
-                      fig.path = "figures/", dpi = 105, fig.width = 6, fig.asp = 0.618)
+knitr::opts_chunk$set(collapse = TRUE, comment = "#>", fig.path = "man/figures/README-")
 ```
 
 # boeCharts
@@ -44,6 +43,10 @@ remotes::install_deps(find.package("boeCharts"))
 
 ### A minimal example
 
+Here's an out-of-
+
+Apply a `boeCharts` chart theme by adding a `theme_xxx` layer to a `ggplot2` object. Apply a Bank colour palette in a similar fashion - 
+
 ```{r}
 # load packages
 library(boeCharts)
@@ -58,7 +61,7 @@ ggplot(iris, aes(Sepal.Length, Sepal.Width, color = Species)) +
   scale_colour_boe(palette = "vibrantC")
 ```
 
-
+### A c
 ```{r, example}
 # load packages
 library(boeCharts)

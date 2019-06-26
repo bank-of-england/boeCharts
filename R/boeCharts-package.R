@@ -1,11 +1,8 @@
 #' Bank Chart Themes and Styling for 'ggplot2'
 #'
-#' A compilation of 'ggplot2' themes, scales and helpers to create 
-#' Bank publication quality charts.
+#' A compilation of 'ggplot2' themes, scales and helpers to create Bank-style, 
+#' publication-ready visualisations.
 #' 
-#' @md
-#' @name boeCharts
-#' @docType package
 #' @import ggplot2
 #' @importFrom scales dollar_format
 #' @importFrom grDevices windowsFont windowsFonts rgb
