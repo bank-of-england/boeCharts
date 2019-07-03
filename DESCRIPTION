@@ -12,7 +12,7 @@ Authors@R: c(
       person("Bank of England", role = c("cph", "fnd"))
     )
 Description: A compilation of 'ggplot2' themes, scales and helpers to create Bank-style,
-    publication-ready visualisations.
+    publication-ready data visualisation.
 Maintainer: Ewen Henderson <ewen.henderson@bankofengland.co.uk>
 License: file LICENSE
 Depends: R (>= 3.3.0)
