@@ -1,0 +1,226 @@
+---
+title: "Bank-standard colours with boeCharts"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Bank-standard colours with boeCharts}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+
+---
+
+## BoE Visual Identity
+In early 2019, Communications directorate [updated the Bank's visual identity](http://intranet/BankNews/Pages/New-yearnew-lookUpdatingt-636840277763400290.aspx) including a suite of standard colours for BoE outputs.  For more details on the colours, including accessibility ratings and general guidance, see the [Brand Standards](https://bankofengland.frontify.com/d/RPk6pMZziBFw/bank-standards#/brand-elements/colour-palette).
+
+We hould use these in our charts.  But how to do it without mucking around with RGB codes and Hex values?  **boeCharts to the rescue!**
+
+### The `boeCharts` package
+The first time you use it, you'll need to install it.  This is an internaly built package, so rather than the regular `install.packages("boeCharts")` to pull from CRAN, we specify the full path and `repos=NULL`:
+
+```{r install, eval=FALSE}
+install.packages("http://collaborate/workspaces/RHelpCentre/R%20Documents/Packages/boeCharts_1.0.1.zip", repos=NULL, type="binary")
+```
+
+and then library it:
+
+```{r lib, message=FALSE, warning=FALSE}
+library(boeCharts)
+library(dplyr)
+```
+
+### What are the colours?
+There are a number of palettes we can use:  the standard BoE palette, plus Soft, Highlights, Neutral & Rich.  The `boeCharts` package also includes palettes for other business areas.
+
+We can see these as named vectors in the list `boe_palettes`, or as individual vectors `boe`, `boe_highlights`, etc.
+
+```{r palette names}
+boe_palettes %>% names()
+```
+
+```{r palette values}
+boe_palettes$boe
+boe_palettes$harmonious_orange
+```
+
+Hex codes are all very well, but we want to choose our colours visually.  To help us we can view the palettes using `show_palette_cols()`:
+
+```{r show palettes}
+show_palette_cols(boe_palettes$boe)
+title("boe")
+
+show_palette_cols(boe_palettes$boe_highlights)
+title("boe highlights")
+
+show_palette_cols(boe_palettes$boe_neutral)
+title("boe neutral")
+
+show_palette_cols(boe_palettes$boe_rich)
+title("boe rich")
+
+show_palette_cols(boe_palettes$boe_soft)
+title("boe soft")
+
+```
+
+To see all the colour palettes, try `show_colour_swatches()`.
+```{r colour_swatches, echo=F}
+## Not run: launches a PDF colour chart
+show_colour_swatches()
+```
+
+## Applying BoE colours to charts with `scale_xxx_boe`
+
+How can we apply these palettes to our charts?
+
+Let's take a classic chart, using the iris dataset.  Here's the default output:
+```{r first chart, message=FALSE, warning=FALSE}
+library(ggplot2)
+
+iris %>% 
+  ggplot(aes(Petal.Length, Petal.Width, colour = Species)) +
+  geom_point()
+```
+
+### `scale_fill_discrete_boe()` and `scale_colour_discrete_boe()`
+In the chart above, the colour aesthetic is mapped to `Species`.  So we use **`scale_colour_discrete_boe`** to apply some BoE official colours.
+
+```{r boe point}
+
+iris %>% 
+  ggplot(aes(Petal.Length, Petal.Width, colour = Species)) +
+  geom_point() +
+  scale_colour_discrete_boe()
+```
+
+Easy as that.
+
+For other chart types which take a `fill` attribute, use the equivalent `scale_fill_discrete_boe()`.
+
+```{r boe bar, fig.height=4}
+iris %>% 
+  group_by(Species) %>% 
+  summarise(mean_petal_length = mean(Petal.Length)) %>% 
+  ggplot(aes(Species, mean_petal_length, fill = Species)) +
+  geom_col() +
+  scale_fill_discrete_boe()
+```
+
+
+
+## Variations
+
+There are a number of variations we can make to this, including
+
+* Reversing colour order
+* Choosing different palettes
+* Picking specific colours
+
+We will look at each of these in turn.
+
+
+### Reversing the palette
+By passing `reverse=TRUE`, ggplot will pick colours from the end of the palette first, rather than the beginning.
+
+```{r reverse}
+iris %>% 
+  ggplot(aes(Petal.Length, Petal.Width, colour = Species)) +
+  geom_point() +
+  scale_colour_discrete_boe(reverse = TRUE)
+
+```
+
+### Changing palette
+
+We have [5 primary BoE palettes](https://bankofengland.frontify.com/d/RPk6pMZziBFw/bank-standards#/brand-elements/colour-palette/colour-values) and a number of Harmonious and Vibrant colour combinations to choose from, plus some custom palettes:
+```{r palette names2}
+print(boe_palettes %>% names())
+```
+
+Let's change our chart to the BoE Highlights palette:
+```{r diff palette}
+iris %>% 
+  ggplot(aes(Petal.Length, Petal.Width, colour = Species)) +
+  geom_point() +
+  scale_colour_discrete_boe(boe_highlights) ## boe, boe_highlights, boe_rich, boe_soft, boe_neutral, harmonious_xxx, vibrant_x
+
+```
+
+### Specifying particular colours
+
+We can pick out our favourite colours from the named vectors, and combine them as we like.  This also lets us mix and match colours from different palettes.
+
+```{r indiv cols}
+
+iris %>% 
+  group_by(Species) %>%
+  summarise(`Mean Petal Length` = mean(Petal.Length)) %>% 
+  ggplot() +
+  geom_col(aes(Species, `Mean Petal Length`, fill = Species)) +
+  scale_fill_manual(values = c(boe_soft$yellow, boe_highlights$orange, boe_rich$rich_orange))
+
+```
+
+## Continuous palettes
+```{r continuous}
+## diverging palette from boe_diverging_palettes
+iris %>% 
+  ggplot() +
+  geom_point(aes(Petal.Width, Petal.Length, colour = Petal.Width)) +
+  scale_colour_continuous_boe(boe_diverging_palettes$red_blue) +
+  theme_minimal()
+
+## specify a particular midpoint
+iris %>% 
+  ggplot() +
+  geom_point(aes(Petal.Width, Petal.Length, colour = Petal.Width)) +
+  scale_colour_continuous_boe(boe_diverging_palettes$red_blue, midpoint=2) +
+  theme_minimal()
+
+```
+
+## Creating custom palettes using BoE colours
+
+### Continuous
+We can use `scale_colour_gradient()` for a sequential palette, and `scale_colour_gradient2()` for a diverging palette, providing the start and end colours (and the mid colour, in the case of `_gradient2`).  The interim colours will be interpolated for us.
+
+```{r continuous custom}
+# sequential palette
+iris %>% 
+  ggplot() +
+  geom_point(aes(Petal.Width, Petal.Length, colour = Petal.Width)) +
+  scale_colour_gradient(low = boe_neutral$light_grey,
+                        high = boe$fuchsia) +
+  theme_minimal()
+
+```
+
+### Discrete (categorical)
+We can use `colorRampPalette()` to create our own palettes:  we provide a vector of colours for the start, end, and optionally interim points.
+
+```{r}
+## Add a factor column, binning the petal widths
+iris2 <- 
+  iris %>% 
+  mutate(Petal.Width.Bin = cut(Petal.Width, seq(0, 3, by = 0.5)))
+n_bins <- iris2$Petal.Width.Bin %>% levels %>% length
+
+
+custom_diverging_palette <- colorRampPalette(c(boe$red, boe$light_green, boe$mid_blue))(n_bins)
+
+iris2 %>% 
+  ggplot() +
+  geom_point(aes(Petal.Width, Petal.Length, colour = Petal.Width.Bin)) +
+  scale_colour_manual(values = custom_diverging_palette) +
+  theme_minimal()
+
+custom_sequential_palette <- colorRampPalette(c(boe$yellow, boe$dark_green))(n_bins)
+
+iris2 %>% 
+  ggplot() +
+  geom_point(aes(Petal.Width, Petal.Length, colour = Petal.Width.Bin)) +
+  scale_colour_manual(values = custom_sequential_palette) +
+  theme_minimal()
+```
+
+
+*Al Firrell, Advanced Analytics, May 2019*
+

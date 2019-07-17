@@ -36,7 +36,7 @@ You can preview colours in a supported palette using `boe_pal`:
 boe_pal(palette = "boe", n = 4)
 ```
 
-The easiest way to use a palette in a chart is to use `scale_[colour|fill]_boe` as part of a standard `ggplot2` workflow (i.e. use in the same way you would use `scale` functions out-of-the-box in `ggplot2`):
+The easiest way to use a palette in a chart is to use `scale_[colour|fill]_discrete_boe` as part of a standard `ggplot2` workflow (i.e. use in the same way you would use `scale` functions out-of-the-box in `ggplot2`):
 
 ```{r boe_pal}
 # load package
