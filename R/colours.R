@@ -15,30 +15,38 @@
 #'    x = mpg,
 #'    y = wt
 #'    ) +
-#'    geom_point(colour=boe_cols["fuschia"]) +
+#'    geom_point(colour=boe$fuchsia) +
 #'    theme_mcg_pub()
 #'
 #' @export
-boe_cols <- c(
+boe <- list(
   red            = "#A51140",
-  black          = "#1E1E1E",
-  stone          = "#CAC0B6",
-  dark_teal      = "#005E6E",
-  dark_blue      = "#002A42",
-  light_blue     = "#63B1E5",
+  light_green    = "#7AB800",
   mid_blue       = "#165788",
+  orange         = "#E05206",
   teal           = "#00839D",
-  maroon         = "#6C0721",
-  lavender       = "#AC98DB",
   purple         = "#4E3780",
   fuchsia        = "#A31A7E",
-  plum           = "#752864",
-  light_green    = "#7AB800",
   dark_green     = "#50882E",
+  dark_blue      = "#002A42",
   yellow         = "#EEAF30",
-  orange         = "#E05206"
+  dark_teal      = "#005E6E",
+  lavender       = "#AC98DB",
+  maroon         = "#6C0721",
+  light_blue     = "#63B1E5",
+  plum           = "#752864",
+  stone          = "#CAC0B6",
+  black          = "#1E1E1E"
 )
 
+# ggplot(data.frame(x = 1:12)) +
+#   aes(
+#     x = x,
+#     y = x,
+#     fill = x
+#   ) +
+#   geom_col() +
+#   scale_fill_continuous_boe(boe_palettes$harmonious_orange)
 
 #' @title Colours from the Bank's 'Rich' colour palette
 #'
@@ -58,11 +66,11 @@ boe_cols <- c(
 #'    x = mpg,
 #'    y = wt
 #'    ) +
-#'    geom_point(colour=boe_cols_rich["rich_red"]) +
+#'    geom_point(colour=boe_rich$rich_red) +
 #'    theme_mcg_pub()
 #'
 #' @export
-boe_cols_rich <- c(
+boe_rich <- list(
   rich_blue = "#00294E",
   rich_teal = "#005E6E",
   rich_green = "#3A7130",
@@ -90,11 +98,11 @@ boe_cols_rich <- c(
 #'    x = mpg,
 #'    y = wt
 #'    ) +
-#'    geom_point(colour=boe_cols_highlights["fuchsia"]) +
+#'    geom_point(colour=boe_highlights$fuchsia) +
 #'    theme_mcg_pub()
 #'
 #' @export
-boe_cols_highlights <- c(
+boe_highlights <- list(
   red = "#E9496A",
   fuchsia = "#B0358B",
   purple = "#706CB0",
@@ -122,11 +130,11 @@ boe_cols_highlights <- c(
 #'    x = mpg,
 #'    y = wt
 #'    ) +
-#'    geom_point(colour=boe_cols_soft["peach"]) +
+#'    geom_point(colour=boe_soft$peach) +
 #'    theme_mcg_pub()
 #'
 #' @export
-boe_cols_soft <- c(
+boe_soft <- list(
   peach = "#FAD0C5",
   light_pink = "#DA9CC6",
   mauve = "#D2CDE8",
@@ -154,11 +162,11 @@ boe_cols_soft <- c(
 #'    x = mpg,
 #'    y = wt
 #'    ) +
-#'    geom_point(colour=boe_cols_neutral["dark_grey"]) +
+#'    geom_point(colour=boe_neutral$dark_grey) +
 #'    theme_mcg_pub()
 #'
 #' @export
-boe_cols_neutral <- c(
+boe_neutral <- list(
   light_grey = "#EBEBEB",
   grey = "#C8CCCF",
   dark_grey = "#6B7E87",
@@ -176,7 +184,7 @@ boe_cols_neutral <- c(
 #' @return A list of named hexadecimal colours.
 #'
 #' @export
-boe_cols_screen <- c(
+boe_screen <- list(
   boe_background = "#F6F6F6"
 )
 
@@ -198,12 +206,12 @@ boe_cols_screen <- c(
 #'    x = mpg,
 #'    y = wt
 #'    ) +
-#'    geom_point(colour = mcg_cols_pub["fuschia"]) +
+#'    geom_point(colour = mcg_pub$fuchsia) +
 #'    theme_mcg_pub()
 #'
 #' @export
-mcg_cols_pub <- c(
-  fuschia        = "#ff00ff",
+mcg_pub <- list(
+  fuchsia        = "#ff00ff",
   dark_blue      = "#000066",
   green          = "#008000",
   aqua_blue      = "#39f9f9",
@@ -229,10 +237,13 @@ mcg_cols_pub <- c(
 #'    x = mpg,
 #'    y = wt
 #'    ) +
-#'    geom_point(colour = mcg_cols_pub["fuschia"]) +
+#'    geom_point(colour = mcg_pub_cols$fuchsia) +
 #'    theme_mcg_pub()
 #'
 #' @export
 #' 
 #' @keywords internal
-mcg_pub_cols <- mcg_cols_pub
+mcg_pub_cols <- mcg_pub
+
+
+

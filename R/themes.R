@@ -126,19 +126,18 @@ theme_overground <- function(
         p <- p + theme(axis.ticks.x = element_blank())
       } else {
         p <- p + theme(axis.ticks.x = element_line(colour=axis_col, size = 0.15),
-                       axis.ticks.length.x = grid::unit(10, "pt"))
+                       axis.ticks.length = grid::unit(10, "pt"))
       }
       if (regexpr("y", axis)[1] < 0) {
         p <- p + theme(axis.ticks.y = element_blank())
       } else {
         p <- p + theme(axis.ticks.y = element_line(colour=axis_col, size = 0.15),
-                       axis.ticks.length.y = grid::unit(10, "pt"))
+                       axis.ticks.length = grid::unit(10, "pt"))
       }
     } else {
       p <- p + theme(axis.ticks.x = element_line(colour=axis_col, size = 0.15),
-                     axis.ticks.length.x = grid::unit(10, "pt"),
                      axis.ticks.y = element_line(colour=axis_col, size = 0.15),
-                     axis.ticks.length.y = grid::unit(10, "pt"))
+                     axis.ticks.length = grid::unit(10, "pt"))
     }
   } else {
     p <- p + theme(axis.ticks = element_blank())
