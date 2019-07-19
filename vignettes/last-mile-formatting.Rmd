@@ -43,13 +43,13 @@ p +
 
 #### Currencies
 
-When plotting numeric values that represent currencies, it's helpful to denote this while retaining the numeric class of your values. Below is an example of `pound_format()`.
+When plotting numeric values that represent currencies, it's helpful to denote this while retaining the numeric class of your values. Below is an example of `format_pound()`.
 
 ```{r}
 
 p +
   # set axis currency label style
-  scale_y_continuous(labels = pound_format())
+  scale_y_continuous(labels = format_pound())
 
 ```
 

@@ -52,13 +52,13 @@ boe_date_labels <- function() {
 #' 
 #' @export
 #' 
-#' @seealso \link{pound_format}
+#' @seealso \link{format_pound}
 #'
 #' @examples
-#' currency_format()(100)
-#' currency_format(prefix ="EUR")(100)
+#' format_currency()(100)
+#' format_currency(prefix ="EUR")(100)
 
-currency_format = function(prefix = intToUtf8(0x00A3), suffix = "", largest_with_pence = 1e+05, ...,
+format_currency = function(prefix = intToUtf8(0x00A3), suffix = "", largest_with_pence = 1e+05, ...,
                            big.mark = ",", negative_parens = FALSE) {
   
   dollar_format(prefix = prefix, suffix = suffix, largest_with_cents = largest_with_pence,
@@ -79,16 +79,16 @@ currency_format = function(prefix = intToUtf8(0x00A3), suffix = "", largest_with
 #' @return a character vector
 #' @export
 #'
-#' @seealso \link{currency_format}
+#' @seealso \link{format_currency}
 #'
 #' @examples
-#' pound_format()(100.75)
-#' pound_format(negative_parens = TRUE)(c(100.75, 251))
+#' format_pound()(100.75)
+#' format_pound(negative_parens = TRUE)(c(100.75, 251))
 
-pound_format = function(suffix = "", largest_with_pence = 1e+05, ...,
+format_pound = function(suffix = "", largest_with_pence = 1e+05, ...,
                         big.mark = ",", negative_parens = FALSE) {
   
-  currency_format(suffix = suffix,
+  format_currency(suffix = suffix,
                   largest_with_pence = largest_with_pence,
                   ...,
                   big.mark = big.mark,
