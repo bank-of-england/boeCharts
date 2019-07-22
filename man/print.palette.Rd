@@ -4,10 +4,12 @@
 \alias{print.palette}
 \title{Display colours when printing palette objects}
 \usage{
-\method{print}{palette}(x)
+\method{print}{palette}(x, ...)
 }
 \arguments{
 \item{x}{a palette object}
+
+\item{...}{ignored}
 }
 \description{
 Display colours when printing palette objects

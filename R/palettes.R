@@ -81,7 +81,7 @@ boe_palettes <- c(
   boe_harmonious_palettes,
   boe_vibrant_palettes,
   boe_diverging_palettes,
-  mcg = mcg_pub
+  mcg = list(mcg_pub)
 )
 
 
@@ -147,8 +147,9 @@ check_pal_n <- function(n, pal) {
 #' Display colours when printing palette objects
 #'
 #' @param x a palette object
+#' @param ... ignored
 #' @export
-print.palette <- function(x) {
+print.palette <- function(x, ...) {
   
   n <- length(x)
   old <- par(mar = c(0.5, 0.5, 0.5, 0.5))

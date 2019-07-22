@@ -10,8 +10,13 @@ left_align_titles(x)
 \item{x}{a ggplot object}
 }
 \value{
-a ggplot object
+a gtable object
 }
 \description{
 Left-align chart title and subtitle.
+}
+\details{
+A gtable object is returned by this function.
+Such objects can be drawn using standard functions 
+from the \pkg{grid} package
 }
