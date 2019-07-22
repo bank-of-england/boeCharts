@@ -7,7 +7,10 @@
     "
   )
   
-  # map calibri
-  load_font_win("Calibri")
+  # load calibri font
+  if (.Platform$OS.type == "windows")  {
+    if (interactive()) packageStartupMessage("Registering Calibri font with R")
+    load_font_win("Calibri")
+  }
 
 }
