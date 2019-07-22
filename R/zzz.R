@@ -8,6 +8,6 @@
   )
   
   # map calibri
-  map_font_win("Calibri")
+  load_font_win("Calibri")
 
 }

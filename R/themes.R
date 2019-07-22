@@ -59,14 +59,14 @@ theme_overground <- function(
   legend_position = "bottom",
   caption_face = "plain", caption_colour = base_colour, caption_size = 16,  
   caption_margin = 15,
-  strip_text_face = "plain", strip_text_colour = base_colour, strip_text_size = 22, 
+  strip_text_face = "plain", strip_text_colour = base_colour, strip_text_size = base_size, 
   plot_margin = c(10, 10, 10, 10),
   grid = "X", grid_col = "#C8CCCF", 
   axis = "X", axis_col = grid_col, ticks = axis
   ) {
   
   # map font family
-  map_font_win(base_family)
+  if (!base_family %in% names(windowsFonts())) load_font_win(base_family)
   
   # base theme
   p <- theme_minimal(base_family = base_family, base_size = base_size) +
