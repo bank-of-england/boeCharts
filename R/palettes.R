@@ -85,7 +85,6 @@ boe_palettes <- c(
 )
 
 
-
 # Functions ---------------------------------------------------------------
 
 #' A Bank colour palette generator
@@ -118,12 +117,11 @@ boe_pal <- function(palette, n, reverse = FALSE) {
     n <- length(pal)
   }
   
-  ## TODO:  where is this function?
   check_pal_n(n, pal)
   
-  out <- pal[1:n]
+  if (reverse) pal <- rev(pal)
   
-  if (reverse) out <- rev(out)
+  out <- pal[1:n]
   
   structure(out, class = "palette", palette = palette)
 }
@@ -136,9 +134,21 @@ pal_pal <- function(palette, reverse) {
   
 }
 
+# check palette length
+check_pal_n <- function(n, pal) {
+  if (n > length(pal)) {
+    warning("This palette can handle a maximum of ", length(pal), " values.",
+            "You have supplied ", n, ".")
+  } else if (n < 0) {
+    stop("`n` must be a non-negative integer.")
+  }
+}
+
+#' Display colours when printing palette objects
+#'
+#' @param x a palette object
 #' @export
-#' @importFrom graphics rect par image text
-print.palette <- function(x, ...) {
+print.palette <- function(x) {
   
   n <- length(x)
   old <- par(mar = c(0.5, 0.5, 0.5, 0.5))
