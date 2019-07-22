@@ -21,22 +21,22 @@
 #' @export
 boe <- list(
   red            = "#A51140",
+  black          = "#1E1E1E",
+  stone          = "#CAC0B6",
+  light_blue     = "#63B1E5",
+  yellow         = "#EEAF30",
+  lavender       = "#AC98DB",
   light_green    = "#7AB800",
-  mid_blue       = "#165788",
+  fuchsia        = "#A31A7E",
   orange         = "#E05206",
   teal           = "#00839D",
   purple         = "#4E3780",
-  fuchsia        = "#A31A7E",
-  dark_green     = "#50882E",
-  dark_blue      = "#002A42",
-  yellow         = "#EEAF30",
   dark_teal      = "#005E6E",
-  lavender       = "#AC98DB",
-  maroon         = "#6C0721",
-  light_blue     = "#63B1E5",
+  dark_green     = "#50882E",
   plum           = "#752864",
-  stone          = "#CAC0B6",
-  black          = "#1E1E1E"
+  mid_blue       = "#165788",
+  dark_blue      = "#002A42",
+  maroon         = "#6C0721"
 )
 
 # ggplot(data.frame(x = 1:12)) +
@@ -191,7 +191,7 @@ boe_screen <- list(
 
 #' @title Colours from MCG publication's colour palette
 #'
-#' @description \code{\link{mcg_pub_cols}} Provides a vector of named colours
+#' @description Provides a vector of named colours
 #' from current Money & Credit Group (MCG) publication colours.
 #'
 #' @return A list of named hexadecimal colours.
