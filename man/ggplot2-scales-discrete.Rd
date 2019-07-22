@@ -36,7 +36,7 @@ ggplot(iris, aes(x = Sepal.Length, y = Sepal.Width, colour = Species)) +
     scale_fill_discrete_boe(boe_palettes$vibrant_a)
 }
 \seealso{
-\code{\link{theme_mcg_pub}} for examples.
+\code{\link{theme_overground}} for examples.
 
 Other colour boe: \code{\link{boe_pal}},
   \code{\link{ggplot2-scales-continuous}}

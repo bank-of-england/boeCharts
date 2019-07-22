@@ -17,7 +17,7 @@ show_palette_cols <- function(palette) {
   
   cols <- colours_from_palette(palette, strip_names = F)
   
-  graphics::pie(
+  pie(
     rep(1, length(cols)),
     col = cols,
     labels = names(cols))
@@ -31,8 +31,7 @@ show_palette_cols <- function(palette) {
 #' @export
 #'
 #' @examples
-#' show_colour_swatches()
-#' swatch_file <- show_colour_swatches(palettes = c("harmonious_blue", "harmonious_orange"))
+#' show_colour_swatches(palettes = c("harmonious_blue", "harmonious_orange"))
 
 show_colour_swatches <- function(palettes = boe_palettes) {
   
@@ -99,7 +98,7 @@ show_colour_swatches <- function(palettes = boe_palettes) {
 #' colours_from_palette(boe_harmonious_palettes$harmonious_blue)
 colours_from_palette <- function(palette, strip_names = TRUE) {
   
-  ## check palette
+  # check palette
   if (is.character(palette)) {
     
     if (!palette %in% names(boe_palettes)) {
@@ -123,16 +122,6 @@ colours_from_palette <- function(palette, strip_names = TRUE) {
   }
   
   cols
-}
-
-# check palette length
-check_pal_n <- function(n, pal) {
-  if (n > length(pal)) {
-    warning("This palette can handle a maximum of ", length(pal), " values.",
-            "You have supplied ", n, ".")
-  } else if (n < 0) {
-    stop("`n` must be a non-negative integer.")
-  }
 }
 
 # left-align text

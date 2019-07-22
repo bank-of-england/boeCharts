@@ -3,7 +3,7 @@
 \docType{data}
 \name{FANG}
 \alias{FANG}
-\title{Stock prices for the "FANG" stocks.}
+\title{Stock prices for the "FANG" stocks}
 \format{A "tibble" ("tidy" data frame) with 4,032 rows and 8 variables:
 \describe{
   \item{symbol}{stock ticker symbol}

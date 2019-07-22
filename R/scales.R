@@ -11,7 +11,7 @@
 #' @family colour boe
 #'
 #'
-#' @seealso \code{\link{theme_mcg_pub}} for examples.
+#' @seealso \code{\link{theme_overground}} for examples.
 NULL
 
 #' @rdname ggplot2-scales-discrete 
@@ -45,10 +45,11 @@ scale_fill_discrete_boe <- function(palette = "boe", reverse = FALSE, ...) {
 
 
 
-#' Continuous colour scale for use with ggplot.  Specify a midpoint for extra control over a diverging scale.
+#' Continuous scales for use with ggplot2
 #'
 #' These functions provide the option to use \code{boeCharts} colours inside continuous
-#' palettes with the `ggplot2` package.
+#' palettes with the `ggplot2` package. Specify a midpoint for extra control over a 
+#' diverging scale.
 #' 
 #' @param palette character string indicating the palette to use. Options
 #' available are in \code{\link[boeCharts]{boe_palettes}} (e.g. "boe rich").
@@ -71,11 +72,11 @@ NULL
 #' @examples
 #' library(ggplot2)
 #' 
-#' ggplot(mtcars, aes(mpg, wt, fill=disp)) +
+#' ggplot(mtcars, aes(mpg, wt, colour=disp)) +
 #'   geom_point() +
 #'   scale_colour_continuous_boe(palette=boe_harmonious_palettes$harmonious_green)
 #'
-#' ggplot2::ggplot(mtcars, aes(mpg, wt, fill=disp)) +
+#' ggplot(mtcars, aes(mpg, wt, colour=disp)) +
 #'   geom_point() +
 #'   scale_colour_continuous_boe("red_yellow_blue")
 #'
@@ -156,17 +157,16 @@ scale_continuous_boe <- function(aesthetics = c("colour", "fill"),
   
   cols <- colours_from_palette(palette)
   
-  ## check aesthetic
+  # check aesthetic
   aesthetics <- match.arg(aesthetics)
   
   if (reverse) {
     cols <- rev(cols)
   }
   
-  ## Call gradientn for a general scale, or gradient2 for one with a specified midpoint value and mid-colour
+  # Call gradientn for a general scale, or gradient2 for one with a specified midpoint value and mid-colour
   if (is.na(midpoint)) {
     
-    #ggplot2::scale_colour_gradientn(..., colours = cols)  
     continuous_scale(aesthetics = aesthetics,
                      scale_name = "gradientn", 
                      scales::gradient_n_pal(cols, values, "Lab"), 
@@ -175,11 +175,6 @@ scale_continuous_boe <- function(aesthetics = c("colour", "fill"),
                      ...)
   } else {
     
-    # ggplot2::scale_colour_gradient2(...,
-    #                                 high = cols[[length(cols)]],
-    #                                 mid = cols[[ceiling((length(cols) + 1)/2)]], 
-    #                                 low = cols[[1]],
-    #                                 midpoint = midpoint)  
     continuous_scale(aesthetics = aesthetics, 
                      scale_name = "gradient2", 
                      palette = scales::div_gradient_pal(cols[[1]], cols[[ceiling((length(cols) + 1)/2)]], cols[[length(cols)]], space = "Lab"), 
