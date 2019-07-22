@@ -124,8 +124,16 @@ colours_from_palette <- function(palette, strip_names = TRUE) {
   cols
 }
 
-# left-align text
-left_align_titles <- function(chart) {
+
+#' Left-align chart titles
+#' 
+#' Left-align chart title and subtitle.
+#'
+#' @param x a ggplot object
+#'
+#' @return a ggplot object
+#' @export
+left_align_titles <- function(x) {
   
   grob <- ggplotGrob(chart)
   grob$layout$l[grob$layout$name %in% c("title", "subtitle")] <- 2

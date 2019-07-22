@@ -4,6 +4,10 @@
 #' \href{https://www.bankofengland.co.uk/bank-overground}{Bank Overground} 
 #' style visualisations in \code{ggplot2}.
 #' See \code{left_align_titles()} for full left-alignment of chart titles.
+#' 
+#' @details If you are running under Windows, the package calls an internal function
+#' to register the Calibri font with the Windows graphics device. Other systems
+#' will require manual font registering, currently.
 #'
 #' @details Builds on the 'grammar of graphics' framework implement in
 #' ggplot2. Applying \code{theme_overground()} will adjust graphical parameters
@@ -59,14 +63,14 @@ theme_overground <- function(
   legend_position = "bottom",
   caption_face = "plain", caption_colour = base_colour, caption_size = 16,  
   caption_margin = 15,
-  strip_text_face = "plain", strip_text_colour = base_colour, strip_text_size = base_size, 
+  strip_text_face = "plain", strip_text_colour = base_colour, strip_text_size = 22, 
   plot_margin = c(10, 10, 10, 10),
   grid = "X", grid_col = "#C8CCCF", 
   axis = "X", axis_col = grid_col, ticks = axis
   ) {
   
   # map font family
-  if (!base_family %in% names(windowsFonts())) load_font_win(base_family)
+  # if (!base_family %in% names(windowsFonts())) load_font_win(base_family)
   
   # base theme
   p <- theme_minimal(base_family = base_family, base_size = base_size) +
