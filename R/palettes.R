@@ -1,34 +1,92 @@
+#' @title List of boe standard colour palettes: boe, boe_rich, boe_soft, boe_highlights, boe_neutral
+#'
+#' @description List of lists of named colours taken from the Bank's
+#' \href{https://bankofengland.frontify.com/d/RPk6pMZziBFw/bank-standards#/brand-elements/colour-palette/colour-combinations}{colours}.
+#'
+#' @return A named list of lists of named hexadecimal colours.
+#' 
+#' @keywords internal
+#'
+#' @export
+boe_standard_palettes <- list(boe = boe,
+                              boe_rich = boe_rich,
+                              boe_highlights = boe_highlights,
+                              boe_soft = boe_soft,
+                              boe_neutral = boe_neutral)
+
+#' @title List of harmonious colour palettes
+#'
+#' @description List of lists of named colours taken from the Bank's
+#' \href{https://bankofengland.frontify.com/d/RPk6pMZziBFw/bank-standards#/brand-elements/colour-palette/colour-combinations}{Harmonious colour combinations}.
+#'
+#' @return A named list of lists of named hexadecimal colours.
+#' 
+#' @keywords internal
+#'
+#' @export
+boe_harmonious_palettes <- list(harmonious_blue = harmonious_blue,
+                                harmonious_teal = harmonious_teal,
+                                harmonious_green = harmonious_green,
+                                harmonious_orange = harmonious_orange,
+                                harmonious_purple = harmonious_purple,
+                                harmonious_pink = harmonious_pink,
+                                harmonious_red = harmonious_red,
+                                harmonious_grey = harmonious_grey)
+
+
+#' @title List of vibrant colour palettes
+#'
+#' @description List of lists of named colours taken from the Bank's
+#' \href{https://bankofengland.frontify.com/d/RPk6pMZziBFw/bank-standards#/brand-elements/colour-palette/colour-combinations}{Vibrant colour combinations}.
+#'
+#' @return A named list of lists of named hexadecimal colours.
+#' 
+#' @keywords internal
+#'
+#' @export
+boe_vibrant_palettes = list(vibrant_a = vibrant_a,
+                            vibrant_b = vibrant_b,
+                            vibrant_c = vibrant_c,
+                            vibrant_d = vibrant_d,
+                            vibrant_e = vibrant_e,
+                            vibrant_f = vibrant_f,
+                            vibrant_g = vibrant_g,
+                            vibrant_h = vibrant_h)
+
+#' @title List of diverging ColorBrewer-style colour palettes
+#'
+#' @description List of lists of named colours taken from the Bank's
+#' \href{https://bankofengland.frontify.com/d/RPk6pMZziBFw/bank-standards#/brand-elements/colour-palette/colour-combinations}{colours}.
+#'
+#' @return A named list of lists of named hexadecimal colours.
+#' 
+#' @keywords internal
+#'
+#' @export
+boe_diverging_palettes <- list(red_blue = red_blue,
+                               red_green = red_green,
+                               red_gray = red_gray,
+                               red_yellow_green = red_yellow_green,
+                               red_yellow_blue = red_yellow_blue,
+                               purple_green = purple_green,
+                               pink_green = pink_green)
+
 #' List of Bank colour palettes
 #'
 #' Bank colour palettes made accessible via a single list.
 #'
 #' @export
-boe_palettes <- list(
-  
-  `boe` = boe_cols,
-  `boeRich` = boe_cols_rich,
-  `boeHighlights` = boe_cols_highlights,
-  `boeSoft` = boe_cols_soft,
-  `boeNeutral` = boe_cols_neutral,
-  `harmoniousBlue` = harmonious_blue,
-  `harmoniousTeal` = harmonious_teal,
-  `harmoniousGreen` = harmonious_green,
-  `harmoniousOrange` = harmonious_orange,
-  `harmoniousPurple` = harmonious_purple,
-  `harmoniousPink` = harmonious_pink,
-  `harmoniousRed` = harmonious_red,
-  `harmoniousGrey` = harmonious_grey,
-  `vibrantA` = vibrant_a,
-  `vibrantB` = vibrant_b,
-  `vibrantC` = vibrant_c,
-  `vibrantD` = vibrant_d,
-  `vibrantE` = vibrant_e,
-  `vibrantF` = vibrant_f,
-  `vibrantG` = vibrant_g,
-  `vibrantH` = vibrant_h,
-  `mcg` = mcg_cols_pub
+boe_palettes <- c(
+  boe_standard_palettes,
+  boe_harmonious_palettes,
+  boe_vibrant_palettes,
+  boe_diverging_palettes,
+  mcg = list(mcg_pub)
 )
 
+
+
+# Functions ---------------------------------------------------------------
 
 #' A Bank colour palette generator
 #'
@@ -52,7 +110,7 @@ boe_pal <- function(palette, n, reverse = FALSE) {
   
   if (!is.logical(reverse)) stop("reverse must be TRUE or FALSE.")
   
-  pal <- unname(boe_palettes[[palette]])
+  pal <- colours_from_palette(palette)
   
   if (is.null(pal)) stop("Palette not found.")
   
@@ -60,6 +118,7 @@ boe_pal <- function(palette, n, reverse = FALSE) {
     n <- length(pal)
   }
   
+  ## TODO:  where is this function?
   check_pal_n(n, pal)
   
   out <- pal[1:n]

@@ -36,7 +36,7 @@ You can preview colours in a supported palette using `boe_pal`:
 boe_pal(palette = "boe", n = 4)
 ```
 
-The easiest way to use a palette in a chart is to use `scale_[colour|fill]_boe` as part of a standard `ggplot2` workflow (i.e. use in the same way you would use `scale` functions out-of-the-box in `ggplot2`):
+The easiest way to use a palette in a chart is to use `scale_[colour|fill]_discrete_boe` as part of a standard `ggplot2` workflow (i.e. use in the same way you would use `scale` functions out-of-the-box in `ggplot2`):
 
 ```{r boe_pal}
 # load package
@@ -52,7 +52,7 @@ p <- ggplot(data = FANG, aes(x = date, y = close, colour = symbol)) +
 
 # apply boe palette
 p +
-  scale_colour_boe(palette = "boe")
+  scale_colour_discrete_boe(palette = "boe")
 
 ```
 
@@ -64,7 +64,7 @@ Use colour schemes for your own business area or publications. For example, use 
 
 p +
   # apply mcg palette
-  scale_colour_boe(palette = "mcg")
+  scale_colour_discrete_boe(palette = "mcg")
 
 ```
 
@@ -74,13 +74,13 @@ Go beyond palettes, and control the appearance of all (non-data) chart elements 
 
 ### Inflation Report
 
-A theme that approximates the design of charts in [the Inflation Report](https://www.bankofengland.co.uk/inflation-report/2018/august-2018/the-labour-market-and-pay). Note the arguments passed to `scale_y_continuous()` to achieve the correct y-axis format (as well as `scale_colour_boe`, seen earlier, to do the colours).
+A theme that approximates the design of charts in [the Inflation Report](https://www.bankofengland.co.uk/inflation-report/2018/august-2018/the-labour-market-and-pay). Note the arguments passed to `scale_y_continuous()` to achieve the correct y-axis format (as well as `scale_colour_discrete_boe`, seen earlier, to do the colours).
 
 ```{r ir_theme}
 
 p +
   # apply boe palette
-  scale_colour_boe(palette = "boe") +
+  scale_colour_discrete_boe(palette = "boe") +
   # add MCG theme
   theme_inflation_report() +
   # axis settings
@@ -98,7 +98,7 @@ A theme that approximates the design of charts in [Money & Credit statistical re
 
 p +
   # apply boe palette
-  scale_colour_boe(palette = "boe") +
+  scale_colour_discrete_boe(palette = "boe") +
   # add MCG theme
   theme_mcg_pub() +
   # axis settings

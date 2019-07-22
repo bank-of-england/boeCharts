@@ -16,4 +16,5 @@
 #'   \item{adjusted}{stock price at the close of trading adjusted for stock splits, in USD}
 #' }
 #' @source \url{http://www.investopedia.com/terms/f/fang-stocks-fb-amzn.asp}
+#' @name FANG
 "FANG"

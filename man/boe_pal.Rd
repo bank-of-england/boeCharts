@@ -22,6 +22,7 @@ Create Bank colour palettes for plots.
 boe_pal(palette = "boe", n = 4)
 }
 \seealso{
-Other colour boe: \code{\link{scale_colour_boe}}
+Other colour boe: \code{\link{ggplot2-scales-continuous}},
+  \code{\link{ggplot2-scales-discrete}}
 }
 \concept{colour boe}

@@ -4,10 +4,10 @@
 \alias{show_palette_cols}
 \title{Show colours in a Bank colour palette}
 \usage{
-show_palette_cols(x)
+show_palette_cols(palette)
 }
 \arguments{
-\item{x}{a named character vector of colours e.g. \code{\link{boe_cols_rich}}}
+\item{palette}{Palette from boe_palettes.  Either provide the palette name e.g. "red_blue" or the palette itself e.g. diverging_palettes$red_blue}
 }
 \value{
 A pie chart displaying the colour scheme.
@@ -17,11 +17,7 @@ A pie chart displaying the colour scheme.
 that make up a \code{boeCharts} palette.
 }
 \examples{
-
-library(boeCharts)
-
-show_palette_cols(
-x = boe_cols_rich
-)
-
+show_palette_cols(boe_rich)
+show_palette_cols(boe_palettes$vibrant_b)
+show_palette_cols("harmonious_orange")
 }

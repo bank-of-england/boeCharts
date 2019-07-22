@@ -4,7 +4,7 @@
 \name{mcg_pub_cols}
 \alias{mcg_pub_cols}
 \title{Colours from MCG publication's colour palette}
-\format{An object of class \code{character} of length 6.}
+\format{An object of class \code{list} of length 6.}
 \usage{
 mcg_pub_cols
 }
@@ -25,7 +25,7 @@ library(boeCharts)
    x = mpg,
    y = wt
    ) +
-   geom_point(colour = mcg_cols_pub["fuschia"]) +
+   geom_point(colour = mcg_pub_cols$fuchsia) +
    theme_mcg_pub()
 
 }
