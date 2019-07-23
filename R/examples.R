@@ -22,9 +22,9 @@
 # boe_pal(boe_highlights, 7)
 # 
 # 
-# ggplot(mtcars, aes(mpg, wt, fill = disp)) +
-#   geom_col() +
-#   scale_continuous_boe(aesthetic="fill", palette="red_yellow_green")
+# ggplot(mpg, aes(displ, cyl, colour = class)) +
+#   geom_point() +
+#   scale_colour_discrete_boe(palette="boe")
 # 
 # tryCatch(
 #   ggplot(mtcars, aes(mpg, wt, colour = wt)) +

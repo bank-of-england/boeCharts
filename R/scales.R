@@ -43,7 +43,23 @@ scale_fill_discrete_boe <- function(palette = "boe", reverse = FALSE, ...) {
                  pal_pal(palette = palette, reverse = reverse), ...)
 }
 
+#' @rdname ggplot2-scales-discrete 
+#' @export
+scale_colour_boe <- function(palette = "boe", reverse = FALSE, ...) {
+  
+  .Deprecated("scale_colour_discrete_boe")
+  
+  scale_colour_discrete_boe(palette = palette, reverse = reverse, ... = ...)
+} 
 
+#' @rdname ggplot2-scales-discrete 
+#' @export
+scale_fill_boe <- function(palette = "boe", reverse = FALSE, ...) {
+  
+  .Deprecated("scale_fill_discrete_boe")
+  
+  scale_fill_discrete_boe(palette = palette, reverse = reverse, ... = ...)
+}
 
 #' Continuous scales for use with ggplot2
 #'

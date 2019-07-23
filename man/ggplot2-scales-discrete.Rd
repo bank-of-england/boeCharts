@@ -4,11 +4,17 @@
 \alias{ggplot2-scales-discrete}
 \alias{scale_colour_discrete_boe}
 \alias{scale_fill_discrete_boe}
+\alias{scale_colour_boe}
+\alias{scale_fill_boe}
 \title{Discrete scales to use with ggplot2}
 \usage{
 scale_colour_discrete_boe(palette = "boe", reverse = FALSE, ...)
 
 scale_fill_discrete_boe(palette = "boe", reverse = FALSE, ...)
+
+scale_colour_boe(palette = "boe", reverse = FALSE, ...)
+
+scale_fill_boe(palette = "boe", reverse = FALSE, ...)
 }
 \arguments{
 \item{palette}{character string indicating the palette to use. Options

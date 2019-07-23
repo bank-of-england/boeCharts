@@ -39,15 +39,6 @@ boe <- list(
   maroon         = "#6C0721"
 )
 
-# ggplot(data.frame(x = 1:12)) +
-#   aes(
-#     x = x,
-#     y = x,
-#     fill = x
-#   ) +
-#   geom_col() +
-#   scale_fill_continuous_boe(boe_palettes$harmonious_orange)
-
 #' @title Colours from the Bank's 'Rich' colour palette
 #'
 #' @description Provides a vector of named colours taken from the 
