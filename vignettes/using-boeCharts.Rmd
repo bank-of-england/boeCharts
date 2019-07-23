@@ -89,7 +89,7 @@ chart_two <- ggplot(iris, aes(Sepal.Length, Sepal.Width, color = Species)) +
 chart_two
 ```
 
-The helper function `left_align_titles` can be used to fix titles to the left of the chart window (as is the case in *Bank Overground* publications). Note that 
+The helper function `left_align_titles` can be used to fix titles to the left of the chart window (as is the case in *Bank Overground* publications). Note that the object returned is a [gtable](https://gtable.r-lib.org/), rather than a ggplot, object, and can be drawn using standard functions from the `grid` package.
 
 ```{r title_align}
 chart_two <- left_align_titles(chart_two)
