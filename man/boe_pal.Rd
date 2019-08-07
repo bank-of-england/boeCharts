@@ -13,7 +13,7 @@ available are in \code{\link[boeCharts]{boe_palettes}} (e.g. "boe rich").}
 \item{n}{Number of palette colours to use}
 
 \item{reverse}{Logical, sets the order of colours in the scale. If TRUE,
-the palette will be reversed (FALSE by default).}
+the n colours will be returns in reverse order (FALSE by default).}
 }
 \description{
 Create Bank colour palettes for plots.

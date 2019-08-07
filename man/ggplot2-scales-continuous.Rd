@@ -3,6 +3,7 @@
 \name{ggplot2-scales-continuous}
 \alias{ggplot2-scales-continuous}
 \alias{scale_colour_continuous_boe}
+\alias{scale_color_continuous_boe}
 \alias{scale_fill_continuous_boe}
 \alias{scale_continuous_boe}
 \title{Continuous scales for use with ggplot2}
@@ -10,10 +11,13 @@
 scale_colour_continuous_boe(palette, midpoint = NA, reverse = FALSE,
   values = NULL, na.value = "grey50", guide = "colourbar", ...)
 
+scale_color_continuous_boe(palette, midpoint = NA, reverse = FALSE,
+  values = NULL, na.value = "grey50", guide = "colourbar", ...)
+
 scale_fill_continuous_boe(palette, midpoint = NA, reverse = FALSE,
   values = NULL, na.value = "grey50", guide = "colourbar", ...)
 
-scale_continuous_boe(aesthetics = c("colour", "fill"), palette,
+scale_continuous_boe(palette, aesthetics = c("colour", "fill"),
   midpoint = NA, reverse = FALSE, values = NULL,
   na.value = "grey50", guide = "colourbar", ...)
 }
@@ -73,14 +77,8 @@ transformation object
 \item A function that takes the breaks as input and returns labels
 as output
 }}
-  \item{limits}{One of:
-\itemize{
-\item \code{NULL} to use the default scale range
-\item A numeric vector of length two providing limits of the scale.
-Use \code{NA} to refer to the existing minimum or maximum
-\item A function that accepts the existing (automatic) limits and returns
-new limits
-}}
+  \item{limits}{A numeric vector of length two providing limits of the scale.
+Use \code{NA} to refer to the existing minimum or maximum.}
   \item{rescaler}{Used by diverging and n colour gradients
 (i.e. \code{\link[=scale_colour_gradient2]{scale_colour_gradient2()}}, \code{\link[=scale_colour_gradientn]{scale_colour_gradientn()}}).
 A function used to scale the input values to the range [0, 1].}
@@ -95,9 +93,8 @@ expand the scale by 5\% on each side for continuous variables, and by
   \item{na.value}{Missing values will be replaced with this value.}
   \item{trans}{Either the name of a transformation object, or the
 object itself. Built-in transformations include "asn", "atanh",
-"boxcox", "date", "exp", "hms", "identity", "log", "log10", "log1p", "log2",
-"logit", "modulus", "probability", "probit", "pseudo_log", "reciprocal",
-"reverse", "sqrt" and "time".
+"boxcox", "exp", "identity", "log", "log10", "log1p", "log2",
+"logit", "probability", "probit", "reciprocal", "reverse" and "sqrt".
 
 A transformation object bundles together a transform, its inverse,
 and methods for generating breaks and labels. Transformation objects
@@ -134,6 +131,16 @@ ggplot(mtcars, aes(mpg, wt, colour=disp)) +
 
 library(ggplot2)
 
+ggplot(mtcars, aes(mpg, wt, colour=disp)) +
+  geom_point() +
+  scale_colour_continuous_boe(palette=boe_harmonious_palettes$harmonious_green)
+
+ggplot(mtcars, aes(mpg, wt, colour=disp)) +
+  geom_point() +
+  scale_colour_continuous_boe("red_yellow_blue")
+
+library(ggplot2)
+
 ggplot(mtcars, aes(mpg, wt, fill=disp)) +
   geom_col() +
   scale_fill_continuous_boe(palette=boe_harmonious_palettes$harmonious_green)
@@ -144,13 +151,15 @@ ggplot(mtcars, aes(mpg, wt, fill=disp)) +
 
 library(ggplot2)
 
-ggplot(mtcars, aes(mpg, wt, fill=disp)) + 
+ggplot(mtcars, aes(mpg, wt, fill=disp, colour=disp)) + 
   geom_col() +
-  scale_continuous_boe(aesthetic="fill", palette="red_blue")
-  
-ggplot(mtcars, aes(mpg, wt, colour = disp)) +
   geom_point() +
-  scale_continuous_boe(aesthetic="colour", palette=boe_diverging_palettes$red_green, midpoint = 200)
+  scale_continuous_boe(palette="red_blue") ## set colour and fill simultaneously
+  
+ggplot(mtcars, aes(mpg, wt, fill=disp, colour=disp)) +
+  geom_col() +
+  geom_point() +
+  scale_continuous_boe(palette=boe_diverging_palettes$red_green, midpoint = 200)
   
 }
 \seealso{
