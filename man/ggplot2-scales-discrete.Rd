@@ -4,11 +4,17 @@
 \alias{ggplot2-scales-discrete}
 \alias{scale_colour_discrete_boe}
 \alias{scale_fill_discrete_boe}
+\alias{scale_colour_boe}
+\alias{scale_fill_boe}
 \title{Discrete scales to use with ggplot2}
 \usage{
 scale_colour_discrete_boe(palette = "boe", reverse = FALSE, ...)
 
 scale_fill_discrete_boe(palette = "boe", reverse = FALSE, ...)
+
+scale_colour_boe(palette = "boe", reverse = FALSE, ...)
+
+scale_fill_boe(palette = "boe", reverse = FALSE, ...)
 }
 \arguments{
 \item{palette}{character string indicating the palette to use. Options
@@ -36,7 +42,7 @@ ggplot(iris, aes(x = Sepal.Length, y = Sepal.Width, colour = Species)) +
     scale_fill_discrete_boe(boe_palettes$vibrant_a)
 }
 \seealso{
-\code{\link{theme_mcg_pub}} for examples.
+\code{\link{theme_overground}} for examples.
 
 Other colour boe: \code{\link{boe_pal}},
   \code{\link{ggplot2-scales-continuous}}

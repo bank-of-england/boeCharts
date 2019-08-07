@@ -1,5 +1,7 @@
 ---
 title: "Using boeCharts"
+author: "Ewen Henderson, Data & Statistics"
+date: "July 2019"
 output: rmarkdown::html_vignette
 vignette: >
   %\VignetteIndexEntry{Using boeCharts}
@@ -8,10 +10,7 @@ vignette: >
 ---
 
 ```{r setup, include = FALSE}
-knitr::opts_chunk$set(
-  collapse = TRUE, comment = "#>", cache = FALSE,
-  fig.width = 7, fig.height = 4, dev = 'svg', fig.dpi = 96
-)
+knitr::opts_chunk$set(collapse = TRUE, comment = "#>", cache = FALSE, fig.dpi = 96, fig.width = 7, fig.height = 5)
 
 ```
 
@@ -21,13 +20,13 @@ The `boeCharts` package provides tools and helpers to help craft and productioni
 
 Incorporate Bank palettes into your charts, like those found in [Bank standards on corporate identity](https://bankofengland.frontify.com/d/RPk6pMZziBFw/bank-standards#/brand-elements/colour-palette). 
 
-Check out the options available by calling `boe_palettes`.
+Check out the options available by calling `palette_names`.
 
 ```{r}
 # load package
 library(boeCharts)
 
-head(boe_palettes, 5)
+palette_names()
 ```
 
 You can preview colours in a supported palette using `boe_pal`:
@@ -43,7 +42,7 @@ The easiest way to use a palette in a chart is to use `scale_[colour|fill]_discr
 library(ggplot2)
 
 # make a base plot
-p <- ggplot(data = FANG, aes(x = date, y = close, colour = symbol)) +
+chart <- ggplot(data = FANG, aes(x = date, y = close, colour = symbol)) +
   geom_line() +
   labs(title = "BoE palette & theme test",
        subtitle = "A plot for demonstration purposes",
@@ -51,7 +50,7 @@ p <- ggplot(data = FANG, aes(x = date, y = close, colour = symbol)) +
   theme_minimal()
 
 # apply boe palette
-p +
+chart +
   scale_colour_discrete_boe(palette = "boe")
 
 ```
@@ -62,7 +61,7 @@ Use colour schemes for your own business area or publications. For example, use 
 
 ```{r mcg_pal}
 
-p +
+chart +
   # apply mcg palette
   scale_colour_discrete_boe(palette = "mcg")
 
@@ -72,13 +71,40 @@ p +
 
 Go beyond palettes, and control the appearance of all (non-data) chart elements with **themes** to produce Bank-style plots.
 
+### Bank Overground
+
+`theme_overground` approximates the design of charts in [Bank Overground](https://www.bankofengland.co.uk/bank-overground) publications (note the use of a vibrant colour combination in this example, too).
+
+```{r overground_theme}
+
+chart_two <- ggplot(iris, aes(Sepal.Length, Sepal.Width, color = Species)) +
+  geom_jitter(size = 3) +
+  # Bank Overground theme
+  theme_overground() +
+  # a "vibrant" Bank colour combination
+  scale_colour_discrete_boe(palette = "vibrant_c") +
+  labs(title = "BoE palette & theme test",
+       subtitle = "A plot for demonstration purposes")
+
+chart_two
+```
+
+The helper function `left_align_titles` can be used to fix titles to the left of the chart window (as is the case in *Bank Overground* publications). Note that the object returned is a [gtable](https://gtable.r-lib.org/), rather than a ggplot, object, and can be drawn using standard functions from the `grid` package.
+
+```{r title_align}
+chart_two <- left_align_titles(chart_two)
+
+grid::grid.draw(chart_two)
+```
+
+
 ### Inflation Report
 
-A theme that approximates the design of charts in [the Inflation Report](https://www.bankofengland.co.uk/inflation-report/2018/august-2018/the-labour-market-and-pay). Note the arguments passed to `scale_y_continuous()` to achieve the correct y-axis format (as well as `scale_colour_discrete_boe`, seen earlier, to do the colours).
+`theme_inflation_report` approximates the design of charts in [the Inflation Report](https://www.bankofengland.co.uk/inflation-report/2018/august-2018/the-labour-market-and-pay). Note the arguments passed to `scale_y_continuous()` to achieve the correct y-axis format (as well as `scale_colour_discrete_boe`, seen earlier, to do the colours).
 
 ```{r ir_theme}
 
-p +
+chart +
   # apply boe palette
   scale_colour_discrete_boe(palette = "boe") +
   # add MCG theme
@@ -96,7 +122,7 @@ A theme that approximates the design of charts in [Money & Credit statistical re
 
 ```{r mcg_theme}
 
-p +
+chart +
   # apply boe palette
   scale_colour_discrete_boe(palette = "boe") +
   # add MCG theme

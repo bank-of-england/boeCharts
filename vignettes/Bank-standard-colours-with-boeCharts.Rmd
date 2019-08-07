@@ -1,5 +1,7 @@
 ---
 title: "Bank-standard colours with boeCharts"
+author: "Al Firrell, Advanced Analytics"
+date: "May 2019"
 output: rmarkdown::html_vignette
 vignette: >
   %\VignetteIndexEntry{Bank-standard colours with boeCharts}
@@ -8,19 +10,16 @@ vignette: >
 
 ---
 
-## BoE Visual Identity
-In early 2019, Communications directorate [updated the Bank's visual identity](http://intranet/BankNews/Pages/New-yearnew-lookUpdatingt-636840277763400290.aspx) including a suite of standard colours for BoE outputs.  For more details on the colours, including accessibility ratings and general guidance, see the [Brand Standards](https://bankofengland.frontify.com/d/RPk6pMZziBFw/bank-standards#/brand-elements/colour-palette).
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(collapse = TRUE, comment = "#>", cache = FALSE, fig.dpi = 96, fig.width = 7, fig.height = 5)
 
-We hould use these in our charts.  But how to do it without mucking around with RGB codes and Hex values?  **boeCharts to the rescue!**
-
-### The `boeCharts` package
-The first time you use it, you'll need to install it.  This is an internaly built package, so rather than the regular `install.packages("boeCharts")` to pull from CRAN, we specify the full path and `repos=NULL`:
-
-```{r install, eval=FALSE}
-install.packages("http://collaborate/workspaces/RHelpCentre/R%20Documents/Packages/boeCharts_1.0.1.zip", repos=NULL, type="binary")
 ```
 
-and then library it:
+## BoE Visual Identity
+
+In early 2019, Communications directorate [updated the Bank's visual identity](http://intranet/BankNews/Pages/New-yearnew-lookUpdatingt-636840277763400290.aspx) including a suite of standard colours for BoE outputs.  For more details on the colours, including accessibility ratings and general guidance, see the [Brand Standards](https://bankofengland.frontify.com/d/RPk6pMZziBFw/bank-standards#/brand-elements/colour-palette).
+
+We should use these in our charts.  But how to do it without mucking around with RGB codes and Hex values?  **boeCharts to the rescue!**
 
 ```{r lib, message=FALSE, warning=FALSE}
 library(boeCharts)
@@ -62,7 +61,8 @@ title("boe soft")
 ```
 
 To see all the colour palettes, try `show_colour_swatches()`.
-```{r colour_swatches, echo=F}
+
+```{r colour_swatches, echo=FALSE, eval=FALSE}
 ## Not run: launches a PDF colour chart
 show_colour_swatches()
 ```
@@ -220,7 +220,3 @@ iris2 %>%
   scale_colour_manual(values = custom_sequential_palette) +
   theme_minimal()
 ```
-
-
-*Al Firrell, Advanced Analytics, May 2019*
-

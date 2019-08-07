@@ -1,5 +1,7 @@
 ---
 title: "'Last-mile' formatting"
+author: "Ewen Henderson, Data & Statistics"
+date: "October 2018"
 output: rmarkdown::html_vignette
 vignette: >
   %\VignetteIndexEntry{'Last-mile' formatting}
@@ -8,11 +10,7 @@ vignette: >
 ---
 
 ```{r setup, include = FALSE}
-knitr::opts_chunk$set(
-  collapse = TRUE,
-  comment = "#>",
-  fig.width = 7, fig.height = 4, cache=FALSE, dev = 'svg', fig.dpi = 96
-)
+knitr::opts_chunk$set(collapse = TRUE, comment = "#>", cache=FALSE, fig.dpi = 96, fig.width = 7, fig.height = 5)
 ```
 
 Once you've applied `boeCharts` theme and palette approximations (detailed in [using boeCharts](using-boeCharts.html)), there may still be fine-tuning necessary to faithfully produce a publication-ready chart. Functions to assist with these 'last-mile' aesthetic tasks are detailed here, some implemented within this package and some general `ggplot2` pointers.

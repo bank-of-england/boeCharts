@@ -1,4 +1,4 @@
-#' Stock prices for the "FANG" stocks.
+#' Stock prices for the "FANG" stocks
 #'
 #' A dataset containing the daily historical stock prices for the "FANG" tech stocks,
 #' "FB", "AMZN", "NFLX", and "GOOG", spanning from the beginning of

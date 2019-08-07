@@ -1,18 +1,42 @@
-# map font on windows sys
-map_font_win <- function(base_family) {
+# register a windows font
+register_family_win <- function(family, quiet = TRUE, cfonts = character()) {
   
-  if (.Platform$OS.type == "windows") {
-    
-    # check if font already mapped
-    if (base_family %in% names(windowsFonts())) return(NULL)
-    
-    # map font to system
-    args <- list()
-    args[[base_family]] <- windowsFont(base_family)
-    do.call(windowsFonts, args)
-    
+  # check if font already registered
+  if (family %in% cfonts) {
+    if (!quiet) {
+      message(family, " already registered with ", "windowsFonts", "().")
+    }
+    return(NULL)
   }
+  # otherwise, register font message
+  if (!quiet) {
+    message("Registering font with R using ", "windowsFonts", "(): ", family)
+  }
+  
+  # register font
+  args <- list()
+  args[[family]] <- windowsFont(family)
+  do.call(windowsFonts, args)
+  
 }
+
+# load font
+load_font_win <- function(family, quiet = TRUE) {
+  
+  # dont do anything if not windows
+  if (.Platform$OS.type != "windows") {
+    warning("OS is not Windows. No fonts registered with ", "windowsFonts", "().")
+    return(NULL)
+  }
+  
+  # get existing fonts
+  cfonts <- names(windowsFonts())
+
+  # load fonts
+  register_family_win(family = family, cfonts = cfonts, quiet = quiet)
+  
+}
+
 
 #' Update matching font defaults for text geoms
 #'

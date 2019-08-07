@@ -1,3 +1,30 @@
+#' Get names of available palettes
+#' 
+#' Display available palette names, optionally specifying
+#' a subset of palettes to show.
+#'
+#' @param type type of palette ("all" by default)
+#'
+#' @return character vector
+#' @export
+#'
+#' @examples
+#' palette_names(type = "vibrant")
+palette_names <- function(type = c("all", "standard", "harmonious", 
+                                   "vibrant", "diverging")) {
+  
+  palette_type <- match.arg(type)
+  
+  switch(palette_type,
+         all = names(boe_palettes),
+         standard = names(boe_standard_palettes),
+         harmonious = names(boe_harmonious_palettes),
+         vibrant = names(boe_vibrant_palettes),
+         diverging = names(boe_diverging_palettes))
+  
+}
+
+
 #' @title Show colours in a Bank colour palette
 #'
 #' @description \code{\link{show_palette_cols}} produces a pie chart of colours
@@ -17,7 +44,7 @@ show_palette_cols <- function(palette) {
   
   cols <- colours_from_palette(palette, strip_names = F)
   
-  graphics::pie(
+  pie(
     rep(1, length(cols)),
     col = cols,
     labels = names(cols))
@@ -31,8 +58,7 @@ show_palette_cols <- function(palette) {
 #' @export
 #'
 #' @examples
-#' show_colour_swatches()
-#' swatch_file <- show_colour_swatches(palettes = c("harmonious_blue", "harmonious_orange"))
+#' show_colour_swatches(palettes = c("harmonious_blue", "harmonious_orange"))
 
 show_colour_swatches <- function(palettes = boe_palettes) {
   
@@ -99,7 +125,7 @@ show_colour_swatches <- function(palettes = boe_palettes) {
 #' colours_from_palette(boe_harmonious_palettes$harmonious_blue)
 colours_from_palette <- function(palette, strip_names = TRUE) {
   
-  ## check palette
+  # check palette
   if (is.character(palette)) {
     
     if (!palette %in% names(boe_palettes)) {
@@ -125,20 +151,22 @@ colours_from_palette <- function(palette, strip_names = TRUE) {
   cols
 }
 
-# check palette length
-check_pal_n <- function(n, pal) {
-  if (n > length(pal)) {
-    warning("This palette can handle a maximum of ", length(pal), " values.",
-            "You have supplied ", n, ".")
-  } else if (n < 0) {
-    stop("`n` must be a non-negative integer.")
-  }
-}
 
-# left-align text
-left_align_titles <- function(chart) {
+#' Left-align chart titles
+#' 
+#' Left-align chart title and subtitle.
+#' 
+#' @details A gtable object is returned by this function.
+#' Such objects can be drawn using standard functions 
+#' from the \pkg{grid} package
+#'
+#' @param x a ggplot object
+#'
+#' @return a gtable object
+#' @export
+left_align_titles <- function(x) {
   
-  grob <- ggplotGrob(chart)
+  grob <- ggplotGrob(x)
   grob$layout$l[grob$layout$name %in% c("title", "subtitle")] <- 2
   
   grob

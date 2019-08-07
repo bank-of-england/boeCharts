@@ -14,7 +14,7 @@ test_that("Palette reversal works", {
   
   pal <- boe_pal(palette = "boe", n = 4, reverse = TRUE)
   
-  expect_identical(pal[1], "#E05206")
+  expect_identical(pal[1], "#1E1E1E")
   expect_length(pal, 4)
 })
 

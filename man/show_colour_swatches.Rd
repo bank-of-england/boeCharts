@@ -16,6 +16,5 @@ show_colour_swatches(palettes = boe_palettes)
 Display a PDF with colours and names displayed for inbuilt palettes
 }
 \examples{
-show_colour_swatches()
-swatch_file <- show_colour_swatches(palettes = c("harmonious_blue", "harmonious_orange"))
+show_colour_swatches(palettes = c("harmonious_blue", "harmonious_orange"))
 }
