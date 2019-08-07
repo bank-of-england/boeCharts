@@ -118,7 +118,7 @@ We will look at each of these in turn.
 
 
 ### Reversing the palette
-By passing `reverse=TRUE`, ggplot will pick colours from the end of the palette first, rather than the beginning.
+By passing `reverse=TRUE`, ggplot will assign colours to values in the reverse order.
 
 ```{r reverse}
 iris %>% 

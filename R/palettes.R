@@ -97,7 +97,7 @@ boe_palettes <- c(
 #' @param n Number of palette colours to use
 #' 
 #' @param reverse Logical, sets the order of colours in the scale. If TRUE,
-#' the palette will be reversed (FALSE by default).
+#' the n colours will be returns in reverse order (FALSE by default).
 #'
 #' @family colour boe
 #'
@@ -119,9 +119,10 @@ boe_pal <- function(palette, n, reverse = FALSE) {
   
   check_pal_n(n, pal)
   
-  if (reverse) pal <- rev(pal)
-  
   out <- pal[1:n]
+  
+  ## reverse returns the same colours in reverse order (change: was returning colours from the other end of the palette)
+  if (reverse) out <- rev(out)
   
   structure(out, class = "palette", palette = palette)
 }
