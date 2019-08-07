@@ -27,7 +27,7 @@ harmonious_teal <- list(
 #' @rdname harmonious-palettes
 #' @export
 harmonious_green <- list(
-  rich_gren = boe_rich$rich_green,
+  rich_green = boe_rich$rich_green,
   green = boe_highlights$green,
   light_green = boe_soft$light_green
 )
