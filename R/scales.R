@@ -5,6 +5,7 @@
 #'
 #' @name ggplot2-scales-discrete
 #' 
+#' @inheritParams ggplot2::continuous_scale
 #' @inheritParams boe_pal
 #' @param ... additional arguments to pass to \link[ggplot2]{discrete_scale}
 #'
@@ -20,28 +21,62 @@ NULL
 #' 
 #' library(ggplot2)
 #' 
-#' ggplot(iris, aes(x = Sepal.Length, y = Sepal.Width, colour = Species)) +
+#' ggplot(iris, aes(x=Sepal.Length, y=Sepal.Width, colour=Species)) +
 #'     geom_point() +
 #'     scale_colour_discrete_boe("boe_highlights")
 #'     
 scale_colour_discrete_boe <- function(palette = "boe", reverse = FALSE, ...) {
   
-  discrete_scale("colour", scale_name = palette, 
-                 pal_pal(palette = palette, reverse = reverse), ...)
+  scale_discrete_boe(palette = palette, aesthetics = "colour", reverse = reverse, ...)
+  
+}
+
+#' @rdname ggplot2-scales-discrete 
+#' @export
+#' @examples
+#' 
+#' library(ggplot2)
+#' 
+#' ggplot(iris, aes(x=Sepal.Length, y=Sepal.Width, colour=Species)) +
+#'     geom_point() +
+#'     scale_color_discrete_boe("boe_highlights")
+#'     
+scale_color_discrete_boe <- function(palette = "boe", reverse = FALSE, ...) {
+  ## alias for US spelling 'color'
+  scale_colour_discrete_boe(palette = palette, reverse = reverse, ...)
+  
 }
 
 #' @rdname ggplot2-scales-discrete
 #' @export
 #' 
 #' @examples 
-#' ggplot(iris, aes(x = Sepal.Length, y = Sepal.Width, colour = Species)) +
-#'     geom_point() +
+#' ggplot(iris, aes(x=Sepal.Length, y=Sepal.Width, fill=Species)) +
+#'     geom_col() +
 #'     scale_fill_discrete_boe(boe_palettes$vibrant_a)
 scale_fill_discrete_boe <- function(palette = "boe", reverse = FALSE, ...) {
   
-  discrete_scale(aesthetics = "fill", scale_name = palette, 
+  scale_discrete_boe(palette = palette, aesthetics = "fill", reverse = reverse, ...)
+  
+}
+
+#' @rdname ggplot2-scales-discrete
+#' @export
+#' 
+#' @examples 
+#' ggplot(iris, aes(x=Sepal.Length, y=Sepal.Width, colour=Species, fill=Species)) +
+#'     geom_point() +
+#'     geom_col() +
+#'     scale_discrete_boe(boe_palettes$vibrant_a)  ## set colour and fill simultaneously
+scale_discrete_boe <- function(palette = "boe", 
+                               aesthetics = c("colour", "fill"),
+                               reverse = FALSE, 
+                               ...) {
+  
+  discrete_scale(aesthetics = aesthetics, scale_name = palette, 
                  pal_pal(palette = palette, reverse = reverse), ...)
 }
+
 
 #' @rdname ggplot2-scales-discrete 
 #' @export
@@ -104,14 +139,44 @@ scale_colour_continuous_boe <- function(palette,
                                         guide = "colourbar",
                                         ...) {
   
-  scale_continuous_boe(aesthetics = "colour", 
-                       palette = palette, 
+  scale_continuous_boe(palette = palette, 
+                       aesthetics = "colour", 
                        midpoint = midpoint, 
                        reverse = reverse, 
                        values = values, 
                        na.value = na.value, 
                        guide = guide, 
                        ...)
+}
+
+#' @rdname ggplot2-scales-continuous
+#' @export
+#' @examples
+#' library(ggplot2)
+#' 
+#' ggplot(mtcars, aes(mpg, wt, colour=disp)) +
+#'   geom_point() +
+#'   scale_colour_continuous_boe(palette=boe_harmonious_palettes$harmonious_green)
+#'
+#' ggplot(mtcars, aes(mpg, wt, colour=disp)) +
+#'   geom_point() +
+#'   scale_colour_continuous_boe("red_yellow_blue")
+#'
+scale_color_continuous_boe <- function(palette,
+                                        midpoint = NA,
+                                        reverse = FALSE, 
+                                        values = NULL,
+                                        na.value = "grey50", 
+                                        guide = "colourbar",
+                                        ...) {
+  ## alias for US spelling 'color'
+  scale_colour_continuous_boe(palette = palette, 
+                              midpoint = midpoint, 
+                              reverse = reverse, 
+                              values = values, 
+                              na.value = na.value, 
+                              guide = guide, 
+                              ...)
 }
 
 #' @rdname ggplot2-scales-continuous
@@ -134,8 +199,8 @@ scale_fill_continuous_boe <- function(palette,
                                       na.value = "grey50", 
                                       guide = "colourbar",
                                      ...) {
-  scale_continuous_boe(aesthetics = "fill",
-                       palette = palette, 
+  scale_continuous_boe(palette = palette, 
+                       aesthetics = "fill",
                        midpoint = midpoint, 
                        reverse = reverse, 
                        values = values, 
@@ -154,22 +219,24 @@ scale_fill_continuous_boe <- function(palette,
 #' @examples
 #' library(ggplot2)
 #' 
-#' ggplot(mtcars, aes(mpg, wt, fill=disp)) + 
+#' ggplot(mtcars, aes(mpg, wt, fill=disp, colour=disp)) + 
 #'   geom_col() +
-#'   scale_continuous_boe(aesthetic="fill", palette="red_blue")
-#'   
-#' ggplot(mtcars, aes(mpg, wt, colour = disp)) +
 #'   geom_point() +
-#'   scale_continuous_boe(aesthetic="colour", palette=boe_diverging_palettes$red_green, midpoint = 200)
+#'   scale_continuous_boe(palette="red_blue") ## set colour and fill simultaneously
 #'   
-scale_continuous_boe <- function(aesthetics = c("colour", "fill"),
-                                palette,
-                                midpoint = NA,
-                                reverse = FALSE, 
-                                values = NULL,
-                                na.value = "grey50", 
-                                guide = "colourbar",
-                                ...) {
+#' ggplot(mtcars, aes(mpg, wt, fill=disp, colour=disp)) +
+#'   geom_col() +
+#'   geom_point() +
+#'   scale_continuous_boe(palette=boe_diverging_palettes$red_green, midpoint = 200)
+#'   
+scale_continuous_boe <- function(palette,
+                                 aesthetics = c("colour", "fill"),
+                                 midpoint = NA,
+                                 reverse = FALSE, 
+                                 values = NULL,
+                                 na.value = "grey50", 
+                                 guide = "colourbar",
+                                 ...) {
   
   cols <- colours_from_palette(palette)
   
