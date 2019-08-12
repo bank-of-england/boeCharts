@@ -60,10 +60,6 @@ Below, the [Bank Overground](https://www.bankofengland.co.uk/bank-overground) ch
 ``` r
 # load boeCharts
 library(boeCharts)
-#> boeCharts: Bank Chart Themes and Styles for 'ggplot2'. 
-#>      For more information visit:
-#>      https://almplatform/tfs/UnmanagedCollection/Shared%20Analytical%20Code/_git/boeCharts?path=%2FREADME.md
-#> 
 
 chart <- chart +
   # add Bank Overground theme
@@ -79,19 +75,26 @@ chart
 
 ### A more in-depth example
 
-Another `ggplot2` + `boeCharts` creation, this time investigating some more customization options.
+Another `ggplot2` + `boeCharts` creation, this time investigating some more customization options. The [`gghighlight`](https://yutannihilation.github.io/gghighlight/) library is also featured in this example.
 
 ``` r
+
+# load extra packages
+library(gghighlight)
+
 # create chart
 ggplot(data = FANG, aes(x = date, y = close, colour = symbol)) +
   # add lines, tweak line width 
-  geom_line(size = 0.7) +
+  geom_line(size = 0.7, show.legend = FALSE) +
+  # highlight netflix stocks
+  gghighlight(symbol == "NFLX", unhighlighted_colour = boe_neutral$stone,
+              use_group_by = FALSE, use_direct_label = FALSE) +
   # add some chart labels
   labs(title = "BoE Palette Test",
        subtitle = "A plot for demonstration purposes",
        y = "Closing\nprice", x = NULL) +
-  # add boe colour palette
-  scale_colour_discrete_boe() +
+  # use 'highlights' palette
+  scale_colour_discrete_boe(palette = "boe_highlights") +
   # add Bank Overground theme
   theme_overground(axis_text_size = 11) +
   # apply custom axis settings
