@@ -6,7 +6,6 @@ tests/figs
 *.RData
 *.Rdata
 *.rda
-*.csv
 *.html
 *.xlsx
 *.xls
