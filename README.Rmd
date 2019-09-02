@@ -145,3 +145,9 @@ Also, for general consideration when contributing to the package, try to:
 
 - Observe principles in Hadley Wickham's [R Packages book](https://r-pkgs.org/)
 - Follow the Git branch (see [here](https://blog.rstudio.com/2017/09/13/rstudio-v1.1-the-little-things/) for how to create a branch from within R Studio) & [pull request](https://docs.microsoft.com/en-us/azure/devops/repos/git/pullrequest?view=azure-devops) model, or [contact Ewen](mailto:ewen.henderson@bankofengland.co.uk)
+
+### To do
+
+- Chart export destination helpers (e.g. 16x9 ppt half size)
+- More extensive "using grey" examples, poss a vignette/cookbook demonstrating `gghighlight`
+

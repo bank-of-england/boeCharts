@@ -3,7 +3,7 @@
 ## Breaking changes
 
 * Palettes now follow a standardised, lower snake-case naming convention (e.g. `boe_rich` instead of `boeRich`) everywhere.
-* `scale_[colour|fill]_discrete_boe()` is the new name(s) of the function(s) previously known as `scale_colour|fill_boe()`.
+* `scale_[colour|fill]_discrete_boe()` is the new name(s) of the function(s) previously known as `scale_colour|fill_boe()`. The original functions will throw warnings, directing you to the new functions (but will throw errrors in future versions).
 * `boe` (2016 visual identity guidelines) palette has been reordered for more visual distinctiveness.
 
 ## New functions

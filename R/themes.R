@@ -66,7 +66,8 @@ theme_overground <- function(
   strip_text_face = "plain", strip_text_colour = base_colour, strip_text_size = 22, 
   plot_margin = c(10, 10, 10, 10),
   grid = "X", grid_col = "#C8CCCF", 
-  axis = "X", axis_col = grid_col, ticks = axis
+  axis = "X", axis_col = grid_col, 
+  ticks = axis
   ) {
   
   # map font family
