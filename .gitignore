@@ -3,9 +3,6 @@
 doc
 Meta
 tests/figs
-*.RData
-*.Rdata
-*.rda
 *.html
 *.xlsx
 *.xls
