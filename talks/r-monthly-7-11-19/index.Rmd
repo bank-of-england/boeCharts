@@ -1,0 +1,234 @@
+---
+title: "Bank-style data viz made simple"
+subtitle: "(with `ggplot2` and `boeCharts`)"
+author: "Ewen Henderson"
+date: "7/11/2019 (updated: `r Sys.Date()`)"
+output:
+  xaringan::moon_reader:
+    lib_dir: libs
+    css: ["default", "metropolis", "metropolis-fonts", "custom.css"]
+    nature:
+      ratio: 16:9
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+      slideNumberFormat: "%current%"
+editor_options: 
+  chunk_output_type: console
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(fig.width=4.25, fig.height=3.5, fig.retina=3,
+                      out.width = "100%",
+                      message=FALSE, warning=FALSE, cache = TRUE, 
+                      autodep = TRUE, hiline=TRUE)
+knitr::opts_hooks$set(fig.callout = function(options) {
+  if (options$fig.callout) {
+    options$echo <- FALSE
+    options$out.height <- "99%"
+    options$fig.width <- 16
+    options$fig.height <- 8
+  }
+  options
+})
+options(
+  htmltools.dir.version = FALSE, 
+  width = 90,
+  max.print = 9999,
+  knitr.table.format = "html"
+)
+as_table <- function(...) knitr::kable(..., format='html', digits = 3)
+```
+
+# What's inside?
+
+- A `ggplot2`, `boecharts` primer
+- `boeCharts` news
+- `boeCharts` "in the wild"
+- The future of `boeCharts`
+- How to contribute to `boeCharts`
+
+Install the **xaringan** package from [Github](https://github.com/yihui/xaringan):
+
+```{r eval=FALSE, tidy=FALSE}
+devtools::install_github("yihui/xaringan")
+```
+
+---
+layout: false
+class: inverse center middle text-white
+
+.font200[a ggplot2, boeCharts primer]
+
+---
+
+# What is `ggplot2`
+
+An R package that effectively implements the "layered grammar of graphics"
+
+...
+
+---
+
+# Why you should use `ggplot2`
+
+.pull-left[
+
+- .h1[Simple] and consistent core API
+
+- Declaratively designed with iteration in mind
+
+- Powerful enough to produce publication-quality plots
+
+- Lots of example code and graphics in the public domain
+
+- Encourages the practicing of tidy data principles
+]
+
+.pull-right[
+![](images/hadley-cosmo.png_large)
+]
+
+---
+
+# What is `boeCharts`
+
+An R package that implements Bank-style data viz helpers *on top of* `ggplot2`
+
+...
+
+---
+
+# Why you should use `boeCharts`
+
+.pull-left[
+
+- .h1[Simple] and consistent core API, consistent with `ggplot2`
+
+- ~~Lean~~ Fall into the Bank's visual identity guidelines
+
+- Powerful enough to produce Bank publication-quality plots
+
+- Lots of example code and graphics in the Bank
+
+- ...
+]
+
+.pull-right[
+![](images/hadley-cosmo.png_large)
+]
+
+---
+layout: false
+class: inverse center middle text-white
+
+.font200[a tour of boeCharts]
+
+---
+
+# Getting started
+
+Point your package installations commands to Artifactory (run this once):
+
+```{r eval=FALSE}
+local({
+	boe_repos <- list(
+	  "boe-cran-local-repo" = "https://binarycentral/artifactory/boe-cran-local-repo/",
+	  "boe-cran-remote-repo" = "https://<USERNAME>:<PASSWORD>@binarycentral/artifactory/boe-cran-remote-repo/"
+	  )
+	options(repos = boe_repos)
+})
+```
+
+install `boeCharts`:
+
+```{r eval=FALSE}
+install.packages("boeCharts")
+```
+
+load `boeCharts`:
+
+```{r}
+library(boeCharts)
+library(ggplot2)
+```
+
+---
+layout: true
+# Creating a Bank-style chart
+---
+
+.left-code[
+```{r first-plot1a, eval=FALSE}
+ggplot(iris, aes(x = Sepal.Length, y = Sepal.Width))
+```
+]
+
+.right-plot[
+```{r first-plot1a-out, ref.label='first-plot1a', echo=FALSE, out.width="100%"}
+```
+]
+
+---
+
+.left-code[
+```{r first-plot1a, eval=FALSE}
+ggplot(iris, aes(x = Sepal.Length, y = Sepal.Width)) +
+  geom_jitter(aes(colour = Species), size = 3) #<<
+```
+]
+
+.right-plot[
+```{r first-plot1a-out, ref.label='first-plot1b', echo=FALSE, out.width="100%"}
+```
+]
+
+---
+
+.left-code[
+```{r first-plot1b, eval=FALSE}
+ggplot(iris, aes(Sepal.Length, Sepal.Width, color = Species)) +
+  geom_jitter(size = 3) +
+  theme_overground() #<<
+```
+]
+
+.right-plot[
+```{r first-plot1b-out, ref.label='first-plot1c', echo=FALSE, out.width="100%"}
+```
+]
+
+---
+layout:false
+# Pick a palette
+
+See what's available:
+
+```{r}
+palette_names(type = "vibrant")
+```
+
+Preview colours in supported palettes:
+
+```{r}
+boe_pal(palette = "vibrant_c")
+```
+
+---
+
+# Try a theme
+
+As of version 1.1.0, `theme_overground()` can be used to approximate [Bank Overground](https://www.bankofengland.co.uk/bank-overground) chart designs: 
+
+```{r}
+ggplot(iris, aes(Sepal.Length, Sepal.Width, color = Species)) +
+  geom_jitter(size = 3) +
+  # Bank Overground theme
+  theme_overground() +
+  # a "vibrant" Bank colour combination
+  scale_colour_discrete_boe(palette = "vibrant_c") +
+  labs(title = "BoE palette & theme test",
+       subtitle = "A plot for demonstration purposes")
+```
+
+---
