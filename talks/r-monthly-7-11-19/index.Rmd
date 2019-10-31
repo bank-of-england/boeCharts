@@ -42,27 +42,21 @@ as_table <- function(...) knitr::kable(..., format='html', digits = 3)
 
 # What's inside?
 
-- A `ggplot2`, `boecharts` primer
-- `boeCharts` news
+- `ggplot2`, `boecharts` 101
+
 - `boeCharts` "in the wild"
-- The future of `boeCharts`
-- How to contribute to `boeCharts`
 
-Install the **xaringan** package from [Github](https://github.com/yihui/xaringan):
-
-```{r eval=FALSE, tidy=FALSE}
-devtools::install_github("yihui/xaringan")
-```
+- What's next for `boeCharts`
 
 ---
 layout: false
 class: inverse center middle text-white
 
-.font200[a ggplot2, boeCharts primer]
+.font200[*ggplot2*, *boeCharts* 101]
 
 ---
 
-# What is `ggplot2`
+# What is *ggplot2*?
 
 An R package that effectively implements the "layered grammar of graphics"
 
@@ -70,7 +64,7 @@ An R package that effectively implements the "layered grammar of graphics"
 
 ---
 
-# Why you should use `ggplot2`
+# Why you should use *ggplot2*
 
 .pull-left[
 
@@ -91,7 +85,7 @@ An R package that effectively implements the "layered grammar of graphics"
 
 ---
 
-# What is `boeCharts`
+# What is *boeCharts*?
 
 An R package that implements Bank-style data viz helpers *on top of* `ggplot2`
 
@@ -99,7 +93,7 @@ An R package that implements Bank-style data viz helpers *on top of* `ggplot2`
 
 ---
 
-# Why you should use `boeCharts`
+# Why you should use *boeCharts*
 
 .pull-left[
 
@@ -120,24 +114,57 @@ An R package that implements Bank-style data viz helpers *on top of* `ggplot2`
 
 ---
 layout: false
-class: inverse center middle text-white
+# Some new tricks
 
-.font200[a tour of boeCharts]
+`boeCharts` v1.1.0 (released in September) brought with it:
+
+- Harmonious/vibrant colour combination palettes, as featured in the Bank's [new visual identity](https://bankofengland.frontify.com/d/RPk6pMZziBFw/bank-standards#/brand-elements/colour-palette)
+
+- Diverging, [ColorBrewer](http://colorbrewer2.org/)-style palettes
+
+- Continuous, ggplot2-supported, scales (these work particularly nicely with new harmonious/vibrant palettes) to complement existing discrete scales
+
+- A [Bank Overground](https://www.bankofengland.co.uk/bank-overground) chart theme (inc. auto font handling)
+
+- Much, much more&trade; (see the packages [NEWS](https://almplatform/tfs/UnmanagedCollection/Shared%20Analytical%20Code/_git/boeCharts?path=%2FNEWS.md&version=GBmaster&_a=contents) file for comprehensive detail)
+
 
 ---
+layout: false
+class: inverse center middle text-white
+
+.font200[*boeCharts* "in the wild"]
+
+---
+
+# An aside - Burgernomics
+
+Data used in the following examples comes from The Economist's [Big Mac Index](https://www.economist.com/news/2018/07/11/the-big-mac-index), a "lighthearted guide to exchange rates".
+
+```{r, echo=FALSE}
+# load readr package
+library(readr)
+library(dplyr)
+library(here)
+
+# read big mac data
+big_mac_index <- read_csv(here("talks/r-monthly-7-11-19/data/big-mac-adjusted-index.csv")) %>% 
+  filter(date >= "2012-01-01", currency_code %in% c("GBP", "EUR")) %>% 
+  select(-iso_a3, -EUR:-CNY)
+
+as_table(big_mac_index)
+```
 
 # Getting started
 
 Point your package installations commands to Artifactory (run this once):
 
 ```{r eval=FALSE}
-local({
-	boe_repos <- list(
-	  "boe-cran-local-repo" = "https://binarycentral/artifactory/boe-cran-local-repo/",
-	  "boe-cran-remote-repo" = "https://<USERNAME>:<PASSWORD>@binarycentral/artifactory/boe-cran-remote-repo/"
-	  )
-	options(repos = boe_repos)
-})
+local({ boe_repos <- list(
+  "boe-cran-local-repo" = "https://binarycentral/artifactory/boe-cran-local-repo/",
+  "boe-cran-remote-repo" = "https://<USERNAME>:<PASSWORD>@binarycentral/artifactory/boe-cran-remote-repo/"
+  )
+options(repos = boe_repos)})
 ```
 
 install `boeCharts`:
@@ -146,21 +173,103 @@ install `boeCharts`:
 install.packages("boeCharts")
 ```
 
-load `boeCharts`:
+load `boeCharts` and `ggplot2`:
 
 ```{r}
-library(boeCharts)
-library(ggplot2)
+library(boeCharts); library(ggplot2)
 ```
 
 ---
-layout: true
-# Creating a Bank-style chart
+
+# Pick a palette
+
+.pull-left[
+
+See what's available:
+
+```{r}
+palette_names(type = "vibrant")
+```
+
+]
+
+.pull-right[
+
+Preview colours in supported palettes:
+
+```{r}
+boe_pal(palette = "vibrant_c")
+```
+
+]
+
 ---
+# Try a theme
+
+.pull-left[
+
+`theme_inflation_report()` can be used to approximate [Inflation Report  ](https://www.bankofengland.co.uk/inflation-report/2019/august-2019) chart designs: 
+
+```{r theme-eg, eval=FALSE}
+ggplot() +
+  theme_inflation_report() #<<
+```
+
+`theme_overground()` can be used to create [Bank Overground](https://www.bankofengland.co.uk/bank-overground) charts: 
+
+```{r, eval=FALSE}
+ggplot() +
+  theme_overground() #<<
+```
+
+]
+
+.pull-right[
+
+```{r, theme-eg-out, ref.label='theme-eg', echo=FALSE, out.width="100%"}
+```
+
+]
+
+# Get help with "last-mile" formatting
+
+.pull-left[
+
+`boe_date_labels()` applies a conditional month-year date label format to axis labels, compatible with `scale_x|y_date()` (from `ggplot2`):
+
+```{r date-label-ex}
+ggplot(data = big_mac_index) +
+  aes(x = date) +
+  scale_x_date(
+    date_breaks = "6 months", 
+    labels = boe_date_labels(), #<<
+    expand = expand_scale(mult = c(0, .01))
+    )
+
+```
+
+]
+
+.pull-right[
+
+```{r, date-label-ex-out, ref.label='date-label-ex', echo=FALSE, out.width="100%"}
+```
+
+]
+
+---
+layout: false
+class: inverse center middle text-white
+
+.font200[*boeCharts* "in the wild"]
+
+---
+layout: true
+# All together now
 
 .left-code[
 ```{r first-plot1a, eval=FALSE}
-ggplot(iris, aes(x = Sepal.Length, y = Sepal.Width))
+ggplot(data = big_mac_index)
 ```
 ]
 
@@ -172,63 +281,134 @@ ggplot(iris, aes(x = Sepal.Length, y = Sepal.Width))
 ---
 
 .left-code[
-```{r first-plot1a, eval=FALSE}
-ggplot(iris, aes(x = Sepal.Length, y = Sepal.Width)) +
-  geom_jitter(aes(colour = Species), size = 3) #<<
+```{r first-plot1b, eval=FALSE}
+ggplot(data = big_mac_index) +
+  aes(x = date, #<<
+      y = USD) #<<
 ```
 ]
 
 .right-plot[
-```{r first-plot1a-out, ref.label='first-plot1b', echo=FALSE, out.width="100%"}
+```{r first-plot1b-out, ref.label='first-plot1b', echo=FALSE, out.width="100%"}
 ```
 ]
 
 ---
 
 .left-code[
-```{r first-plot1b, eval=FALSE}
-ggplot(iris, aes(Sepal.Length, Sepal.Width, color = Species)) +
-  geom_jitter(size = 3) +
+```{r first-plot1c, eval=FALSE}
+ggplot(data = big_mac_index) +
+  aes(x = date,
+      y = USD) +
+  geom_line(size = 0.7) #<<
+```
+]
+
+.right-plot[
+```{r first-plot1c-out, ref.label='first-plot1c', echo=FALSE, out.width="100%"}
+```
+]
+
+---
+
+.left-code[
+```{r first-plot1d, eval=FALSE}
+ggplot(data = big_mac_index) +
+  aes(x = date, 
+      y = USD,
+      colour = currency_code) + #<<
+  geom_line(size = 1.1) 
+```
+]
+
+.right-plot[
+```{r first-plot1d-out, ref.label='first-plot1d', echo=FALSE, out.width="100%"}
+```
+]
+
+---
+
+.left-code[
+```{r first-plot1e, eval=FALSE}
+ggplot(data = big_mac_index) +
+  aes(x = date, 
+      y = USD,
+      colour = currency_code) +
+  geom_line(size = 1.1) +
+  scale_color_discrete_boe( #<<
+    palette = "vibrant_c", #<<
+    reverse = TRUE #<<
+    ) #<<
+```
+]
+
+.right-plot[
+```{r first-plot1e-out, ref.label='first-plot1e', echo=FALSE, out.width="100%"}
+```
+]
+
+.left-code[
+```{r first-plot1f, eval=FALSE}
+ggplot(data = big_mac_index) +
+  aes(x = date, 
+      y = USD,
+      colour = currency_code) +
+  geom_line(size = 1.1) +
+  scale_color_discrete_boe(
+    palette = "vibrant_c",
+    reverse = TRUE
+    ) +
   theme_overground() #<<
 ```
 ]
 
 .right-plot[
-```{r first-plot1b-out, ref.label='first-plot1c', echo=FALSE, out.width="100%"}
+```{r first-plot1f-out, ref.label='first-plot1f', echo=FALSE, out.width="100%"}
 ```
 ]
 
 ---
 layout:false
-# Pick a palette
+# Other sightings
 
-See what's available:
+.pull-left[
 
-```{r}
-palette_names(type = "vibrant")
-```
+- [Statistical Releases](https://www.bankofengland.co.uk/statistics/money-and-credit/2019/june-2019)
 
-Preview colours in supported palettes:
+- [Machine learning in UK financial services](https://www.bankofengland.co.uk/report/2019/machine-learning-in-uk-financial-services)
 
-```{r}
-boe_pal(palette = "vibrant_c")
-```
+- ...
+
+]
+
+.pull-right[
+![](images/ml-survey.png)
+]
+
+---
+layout: false
+class: inverse center middle text-white
+
+.font200[What's next for *boeCharts*]
 
 ---
 
-# Try a theme
+# A personal shopping list
 
-As of version 1.1.0, `theme_overground()` can be used to approximate [Bank Overground](https://www.bankofengland.co.uk/bank-overground) chart designs: 
+- Functionality for exporting charts to common destinations (e.g. 16x9 ppt, half-size), with opinionated defaults
 
-```{r}
-ggplot(iris, aes(Sepal.Length, Sepal.Width, color = Species)) +
-  geom_jitter(size = 3) +
-  # Bank Overground theme
-  theme_overground() +
-  # a "vibrant" Bank colour combination
-  scale_colour_discrete_boe(palette = "vibrant_c") +
-  labs(title = "BoE palette & theme test",
-       subtitle = "A plot for demonstration purposes")
-```
+- Better examples of "using grey" (a la [gghighlight](https://yutannihilation.github.io/gghighlight/))
+
+- ...
+
+# More contributors...
+
+- ...
+
+---
+layout: false
+class: inverse center middle text-white
+
+.font200[Questions]
 
 ---
