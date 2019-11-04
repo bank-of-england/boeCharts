@@ -58,9 +58,22 @@ class: inverse center middle text-white
 
 # What is *ggplot2*?
 
-An R package that effectively implements the "layered grammar of graphics"
+.pull-left[
 
-...
+- A long-favoured (10 years young!), opinionated R package that effectively implements the "layered grammar of graphics"
+
+- Advocates for a "declarative" visualisation workflow - you declare relationships between your data's variables and chart aesthetics, it takes care of the finer details (if you don't want to)
+
+- Better explained by it's creator, Hadley Wickham, via the `ggplot2` [book](https://ggplot2-book.org/) and [website](https://ggplot2.tidyverse.org/)
+
+]
+
+.pull-right[
+![](images/hadley-cosmo.png_large)
+]
+
+.footnote[<https://www.jstatsoft.org/article/view/v017b03/v17b03.pdf>]
+]
 
 ---
 
@@ -70,26 +83,38 @@ An R package that effectively implements the "layered grammar of graphics"
 
 - .h1[Simple] and consistent core API
 
-- Declaratively designed with iteration in mind
+- Designed with iteration and creativity in mind
 
 - Powerful enough to produce publication-quality plots
 
-- Lots of example code and graphics in the public domain
+- Lots of code and graphics in the public domain
 
-- Encourages the practicing of tidy data principles
+- Core `tidyverse` library (meaning lots of active development) but an open system
+
+- Encourages the practice of tidy data principles
 ]
 
 .pull-right[
-![](images/hadley-cosmo.png_large)
+![](images/ft.png)
 ]
 
 ---
 
 # What is *boeCharts*?
 
-An R package that implements Bank-style data viz helpers *on top of* `ggplot2`
+.pull-left[
 
-...
+- An internal R package that extends `ggplot2` with Bank-style data viz helpers
+
+- A set of distributed charting "recipes" to aid consistency and save time spent on repetitive tasks (e.g. chart formatting)
+
+- A bridge between our visual identity guidelines and reproducible data visualisation
+
+]
+
+.pull-right[
+
+]
 
 ---
 
@@ -440,16 +465,23 @@ class: inverse center middle text-white
 
 # How to contribute
 
-- Find bugs (and report them)
+.pull-left[
+- Find bugs (and report them!)
 
 - Suggest changes or new features
 
-- Share "in the wild" examples
+- Share your "in the wild" examples
 
-- For bonus points, why not try and implement these yourself?
+- For bonus points, why not try and to the package yourself?
     - Read the *Contribute" section of the package [README](https://almplatform/tfs/UnmanagedCollection/Shared%20Analytical%20Code/_git/boeCharts?path=%2FREADME.md&version=GBmaster&_a=contents) to get started
-    - [Contact AL Firrell / me](mailto:ewen.henderson@bankofengland.co.uk?subject=boeCharts) if you wanted to discuss anything beforehand
+    - [Contact AL Firrell / me](mailto:ewen.henderson@bankofengland.co.uk?subject=boeCharts) if you wanted to discuss anything
     - Take the plunge
+]
+
+.pull-right[
+
+![](images/contribute.gif)
+]
 
 ---
 layout: false
