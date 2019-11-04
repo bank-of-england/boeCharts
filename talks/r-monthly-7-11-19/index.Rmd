@@ -33,7 +33,7 @@ knitr::opts_hooks$set(fig.callout = function(options) {
 })
 options(
   htmltools.dir.version = FALSE, 
-  width = 90,
+  width = 30,
   max.print = 9999,
   knitr.table.format = "html"
 )
@@ -46,7 +46,7 @@ as_table <- function(...) knitr::kable(..., format='html', digits = 3)
 
 - `boeCharts` "in the wild"
 
-- What's next for `boeCharts`
+- Future development
 
 ---
 layout: false
@@ -109,22 +109,22 @@ An R package that implements Bank-style data viz helpers *on top of* `ggplot2`
 ]
 
 .pull-right[
-![](images/hadley-cosmo.png_large)
+
 ]
 
 ---
 layout: false
 # Some new tricks
 
-`boeCharts` v1.1.0 (released in September) brought with it:
+`boeCharts` **v1.1.0** (released this September) brought with it:
 
 - Harmonious/vibrant colour combination palettes, as featured in the Bank's [new visual identity](https://bankofengland.frontify.com/d/RPk6pMZziBFw/bank-standards#/brand-elements/colour-palette)
 
 - Diverging, [ColorBrewer](http://colorbrewer2.org/)-style palettes
 
-- Continuous, ggplot2-supported, scales (these work particularly nicely with new harmonious/vibrant palettes) to complement existing discrete scales
+- Continuous, ggplot2-supported, scales (these work particularly nicely with new harmonious/vibrant palettes) to complement existing discrete scales
 
-- A [Bank Overground](https://www.bankofengland.co.uk/bank-overground) chart theme (inc. auto font handling)
+- A [Bank Overground](https://www.bankofengland.co.uk/bank-overground) chart theme (inc. auto font handling)
 
 - Much, much more&trade; (see the packages [NEWS](https://almplatform/tfs/UnmanagedCollection/Shared%20Analytical%20Code/_git/boeCharts?path=%2FNEWS.md&version=GBmaster&_a=contents) file for comprehensive detail)
 
@@ -154,6 +154,8 @@ big_mac_index <- read_csv(here("talks/r-monthly-7-11-19/data/big-mac-adjusted-in
 
 as_table(big_mac_index)
 ```
+
+---
 
 # Getting started
 
@@ -231,19 +233,22 @@ ggplot() +
 
 ]
 
+---
 # Get help with "last-mile" formatting
 
 .pull-left[
 
 `boe_date_labels()` applies a conditional month-year date label format to axis labels, compatible with `scale_x|y_date()` (from `ggplot2`):
 
-```{r date-label-ex}
+```{r date-label-ex, eval=FALSE}
 ggplot(data = big_mac_index) +
   aes(x = date) +
   scale_x_date(
     date_breaks = "6 months", 
     labels = boe_date_labels(), #<<
-    expand = expand_scale(mult = c(0, .01))
+    expand = expand_scale(
+      mult = c(0, .01)
+      )
     )
 
 ```
@@ -257,15 +262,11 @@ ggplot(data = big_mac_index) +
 
 ]
 
----
-layout: false
-class: inverse center middle text-white
-
-.font200[*boeCharts* "in the wild"]
 
 ---
 layout: true
 # All together now
+---
 
 .left-code[
 ```{r first-plot1a, eval=FALSE}
@@ -283,8 +284,7 @@ ggplot(data = big_mac_index)
 .left-code[
 ```{r first-plot1b, eval=FALSE}
 ggplot(data = big_mac_index) +
-  aes(x = date, #<<
-      y = USD) #<<
+  aes(x = date, y = USD) #<<
 ```
 ]
 
@@ -298,8 +298,7 @@ ggplot(data = big_mac_index) +
 .left-code[
 ```{r first-plot1c, eval=FALSE}
 ggplot(data = big_mac_index) +
-  aes(x = date,
-      y = USD) +
+  aes(x = date, y = USD) +
   geom_line(size = 0.7) #<<
 ```
 ]
@@ -314,8 +313,7 @@ ggplot(data = big_mac_index) +
 .left-code[
 ```{r first-plot1d, eval=FALSE}
 ggplot(data = big_mac_index) +
-  aes(x = date, 
-      y = USD,
+  aes(x = date, y = USD,
       colour = currency_code) + #<<
   geom_line(size = 1.1) 
 ```
@@ -331,14 +329,12 @@ ggplot(data = big_mac_index) +
 .left-code[
 ```{r first-plot1e, eval=FALSE}
 ggplot(data = big_mac_index) +
-  aes(x = date, 
-      y = USD,
+  aes(x = date, y = USD,
       colour = currency_code) +
   geom_line(size = 1.1) +
   scale_color_discrete_boe( #<<
     palette = "vibrant_c", #<<
-    reverse = TRUE #<<
-    ) #<<
+    reverse = TRUE) #<<
 ```
 ]
 
@@ -347,23 +343,52 @@ ggplot(data = big_mac_index) +
 ```
 ]
 
+---
+
 .left-code[
 ```{r first-plot1f, eval=FALSE}
 ggplot(data = big_mac_index) +
-  aes(x = date, 
-      y = USD,
+  aes(x = date, y = USD,
       colour = currency_code) +
   geom_line(size = 1.1) +
   scale_color_discrete_boe(
     palette = "vibrant_c",
-    reverse = TRUE
-    ) +
-  theme_overground() #<<
+    reverse = TRUE) +
+  theme_overground( #<<
+    base_size = 16 #<<
+  ) #<<
 ```
 ]
 
 .right-plot[
 ```{r first-plot1f-out, ref.label='first-plot1f', echo=FALSE, out.width="100%"}
+```
+]
+
+---
+
+.left-code[
+```{r first-plot1g, eval=FALSE}
+ggplot(data = big_mac_index) +
+  aes(x = date, y = USD,
+      colour = currency_code) +
+  geom_line(size = 1.1) +
+  scale_color_discrete_boe(
+    palette = "vibrant_c",
+    reverse = TRUE) +
+  theme_overground( 
+    base_size = 11, caption_size = 8
+  ) +
+  labs(
+    title = "Big Macs",
+    y = "Index (%) relative to USD", x = NULL,
+    caption = "Source: https://github.com/TheEconomist/big-mac-data | Index adjusted for GDP"
+  )
+```
+]
+
+.right-plot[
+```{r first-plot1g-out, ref.label='first-plot1g', echo=FALSE, out.width="100%"}
 ```
 ]
 
@@ -377,38 +402,57 @@ layout:false
 
 - [Machine learning in UK financial services](https://www.bankofengland.co.uk/report/2019/machine-learning-in-uk-financial-services)
 
-- ...
+- Internal indicators
+
+![](images/stats-release.png)
 
 ]
 
 .pull-right[
 ![](images/ml-survey.png)
+![](images/indicator.png)
+
 ]
 
 ---
 layout: false
 class: inverse center middle text-white
 
-.font200[What's next for *boeCharts*]
+.font200[Future development]
 
 ---
 
-# A personal shopping list
+# The ever-growing wishlist
 
 - Functionality for exporting charts to common destinations (e.g. 16x9 ppt, half-size), with opinionated defaults
 
-- Better examples of "using grey" (a la [gghighlight](https://yutannihilation.github.io/gghighlight/))
+- Automatic, direct labelling of line charts
 
-- ...
+- Theme contributions (or augmentations) from around the Bank
 
-# More contributors...
+- Better examples of "using grey" (a la [gghighlight](https://yutannihilation.github.io/gghighlight/)) + more "in the wild" examples in general
 
-- ...
+- Font handling improvements for non-Windows systems (for use on Shiny Server, for example)
+
+- Custom geoms (e.g. fan charts)
+
+---
+
+# How to contribute
+
+- Find bugs (and report them)
+
+- Suggest changes or new features
+
+- Share "in the wild" examples
+
+- For bonus points, why not try and implement these yourself?
+    - Read the *Contribute" section of the package [README](https://almplatform/tfs/UnmanagedCollection/Shared%20Analytical%20Code/_git/boeCharts?path=%2FREADME.md&version=GBmaster&_a=contents) to get started
+    - [Contact AL Firrell / me](mailto:ewen.henderson@bankofengland.co.uk?subject=boeCharts) if you wanted to discuss anything beforehand
+    - Take the plunge
 
 ---
 layout: false
 class: inverse center middle text-white
 
 .font200[Questions]
-
----
