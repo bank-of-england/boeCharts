@@ -2,7 +2,7 @@
 title: "Bank-style data viz made simple"
 subtitle: "(with `ggplot2` and `boeCharts`)"
 author: "Ewen Henderson"
-date: "7/11/2019 (updated: `r Sys.Date()`)"
+date: "Slides and code **[here](https://almplatform/tfs/UnmanagedCollection/Shared%20Analytical%20Code/_git/boeCharts?path=%2Ftalks%2Fr-monthly-7-11-19&version=GBmaster&_a=contents)**"
 output:
   xaringan::moon_reader:
     lib_dir: libs
@@ -60,7 +60,7 @@ class: inverse center middle text-white
 
 .pull-left[
 
-- A long-favoured (10 years young!), opinionated R package that effectively implements the "layered grammar of graphics"
+- A long-favoured (10 years young!), opinionated R package that effectively implements the *"layered grammar of graphics"*
 
 - Advocates for a "declarative" visualisation workflow - you declare relationships between your data's variables and chart aesthetics, it takes care of the finer details (if you don't want to)
 
@@ -104,37 +104,21 @@ class: inverse center middle text-white
 
 .pull-left[
 
-- An internal R package that extends `ggplot2` with Bank-style data viz helpers
+- An internal R package that extends `ggplot2` with Bank-style data viz helpers ✨
 
-- A set of distributed charting "recipes" to aid consistency and save time spent on repetitive tasks (e.g. chart formatting)
+- A set of distributed charting "recipes" to aid consistency and save time spent on repetitive tasks (e.g. chart formatting) ⌛
 
-- A bridge between our visual identity guidelines and reproducible data visualisation
+- A bridge between the Bank's visual identity guidelines and reproducible, publication-quality data visualisation 🖼️
+
+- An ongoing, team effort 🙏 
 
 ]
+
+--
 
 .pull-right[
 
-]
-
----
-
-# Why you should use *boeCharts*
-
-.pull-left[
-
-- .h1[Simple] and consistent core API, consistent with `ggplot2`
-
-- ~~Lean~~ Fall into the Bank's visual identity guidelines
-
-- Powerful enough to produce Bank publication-quality plots
-
-- Lots of example code and graphics in the Bank
-
-- ...
-]
-
-.pull-right[
-
+![](images/me.png)
 ]
 
 ---
@@ -208,7 +192,7 @@ library(boeCharts); library(ggplot2)
 
 ---
 
-# Pick a palette
+# Pick a palette 🎨
 
 .pull-left[
 
@@ -231,7 +215,7 @@ boe_pal(palette = "vibrant_c")
 ]
 
 ---
-# Try a theme
+# Try a theme 🤡
 
 .pull-left[
 
@@ -259,7 +243,7 @@ ggplot() +
 ]
 
 ---
-# Get help with "last-mile" formatting
+# Get help with "last-mile" formatting 🚚
 
 .pull-left[
 
@@ -290,7 +274,7 @@ ggplot(data = big_mac_index) +
 
 ---
 layout: true
-# All together now
+# All together now 🏭
 ---
 
 .left-code[
@@ -402,10 +386,10 @@ ggplot(data = big_mac_index) +
     palette = "vibrant_c",
     reverse = TRUE) +
   theme_overground( 
-    base_size = 11, caption_size = 8
+    base_size = 10, caption_size = 8, plot_title_size = 11
   ) +
   labs(
-    title = "Big Macs",
+    title = "Big Macs are cheaper in the UK!",
     y = "Index (%) relative to USD", x = NULL,
     caption = "Source: https://github.com/TheEconomist/big-mac-data | Index adjusted for GDP"
   )
