@@ -62,7 +62,7 @@ class: inverse center middle text-white
 
 - A long-favoured (10 years young!), opinionated R package that effectively implements the *"layered grammar of graphics"*
 
-- Advocates for a "declarative" visualisation workflow - you declare relationships between your data's variables and chart aesthetics, it takes care of the finer details (if you don't want to)
+- Advocates for a "declarative" visualisation workflow - you describe the relationships between your data's variables and chart aesthetics, it takes care of the finer details (if you don't want to)
 
 - Better explained by it's creator, Hadley Wickham, via the `ggplot2` [book](https://ggplot2-book.org/) and [website](https://ggplot2.tidyverse.org/)
 
@@ -110,7 +110,7 @@ class: inverse center middle text-white
 
 - A bridge between the Bank's visual identity guidelines and reproducible, publication-quality data visualisation 🖼️
 
-- An ongoing, team effort 🙏 
+- An ongoing, team effort... 
 
 ]
 
@@ -119,7 +119,37 @@ class: inverse center middle text-white
 .pull-right[
 
 ![](images/me.png)
+
 ]
+
+---
+
+# What is *boeCharts*?
+
+.pull-left[
+
+- An internal R package that extends `ggplot2` with Bank-style data viz helpers ✨
+
+- A set of distributed charting "recipes" to aid consistency and save time spent on repetitive tasks (e.g. chart formatting) ⌛
+
+- A bridge between the Bank's visual identity guidelines and reproducible, publication-quality data visualisation 🖼️
+
+- An ongoing, team effort... 
+
+]
+
+.pull-right[
+
+🙏
+
+- Alastair Firrell
+
+- Joshua Allen
+
+- Me
+
+]
+
 
 ---
 layout: false
@@ -375,34 +405,44 @@ ggplot(data = big_mac_index) +
 ]
 
 ---
+layout: false
+# One I made earlier...
 
-.left-code[
-```{r first-plot1g, eval=FALSE}
+```{r large-plot, eval=FALSE, echo=FALSE}
 ggplot(data = big_mac_index) +
   aes(x = date, y = USD,
       colour = currency_code) +
-  geom_line(size = 1.1) +
+  # add line at zero
+  geom_hline(yintercept = 0, colour = boe_neutral$dark_grey,
+             size = 0.75) +
+  # add series lines
+  geom_line(size = 1.5, key_glyph = "timeseries") +
+  # addmarkers for latest points
+  geom_point(data = filter(big_mac_index, date == max(date)),
+             size = 5, show.legend = FALSE) +
+  # apply boe palette
   scale_color_discrete_boe(
     palette = "vibrant_c",
     reverse = TRUE) +
-  theme_overground( 
-    base_size = 10, caption_size = 8, plot_title_size = 11
-  ) +
+  # edit date axis settingd
+  scale_x_date(expand = expand_scale(mult = c(0, 0.01)), date_breaks = "1 year", date_labels = "%Y") +
+  # add chart labels
   labs(
     title = "Big Macs are cheaper in the UK!",
+    subtitle = "Index adjusted for GDP.",
     y = "Index (%) relative to USD", x = NULL,
-    caption = "Source: https://github.com/TheEconomist/big-mac-data | Index adjusted for GDP"
-  )
+    caption = "Source: https://github.com/TheEconomist/big-mac-data"
+  ) +
+  # add theme
+  theme_overground(caption_face = "italic") +
+  theme(legend.title =  element_blank(), legend.position = "top")
 ```
-]
 
-.right-plot[
-```{r first-plot1g-out, ref.label='first-plot1g', echo=FALSE, out.width="100%"}
+
+```{r large-plot-callout, ref.label="large-plot", fig.callout=TRUE}
 ```
-]
 
 ---
-layout:false
 # Other sightings
 
 .pull-left[
@@ -457,9 +497,9 @@ class: inverse center middle text-white
 - Share your "in the wild" examples
 
 - For bonus points, why not try and to the package yourself?
-    - Read the *Contribute" section of the package [README](https://almplatform/tfs/UnmanagedCollection/Shared%20Analytical%20Code/_git/boeCharts?path=%2FREADME.md&version=GBmaster&_a=contents) to get started
+    - Read the *Contribute* section of the package [README](https://almplatform/tfs/UnmanagedCollection/Shared%20Analytical%20Code/_git/boeCharts?path=%2FREADME.md&version=GBmaster&_a=contents) to get started
     - [Contact AL Firrell / me](mailto:ewen.henderson@bankofengland.co.uk?subject=boeCharts) if you wanted to discuss anything
-    - Take the plunge
+    - Get stuck in
 ]
 
 .pull-right[
