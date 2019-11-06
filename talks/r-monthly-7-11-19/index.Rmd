@@ -414,7 +414,7 @@ ggplot(data = big_mac_index) +
       colour = currency_code) +
   # add line at zero
   geom_hline(yintercept = 0, colour = boe_neutral$dark_grey,
-             size = 0.75) +
+             size = 0.75, linetype = "dashed") +
   # add series lines
   geom_line(size = 1.5, key_glyph = "timeseries") +
   # addmarkers for latest points
@@ -426,11 +426,12 @@ ggplot(data = big_mac_index) +
     reverse = TRUE) +
   # edit date axis settingd
   scale_x_date(expand = expand_scale(mult = c(0, 0.01)), date_breaks = "1 year", date_labels = "%Y") +
+  scale_y_continuous(labels = scales::percent_format(accuracy = 5L)) +
   # add chart labels
   labs(
     title = "Big Macs are cheaper in the UK!",
-    subtitle = "Index adjusted for GDP.",
-    y = "Index (%) relative to USD", x = NULL,
+    subtitle = "Index of Mcdonald's Big Mac prices relative to the US dollar. Prices adjusted for GDP.",
+    y = "Index (relative to USD)", x = NULL,
     caption = "Source: https://github.com/TheEconomist/big-mac-data"
   ) +
   # add theme
