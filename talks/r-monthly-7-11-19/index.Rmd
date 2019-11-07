@@ -409,7 +409,7 @@ layout: false
 # One I made earlier...
 
 ```{r large-plot, eval=FALSE, echo=FALSE}
-ggplot(data = big_mac_index) +
+p <- ggplot(data = big_mac_index) +
   aes(x = date, y = USD,
       colour = currency_code) +
   # add line at zero
@@ -424,9 +424,9 @@ ggplot(data = big_mac_index) +
   scale_color_discrete_boe(
     palette = "vibrant_c",
     reverse = TRUE) +
-  # edit date axis settingd
+  # edit date axis settings
   scale_x_date(expand = expand_scale(mult = c(0, 0.01)), date_breaks = "1 year", date_labels = "%Y") +
-  scale_y_continuous(labels = scales::percent_format(accuracy = 5L)) +
+  scale_y_continuous(labels = scales::percent_format(accuracy = 5L), position = "right") +
   # add chart labels
   labs(
     title = "Big Macs are cheaper in the UK!",
@@ -435,8 +435,15 @@ ggplot(data = big_mac_index) +
     caption = "Source: https://github.com/TheEconomist/big-mac-data"
   ) +
   # add theme
-  theme_overground(caption_face = "italic") +
+  theme_overground(caption_face = "italic", caption_size = 14,
+                   plot_margin = c(10, 10, 10, 20)) +
   theme(legend.title =  element_blank(), legend.position = "top")
+
+# left align titles
+p <- left_align_titles(p)
+
+# display chart
+grid::grid.draw(p)
 ```
 
 
