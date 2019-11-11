@@ -142,11 +142,8 @@ class: inverse center middle text-white
 
 🙏
 
-- Alastair Firrell
+.font120[Alastair Firrell, Joshua Allen, Me, ?]
 
-- Joshua Allen
-
-- Me
 
 ]
 
