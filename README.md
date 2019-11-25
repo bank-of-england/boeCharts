@@ -14,19 +14,22 @@ Overview
 Install
 -------
 
-`boeCharts` is an R package/library best used via R Studio (installed from the [software catalogue](http://sccm-wl-mgt-01/CMApplicationCatalog)).
-
-Get the latest stable version of `boeCharts` by running the below code within an R session:
+Ensure you are installing R packages via [Artifactory](https://binarycentral/artifactory/webapp/#/home) by **running this once** (within an R session):
 
 ``` r
-# install remotes package (required for local package installs)
-if (!require("remotes")) install.packages("remotes")
+local({
+  r <- list("boe-cran-remote-repo" = "https://binarycentral/artifactory/boe-cran-remote-repo/",
+            "boe-cran-local-repo" = "https://binarycentral/artifactory/boe-cran-local-repo/",
+            "rcran" = "http://cran.rstudio.com/"
+  )
+  options(repos = r)
+})
+```
 
-# install boeCharts
-install.packages("http://collaborate/workspaces/RHelpCentre/R%20documents/Packages/boeCharts_1.1.0.zip", repos = NULL, type = "binary")
+You can then install the latest stable version of `boeCharts` from Artifactory with:
 
-# install any missing dependencies from CRAN
-remotes::install_deps(find.package("boeCharts"))
+``` r
+install.packages("boeCharts")
 ```
 
 Use
@@ -67,7 +70,7 @@ chart <- ggplot(iris, aes(Sepal.Length, Sepal.Width, color = Species)) +
 chart
 ```
 
-![](man/figures/README-unnamed-chunk-2-1.png)
+![](man/figures/README-unnamed-chunk-4-1.png)
 
 Below, the [Bank Overground](https://www.bankofengland.co.uk/bank-overground) chart theme and a "vibrant" Bank colour combination are added to the same object.
 
@@ -85,7 +88,7 @@ chart <- chart +
 chart
 ```
 
-![](man/figures/README-unnamed-chunk-3-1.png)
+![](man/figures/README-unnamed-chunk-5-1.png)
 
 ### A more in-depth example
 
