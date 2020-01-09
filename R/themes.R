@@ -314,10 +314,10 @@ theme_mcg_pub <- function(base_size = 12, base_colour = "#2b2b2b",
 }
 
 
-#' A \code{ggplot2} theme for Inflation Report chart styling
+#' A \code{ggplot2} theme for Monetary Policy Report (MPR) chart styling
 #' 
 #' @description Provides a theme to produce
-#' Inflation Report style visualisations in \code{ggplot2}.
+#' Monetary Policy Report (FKA Inflation Report) style visualisations in \code{ggplot2}.
 #' See \code{ggplot2::scale_y_continuous} for positioning y-axis on the right.
 #' 
 #' @param base_size Sets the base size of text for the plot.
@@ -344,60 +344,77 @@ theme_mcg_pub <- function(base_size = 12, base_colour = "#2b2b2b",
 #' ggplot(mtcars, aes(x = mpg, y = wt)) +
 #'    geom_point() +
 #'    labs(title = "A Lovely Plot") +
-#'    theme_inflation_report() +
+#'    theme_mpr() +
 #'    scale_y_continuous(position = "right", 
 #'                       sec.axis = dup_axis(labels = NULL))
 
-theme_inflation_report = function(
+theme_mpr = function(
   base_size = 12, base_colour = "#2b2b2b",
-  plot_title_size = 12, plot_margin = ggplot2::margin(30, 30, 30, 30)) {
+  plot_title_size = 12, plot_margin = c(30, 30, 30, 30)) 
+  {
   
   # set global parameters
-  fontSize = base_size
-  allText = element_text(size = fontSize, colour = base_colour, 
-                         family = "sans", color= "black")
+  chart_text <- element_text(
+    size = base_size, colour = base_colour, family = "sans", color= "black"
+    )
   
   tickLength = 0.4
   tickLabelMargin = 100 * tickLength - 20
   
-  # create theme, based on ggplot2's theme_bw
+  # create theme (based on ggplot2's theme_bw)
   theme_bw() +
     theme(
       
       # legend
-      legend.text = allText,
-      legend.title = allText,
+      legend.text = chart_text,
+      legend.title = chart_text,
+      legend.position = "top",
+      legend.justification = "left",
       
       # axes
-      axis.text = allText,
+      axis.text = chart_text,
       axis.text.x = element_text(colour = base_colour, 
                                  margin = ggplot2::margin(t = tickLabelMargin)),
       axis.text.y.right = element_text(colour = base_colour, 
                                        margin = ggplot2::margin(l = tickLabelMargin)),
       axis.text.y.left = element_text(colour = base_colour, 
                                       margin = ggplot2::margin(r = tickLabelMargin)),
-      axis.title.x = element_blank(),
-      axis.title.y = element_blank(),
+      # axis.title.x = element_blank(),
+      # axis.title.y = element_blank(),
       axis.ticks.length = ggplot2::unit(-tickLength, "cm"),
       
       # titling
-      plot.title = element_text(size = plot_title_size, family = "sans", 
-                                color = base_colour, hjust = 1.0),
-      plot.subtitle = element_text(size = plot_title_size, family = "sans", 
-                                   color = base_colour, hjust = 1.0),
+      plot.title = element_text(
+        size = plot_title_size, family = "sans", color = base_colour, hjust = 1.0
+        ),
+      plot.subtitle = element_text(
+        size = plot_title_size, family = "sans", color = base_colour, hjust = 1.0
+        ),
       
       # grid
       panel.background = element_blank(),
       panel.grid.major = element_blank(),
       panel.grid.minor = element_blank(),
-      plot.margin = plot_margin,
+      plot.margin = ggplot2::margin(plot_margin),
       
       # strip attributes (for facetting)
       strip.background =   element_blank(),
-      strip.text =         element_text(color = base_colour, size = fontSize),
-      strip.text.x =       element_text(color = base_colour, size = fontSize),
-      strip.text.y =       element_text(color = base_colour, size = fontSize, 
+      strip.text =         element_text(color = base_colour, size = base_size),
+      strip.text.x =       element_text(color = base_colour, size = base_size),
+      strip.text.y =       element_text(color = base_colour, size = base_size, 
                                         angle = -90)
       )
 }
 
+#' @export
+theme_inflation_report <- function(
+  base_size = 12, base_colour = "#2b2b2b", plot_title_size = 12, 
+  plot_margin = c(30, 30, 30, 30)
+  ) {
+    
+    .Deprecated("theme_mpr")
+    
+  theme_mpr(base_size = base_size, base_colour = base_colour, 
+            plot_title_size = plot_title_size, plot_margin = plot_margin)
+  }
+  

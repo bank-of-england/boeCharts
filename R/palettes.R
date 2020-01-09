@@ -53,6 +53,18 @@ boe_vibrant_palettes = list(vibrant_a = vibrant_a,
                             vibrant_g = vibrant_g,
                             vibrant_h = vibrant_h)
 
+#' @title List of Inflation Report colour palettes
+#'
+#' @description List of lists of named colours taken from the Bank's
+#' \href{https://www.bankofengland.co.uk/monetary-policy-report/2019/november-2019}{Monetary Policy Report}.
+#'
+#' @return A named list of lists of named hexadecimal colours.
+#' 
+#' @keywords internal
+#'
+#' @export
+mpr_palettes = list(mpr = mpr, mpr_light = mpr_light)
+
 #' @title List of diverging ColorBrewer-style colour palettes
 #'
 #' @description List of lists of named colours taken from the Bank's
@@ -81,7 +93,8 @@ boe_palettes <- c(
   boe_harmonious_palettes,
   boe_vibrant_palettes,
   boe_diverging_palettes,
-  mcg = list(mcg_pub)
+  mcg_palettes = list(mcg_pub),
+  mpr_palettes
 )
 
 
@@ -121,7 +134,7 @@ boe_pal <- function(palette, n, reverse = FALSE) {
   
   out <- pal[1:n]
   
-  ## reverse returns the same colours in reverse order (change: was returning colours from the other end of the palette)
+  # returns the same colours in reverse order
   if (reverse) out <- rev(out)
   
   structure(out, class = "palette", palette = palette)

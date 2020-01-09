@@ -4,14 +4,25 @@
 \alias{theme_mcg_pub}
 \title{A \code{ggplot2} theme for MCG publication-ready charts}
 \usage{
-theme_mcg_pub(base_size = 12, base_colour = "#2b2b2b",
-  plot_title_size = 18, plot_title_face = "bold", subtitle_size = 12,
-  subtitle_face = "plain", axis_title_size = base_size,
-  axis_title_face = "plain", axis_text_size = base_size,
-  caption_size = 9, caption_margin = 10, caption_face = "plain",
-  strip_text_size = 12, strip_text_face = "plain",
-  plot_margin = c(10, 10, 10, 10), axis_col = "#2b2b2b",
-  ticks_col = "#2b2b2b")
+theme_mcg_pub(
+  base_size = 12,
+  base_colour = "#2b2b2b",
+  plot_title_size = 18,
+  plot_title_face = "bold",
+  subtitle_size = 12,
+  subtitle_face = "plain",
+  axis_title_size = base_size,
+  axis_title_face = "plain",
+  axis_text_size = base_size,
+  caption_size = 9,
+  caption_margin = 10,
+  caption_face = "plain",
+  strip_text_size = 12,
+  strip_text_face = "plain",
+  plot_margin = c(10, 10, 10, 10),
+  axis_col = "#2b2b2b",
+  ticks_col = "#2b2b2b"
+)
 }
 \arguments{
 \item{base_size}{Sets the base size of text for the plot.

@@ -5,6 +5,6 @@
 #' 
 #' @import ggplot2
 #' @importFrom scales dollar_format
-#' @importFrom grDevices windowsFont windowsFonts rgb
+#' @importFrom grDevices windowsFont windowsFonts rgb col2rgb
 #' @importFrom graphics rect par image text pie
 "_PACKAGE"

@@ -209,3 +209,41 @@ mcg_pub <- list(
   maroon         = "#993366",
   orange         = "#fd9900"
 )
+
+
+#' @title Colours from the Monetary Policy Report colour palette
+#'
+#' @description Provides a vector of named colours taken from the Bank's
+#' \href{https://www.bankofengland.co.uk/monetary-policy-report/2019/november-2019}{Monetary Policy Report} 
+#' (FKA Inflation Report).
+#'
+#' @return A list of named hexadecimal colours.
+#'
+#' @export
+mpr <- list(
+  boe$red,
+  boe$dark_blue,
+  stone = "#B39F87",
+  boe$dark_green,
+  boe$yellow,
+  boe$fuchsia,
+  boe$orange
+)
+
+
+#' @title Colours from the Monetary Policy Report's light colour palette
+#'
+#' @description Provides a vector of named colours taken from the Bank's
+#' \href{https://www.bankofengland.co.uk/monetary-policy-report/2019/november-2019}{Monetary Policy Report} 
+#' (FKA Inflation Report).
+#'
+#' @return A list of named hexadecimal colours.
+#'
+#' @examples
+#'
+#' @export
+mpr_light <- list(
+  light_red = "#D182AB",
+  light_blue = "#6199CB",
+  light_stone = "#D9CEC1"
+)
