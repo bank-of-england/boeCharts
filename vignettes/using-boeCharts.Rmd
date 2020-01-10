@@ -98,17 +98,17 @@ grid::grid.draw(chart_two)
 ```
 
 
-### Inflation Report
+### Monetary Policy Report (MPR)
 
-`theme_inflation_report` approximates the design of charts in [the Inflation Report](https://www.bankofengland.co.uk/inflation-report/2018/august-2018/the-labour-market-and-pay). Note the arguments passed to `scale_y_continuous()` to achieve the correct y-axis format (as well as `scale_colour_discrete_boe`, seen earlier, to do the colours).
+`theme_mpr` approximates the design of charts in [the Monetary Policy Report](https://www.bankofengland.co.uk/monetary-policy-report/2019/november-2019). Note the arguments passed to `scale_y_continuous()` to achieve the correct y-axis format (as well as `scale_colour_discrete_boe`, seen earlier, to do the colours).
 
 ```{r ir_theme}
 
 chart +
   # apply boe palette
   scale_colour_discrete_boe(palette = "boe") +
-  # add MCG theme
-  theme_inflation_report() +
+  # add MPR theme
+  theme_mpr() +
   # axis settings
   scale_y_continuous(position = "right", expand = c(0, 0), 
                      limits = c(0, 1250), breaks = seq(0, 1250, 250))
