@@ -93,7 +93,7 @@ boe_palettes <- c(
   boe_harmonious_palettes,
   boe_vibrant_palettes,
   boe_diverging_palettes,
-  mcg_palettes = list(mcg_pub),
+  mcg = list(mcg_pub),
   mpr_palettes
 )
 

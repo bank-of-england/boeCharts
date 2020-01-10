@@ -69,10 +69,7 @@ theme_overground <- function(
   axis = "X", axis_col = grid_col, 
   ticks = axis
   ) {
-  
-  # map font family
-  # if (!base_family %in% names(windowsFonts())) load_font_win(base_family)
-  
+
   # base theme
   p <- theme_minimal(base_family = base_family, base_size = base_size) +
     
@@ -372,6 +369,7 @@ theme_mpr = function(
       legend.justification = "left",
       
       # axes
+      axis.title.y.left = element_blank(),
       axis.text = chart_text,
       axis.text.x = element_text(colour = base_colour, 
                                  margin = ggplot2::margin(t = tickLabelMargin)),
@@ -379,16 +377,14 @@ theme_mpr = function(
                                        margin = ggplot2::margin(l = tickLabelMargin)),
       axis.text.y.left = element_text(colour = base_colour, 
                                       margin = ggplot2::margin(r = tickLabelMargin)),
-      # axis.title.x = element_blank(),
-      # axis.title.y = element_blank(),
       axis.ticks.length = ggplot2::unit(-tickLength, "cm"),
       
       # titling
       plot.title = element_text(
-        size = plot_title_size, family = "sans", color = base_colour, hjust = 1.0
+        size = plot_title_size, family = "sans", color = base_colour, hjust = 0
         ),
       plot.subtitle = element_text(
-        size = plot_title_size, family = "sans", color = base_colour, hjust = 1.0
+        size = plot_title_size, family = "sans", color = base_colour, hjust = 0
         ),
       
       # grid
@@ -404,6 +400,51 @@ theme_mpr = function(
       strip.text.y =       element_text(color = base_colour, size = base_size, 
                                         angle = -90)
       )
+}
+
+#' Monetary Policy Report y axis label positioning
+#'
+#' @param x a ggplot object
+#'
+#' @return a ggplot object
+#' @export
+#'
+#' @examples
+#' 
+#' p <- ggplot(mtcars, aes(x = mpg, y = wt)) +
+#' geom_point() +
+#' labs(title = "A Lovely Plot", subtitle = "Something insightful") +
+#' theme_mpr() +
+#' scale_y_continuous(
+#' position = "right", sec.axis = dup_axis(labels = NULL)
+#' )
+#' 
+#' ylab_mpr(p)
+
+ylab_mpr <- function(x) {
+  
+  b <- ggplot_build(x)
+  g <- ggplotGrob(x)
+  
+  right =  textGrob(
+    b$plot$labels$y, x = 1, y = 1, just = c("right", "top"), 
+    gp = gpar(
+      fontsize = b$plot$theme$text$size, col =  b$plot$theme$text$colour
+      )
+    )
+  labs = gTree("Labs", children = gList(right))
+  
+  g <- gtable_filter(g, pattern = "ylab", invert = TRUE)
+  
+  pos = g$layout[grepl("panel", g$layout$name), c('t', 'l')]
+  height = unit(1.5, "grobheight", right)
+  g <- gtable_add_rows(g, height, pos$t-1)
+  
+  g = gtable_add_grob(g, labs, t = pos$t, l = pos$l, r = pos$l)
+  
+  g = g[, -2]
+  
+  ggplotify::as.ggplot(g)
 }
 
 #' @export
