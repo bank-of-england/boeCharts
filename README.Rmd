@@ -91,14 +91,14 @@ chart +
 
 ```
 
-Now, switching in the [Monetary Policy Report](https://www.bankofengland.co.uk/monetary-policy-report/2019/november-2019) theme and colours.
+Now, switching in the [Monetary Policy Report](https://www.bankofengland.co.uk/monetary-policy-report/2019/november-2019) theme and pre-MPC colours.
 
 ```{r}
 chart +
   # add MPR theme
   theme_mpr() +
   # add a "vibrant" Bank colour combination
-  scale_colour_discrete_boe(palette = "mpr")
+  scale_colour_discrete_boe(palette = "pre_mpc")
 ```
 
 

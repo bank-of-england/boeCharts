@@ -53,17 +53,17 @@ boe_vibrant_palettes = list(vibrant_a = vibrant_a,
                             vibrant_g = vibrant_g,
                             vibrant_h = vibrant_h)
 
-#' @title List of Inflation Report colour palettes
+#' @title List of pre-MPC colour palettes
 #'
 #' @description List of lists of named colours taken from the Bank's
-#' \href{https://www.bankofengland.co.uk/monetary-policy-report/2019/november-2019}{Monetary Policy Report}.
+#' pre Monetary Policy Committee (MPC) guidelines.
 #'
 #' @return A named list of lists of named hexadecimal colours.
 #' 
 #' @keywords internal
 #'
 #' @export
-mpr_palettes = list(mpr = mpr, mpr_light = mpr_light)
+pre_mpc_palettes = list(pre_mpc = pre_mpc, pre_mpc_light = pre_mpc_light)
 
 #' @title List of diverging ColorBrewer-style colour palettes
 #'
@@ -94,7 +94,7 @@ boe_palettes <- c(
   boe_vibrant_palettes,
   boe_diverging_palettes,
   mcg = list(mcg_pub),
-  mpr_palettes
+  pre_mpc_palettes
 )
 
 

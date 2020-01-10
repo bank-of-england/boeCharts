@@ -355,11 +355,11 @@ theme_mcg_pub <- function(base_size = 12, base_colour = "#2b2b2b",
 #' @name theme_mpr
 
 theme_mpr = function(
-  base_family = "Calibri", base_size = 12, base_colour = "#1e1e1e",
-  plot_title_face = "plain", plot_title_size = 13, plot_title_colour = "#00294E", 
+  base_family = "Calibri", base_size = 11.5, base_colour = "#1e1e1e",
+  plot_title_face = "plain", plot_title_size = 18, plot_title_colour = "#00294E", 
   plot_title_margin = 5,
-  subtitle_face = "plain", subtitle_colour = "#1e1e1e", subtitle_size = 12,  
-  subtitle_margin = 15,
+  subtitle_face = "plain", subtitle_colour = "#1e1e1e", subtitle_size = 13,  
+  subtitle_margin = 10,
   axis_title_size = base_size, axis_title_colour = base_colour,
   axis_title_face = "plain", axis_title_just = "mc",
   axis_text_size = base_size, axis_text_colour = base_colour,
@@ -368,7 +368,7 @@ theme_mpr = function(
   legend_title_face = "plain", 
   legend_text_size = base_size, legend_text_colour = base_colour, 
   legend_position = "top", legend_just = "left", legend_margin = c(0, base_size/2, 0, 0),
-  caption_face = "plain", caption_colour = base_colour, caption_size = 11,  
+  caption_face = "plain", caption_colour = base_colour, caption_size = base_size,  
   caption_margin = 15,
   strip_text_face = "plain", strip_text_colour = base_colour, 
   strip_text_size = 22, 
@@ -522,13 +522,45 @@ ylab_mpr <- function(x) {
 #' @export
 #' @rdname theme_mpr
 theme_inflation_report <- function(
-  base_size = 12, base_colour = "#2b2b2b", plot_title_size = 12, 
+  base_family = "Calibri", base_size = 11.5, base_colour = "#1e1e1e",
+  plot_title_face = "plain", plot_title_size = 18, plot_title_colour = "#00294E", 
+  plot_title_margin = 5,
+  subtitle_face = "plain", subtitle_colour = "#1e1e1e", subtitle_size = 13,  
+  subtitle_margin = 10,
+  axis_title_size = base_size, axis_title_colour = base_colour,
+  axis_title_face = "plain", axis_title_just = "mc",
+  axis_text_size = base_size, axis_text_colour = base_colour,
+  axis_ticks_length = 0.35,
+  legend_title_size = base_size, legend_title_colour = base_colour, 
+  legend_title_face = "plain", 
+  legend_text_size = base_size, legend_text_colour = base_colour, 
+  legend_position = "top", legend_just = "left", legend_margin = c(0, base_size/2, 0, 0),
+  caption_face = "plain", caption_colour = base_colour, caption_size = base_size,  
+  caption_margin = 15,
+  strip_text_face = "plain", strip_text_colour = base_colour, 
+  strip_text_size = 22, 
   plot_margin = c(30, 30, 30, 30)
   ) {
     
   .Deprecated("theme_mpr")
     
-  theme_mpr(base_size = base_size, base_colour = base_colour, 
-            plot_title_size = plot_title_size, plot_margin = plot_margin)
-  }
+  theme_mpr(base_family = base_family, base_size = base_size, base_colour = base_colour,
+            plot_title_face = plot_title_face, plot_title_size = plot_title_size, 
+            plot_title_colour = plot_title_colour, plot_title_margin = plot_title_margin,
+            subtitle_face = subtitle_face, subtitle_colour = subtitle_colour, 
+            subtitle_size = subtitle_size, subtitle_margin = subtitle_margin,
+            axis_title_size = axis_title_size, axis_title_colour = axis_title_colour,
+            axis_title_face = axis_title_face, axis_title_just = axis_title_just,
+            axis_text_size = axis_text_size, axis_text_colour = axis_text_colour,
+            axis_ticks_length = axis_ticks_length,
+            legend_title_size = legend_title_size, legend_title_colour = legend_title_colour, 
+            legend_title_face = legend_title_face, 
+            legend_text_size = legend_text_size, legend_text_colour = legend_text_colour, 
+            legend_position = legend_position, legend_just = legend_just, legend_margin = legend_margin,
+            caption_face = caption_face, caption_colour = caption_colour, 
+            caption_size = caption_size, caption_margin = caption_margin,
+            strip_text_face = strip_text_face, strip_text_colour = strip_text_colour, 
+            strip_text_size = strip_text_size, 
+            plot_margin = plot_margin)
+}
   
