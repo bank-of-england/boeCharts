@@ -16,7 +16,4 @@ Provides a vector of named colours taken from the Bank's
 \href{https://www.bankofengland.co.uk/monetary-policy-report/2019/november-2019}{Monetary Policy Report} 
 (FKA Inflation Report).
 }
-\examples{
-
-}
 \keyword{datasets}

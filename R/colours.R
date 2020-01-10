@@ -239,8 +239,6 @@ mpr <- list(
 #'
 #' @return A list of named hexadecimal colours.
 #'
-#' @examples
-#'
 #' @export
 mpr_light <- list(
   light_red = "#D182AB",

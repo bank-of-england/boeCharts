@@ -2,7 +2,7 @@
 % Please edit documentation in R/themes.R
 \name{ylab_mpr}
 \alias{ylab_mpr}
-\title{Monetary Policy Report y axis label positioning}
+\title{Monetary Policy Report y axis label positioning (experimental)}
 \usage{
 ylab_mpr(x)
 }
@@ -13,17 +13,20 @@ ylab_mpr(x)
 a ggplot object
 }
 \description{
-Monetary Policy Report y axis label positioning
+Creates a text element containing the y-axis title, positioned
+as found in the Monetary Policy Report (MPR).
 }
 \examples{
+\dontrun{
 
 p <- ggplot(mtcars, aes(x = mpg, y = wt)) +
 geom_point() +
-labs(title = "A Lovely Plot", subtitle = "Something insightful") +
+labs(title = "A Lovely Plot", subtitle = "Something insightful", x = NULL) +
 theme_mpr() +
 scale_y_continuous(
 position = "right", sec.axis = dup_axis(labels = NULL)
 )
 
 ylab_mpr(p)
+}
 }
