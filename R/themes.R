@@ -34,8 +34,6 @@
 #' @param axis add x or y axes? `TRUE` (or `XY`), `FALSE`, `X` or `Y`
 #' @param grid_col,axis_col grid & axis colors; both default to `#cccccc`
 #' @param ticks axis ticks (`TRUE` (or `XY`), `FALSE`, `X` or `Y`)
-#' 
-#' @examples \dontrun{
 #'
 #' library(ggplot2)
 #'
@@ -44,7 +42,6 @@
 #'    labs(title = "A Lovely Plot",
 #'         subtitle = "A thought-provoking subtitle.") +
 #'    theme_overground()
-#' }
 #' 
 #' @export
 
