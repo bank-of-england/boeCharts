@@ -4,6 +4,6 @@ install_rttf2pt1 <- function() {
   
   programFilesLibNum = grep("C:/Program Files",.libPaths())[1]
   
-  install.packages("Rttf2pt1", lib = .libPaths()[programFilesLibNum])
+  utils::install.packages("Rttf2pt1", lib = .libPaths()[programFilesLibNum])
   
 }
