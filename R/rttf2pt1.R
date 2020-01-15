@@ -2,8 +2,12 @@
 # http://collaborate/workspaces/RHelpCentre/R%20Markdown/Importing_Custom_Fonts.html
 install_rttf2pt1 <- function() {
   
-  programFilesLibNum = grep("C:/Program Files",.libPaths())[1]
+  sys_lib_num <- grep("C:/Program Files",.libPaths())[1]
   
-  utils::install.packages("Rttf2pt1", lib = .libPaths()[programFilesLibNum])
-  
+  if (!"Rttf2pt1" %in% rownames(
+    installed.packages(lib.loc = .libPaths()[sys_lib_num])
+  )) {
+    
+    utils::install.packages("Rttf2pt1", lib = .libPaths()[sys_lib_num])
+  }
 }
