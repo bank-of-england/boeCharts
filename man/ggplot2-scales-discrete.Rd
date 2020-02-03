@@ -16,8 +16,12 @@ scale_color_discrete_boe(palette = "boe", reverse = FALSE, ...)
 
 scale_fill_discrete_boe(palette = "boe", reverse = FALSE, ...)
 
-scale_discrete_boe(palette = "boe", aesthetics = c("colour", "fill"),
-  reverse = FALSE, ...)
+scale_discrete_boe(
+  palette = "boe",
+  aesthetics = c("colour", "fill"),
+  reverse = FALSE,
+  ...
+)
 
 scale_colour_boe(palette = "boe", reverse = FALSE, ...)
 
@@ -65,7 +69,8 @@ ggplot(iris, aes(x=Sepal.Length, y=Sepal.Width, colour=Species, fill=Species)) +
 \seealso{
 \code{\link{theme_overground}} for examples.
 
-Other colour boe: \code{\link{boe_pal}},
-  \code{\link{ggplot2-scales-continuous}}
+Other colour boe: 
+\code{\link{boe_pal}()},
+\code{\link{ggplot2-scales-continuous}}
 }
 \concept{colour boe}

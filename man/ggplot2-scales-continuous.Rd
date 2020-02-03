@@ -8,18 +8,46 @@
 \alias{scale_continuous_boe}
 \title{Continuous scales for use with ggplot2}
 \usage{
-scale_colour_continuous_boe(palette, midpoint = NA, reverse = FALSE,
-  values = NULL, na.value = "grey50", guide = "colourbar", ...)
+scale_colour_continuous_boe(
+  palette,
+  midpoint = NA,
+  reverse = FALSE,
+  values = NULL,
+  na.value = "grey50",
+  guide = "colourbar",
+  ...
+)
 
-scale_color_continuous_boe(palette, midpoint = NA, reverse = FALSE,
-  values = NULL, na.value = "grey50", guide = "colourbar", ...)
+scale_color_continuous_boe(
+  palette,
+  midpoint = NA,
+  reverse = FALSE,
+  values = NULL,
+  na.value = "grey50",
+  guide = "colourbar",
+  ...
+)
 
-scale_fill_continuous_boe(palette, midpoint = NA, reverse = FALSE,
-  values = NULL, na.value = "grey50", guide = "colourbar", ...)
+scale_fill_continuous_boe(
+  palette,
+  midpoint = NA,
+  reverse = FALSE,
+  values = NULL,
+  na.value = "grey50",
+  guide = "colourbar",
+  ...
+)
 
-scale_continuous_boe(palette, aesthetics = c("colour", "fill"),
-  midpoint = NA, reverse = FALSE, values = NULL,
-  na.value = "grey50", guide = "colourbar", ...)
+scale_continuous_boe(
+  palette,
+  aesthetics = c("colour", "fill"),
+  midpoint = NA,
+  reverse = FALSE,
+  values = NULL,
+  na.value = "grey50",
+  guide = "colourbar",
+  ...
+)
 }
 \arguments{
 \item{palette}{character string indicating the palette to use. Options
@@ -32,26 +60,23 @@ the palette will be reversed (FALSE by default).}
 
 \item{values}{if colours should not be evenly positioned along the gradient
 this vector gives the position (between 0 and 1) for each colour in the
-\code{colours} vector. See \code{\link[=rescale]{rescale()}} for a convenience function
+\code{colours} vector. See \code{\link[scales:rescale]{rescale()}} for a convenience function
 to map an arbitrary range to between 0 and 1.}
 
 \item{na.value}{Missing values will be replaced with this value.}
 
 \item{guide}{A function used to create a guide or its name. See
-\code{\link[=guides]{guides()}} for more info.}
+\code{\link[ggplot2:guides]{guides()}} for more info.}
 
-\item{...}{Arguments passed on to \code{ggplot2::continuous_scale}
-\describe{
-  \item{aesthetics}{The names of the aesthetics that this scale works with}
-  \item{scale_name}{The name of the scale}
-  \item{palette}{A palette function that when called with a numeric vector with
-values between 0 and 1 returns the corresponding values in the range the
-scale maps to.}
-  \item{name}{The name of the scale. Used as the axis or legend title. If
+\item{...}{
+  Arguments passed on to \code{\link[ggplot2:continuous_scale]{ggplot2::continuous_scale}}
+  \describe{
+    \item{\code{scale_name}}{The name of the scale}
+    \item{\code{name}}{The name of the scale. Used as the axis or legend title. If
 \code{waiver()}, the default, the name of the scale is taken from the first
 mapping used for that aesthetic. If \code{NULL}, the legend title will be
 omitted.}
-  \item{breaks}{One of:
+    \item{\code{breaks}}{One of:
 \itemize{
 \item \code{NULL} for no breaks
 \item \code{waiver()} for the default breaks computed by the
@@ -60,7 +85,7 @@ transformation object
 \item A function that takes the limits as input and returns breaks
 as output
 }}
-  \item{minor_breaks}{One of:
+    \item{\code{minor_breaks}}{One of:
 \itemize{
 \item \code{NULL} for no minor breaks
 \item \code{waiver()} for the default breaks (one minor break between
@@ -68,7 +93,7 @@ each major break)
 \item A numeric vector of positions
 \item A function that given the limits returns a vector of minor breaks.
 }}
-  \item{labels}{One of:
+    \item{\code{labels}}{One of:
 \itemize{
 \item \code{NULL} for no labels
 \item \code{waiver()} for the default labels computed by the
@@ -77,7 +102,7 @@ transformation object
 \item A function that takes the breaks as input and returns labels
 as output
 }}
-  \item{limits}{One of:
+    \item{\code{limits}}{One of:
 \itemize{
 \item \code{NULL} to use the default scale range
 \item A numeric vector of length two providing limits of the scale.
@@ -85,19 +110,18 @@ Use \code{NA} to refer to the existing minimum or maximum
 \item A function that accepts the existing (automatic) limits and returns
 new limits
 }}
-  \item{rescaler}{Used by diverging and n colour gradients
-(i.e. \code{\link[=scale_colour_gradient2]{scale_colour_gradient2()}}, \code{\link[=scale_colour_gradientn]{scale_colour_gradientn()}}).
+    \item{\code{rescaler}}{Used by diverging and n colour gradients
+(i.e. \code{\link[ggplot2:scale_colour_gradient2]{scale_colour_gradient2()}}, \code{\link[ggplot2:scale_colour_gradientn]{scale_colour_gradientn()}}).
 A function used to scale the input values to the range [0, 1].}
-  \item{oob}{Function that handles limits outside of the scale limits
+    \item{\code{oob}}{Function that handles limits outside of the scale limits
 (out of bounds). The default replaces out of bounds values with \code{NA}.}
-  \item{expand}{Vector of range expansion constants used to add some
+    \item{\code{expand}}{Vector of range expansion constants used to add some
 padding around the data, to ensure that they are placed some distance
-away from the axes. Use the convenience function \code{\link[=expand_scale]{expand_scale()}}
+away from the axes. Use the convenience function \code{\link[ggplot2:expand_scale]{expand_scale()}}
 to generate the values for the \code{expand} argument. The defaults are to
 expand the scale by 5\% on each side for continuous variables, and by
 0.6 units on each side for discrete variables.}
-  \item{na.value}{Missing values will be replaced with this value.}
-  \item{trans}{Either the name of a transformation object, or the
+    \item{\code{trans}}{Either the name of a transformation object, or the
 object itself. Built-in transformations include "asn", "atanh",
 "boxcox", "date", "exp", "hms", "identity", "log", "log10", "log1p", "log2",
 "logit", "modulus", "probability", "probit", "pseudo_log", "reciprocal",
@@ -108,12 +132,10 @@ and methods for generating breaks and labels. Transformation objects
 are defined in the scales package, and are called \code{name_trans}, e.g.
 \code{\link[scales:boxcox_trans]{scales::boxcox_trans()}}. You can create your own
 transformation with \code{\link[scales:trans_new]{scales::trans_new()}}.}
-  \item{guide}{A function used to create a guide or its name. See
-\code{\link[=guides]{guides()}} for more info.}
-  \item{position}{The position of the axis. "left" or "right" for vertical
+    \item{\code{position}}{The position of the axis. "left" or "right" for vertical
 scales, "top" or "bottom" for horizontal scales}
-  \item{super}{The super class to use for the constructed scale}
-}}
+    \item{\code{super}}{The super class to use for the constructed scale}
+  }}
 
 \item{aesthetics}{The names of the aesthetics that this scale works with}
 }
@@ -170,7 +192,8 @@ ggplot(mtcars, aes(mpg, wt, fill=disp, colour=disp)) +
   
 }
 \seealso{
-Other colour boe: \code{\link{boe_pal}},
-  \code{\link{ggplot2-scales-discrete}}
+Other colour boe: 
+\code{\link{boe_pal}()},
+\code{\link{ggplot2-scales-discrete}}
 }
 \concept{colour boe}
