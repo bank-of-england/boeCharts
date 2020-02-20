@@ -2,7 +2,7 @@
 % Please edit documentation in R/limits.R
 \name{limits_extended}
 \alias{limits_extended}
-\title{Automatic limits for numeric axes}
+\title{Extended limits for numeric axes}
 \usage{
 limits_extended(n = 5, ...)
 }
@@ -12,9 +12,6 @@ breaks that requested.}
 
 \item{...}{other arguments passed on to \code{\link[labeling:extended]{labeling::extended()}}}
 }
-\value{
-
-}
 \description{
-Automatic limits for numeric axes
+Extended limits for numeric axes
 }

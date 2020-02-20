@@ -2,7 +2,7 @@
 % Please edit documentation in R/limits.R
 \name{limits_pretty}
 \alias{limits_pretty}
-\title{Pretty limits for date/times}
+\title{Pretty limits for date/time axes}
 \usage{
 limits_pretty(n = 5, ...)
 }
@@ -13,5 +13,5 @@ breaks that requested.}
 \item{...}{other arguments passed on to \code{\link[=pretty]{pretty()}}}
 }
 \description{
-Pretty limits for date/times
+Pretty limits for date/time axes
 }

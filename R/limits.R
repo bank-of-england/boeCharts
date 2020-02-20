@@ -1,7 +1,8 @@
-#' Automatic limits for numeric axes
+#' Extended limits for numeric axes
 #'
 #' @inheritParams scales::breaks_extended
-#' @return
+#'
+#' @export
 limits_extended <- function(n = 5, ...) {
   
   function(x) {
@@ -14,7 +15,7 @@ limits_extended <- function(n = 5, ...) {
   }
 }
 
-#' Pretty limits for date/times
+#' Pretty limits for date/time axes
 #'
 #' @inheritParams scales::breaks_pretty
 #'

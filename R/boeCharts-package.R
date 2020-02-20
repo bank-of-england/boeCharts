@@ -7,4 +7,5 @@
 #' @importFrom scales dollar_format
 #' @importFrom grDevices windowsFont windowsFonts rgb
 #' @importFrom graphics rect par image text pie
+#' @importFrom labeling extended
 "_PACKAGE"
