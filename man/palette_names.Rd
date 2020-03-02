@@ -4,8 +4,9 @@
 \alias{palette_names}
 \title{Get names of available palettes}
 \usage{
-palette_names(type = c("all", "standard", "harmonious", "vibrant",
-  "diverging"))
+palette_names(
+  type = c("all", "standard", "harmonious", "vibrant", "diverging")
+)
 }
 \arguments{
 \item{type}{type of palette ("all" by default)}

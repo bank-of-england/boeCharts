@@ -4,9 +4,14 @@
 \alias{format_currency}
 \title{Currency formatter for use in chart axis labels}
 \usage{
-format_currency(prefix = intToUtf8(163), suffix = "",
-  largest_with_pence = 1e+05, ..., big.mark = ",",
-  negative_parens = FALSE)
+format_currency(
+  prefix = intToUtf8(163),
+  suffix = "",
+  largest_with_pence = 1e+05,
+  ...,
+  big.mark = ",",
+  negative_parens = FALSE
+)
 }
 \arguments{
 \item{prefix}{Symbol to display before amount, defaults to \code{intToUtf8(0x00A3)} (aka a pound sign)}
