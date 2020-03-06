@@ -12,6 +12,7 @@ theme_overground(
   plot_title_size = 28,
   plot_title_colour = "#00294E",
   plot_title_margin = 10,
+  plot_title_position = c("plot", "panel"),
   subtitle_face = "plain",
   subtitle_colour = "#1e1e1e",
   subtitle_size = 22,
@@ -47,6 +48,11 @@ theme_overground(
 \item{base_family, base_size, base_colour}{base font family, size and colour}
 
 \item{plot_title_face, plot_title_size, plot_title_colour, plot_title_margin}{plot title face, size, colour and margin}
+
+\item{plot_title_position}{Alignment of the plot title/subtitle and caption.
+A value of "plot" (the default) means that titles and/or caption are aligned to 
+the entire plot (minus any space for margins and plot tag).
+A value of "panel" means that titles and/or caption are aligned to the plot panels}
 
 \item{subtitle_face, subtitle_size, subtitle_colour}{plot subtitle face, size and colour}
 

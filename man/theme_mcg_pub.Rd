@@ -9,6 +9,7 @@ theme_mcg_pub(
   base_colour = "#2b2b2b",
   plot_title_size = 18,
   plot_title_face = "bold",
+  plot_title_position = c("plot", "panel"),
   subtitle_size = 12,
   subtitle_face = "plain",
   axis_title_size = base_size,
@@ -33,6 +34,11 @@ Must be a named R colour or hexadecimal colour code
 (e.g. "#FF0000"). Defaults to \code{#2b2b2b}}
 
 \item{plot_title_size, plot_title_face}{plot title size and face}
+
+\item{plot_title_position}{Alignment of the plot title/subtitle and caption.
+A value of "plot" (the default) means that titles and/or caption are aligned to 
+the entire plot (minus any space for margins and plot tag).
+A value of "panel" means that titles and/or caption are aligned to the plot panels}
 
 \item{subtitle_size, subtitle_face}{subtitle size and face}
 

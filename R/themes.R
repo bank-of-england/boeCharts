@@ -19,6 +19,10 @@
 #'
 #' @param base_family,base_size,base_colour base font family, size and colour
 #' @param plot_title_face,plot_title_size,plot_title_colour,plot_title_margin plot title face, size, colour and margin
+#' @param plot_title_position Alignment of the plot title/subtitle and caption.
+#' A value of "plot" (the default) means that titles and/or caption are aligned to 
+#' the entire plot (minus any space for margins and plot tag).
+#' A value of "panel" means that titles and/or caption are aligned to the plot panels 
 #' @param subtitle_face,subtitle_size,subtitle_colour plot subtitle face, size and colour
 #' @param subtitle_margin plot subtitle bottom margin (single numeric value)
 #' @param axis_title_face,axis_title_size,axis_title_colour axis title font face, size and colour
@@ -51,7 +55,7 @@
 theme_overground <- function(
   base_family = "Calibri", base_size = 18, base_colour = "#6B7E87",
   plot_title_face = "bold", plot_title_size = 28, plot_title_colour = "#00294E", 
-  plot_title_margin = 10,
+  plot_title_margin = 10, plot_title_position = c("plot", "panel"),
   subtitle_face = "plain", subtitle_colour = "#1e1e1e", subtitle_size = 22,  
   subtitle_margin = 15,
   axis_title_size = base_size, axis_title_colour = base_colour,
@@ -153,6 +157,9 @@ theme_overground <- function(
   yj <- switch(tolower(substr(axis_title_just, 2, 2)), b=0, l=0, m=0.5, c=0.5, r=1, t=1)
   
   # chart text + margins
+  
+  title_pos <- match.arg(plot_title_position)
+  
   p <- p + theme(axis.text.x = element_text(size = axis_text_size, colour = axis_text_colour, 
                                             margin = margin(t=10), family = base_family),
                  axis.text.y = element_text(size = axis_text_size, colour = axis_text_colour, 
@@ -174,6 +181,7 @@ theme_overground <- function(
                  plot.title = element_text(hjust=0, size=plot_title_size, margin=margin(b=plot_title_margin),
                                            family=base_family, face=plot_title_face, 
                                            colour = plot_title_colour),
+                 plot.title.position = title_pos,
                  plot.subtitle = element_text(hjust=0, size=subtitle_size, margin=margin(b=subtitle_margin),
                                               family=base_family, face=subtitle_face, 
                                               colour = subtitle_colour),
@@ -211,6 +219,11 @@ theme_overground <- function(
 #' (e.g. "#FF0000"). Defaults to \code{#2b2b2b}
 #'
 #' @param plot_title_size,plot_title_face plot title size and face
+#' 
+#' @param plot_title_position Alignment of the plot title/subtitle and caption.
+#' A value of "plot" (the default) means that titles and/or caption are aligned to 
+#' the entire plot (minus any space for margins and plot tag).
+#' A value of "panel" means that titles and/or caption are aligned to the plot panels 
 #'
 #' @param subtitle_size,subtitle_face subtitle size and face
 #'
@@ -241,6 +254,7 @@ theme_overground <- function(
 
 theme_mcg_pub <- function(base_size = 12, base_colour = "#2b2b2b",
                           plot_title_size = 18, plot_title_face = "bold",
+                          plot_title_position = c("plot", "panel"),
                           subtitle_size = 12, subtitle_face = "plain",
                           axis_title_size = base_size, axis_title_face = "plain",
                           axis_text_size = base_size,
@@ -249,6 +263,8 @@ theme_mcg_pub <- function(base_size = 12, base_colour = "#2b2b2b",
                           plot_margin = c(10, 10, 10, 10),
                           axis_col = "#2b2b2b", ticks_col = "#2b2b2b") {
 
+  title_pos <- match.arg(plot_title_position)
+  
   # create theme, based on classic
   theme_classic(base_size = base_size) +
     
@@ -282,6 +298,7 @@ theme_mcg_pub <- function(base_size = 12, base_colour = "#2b2b2b",
                                       margin = ggplot2::margin(l=3)),
     plot.title =         element_text(size = plot_title_size, face = plot_title_face, 
                                       hjust = 0, colour = base_colour),
+    plot.title.position = title_pos,
     plot.subtitle =      element_text(colour = base_colour, face = subtitle_face, 
                                       hjust = 0, size = subtitle_size),
     plot.caption =       element_text(colour = base_colour, hjust = 1, face = caption_face, 
@@ -329,6 +346,11 @@ theme_mcg_pub <- function(base_size = 12, base_colour = "#2b2b2b",
 #' 
 #' @param plot_title_size plot title size
 #' 
+#' @param plot_title_position Alignment of the plot title/subtitle and caption.
+#' A value of "plot" (the default) means that titles and/or caption are aligned to 
+#' the entire plot (minus any space for margins and plot tag).
+#' A value of "panel" means that titles and/or caption are aligned to the plot panels 
+#' 
 #' @param plot_margin plot margin (specify with \code{ggplot2::margin()})
 #'
 #' @return Will not return anything of itself, but when used in conjuntion
@@ -350,7 +372,8 @@ theme_mcg_pub <- function(base_size = 12, base_colour = "#2b2b2b",
 
 theme_inflation_report = function(
   base_size = 12, base_colour = "#2b2b2b",
-  plot_title_size = 12, plot_margin = ggplot2::margin(30, 30, 30, 30)) {
+  plot_title_size = 12, plot_title_position = c("plot", "panel"),
+  plot_margin = ggplot2::margin(30, 30, 30, 30)) {
   
   # set global parameters
   fontSize = base_size
@@ -359,6 +382,8 @@ theme_inflation_report = function(
   
   tickLength = 0.4
   tickLabelMargin = 100 * tickLength - 20
+  
+  title_pos <- match.arg(plot_title_position)
   
   # create theme, based on ggplot2's theme_bw
   theme_bw() +
@@ -383,6 +408,7 @@ theme_inflation_report = function(
       # titling
       plot.title = element_text(size = plot_title_size, family = "sans", 
                                 color = base_colour, hjust = 1.0),
+      plot.title.position = title_pos,
       plot.subtitle = element_text(size = plot_title_size, family = "sans", 
                                    color = base_colour, hjust = 1.0),
       
