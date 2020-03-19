@@ -84,7 +84,6 @@ importFrom(graphics,par)
 importFrom(graphics,pie)
 importFrom(graphics,rect)
 importFrom(graphics,text)
-<<<<<<< HEAD
 importFrom(grid,gList)
 importFrom(grid,gTree)
 importFrom(grid,gpar)
@@ -93,8 +92,6 @@ importFrom(gtable,gtable_add_grob)
 importFrom(gtable,gtable_add_rows)
 importFrom(gtable,gtable_filter)
 importFrom(gtable,gtable_trim)
-importFrom(patchwork,wrap_ggplot_grob)
-=======
 importFrom(labeling,extended)
->>>>>>> auto-limits
+importFrom(patchwork,wrap_ggplot_grob)
 importFrom(scales,dollar_format)

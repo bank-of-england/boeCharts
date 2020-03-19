@@ -13,6 +13,7 @@ theme_mpr(
   plot_title_size = 18,
   plot_title_colour = "#00294E",
   plot_title_margin = 5,
+  plot_title_position = c("plot", "panel"),
   subtitle_face = "plain",
   subtitle_colour = "#1e1e1e",
   subtitle_size = 13,
@@ -50,6 +51,7 @@ theme_inflation_report(
   plot_title_size = 18,
   plot_title_colour = "#00294E",
   plot_title_margin = 5,
+  plot_title_position = c("plot", "panel"),
   subtitle_face = "plain",
   subtitle_colour = "#1e1e1e",
   subtitle_size = 13,
@@ -83,6 +85,11 @@ theme_inflation_report(
 \item{base_family, base_size, base_colour}{base font family, size and colour}
 
 \item{plot_title_face, plot_title_size, plot_title_colour, plot_title_margin}{plot title face, size, colour (Defaults to \code{#2b2b2b}) and margin}
+
+\item{plot_title_position}{Alignment of the plot title/subtitle and caption.
+A value of "plot" (the default) means that titles and/or caption are aligned to 
+the entire plot (minus any space for margins and plot tag).
+A value of "panel" means that titles and/or caption are aligned to the plot panels}
 
 \item{subtitle_face, subtitle_size, subtitle_colour}{plot subtitle face, size and colour}
 
