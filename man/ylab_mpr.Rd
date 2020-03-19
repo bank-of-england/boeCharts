@@ -2,7 +2,7 @@
 % Please edit documentation in R/themes.R
 \name{ylab_mpr}
 \alias{ylab_mpr}
-\title{Monetary Policy Report y axis label positioning (experimental)}
+\title{Monetary Policy Report y axis label positioning}
 \usage{
 ylab_mpr(x)
 }

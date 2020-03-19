@@ -44,14 +44,15 @@
 #' @param axis add x or y axes? `TRUE` (or `XY`), `FALSE`, `X` or `Y`
 #' @param grid_col,axis_col grid & axis colors; both default to `#cccccc`
 #' @param ticks axis ticks (`TRUE` (or `XY`), `FALSE`, `X` or `Y`)
-#'
+#' 
+#' @examples 
 #' library(ggplot2)
 #'
 #' ggplot(mtcars, aes(x = mpg, y = wt)) +
-#'    geom_point() +
-#'    labs(title = "A Lovely Plot",
-#'         subtitle = "A thought-provoking subtitle.") +
-#'    theme_overground()
+#' geom_point() +
+#' labs(title = "A Lovely Plot",
+#' subtitle = "A thought-provoking subtitle.") +
+#' theme_overground()
 #' 
 #' @export
 
@@ -277,7 +278,7 @@ theme_mcg_pub <- function(
     
     # background attributes
     panel.background = element_blank(),
-    plot.margin =      ggplot2::margin(plot_margin),
+    plot.margin = ggplot2::margin(plot_margin),
 
     # tick marks
     axis.ticks.length = unit(4, "pt"),
@@ -292,43 +293,45 @@ theme_mcg_pub <- function(
       colour = base_colour, size = base_size,
       hjust = 0.5, vjust = 0.5, angle = 0, lineheight = 0.8
       ),
-    axis.text.x =        element_text(colour = base_colour, size = axis_text_size, 
-                                      margin = ggplot2::margin(t=3)),
-    axis.text.y =        element_text(colour = base_colour, size = axis_text_size, 
-                                      margin = ggplot2::margin(r=3)),
-    axis.text.y.right =  element_text(colour = base_colour, size = axis_text_size, 
-                                      margin = ggplot2::margin(l=3)),
-    plot.title =         element_text(size = plot_title_size, face = plot_title_face, 
-                                      hjust = 0, colour = base_colour),
+    axis.text.x = element_text(colour = base_colour, size = axis_text_size, 
+                               margin = ggplot2::margin(t=3)),
+    axis.text.y = element_text(colour = base_colour, size = axis_text_size, 
+                               margin = ggplot2::margin(r=3)),
+    axis.text.y.right = element_text(colour = base_colour, size = axis_text_size, 
+                                     margin = ggplot2::margin(l=3)),
+    plot.title = element_text(size = plot_title_size, face = plot_title_face, 
+                              hjust = 0, colour = base_colour),
     plot.title.position = title_pos,
-    plot.subtitle =      element_text(colour = base_colour, face = subtitle_face, 
+    plot.subtitle = element_text(colour = base_colour, face = subtitle_face, 
                                       hjust = 0, size = subtitle_size),
-    plot.caption =       element_text(colour = base_colour, hjust = 1, face = caption_face, 
-                                      size = caption_size, margin = ggplot2::margin(t = caption_margin)),
-    axis.title.x =       element_text(angle = 0, vjust = 1, face = axis_title_face, 
-                                      size = axis_title_size, colour = base_colour),
-    axis.title.y =       element_text(angle = 0, vjust = 1, face = axis_title_face, 
-                                      size = axis_title_size, colour = base_colour),
-    axis.title.y.right = element_text(angle = 0, vjust = 1, hjust = 1, face = axis_title_face, 
+    plot.caption = element_text(colour = base_colour, hjust = 1, face = caption_face, 
+                                size = caption_size, 
+                                margin = ggplot2::margin(t = caption_margin)),
+    axis.title.x = element_text(angle = 0, vjust = 1, face = axis_title_face, 
+                                size = axis_title_size, colour = base_colour),
+    axis.title.y = element_text(angle = 0, vjust = 1, face = axis_title_face, 
+                                size = axis_title_size, colour = base_colour),
+    axis.title.y.right = element_text(angle = 0, vjust = 1, hjust = 1, 
+                                      face = axis_title_face, 
                                       size = axis_title_size, colour = base_colour),
     
     # legend
     legend.position = "bottom",
-    legend.title =      element_blank(),
+    legend.title = element_blank(),
     legend.background = element_blank(),
-    legend.key =        element_rect(fill = "transparent", colour = "transparent"),
-    legend.spacing.x =  ggplot2::unit(5, 'pt'),
-    legend.spacing.y =  ggplot2::unit(5, 'pt'),
-    legend.spacing =    ggplot2::unit(5, 'pt'),
+    legend.key = element_rect(fill = "transparent", colour = "transparent"),
+    legend.spacing.x = ggplot2::unit(5, 'pt'),
+    legend.spacing.y = ggplot2::unit(5, 'pt'),
+    legend.spacing = ggplot2::unit(5, 'pt'),
 
     # facet attributes
-    strip.background =   element_blank(),
-    strip.text =         element_text(color = base_colour, size = strip_text_size, 
-                                      face = strip_text_face),
-    strip.text.x =       element_text(color = base_colour, size = strip_text_size, 
-                                      face = strip_text_face),
-    strip.text.y =       element_text(color = base_colour, size = strip_text_size, 
-                                      face = strip_text_face, angle = -90)
+    strip.background = element_blank(),
+    strip.text = element_text(color = base_colour, size = strip_text_size, 
+                              face = strip_text_face),
+    strip.text.x = element_text(color = base_colour, size = strip_text_size, 
+                                face = strip_text_face),
+    strip.text.y = element_text(color = base_colour, size = strip_text_size, 
+                                face = strip_text_face, angle = -90)
   )
 }
 
@@ -339,25 +342,7 @@ theme_mcg_pub <- function(
 #' Monetary Policy Report (FKA Inflation Report) style visualisations in \code{ggplot2}.
 #' See \code{ggplot2::scale_y_continuous} for positioning y-axis on the right.
 #' 
-#' @param base_family,base_size,base_colour base font family, size and colour
-#' @param plot_title_face,plot_title_size,plot_title_colour,plot_title_margin plot title face, size, colour (Defaults to \code{#2b2b2b}) and margin
-#' @param plot_title_position Alignment of the plot title/subtitle and caption.
-#' A value of "plot" (the default) means that titles and/or caption are aligned to 
-#' the entire plot (minus any space for margins and plot tag).
-#' A value of "panel" means that titles and/or caption are aligned to the plot panels
-#' @param subtitle_face,subtitle_size,subtitle_colour plot subtitle face, size and colour
-#' @param subtitle_margin plot subtitle bottom margin (single numeric value)
-#' @param axis_title_face,axis_title_size,axis_title_colour axis title font face, size and colour
-#' @param axis_title_just axis title font justification, one of `[blmcrt]`
-#' @param axis_text_size,axis_text_colour axis text size and colour
-#' @param axis_ticks_length length of axis ticks (in centimetres)
-#' @param legend_title_face,legend_title_size,legend_title_colour legend title font face, size and colour
-#' @param legend_text_size,legend_text_colour legend text size and colour
-#' @param legend_just,legend_margin legend justification and margins
-#' @param legend_position legend position ("none", "left", "right", "bottom", "top", or two-element numeric vector)
-#' @param caption_face,caption_size,caption_colour,caption_margin plot caption face, size, colour and margin
-#' @param strip_text_face,strip_text_size,strip_text_colour facet label font face, size and colour
-#' @param plot_margin plot margin (top, right, bottom, left)
+#' @inheritParams theme_overground
 #'
 #' @return Will not return anything of itself, but when used in conjuntion
 #' with \code{\link{ggplot}} and (e.g.) \code{\link{geom_point}} from the
@@ -383,7 +368,7 @@ theme_mcg_pub <- function(
 theme_mpr <- function(
   base_family = "Calibri", base_size = 11.5, base_colour = "#1e1e1e",
   plot_title_face = "plain", plot_title_size = 18, plot_title_colour = "#00294E", 
-  plot_title_margin = 5, plot_title_position = c("plot", "panel"),
+  plot_title_margin = 5, plot_title_position = c("panel", "plot"),
   subtitle_face = "plain", subtitle_colour = "#1e1e1e", subtitle_size = 13,  
   subtitle_margin = 10,
   axis_title_size = base_size, axis_title_colour = base_colour,
@@ -397,8 +382,8 @@ theme_mpr <- function(
   caption_face = "plain", caption_colour = base_colour, caption_size = base_size,  
   caption_margin = 15,
   strip_text_face = "plain", strip_text_colour = base_colour, 
-  strip_text_size = 22, 
-  plot_margin = c(30, 30, 30, 30)) 
+  strip_text_size = 13, 
+  plot_margin = c(10, 10, 10, 30)) 
 {
 
   half_line <- base_size/2
@@ -411,21 +396,19 @@ theme_mpr <- function(
   xj <- switch(tolower(substr(axis_title_just, 1, 1)), b=0, l=0, m=0.5, c=0.5, r=1, t=1)
   yj <- switch(tolower(substr(axis_title_just, 2, 2)), b=0, l=0, m=0.5, c=0.5, r=1, t=1)
   
-  # create theme (based on ggplot2's theme_bw)
-  title_pos <- match.arg(plot_title_position)
-  
   # create theme, based on ggplot2's theme_bw
   theme_bw() +
     theme(
       
       # titling
       plot.title = element_text(
-        hjust = 0, size = plot_title_size, margin = margin(b = plot_title_margin),
+        hjust = 0, size = plot_title_size, 
+        margin = ggplot2::margin(b = plot_title_margin),
         family = base_family, face = plot_title_face, colour = plot_title_colour
       ),
       plot.title.position = title_pos,
       plot.subtitle = element_text(
-        hjust = 0, size = subtitle_size, margin = margin(b = subtitle_margin),
+        hjust = 0, size = subtitle_size, margin = ggplot2::margin(b = subtitle_margin),
         family = base_family, face = subtitle_face, colour = subtitle_colour
       ),
       
@@ -463,13 +446,6 @@ theme_mpr <- function(
       # axis ticks
       axis.ticks.length = ggplot2::unit(-axis_ticks_length, "cm"),
 
-      # titling
-      plot.title = element_text(size = plot_title_size, family = "sans", 
-                                color = base_colour, hjust = 1.0),
-      plot.title.position = title_pos,
-      plot.subtitle = element_text(size = plot_title_size, family = "sans", 
-                                   color = base_colour, hjust = 1.0),
-
       # grid
       panel.background = element_blank(),
       panel.grid.major = element_blank(),
@@ -478,7 +454,7 @@ theme_mpr <- function(
       
       # caption
       plot.caption=element_text(
-        hjust = 0, size = caption_size, margin = ggplot2::margin(caption_margin),
+        hjust = 0, size = caption_size, margin = ggplot2::margin(t = caption_margin),
         family = base_family, face = caption_face, colour = caption_colour
         ),
       
@@ -507,7 +483,7 @@ theme_mpr <- function(
       )
 }
 
-#' Monetary Policy Report y axis label positioning (experimental)
+#' Monetary Policy Report y axis label positioning
 #' 
 #' Creates a text element containing the y-axis title, positioned
 #' as found in the Monetary Policy Report (MPR).
