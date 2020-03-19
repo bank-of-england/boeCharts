@@ -174,6 +174,8 @@ hex2rgb <- function(x) as.vector(col2rgb(x))
 #' @export
 left_align_titles <- function(x) {
   
+  .Deprecated(msg = "left_align_titles() is deprecated.\nIf you're using a boeCharts theme, set the `plot_title_position` argument inside the theme_() call.\nOtherwise, set the `plot.title.position` argument inside ggplot2::theme()")
+  
   grob <- ggplotGrob(x)
   grob$layout$l[grob$layout$name %in% c("title", "subtitle")] <- 2
   

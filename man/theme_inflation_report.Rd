@@ -8,6 +8,7 @@ theme_inflation_report(
   base_size = 12,
   base_colour = "#2b2b2b",
   plot_title_size = 12,
+  plot_title_position = c("plot", "panel"),
   plot_margin = ggplot2::margin(30, 30, 30, 30)
 )
 }
@@ -20,6 +21,11 @@ Must be a named R colour or hexadecimal colour code
 (e.g. "#FF0000"). Defaults to \code{#2b2b2b}}
 
 \item{plot_title_size}{plot title size}
+
+\item{plot_title_position}{Alignment of the plot title/subtitle and caption.
+A value of "plot" (the default) means that titles and/or caption are aligned to 
+the entire plot (minus any space for margins and plot tag).
+A value of "panel" means that titles and/or caption are aligned to the plot panels}
 
 \item{plot_margin}{plot margin (specify with \code{ggplot2::margin()})}
 }
