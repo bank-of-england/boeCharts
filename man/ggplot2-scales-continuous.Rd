@@ -66,12 +66,13 @@ to map an arbitrary range to between 0 and 1.}
 \item{na.value}{Missing values will be replaced with this value.}
 
 \item{guide}{A function used to create a guide or its name. See
-\code{\link[ggplot2:guides]{guides()}} for more info.}
+\code{\link[ggplot2:guides]{guides()}} for more information.}
 
 \item{...}{
   Arguments passed on to \code{\link[ggplot2:continuous_scale]{ggplot2::continuous_scale}}
   \describe{
-    \item{\code{scale_name}}{The name of the scale}
+    \item{\code{scale_name}}{The name of the scale that should be used for error messages
+associated with this scale.}
     \item{\code{name}}{The name of the scale. Used as the axis or legend title. If
 \code{waiver()}, the default, the name of the scale is taken from the first
 mapping used for that aesthetic. If \code{NULL}, the legend title will be
@@ -80,10 +81,10 @@ omitted.}
 \itemize{
 \item \code{NULL} for no breaks
 \item \code{waiver()} for the default breaks computed by the
-transformation object
+\link[scales:trans_new]{transformation object}
 \item A numeric vector of positions
 \item A function that takes the limits as input and returns breaks
-as output
+as output (e.g., a function returned by \code{\link[scales:extended_breaks]{scales::extended_breaks()}})
 }}
     \item{\code{minor_breaks}}{One of:
 \itemize{
@@ -93,6 +94,10 @@ each major break)
 \item A numeric vector of positions
 \item A function that given the limits returns a vector of minor breaks.
 }}
+    \item{\code{n.breaks}}{An integer guiding the number of major breaks. The algorithm
+may choose a slightly different number to ensure nice break labels. Will
+only have an effect if \code{breaks = waiver()}. Use \code{NULL} to use the default
+number of breaks given by the transformation.}
     \item{\code{labels}}{One of:
 \itemize{
 \item \code{NULL} for no labels
@@ -109,35 +114,47 @@ as output
 Use \code{NA} to refer to the existing minimum or maximum
 \item A function that accepts the existing (automatic) limits and returns
 new limits
+Note that setting limits on positional scales will \strong{remove} data outside of the limits.
+If the purpose is to zoom, use the limit argument in the coordinate system
+(see \code{\link[ggplot2:coord_cartesian]{coord_cartesian()}}).
 }}
-    \item{\code{rescaler}}{Used by diverging and n colour gradients
-(i.e. \code{\link[ggplot2:scale_colour_gradient2]{scale_colour_gradient2()}}, \code{\link[ggplot2:scale_colour_gradientn]{scale_colour_gradientn()}}).
-A function used to scale the input values to the range [0, 1].}
-    \item{\code{oob}}{Function that handles limits outside of the scale limits
-(out of bounds). The default replaces out of bounds values with \code{NA}.}
-    \item{\code{expand}}{Vector of range expansion constants used to add some
-padding around the data, to ensure that they are placed some distance
-away from the axes. Use the convenience function \code{\link[ggplot2:expand_scale]{expand_scale()}}
+    \item{\code{rescaler}}{A function used to scale the input values to the
+range [0, 1]. This is always \code{\link[scales:rescale]{scales::rescale()}}, except for
+diverging and n colour gradients (i.e., \code{\link[ggplot2:scale_colour_gradient2]{scale_colour_gradient2()}},
+\code{\link[ggplot2:scale_colour_gradientn]{scale_colour_gradientn()}}). The \code{rescaler} is ignored by position
+scales, which always use \code{\link[scales:rescale]{scales::rescale()}}.}
+    \item{\code{oob}}{One of:
+\itemize{
+\item Function that handles limits outside of the scale limits
+(out of bounds).
+\item The default (\code{\link[scales:censor]{scales::censor()}}) replaces out of
+bounds values with \code{NA}.
+\item \code{\link[scales:squish]{scales::squish()}} for squishing out of bounds values into range.
+\item \code{\link[scales:squish_infinite]{scales::squish_infinite()}} for squishing infitite values into range.
+}}
+    \item{\code{expand}}{For position scales, a vector of range expansion constants used to add some
+padding around the data to ensure that they are placed some distance
+away from the axes. Use the convenience function \code{\link[ggplot2:expansion]{expansion()}}
 to generate the values for the \code{expand} argument. The defaults are to
 expand the scale by 5\% on each side for continuous variables, and by
 0.6 units on each side for discrete variables.}
-    \item{\code{trans}}{Either the name of a transformation object, or the
-object itself. Built-in transformations include "asn", "atanh",
+    \item{\code{trans}}{For continuous scales, the name of a transformation object
+or the object itself. Built-in transformations include "asn", "atanh",
 "boxcox", "date", "exp", "hms", "identity", "log", "log10", "log1p", "log2",
 "logit", "modulus", "probability", "probit", "pseudo_log", "reciprocal",
 "reverse", "sqrt" and "time".
 
 A transformation object bundles together a transform, its inverse,
 and methods for generating breaks and labels. Transformation objects
-are defined in the scales package, and are called \code{name_trans}, e.g.
-\code{\link[scales:boxcox_trans]{scales::boxcox_trans()}}. You can create your own
+are defined in the scales package, and are called \verb{<name>_trans} (e.g.,
+\code{\link[scales:boxcox_trans]{scales::boxcox_trans()}}). You can create your own
 transformation with \code{\link[scales:trans_new]{scales::trans_new()}}.}
-    \item{\code{position}}{The position of the axis. "left" or "right" for vertical
-scales, "top" or "bottom" for horizontal scales}
+    \item{\code{position}}{For position scales, The position of the axis.
+\code{left} or \code{right} for y axes, \code{top} or \code{bottom} for x axes.}
     \item{\code{super}}{The super class to use for the constructed scale}
   }}
 
-\item{aesthetics}{The names of the aesthetics that this scale works with}
+\item{aesthetics}{The names of the aesthetics that this scale works with.}
 }
 \value{
 ggplot colour scale

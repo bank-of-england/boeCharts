@@ -29,15 +29,15 @@ scale_fill_boe(palette = "boe", reverse = FALSE, ...)
 }
 \arguments{
 \item{palette}{A palette function that when called with a numeric vector with
-values between 0 and 1 returns the corresponding values in the range the
-scale maps to.}
+values between 0 and 1 returns the corresponding output values
+(e.g., \code{\link[scales:area_pal]{scales::area_pal()}}).}
 
 \item{reverse}{Logical, sets the order of colours in the scale. If TRUE,
 the n colours will be returns in reverse order (FALSE by default).}
 
 \item{...}{additional arguments to pass to \link[ggplot2]{discrete_scale}}
 
-\item{aesthetics}{The names of the aesthetics that this scale works with}
+\item{aesthetics}{The names of the aesthetics that this scale works with.}
 }
 \description{
 These functions provide the option to use \code{boeCharts} colours inside discrete

@@ -354,7 +354,7 @@ theme_mcg_pub <- function(base_size = 12, base_colour = "#2b2b2b",
 #' 
 #' @name theme_mpr
 
-theme_mpr = function(
+theme_mpr <- function(
   base_family = "Calibri", base_size = 11.5, base_colour = "#1e1e1e",
   plot_title_face = "plain", plot_title_size = 18, plot_title_colour = "#00294E", 
   plot_title_margin = 5,
