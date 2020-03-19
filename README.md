@@ -32,6 +32,12 @@ You can then install the latest stable version of `boeCharts` from Artifactory w
 install.packages("boeCharts")
 ```
 
+### Using custom fonts
+
+`boeCharts` helps you safely import and use fonts other than the basic fonts R already uses (with help from the `extrafont` package). These fonts can be imported using an associated `import_` utility function. For example, to import Calibri (used by default in some `boeCharts` themes), you should run the `import_calibri()` function.
+
+N.B. the font import step only needs to be run once on your machine. Fonts will be loaded automatically when you load `boeCharts` in future sessions.
+
 Use
 ---
 
@@ -87,14 +93,14 @@ chart +
 
 ![](man/figures/README-unnamed-chunk-5-1.png)
 
-Now, switching in the [Monetary Policy Report](https://www.bankofengland.co.uk/monetary-policy-report/2019/november-2019) theme and colours.
+Now, switching in the [Monetary Policy Report](https://www.bankofengland.co.uk/monetary-policy-report/2019/november-2019) theme and pre-MPC colours.
 
 ``` r
 chart +
   # add MPR theme
   theme_mpr() +
   # add a "vibrant" Bank colour combination
-  scale_colour_discrete_boe(palette = "mpr")
+  scale_colour_discrete_boe(palette = "pre_mpc")
 ```
 
 ![](man/figures/README-unnamed-chunk-6-1.png)
