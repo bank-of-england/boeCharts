@@ -98,7 +98,6 @@ package \code{ggplot2}, will apply styling to a plot.
 Provides a theme to produce
 \href{https://www.bankofengland.co.uk/bank-overground}{Bank Overground} 
 style visualisations in \code{ggplot2}.
-See \code{left_align_titles()} for full left-alignment of chart titles.
 }
 \details{
 Builds on the 'grammar of graphics' framework implement in

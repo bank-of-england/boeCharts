@@ -16,6 +16,7 @@ Provides a vector of named colours taken from the Bank's
 \href{http://intranet/BankNews/Pages/Updated-visual-identity-g-636195499604295252.aspx}{visual identity guidelines}.
 }
 \examples{
+\dontrun{
 
 library(ggplot2)
 library(boeCharts)
@@ -27,6 +28,7 @@ library(boeCharts)
    ) +
    geom_point(colour=boe$fuchsia) +
    theme_mcg_pub()
+}
 
 }
 \keyword{datasets}

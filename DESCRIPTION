@@ -18,7 +18,7 @@ License: file LICENSE
 Depends: R (>= 3.3.0)
 Imports: 
     labeling (>= 0.3.0),
-    extrafont,
+    extrafont (>= 0.17),
     ggplot2 (>= 3.3.0),
     grDevices (>= 3.5.0),
     grid (>= 3.5.0),

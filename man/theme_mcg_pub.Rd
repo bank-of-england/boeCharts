@@ -5,13 +5,16 @@
 \title{A \code{ggplot2} theme for MCG publication-ready charts}
 \usage{
 theme_mcg_pub(
-  base_size = 12,
+  base_family = "Arial",
+  base_size = 16,
   base_colour = "#2b2b2b",
-  plot_title_size = 18,
   plot_title_face = "bold",
+  plot_title_size = 18,
+  plot_title_margin = 10,
   plot_title_position = c("plot", "panel"),
-  subtitle_size = 12,
+  subtitle_size = base_size,
   subtitle_face = "plain",
+  subtitle_margin = 15,
   axis_title_size = base_size,
   axis_title_face = "plain",
   axis_text_size = base_size,
@@ -21,38 +24,60 @@ theme_mcg_pub(
   strip_text_size = 12,
   strip_text_face = "plain",
   plot_margin = c(10, 10, 10, 10),
-  axis_col = "#2b2b2b",
-  ticks_col = "#2b2b2b"
+  axis_col = base_colour,
+  ticks_col = base_colour
 )
 }
 \arguments{
-\item{base_size}{Sets the base size of text for the plot.
-Defaults to \code{12}}
+\item{base_family}{base font family, size and colour}
 
-\item{base_colour}{Sets the default colour of titles and labels.
-Must be a named R colour or hexadecimal colour code
-(e.g. "#FF0000"). Defaults to \code{#2b2b2b}}
+\item{base_size}{base font family, size and colour}
 
-\item{plot_title_size, plot_title_face}{plot title size and face}
+\item{base_colour}{base font family, size and colour}
+
+\item{plot_title_face}{plot title face, size, colour and margin}
+
+\item{plot_title_size}{plot title face, size, colour and margin}
+
+\item{plot_title_margin}{plot title face, size, colour and margin}
 
 \item{plot_title_position}{Alignment of the plot title/subtitle and caption.
 A value of "plot" (the default) means that titles and/or caption are aligned to 
 the entire plot (minus any space for margins and plot tag).
 A value of "panel" means that titles and/or caption are aligned to the plot panels}
 
-\item{subtitle_size, subtitle_face}{subtitle size and face}
+\item{subtitle_size}{plot subtitle face, size and colour}
 
-\item{axis_title_size, axis_title_face}{axis title size and face}
+\item{subtitle_face}{plot subtitle face, size and colour}
 
-\item{axis_text_size}{axis text size}
+\item{subtitle_margin}{plot subtitle bottom margin (single numeric value)}
 
-\item{caption_size, caption_margin, caption_face}{caption size, margin (top) and face}
+\item{axis_title_size}{axis title font face, 
+size and colour}
 
-\item{strip_text_size, strip_text_face}{facet label size and face}
+\item{axis_title_face}{axis title font face, 
+size and colour}
+
+\item{axis_text_size}{axis text size and colour}
+
+\item{caption_size}{plot caption 
+face, size, colour and margin}
+
+\item{caption_margin}{plot caption 
+face, size, colour and margin}
+
+\item{caption_face}{plot caption 
+face, size, colour and margin}
+
+\item{strip_text_size}{facet label font 
+face, size and colour}
+
+\item{strip_text_face}{facet label font 
+face, size and colour}
 
 \item{plot_margin}{plot margin (top, right, bottom, left)}
 
-\item{axis_col, ticks_col}{axis & ticks colours; both default to `#2b2b2b`}
+\item{axis_col, ticks_col}{axis & ticks colours}
 }
 \value{
 Will not return anything of itself, but when used in conjuntion

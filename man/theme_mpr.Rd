@@ -175,7 +175,11 @@ package \code{ggplot2}, will apply styling to a plot.
 \description{
 Provides a theme to produce
 Monetary Policy Report (FKA Inflation Report) style visualisations in \code{ggplot2}.
+}
+\details{
 See \code{ggplot2::scale_y_continuous} for positioning y-axis on the right.
+
+See [ylab_mpr()] for help positioning the y-axis title correctly.
 }
 \examples{
 \dontrun{
