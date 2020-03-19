@@ -76,7 +76,15 @@ theme_overground(
 
 \item{axis}{add x or y axes? `TRUE` (or `XY`), `FALSE`, `X` or `Y`}
 
-\item{ticks}{axis ticks (`TRUE` (or `XY`), `FALSE`, `X` or `Y`)}
+\item{ticks}{axis ticks (`TRUE` (or `XY`), `FALSE`, `X` or `Y`)
+
+library(ggplot2)
+
+ggplot(mtcars, aes(x = mpg, y = wt)) +
+   geom_point() +
+   labs(title = "A Lovely Plot",
+        subtitle = "A thought-provoking subtitle.") +
+   theme_overground()}
 }
 \value{
 Will not return anything of itself, but when used in conjuntion
@@ -97,17 +105,4 @@ will require manual font registering, currently.
 Builds on the 'grammar of graphics' framework implement in
 ggplot2. Applying \code{theme_overground()} will adjust graphical parameters
 to give a plot a feel more in line with Bank Overground publications.
-}
-\examples{
-\dontrun{
-
-library(ggplot2)
-
-ggplot(mtcars, aes(x = mpg, y = wt)) +
-   geom_point() +
-   labs(title = "A Lovely Plot",
-        subtitle = "A thought-provoking subtitle.") +
-   theme_overground()
-}
-
 }

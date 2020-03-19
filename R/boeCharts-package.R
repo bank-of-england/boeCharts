@@ -3,6 +3,7 @@
 #' A compilation of 'ggplot2' themes, scales and helpers to create Bank-style, 
 #' publication-ready visualisations.
 #' 
+#' @importFrom extrafont font_import loadfonts
 #' @import ggplot2
 #' @importFrom gtable gtable_add_grob gtable_filter gtable_add_rows gtable_trim
 #' @importFrom grid textGrob gTree gList gpar
