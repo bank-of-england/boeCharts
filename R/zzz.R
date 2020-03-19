@@ -17,5 +17,12 @@
     extrafont::loadfonts("pdf", quiet = TRUE)
     extrafont::loadfonts("postscript", quiet = TRUE)
   }
+  
+  fnt <- extrafont::fonttable()
+  if (!any(grepl("Arial|Calibri", fnt$FamilyName))) {
+    packageStartupMessage("NOTE: Arial font is required to use these themes.")
+    packageStartupMessage("      Please use boeCharts::import_arial() to install Arial and")
+    packageStartupMessage("      boeCharts::import_calibri() to install Calibri")
+  } 
 
 }
