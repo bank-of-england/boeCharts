@@ -13,7 +13,7 @@ theme_mpr(
   plot_title_size = 18,
   plot_title_colour = "#00294E",
   plot_title_margin = 5,
-  plot_title_position = c("plot", "panel"),
+  plot_title_position = c("panel", "plot"),
   subtitle_face = "plain",
   subtitle_colour = "#1e1e1e",
   subtitle_size = 13,
@@ -39,8 +39,8 @@ theme_mpr(
   caption_margin = 15,
   strip_text_face = "plain",
   strip_text_colour = base_colour,
-  strip_text_size = 22,
-  plot_margin = c(30, 30, 30, 30)
+  strip_text_size = 13,
+  plot_margin = c(10, 10, 10, 30)
 )
 
 theme_inflation_report(
@@ -124,6 +124,8 @@ size and colour}
 
 \item{axis_text_colour}{axis text size and colour}
 
+\item{axis_ticks_length}{length of axis ticks (in centimetres)}
+
 \item{legend_title_size}{legend title 
 font face, size and colour}
 
@@ -139,6 +141,8 @@ font face, size and colour}
 
 \item{legend_position}{legend position ("none", "left", "right", "bottom", 
 "top", or two-element numeric vector)}
+
+\item{legend_just, legend_margin}{legend justification and margins}
 
 \item{caption_face}{plot caption 
 face, size, colour and margin}

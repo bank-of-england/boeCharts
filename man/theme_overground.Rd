@@ -87,15 +87,7 @@ face, size and colour}
 
 \item{axis}{add x or y axes? `TRUE` (or `XY`), `FALSE`, `X` or `Y`}
 
-\item{ticks}{axis ticks (`TRUE` (or `XY`), `FALSE`, `X` or `Y`)
-
-library(ggplot2)
-
-ggplot(mtcars, aes(x = mpg, y = wt)) +
-   geom_point() +
-   labs(title = "A Lovely Plot",
-        subtitle = "A thought-provoking subtitle.") +
-   theme_overground()}
+\item{ticks}{axis ticks (`TRUE` (or `XY`), `FALSE`, `X` or `Y`)}
 }
 \value{
 Will not return anything of itself, but when used in conjuntion
@@ -109,11 +101,19 @@ style visualisations in \code{ggplot2}.
 See \code{left_align_titles()} for full left-alignment of chart titles.
 }
 \details{
-If you are running under Windows, the package calls an internal function
-to register the Calibri font with the Windows graphics device. Other systems
-will require manual font registering, currently.
-
 Builds on the 'grammar of graphics' framework implement in
 ggplot2. Applying \code{theme_overground()} will adjust graphical parameters
 to give a plot a feel more in line with Bank Overground publications.
+}
+\examples{
+\dontrun{
+library(ggplot2)
+
+ggplot(mtcars, aes(x = mpg, y = wt)) +
+geom_point() +
+labs(title = "A Lovely Plot",
+subtitle = "A thought-provoking subtitle.") +
+theme_overground()
+}
+
 }

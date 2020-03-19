@@ -4,10 +4,6 @@
 #' \href{https://www.bankofengland.co.uk/bank-overground}{Bank Overground} 
 #' style visualisations in \code{ggplot2}.
 #' See \code{left_align_titles()} for full left-alignment of chart titles.
-#' 
-#' @details If you are running under Windows, the package calls an internal function
-#' to register the Calibri font with the Windows graphics device. Other systems
-#' will require manual font registering, currently.
 #'
 #' @details Builds on the 'grammar of graphics' framework implement in
 #' ggplot2. Applying \code{theme_overground()} will adjust graphical parameters
@@ -45,7 +41,7 @@
 #' @param grid_col,axis_col grid & axis colors; both default to `#cccccc`
 #' @param ticks axis ticks (`TRUE` (or `XY`), `FALSE`, `X` or `Y`)
 #' 
-#' @examples 
+#' @examples \dontrun{
 #' library(ggplot2)
 #'
 #' ggplot(mtcars, aes(x = mpg, y = wt)) +
@@ -53,6 +49,7 @@
 #' labs(title = "A Lovely Plot",
 #' subtitle = "A thought-provoking subtitle.") +
 #' theme_overground()
+#' }
 #' 
 #' @export
 
@@ -237,10 +234,9 @@ theme_overground <- function(
 #' @param axis_text_size axis text size
 #' @param strip_text_size,strip_text_face facet label size and face
 #' @param plot_margin plot margin (top, right, bottom, left)
-#' 
 #' @param axis_col,ticks_col axis & ticks colours; both default to `#2b2b2b`
 #'
-#' @examples
+#' @examples \dontrun{
 #'
 #' library(ggplot2)
 #'
@@ -250,6 +246,7 @@ theme_overground <- function(
 #'         subtitle = "A thought-provoking subtitle.") +
 #'    theme_mcg_pub() +
 #'    scale_y_continuous(position = "right")
+#' }
 #'
 #' @export
 
@@ -343,7 +340,9 @@ theme_mcg_pub <- function(
 #' See \code{ggplot2::scale_y_continuous} for positioning y-axis on the right.
 #' 
 #' @inheritParams theme_overground
-#'
+#' @param axis_ticks_length length of axis ticks (in centimetres)
+#' @param legend_just,legend_margin legend justification and margins
+#' 
 #' @return Will not return anything of itself, but when used in conjuntion
 #' with \code{\link{ggplot}} and (e.g.) \code{\link{geom_point}} from the
 #' package \code{ggplot2}, will apply styling to a plot.
@@ -562,7 +561,7 @@ theme_inflation_report <- function(
   theme_mpr(base_family = base_family, base_size = base_size, base_colour = base_colour,
             plot_title_face = plot_title_face, plot_title_size = plot_title_size, 
             plot_title_colour = plot_title_colour, plot_title_margin = plot_title_margin,
-            plot_title_position = plot_title_position,
+            plot_title_position = match.arg(plot_title_position),
             subtitle_face = subtitle_face, subtitle_colour = subtitle_colour, 
             subtitle_size = subtitle_size, subtitle_margin = subtitle_margin,
             axis_title_size = axis_title_size, axis_title_colour = axis_title_colour,

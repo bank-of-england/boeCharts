@@ -70,6 +70,7 @@ ggplot2. Applying \code{theme_mcg_pub()} will adjust graphical parameters
 to give a plot a feel more in line with MCG publications.
 }
 \examples{
+\dontrun{
 
 library(ggplot2)
 
@@ -79,5 +80,6 @@ ggplot(mtcars, aes(x = mpg, y = wt)) +
         subtitle = "A thought-provoking subtitle.") +
    theme_mcg_pub() +
    scale_y_continuous(position = "right")
+}
 
 }
