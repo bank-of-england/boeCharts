@@ -9,5 +9,9 @@
 #' @importFrom scales dollar_format
 #' @importFrom grDevices windowsFont windowsFonts rgb col2rgb
 #' @importFrom graphics rect par image text pie
+<<<<<<< HEAD
 #' @importFrom patchwork wrap_ggplot_grob
+=======
+#' @importFrom labeling extended
+>>>>>>> auto-limits
 "_PACKAGE"

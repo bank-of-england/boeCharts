@@ -67,20 +67,28 @@ to map an arbitrary range to between 0 and 1.}
 
 \item{guide}{A function used to create a guide or its name. See
 <<<<<<< HEAD
+<<<<<<< HEAD
 \code{\link[ggplot2:guides]{guides()}} for more info.}
 =======
 \code{\link[ggplot2:guides]{guides()}} for more information.}
 >>>>>>> ir-theme
+=======
+\code{\link[ggplot2:guides]{guides()}} for more info.}
+>>>>>>> auto-limits
 
 \item{...}{
   Arguments passed on to \code{\link[ggplot2:continuous_scale]{ggplot2::continuous_scale}}
   \describe{
+<<<<<<< HEAD
 <<<<<<< HEAD
     \item{\code{scale_name}}{The name of the scale}
 =======
     \item{\code{scale_name}}{The name of the scale that should be used for error messages
 associated with this scale.}
 >>>>>>> ir-theme
+=======
+    \item{\code{scale_name}}{The name of the scale}
+>>>>>>> auto-limits
     \item{\code{name}}{The name of the scale. Used as the axis or legend title. If
 \code{waiver()}, the default, the name of the scale is taken from the first
 mapping used for that aesthetic. If \code{NULL}, the legend title will be
@@ -103,12 +111,15 @@ each major break)
 \item A function that given the limits returns a vector of minor breaks.
 }}
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
     \item{\code{n.breaks}}{An integer guiding the number of major breaks. The algorithm
 may choose a slightly different number to ensure nice break labels. Will
 only have an effect if \code{breaks = waiver()}. Use \code{NULL} to use the default
 number of breaks given by the transformation.}
 >>>>>>> ir-theme
+=======
+>>>>>>> auto-limits
     \item{\code{labels}}{One of:
 \itemize{
 \item \code{NULL} for no labels
@@ -144,6 +155,9 @@ bounds values with \code{NA}.
 \item \code{\link[scales:squish_infinite]{scales::squish_infinite()}} for squishing infitite values into range.
 }}
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> auto-limits
     \item{\code{rescaler}}{Used by diverging and n colour gradients
 (i.e. \code{\link[ggplot2:scale_colour_gradient2]{scale_colour_gradient2()}}, \code{\link[ggplot2:scale_colour_gradientn]{scale_colour_gradientn()}}).
 A function used to scale the input values to the range [0, 1].}
@@ -177,6 +191,7 @@ are defined in the scales package, and are called \verb{<name>_trans} (e.g.,
 \code{\link[scales:boxcox_trans]{scales::boxcox_trans()}}). You can create your own
 transformation with \code{\link[scales:trans_new]{scales::trans_new()}}.}
 <<<<<<< HEAD
+<<<<<<< HEAD
     \item{\code{position}}{The position of the axis. "left" or "right" for vertical
 scales, "top" or "bottom" for horizontal scales}
 =======
@@ -187,6 +202,14 @@ scales, "top" or "bottom" for horizontal scales}
   }}
 
 \item{aesthetics}{The names of the aesthetics that this scale works with.}
+=======
+    \item{\code{position}}{The position of the axis. "left" or "right" for vertical
+scales, "top" or "bottom" for horizontal scales}
+    \item{\code{super}}{The super class to use for the constructed scale}
+  }}
+
+\item{aesthetics}{The names of the aesthetics that this scale works with}
+>>>>>>> auto-limits
 }
 \value{
 ggplot colour scale
