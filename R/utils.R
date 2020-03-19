@@ -151,6 +151,14 @@ colours_from_palette <- function(palette, strip_names = TRUE) {
   cols
 }
 
+# convert rgb colours into hexidecimal
+rgb2hex <- function(r, g, b) {
+  
+  rgb(red = r, green = g, blue = b, maxColorValue = 255)
+} 
+
+# convert hexidecimal colours into rgb
+hex2rgb <- function(x) as.vector(col2rgb(x))
 
 #' Left-align chart titles
 #' 

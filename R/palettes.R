@@ -53,6 +53,18 @@ boe_vibrant_palettes = list(vibrant_a = vibrant_a,
                             vibrant_g = vibrant_g,
                             vibrant_h = vibrant_h)
 
+#' @title List of pre-MPC colour palettes
+#'
+#' @description List of lists of named colours taken from the Bank's
+#' pre Monetary Policy Committee (MPC) guidelines.
+#'
+#' @return A named list of lists of named hexadecimal colours.
+#' 
+#' @keywords internal
+#'
+#' @export
+pre_mpc_palettes = list(pre_mpc = pre_mpc, pre_mpc_light = pre_mpc_light)
+
 #' @title List of diverging ColorBrewer-style colour palettes
 #'
 #' @description List of lists of named colours taken from the Bank's
@@ -81,7 +93,8 @@ boe_palettes <- c(
   boe_harmonious_palettes,
   boe_vibrant_palettes,
   boe_diverging_palettes,
-  mcg = list(mcg_pub)
+  mcg = list(mcg_pub),
+  pre_mpc_palettes
 )
 
 
@@ -121,7 +134,7 @@ boe_pal <- function(palette, n, reverse = FALSE) {
   
   out <- pal[1:n]
   
-  ## reverse returns the same colours in reverse order (change: was returning colours from the other end of the palette)
+  # returns the same colours in reverse order
   if (reverse) out <- rev(out)
   
   structure(out, class = "palette", palette = palette)

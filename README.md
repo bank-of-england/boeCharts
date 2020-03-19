@@ -8,7 +8,7 @@ Overview
 `boeCharts` is an R package containing Bank chart styles and themes, in-line with [Bank standards on corporate identity](https://bankofengland.frontify.com/d/RPk6pMZziBFw/bank-standards), recommended (and designed) for use in conjunction with [ggplot2](https://ggplot2.tidyverse.org/). It currently houses designs for approximating charts found within a number of flagship publications:
 
 -   [Bank Overground](https://www.bankofengland.co.uk/bank-overground)
--   [Inflation Report](https://www.bankofengland.co.uk/inflation-report/2018/august-2018/global-economic-and-financial-market-developments)
+-   [Monetary Policy Report](https://www.bankofengland.co.uk/monetary-policy-report/2019/november-2019) (FKA Inflation Report)
 -   [Statistical Releases](https://www.bankofengland.co.uk/statistics/money-and-credit/2019/april-2019)
 
 Install
@@ -78,17 +78,26 @@ Below, the [Bank Overground](https://www.bankofengland.co.uk/bank-overground) ch
 # load boeCharts
 library(boeCharts)
 
-chart <- chart +
+chart +
   # add Bank Overground theme
   theme_overground() +
   # add a "vibrant" Bank colour combination
   scale_colour_discrete_boe(palette = "vibrant_c")
-
-# print
-chart
 ```
 
 ![](man/figures/README-unnamed-chunk-5-1.png)
+
+Now, switching in the [Monetary Policy Report](https://www.bankofengland.co.uk/monetary-policy-report/2019/november-2019) theme and colours.
+
+``` r
+chart +
+  # add MPR theme
+  theme_mpr() +
+  # add a "vibrant" Bank colour combination
+  scale_colour_discrete_boe(palette = "mpr")
+```
+
+![](man/figures/README-unnamed-chunk-6-1.png)
 
 ### A more in-depth example
 
