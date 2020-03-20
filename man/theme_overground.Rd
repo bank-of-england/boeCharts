@@ -6,17 +6,15 @@
 \usage{
 theme_overground(
   base_family = "Calibri",
-  base_size = 18,
+  base_size = 11.5,
   base_colour = "#6B7E87",
   plot_title_face = "bold",
-  plot_title_size = 28,
+  plot_title_size = 18,
   plot_title_colour = "#00294E",
-  plot_title_margin = 10,
   plot_title_position = c("plot", "panel"),
   subtitle_face = "plain",
   subtitle_colour = "#1e1e1e",
-  subtitle_size = 22,
-  subtitle_margin = 15,
+  subtitle_size = 14,
   axis_title_size = base_size,
   axis_title_colour = base_colour,
   axis_title_face = "plain",
@@ -28,15 +26,14 @@ theme_overground(
   legend_title_face = "plain",
   legend_text_size = base_size,
   legend_text_colour = base_colour,
-  legend_position = "bottom",
+  legend_position = "top",
+  legend_just = "left",
   caption_face = "plain",
   caption_colour = base_colour,
-  caption_size = 16,
-  caption_margin = 15,
+  caption_size = base_size,
   strip_text_face = "plain",
   strip_text_colour = base_colour,
-  strip_text_size = 22,
-  plot_margin = c(10, 10, 10, 10),
+  strip_text_size = subtitle_size,
   grid = "X",
   grid_col = "#C8CCCF",
   axis = "X",
@@ -47,7 +44,7 @@ theme_overground(
 \arguments{
 \item{base_family, base_size, base_colour}{base font family, size and colour}
 
-\item{plot_title_face, plot_title_size, plot_title_colour, plot_title_margin}{plot title face, size, colour and margin}
+\item{plot_title_face, plot_title_size, plot_title_colour}{plot title face, size and colour}
 
 \item{plot_title_position}{Alignment of the plot title/subtitle and caption.
 A value of "plot" (the default) means that titles and/or caption are aligned to 
@@ -55,8 +52,6 @@ the entire plot (minus any space for margins and plot tag).
 A value of "panel" means that titles and/or caption are aligned to the plot panels}
 
 \item{subtitle_face, subtitle_size, subtitle_colour}{plot subtitle face, size and colour}
-
-\item{subtitle_margin}{plot subtitle bottom margin (single numeric value)}
 
 \item{axis_title_face, axis_title_size, axis_title_colour}{axis title font face, 
 size and colour}
@@ -73,13 +68,11 @@ font face, size and colour}
 \item{legend_position}{legend position ("none", "left", "right", "bottom", 
 "top", or two-element numeric vector)}
 
-\item{caption_face, caption_size, caption_colour, caption_margin}{plot caption 
-face, size, colour and margin}
+\item{caption_face, caption_size, caption_colour}{plot caption 
+face, size, and colour}
 
 \item{strip_text_face, strip_text_size, strip_text_colour}{facet label font 
 face, size and colour}
-
-\item{plot_margin}{plot margin (top, right, bottom, left)}
 
 \item{grid}{panel grid (`TRUE`, `FALSE`, or a combination of `X`, `x`, `Y`, `y`)}
 

@@ -35,11 +35,9 @@ theme_mcg_pub(
 
 \item{base_colour}{base font family, size and colour}
 
-\item{plot_title_face}{plot title face, size, colour and margin}
+\item{plot_title_face}{plot title face, size and colour}
 
-\item{plot_title_size}{plot title face, size, colour and margin}
-
-\item{plot_title_margin}{plot title face, size, colour and margin}
+\item{plot_title_size}{plot title face, size and colour}
 
 \item{plot_title_position}{Alignment of the plot title/subtitle and caption.
 A value of "plot" (the default) means that titles and/or caption are aligned to 
@@ -50,8 +48,6 @@ A value of "panel" means that titles and/or caption are aligned to the plot pane
 
 \item{subtitle_face}{plot subtitle face, size and colour}
 
-\item{subtitle_margin}{plot subtitle bottom margin (single numeric value)}
-
 \item{axis_title_size}{axis title font face, 
 size and colour}
 
@@ -61,21 +57,16 @@ size and colour}
 \item{axis_text_size}{axis text size and colour}
 
 \item{caption_size}{plot caption 
-face, size, colour and margin}
-
-\item{caption_margin}{plot caption 
-face, size, colour and margin}
+face, size, and colour}
 
 \item{caption_face}{plot caption 
-face, size, colour and margin}
+face, size, and colour}
 
 \item{strip_text_size}{facet label font 
 face, size and colour}
 
 \item{strip_text_face}{facet label font 
 face, size and colour}
-
-\item{plot_margin}{plot margin (top, right, bottom, left)}
 
 \item{axis_col, ticks_col}{axis & ticks colours}
 }

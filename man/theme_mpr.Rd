@@ -12,22 +12,18 @@ theme_mpr(
   plot_title_face = "plain",
   plot_title_size = 18,
   plot_title_colour = "#00294E",
-  plot_title_margin = 5,
   plot_title_position = c("panel", "plot"),
   subtitle_face = "plain",
-  subtitle_colour = "#1e1e1e",
-  subtitle_size = 13,
-  subtitle_margin = 10,
+  subtitle_colour = base_colour,
+  subtitle_size = 14,
   axis_title_size = base_size,
   axis_title_colour = base_colour,
-  axis_title_face = "plain",
   axis_title_just = "mc",
   axis_text_size = base_size,
   axis_text_colour = base_colour,
   axis_ticks_length = 0.35,
   legend_title_size = base_size,
   legend_title_colour = base_colour,
-  legend_title_face = "plain",
   legend_text_size = base_size,
   legend_text_colour = base_colour,
   legend_position = "top",
@@ -36,11 +32,9 @@ theme_mpr(
   caption_face = "plain",
   caption_colour = base_colour,
   caption_size = base_size,
-  caption_margin = 15,
   strip_text_face = "plain",
   strip_text_colour = base_colour,
-  strip_text_size = 13,
-  plot_margin = c(10, 10, 10, 30)
+  strip_text_size = 13
 )
 
 theme_inflation_report(
@@ -88,13 +82,11 @@ theme_inflation_report(
 
 \item{base_colour}{base font family, size and colour}
 
-\item{plot_title_face}{plot title face, size, colour and margin}
+\item{plot_title_face}{plot title face, size and colour}
 
-\item{plot_title_size}{plot title face, size, colour and margin}
+\item{plot_title_size}{plot title face, size and colour}
 
-\item{plot_title_colour}{plot title face, size, colour and margin}
-
-\item{plot_title_margin}{plot title face, size, colour and margin}
+\item{plot_title_colour}{plot title face, size and colour}
 
 \item{plot_title_position}{Alignment of the plot title/subtitle and caption.
 A value of "plot" (the default) means that titles and/or caption are aligned to 
@@ -107,15 +99,10 @@ A value of "panel" means that titles and/or caption are aligned to the plot pane
 
 \item{subtitle_size}{plot subtitle face, size and colour}
 
-\item{subtitle_margin}{plot subtitle bottom margin (single numeric value)}
-
 \item{axis_title_size}{axis title font face, 
 size and colour}
 
 \item{axis_title_colour}{axis title font face, 
-size and colour}
-
-\item{axis_title_face}{axis title font face, 
 size and colour}
 
 \item{axis_title_just}{axis title font justification, one of `[blmcrt]`}
@@ -132,9 +119,6 @@ font face, size and colour}
 \item{legend_title_colour}{legend title 
 font face, size and colour}
 
-\item{legend_title_face}{legend title 
-font face, size and colour}
-
 \item{legend_text_size}{legend text size and colour}
 
 \item{legend_text_colour}{legend text size and colour}
@@ -145,16 +129,13 @@ font face, size and colour}
 \item{legend_just, legend_margin}{legend justification and margins}
 
 \item{caption_face}{plot caption 
-face, size, colour and margin}
+face, size, and colour}
 
 \item{caption_colour}{plot caption 
-face, size, colour and margin}
+face, size, and colour}
 
 \item{caption_size}{plot caption 
-face, size, colour and margin}
-
-\item{caption_margin}{plot caption 
-face, size, colour and margin}
+face, size, and colour}
 
 \item{strip_text_face}{facet label font 
 face, size and colour}
@@ -165,7 +146,11 @@ face, size and colour}
 \item{strip_text_size}{facet label font 
 face, size and colour}
 
-\item{plot_margin}{plot margin (top, right, bottom, left)}
+\item{axis_title_face}{axis title font face, 
+size and colour}
+
+\item{legend_title_face}{legend title 
+font face, size and colour}
 }
 \value{
 Will not return anything of itself, but when used in conjuntion
