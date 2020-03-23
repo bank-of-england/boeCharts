@@ -123,10 +123,11 @@ font face, size and colour}
 
 \item{legend_text_colour}{legend text size and colour}
 
-\item{legend_position}{legend position ("none", "left", "right", "bottom", 
-"top", or two-element numeric vector)}
+\item{legend_position}{legend position, justification and margins}
 
-\item{legend_just, legend_margin}{legend justification and margins}
+\item{legend_just}{legend position, justification and margins}
+
+\item{legend_margin}{legend position, justification and margins}
 
 \item{caption_face}{plot caption 
 face, size, and colour}

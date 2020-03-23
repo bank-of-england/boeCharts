@@ -27,8 +27,7 @@
 #' @param legend_title_face,legend_title_size,legend_title_colour legend title 
 #' font face, size and colour
 #' @param legend_text_size,legend_text_colour legend text size and colour
-#' @param legend_position legend position ("none", "left", "right", "bottom", 
-#' "top", or two-element numeric vector)
+#' @param legend_position,legend_just,legend_margin legend position, justification and margins
 #' @param caption_face,caption_size,caption_colour plot caption 
 #' face, size, and colour
 #' @param strip_text_face,strip_text_size,strip_text_colour facet label font 
@@ -61,7 +60,7 @@ theme_overground <- function(
   legend_title_size = base_size, legend_title_colour = base_colour, 
   legend_title_face = "plain", 
   legend_text_size = base_size, legend_text_colour = base_colour, 
-  legend_position = "top", legend_just = "left", 
+  legend_position = "top", legend_just = "left", legend_margin = c(0, base_size/2, 0, 0),
   caption_face = "plain", caption_colour = base_colour, caption_size = base_size,  
   strip_text_face = "plain", strip_text_colour = base_colour, strip_text_size = subtitle_size, 
   grid = "X", grid_col = "#C8CCCF", axis = "X", axis_col = grid_col, 
@@ -135,13 +134,14 @@ theme_overground <- function(
       legend.key = element_blank(),
       legend.position = legend_position,
       legend.justification = legend_just,
-      legend.margin = ggplot2::margin(half_line, half_line, half_line, 0),
+      legend.margin = ggplot2::margin(legend_margin),
 
       # strip text (facetting)
       strip.text = element_text(
-        hjust = 0, size = strip_text_size, colour = strip_text_colour,
+        size = strip_text_size, colour = strip_text_colour,
         face = strip_text_face, 
-        margin = margin(0.8 * half_line, 0.8 * half_line, 0.8 * half_line, 0)
+        margin = margin(0.8 * half_line, 0.8 * half_line, 0.8 * half_line, 
+                        0.8 * half_line)
         )
     )
 
@@ -228,7 +228,6 @@ theme_overground <- function(
 #' 
 #' @inheritParams theme_overground
 #' @param axis_ticks_length length of axis ticks (in centimetres)
-#' @param legend_just,legend_margin legend justification and margins
 #' 
 #' @return Will not return anything of itself, but when used in conjuntion
 #' with \code{\link{ggplot}} and (e.g.) \code{\link{geom_point}} from the
@@ -305,7 +304,7 @@ theme_mpr <- function(
       axis.title.x = element_text(hjust = xj),
       axis.title.y = element_text(hjust = yj),
       axis.title.y.left = element_blank(),
-      axis.title.y.right = element_text(angle=90),
+      axis.title.y.right = element_text(angle=-90),
       
       # axis text
       axis.text = element_text(size = axis_text_size, colour = axis_text_colour),
@@ -344,11 +343,11 @@ theme_mpr <- function(
       # strip attributes (for facetting)
       strip.background =   element_blank(),
       strip.text = element_text(
-        hjust = 0, size = strip_text_size, colour = strip_text_colour,
+        size = strip_text_size, colour = strip_text_colour,
         face = strip_text_face,
-        margin = ggplot2::margin(0.8 * half_line, 0.8 * half_line, 0.8 * half_line, 0)
-        ),
-      strip.text.y = element_text(angle = -90)
+        margin = ggplot2::margin(0.8 * half_line, 0.8 * half_line, 0.8 * half_line, 
+                                 0.8 * half_line)
+        )
       )
 }
 

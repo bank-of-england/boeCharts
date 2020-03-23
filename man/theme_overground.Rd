@@ -28,6 +28,7 @@ theme_overground(
   legend_text_colour = base_colour,
   legend_position = "top",
   legend_just = "left",
+  legend_margin = c(0, base_size/2, 0, 0),
   caption_face = "plain",
   caption_colour = base_colour,
   caption_size = base_size,
@@ -65,8 +66,7 @@ font face, size and colour}
 
 \item{legend_text_size, legend_text_colour}{legend text size and colour}
 
-\item{legend_position}{legend position ("none", "left", "right", "bottom", 
-"top", or two-element numeric vector)}
+\item{legend_position, legend_just, legend_margin}{legend position, justification and margins}
 
 \item{caption_face, caption_size, caption_colour}{plot caption 
 face, size, and colour}
