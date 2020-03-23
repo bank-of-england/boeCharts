@@ -19,14 +19,16 @@ ggplot(FANG, aes(x = date, y = close, colour = symbol)) +
   labs(x = "date", y = "close", title = "Facebook stock close prices",
        subtitle = "More text") -> multiple_line
 
-multiple_line + theme_mpr() + scale_y_continuous(position = "right")
-multiple_line + theme_overground() + scale_y_continuous(position = "right")
-multiple_line + theme_mcg_pub() + scale_y_continuous(position = "right")
+mpr_plot <- multiple_line + theme_mpr() + scale_y_continuous(position = "right")
+over_plot <- multiple_line + theme_overground() + scale_y_continuous(position = "right")
+mcg_plot <- multiple_line + theme_mcg_pub() + scale_y_continuous(position = "right")
 
 # faceted line charts
-multiple_line + theme_mcg_pub() + scale_y_continuous(position = "right") +
-  facet_wrap(~symbol)
-multiple_line + theme_mpr() + scale_y_continuous(position = "right") +
-  facet_wrap(~symbol)
-multiple_line + theme_overground() + scale_y_continuous(position = "right") +
-  facet_wrap(~symbol)
+mpr_plot + facet_wrap(~symbol)
+mcg_plot + facet_wrap(~symbol)
+over_plot + facet_wrap(~symbol)
+
+# mpr axis titling
+move_ylab(mpr_plot)
+move_ylab(over_plot)
+move_ylab(mcg_plot)

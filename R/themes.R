@@ -104,7 +104,7 @@ theme_overground <- function(
         hjust = xj, margin = margin(t = half_line / 2), vjust = 1
         ),
       axis.title.y = element_text(
-        hjust = yj, margin = margin(r = half_line / 2), vjust = 1
+        hjust = yj, margin = margin(r = half_line / 2), vjust = 1, angle = 90
         ),
       axis.title.y.right = element_text(
         hjust = yj, angle = -90, margin = margin(l = half_line / 2), vjust = 0
@@ -326,7 +326,7 @@ theme_mpr <- function(
       panel.background = element_blank(),
       panel.grid.major = element_blank(),
       panel.grid.minor = element_blank(),
-      plot.margin = ggplot2::margin(half_line, half_line, half_line, half_line),
+      plot.margin = ggplot2::margin(half_line, half_line, half_line, base_size),
       
       # caption
       plot.caption=element_text(
@@ -356,56 +356,6 @@ theme_mpr <- function(
       )
 }
 
-#' Monetary Policy Report y axis label positioning
-#' 
-#' Creates a text element containing the y-axis title, positioned
-#' as found in the Monetary Policy Report (MPR).
-#'
-#' @param x a ggplot object
-#'
-#' @return a ggplot object
-#' @export
-#'
-#' @examples \dontrun{
-#' 
-#' p <- ggplot(mtcars, aes(x = mpg, y = wt)) +
-#' geom_point() +
-#' labs(title = "A Lovely Plot", subtitle = "Something insightful", x = NULL) +
-#' theme_mpr() +
-#' scale_y_continuous(
-#' position = "right", sec.axis = dup_axis(labels = NULL)
-#' )
-#' 
-#' ylab_mpr(p)
-#' }
-
-ylab_mpr <- function(x) {
-  
-  b <- ggplot_build(x)
-  g <- ggplotGrob(x)
-  
-  right =  textGrob(
-    b$plot$labels$y, x = 1, y = 1, just = c("right", "top"), 
-    gp = gpar(
-      fontsize = b$plot$theme$text$size, col =  b$plot$theme$text$colour
-      )
-    )
-  labs = gTree("Labs", children = gList(right))
-  
-  g <- gtable_filter(g, pattern = "ylab", invert = TRUE)
-  
-  pos = g$layout[grepl("panel", g$layout$name), c('t', 'l')]
-  height = unit(1.5, "grobheight", right)
-  g <- gtable_add_rows(g, height, pos$t-1)
-  
-  g = gtable_add_grob(g, labs, t = pos$t, l = pos$l, r = pos$l)
-  
-  g = g[, -2]
-  
-  g <- gtable_trim(g)
-  
-  wrap_ggplot_grob(g)
-}
 
 #' @export
 #' @rdname theme_mpr
