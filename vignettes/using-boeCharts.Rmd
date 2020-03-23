@@ -110,8 +110,10 @@ chart +
   # add MPR theme
   theme_mpr() +
   # axis settings
-  scale_y_continuous(position = "right", expand = c(0, 0), sec.axis = dup_axis(labels = NULL),
-                     breaks = scales::breaks_pretty(), limits = limits_pretty())
+  scale_y_continuous(
+    position = "right", expand = c(0, 0), sec.axis = dup_axis(labels = NULL),
+    breaks = boe_breaks_numeric(), limits = boe_limits_numeric()
+    )
 ```
 
 ### DSD Publications
@@ -129,7 +131,7 @@ chart +
   theme_mcg_pub() +
   # axis settings
   scale_y_continuous(position = "right", expand = c(0, 0), 
-                     breaks = scales::breaks_pretty(), limits = limits_pretty()) +
+                     breaks = boe_breaks_numeric(), limits = boe_limits_numeric()) +
   scale_x_date(expand = c(0, 0), labels = boe_date_labels(),
-               breaks = seq(min(FANG$date), max(FANG$date), by = "3 months"))
+               breaks = boe_breaks_date(), limits = boe_limits_date())
 ```

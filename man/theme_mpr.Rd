@@ -35,7 +35,7 @@ theme_mpr(
   strip_text_face = "plain",
   strip_text_colour = base_colour,
   strip_text_size = 13,
-  plot_margin = c(base_size/2, base_size/2, base_size/2, base_size)
+  plot_margin = c(base_size/2, base_size/2, base_size/2, base_size * 2)
 )
 
 theme_inflation_report(

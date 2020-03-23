@@ -1,3 +1,12 @@
+# boeCharts 1.2.0
+
+## Breaking changes
+
+## New functions
+
+## Minor changes
+
+
 # boeCharts 1.1.0
 
 ## Breaking changes

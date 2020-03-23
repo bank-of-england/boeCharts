@@ -32,7 +32,7 @@ theme_mcg_pub(
   strip_text_size = subtitle_size,
   axis_colour = base_colour,
   ticks_colour = base_colour,
-  plot_margin = c(base_size/2, base_size/2, base_size/2, base_size/2)
+  plot_margin = c(base_size/2, base_size/2, base_size/2, base_size * 2)
 )
 }
 \arguments{

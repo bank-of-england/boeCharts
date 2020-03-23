@@ -40,7 +40,7 @@ theme_overground(
   axis = "X",
   axis_col = grid_col,
   ticks = axis,
-  plot_margin = c(base_size/2, base_size/2, base_size/2, base_size/2)
+  plot_margin = c(base_size/2, base_size/2, base_size/2, base_size * 2)
 )
 }
 \arguments{

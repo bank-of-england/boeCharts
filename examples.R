@@ -12,17 +12,17 @@ FANG %>%
 simple_line + theme_mcg_pub() + 
   scale_y_continuous(position = "right") +
   scale_x_date(
-    expand = c(0, 0), breaks = scales::breaks_pretty(), limits = limits_pretty()
+    expand = c(0, 0), breaks = boe_breaks_date(), limits = boe_limits_date()
   )
 simple_line + theme_mpr() + 
   scale_y_continuous(position = "right", sec.axis = dup_axis(labels = NULL)) +
   scale_x_date(
-    expand = c(0, 0), breaks = scales::breaks_pretty(), limits = limits_pretty()
+    expand = c(0, 0), breaks = boe_breaks_date(), limits = boe_limits_date()
     )
 simple_line + theme_overground() + 
   scale_y_continuous(position = "right") +
   scale_x_date(
-    expand = c(0, 0), breaks = scales::breaks_pretty(), limits = limits_pretty()
+    expand = c(0, 0), breaks = boe_breaks_date(), limits = boe_limits_date()
   )
 
 # multiple line charts
@@ -43,7 +43,7 @@ over_plot + facet_wrap(~symbol)
 # auto breaks/limits
 multiple_line + theme_mpr() + 
   scale_y_continuous(position = "right", expand = c(0, 0),
-                     breaks = scales::breaks_extended(), limits = limits_extended())
+                     breaks = boe_breaks_numeric(), limits = boe_limits_numeric())
 
 # mpr axis titling
 move_ylab(mpr_plot)
