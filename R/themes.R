@@ -87,16 +87,18 @@ theme_overground <- function(
       # titling
       plot.title = element_text(
         hjust = 0, size = plot_title_size, margin = ggplot2::margin(b=half_line),
-        face = plot_title_face, colour = plot_title_colour),
+        face = plot_title_face, colour = plot_title_colour, family = base_family
+        ),
       plot.title.position = title_pos,
       plot.subtitle = element_text(
         hjust = 0, size = subtitle_size, margin = ggplot2::margin(b=half_line),
-        face = subtitle_face, colour = subtitle_colour
+        face = subtitle_face, colour = subtitle_colour, family = base_family
       ),
       
       # axis titles
       axis.title = element_text(
-        size = axis_title_size, colour = axis_title_colour, face = axis_title_face
+        size = axis_title_size, colour = axis_title_colour, face = axis_title_face,
+        family = base_family
         ),
       axis.title.x = element_text(
         hjust = xj, margin = margin(t = half_line / 2), vjust = 1
@@ -110,7 +112,7 @@ theme_overground <- function(
       
       # axis text
       axis.text = element_text(
-        size = axis_text_size, colour = axis_text_colour
+        size = axis_text_size, colour = axis_text_colour, family = base_family
         ),
 
       # plot margin
@@ -119,16 +121,17 @@ theme_overground <- function(
       # caption
       plot.caption = element_text(
         hjust = 1, size = caption_size, margin = margin(t = half_line),
-        face = caption_face, colour = caption_colour
+        face = caption_face, colour = caption_colour, family = base_family
       ),
       
       # legend
       legend.title = element_text(
-        hjust = 0, size = legend_title_size,
+        hjust = 0, size = legend_title_size, family = base_family,
         face = legend_title_face, colour = legend_title_colour
       ),
       legend.text = element_text(
-        hjust = 0, size=legend_text_size, colour = legend_text_colour
+        hjust = 0, size=legend_text_size, colour = legend_text_colour,
+        family = base_family
       ),
       legend.background = element_blank(), 
       legend.key = element_blank(),
@@ -139,7 +142,7 @@ theme_overground <- function(
       # strip text (facetting)
       strip.text = element_text(
         size = strip_text_size, colour = strip_text_colour,
-        face = strip_text_face, 
+        face = strip_text_face, family = base_family,
         margin = margin(0.8 * half_line, 0.8 * half_line, 0.8 * half_line, 
                         0.8 * half_line)
         )
@@ -289,12 +292,12 @@ theme_mpr <- function(
       # titling
       plot.title = element_text(
         hjust = 0, size = plot_title_size, margin = ggplot2::margin(b = half_line),
-        face = plot_title_face, colour = plot_title_colour
+        face = plot_title_face, colour = plot_title_colour, family = base_family
       ),
       plot.title.position = title_pos,
       plot.subtitle = element_text(
         hjust = 0, size = subtitle_size, margin = ggplot2::margin(b = half_line),
-        face = subtitle_face, colour = subtitle_colour
+        face = subtitle_face, colour = subtitle_colour, family = base_family
       ),
       
       # axis titles
@@ -307,7 +310,9 @@ theme_mpr <- function(
       axis.title.y.right = element_text(angle=-90),
       
       # axis text
-      axis.text = element_text(size = axis_text_size, colour = axis_text_colour),
+      axis.text = element_text(
+        size = axis_text_size, colour = axis_text_colour, family = base_family
+        ),
       axis.text.x = element_text(margin = ggplot2::margin(t = tickLabelMargin)),
       axis.text.y = element_text(margin = ggplot2::margin(r = tickLabelMargin)),
       axis.text.y.right = element_text(
@@ -326,12 +331,12 @@ theme_mpr <- function(
       # caption
       plot.caption=element_text(
         hjust = 0, size = caption_size, margin = ggplot2::margin(t = half_line),
-        face = caption_face, colour = caption_colour
+        face = caption_face, colour = caption_colour, family = base_family
         ),
       
       # legend
       legend.title = element_text(
-        hjust=0, size = legend_title_size, colour = legend_title_colour
+        hjust = 0, size = legend_title_size, colour = legend_title_colour
         ),
       legend.text = element_text(
         hjust=0, size=legend_text_size, face="plain", colour = legend_text_colour
@@ -344,7 +349,7 @@ theme_mpr <- function(
       strip.background =   element_blank(),
       strip.text = element_text(
         size = strip_text_size, colour = strip_text_colour,
-        face = strip_text_face,
+        face = strip_text_face, family = base_family,
         margin = ggplot2::margin(0.8 * half_line, 0.8 * half_line, 0.8 * half_line, 
                                  0.8 * half_line)
         )
@@ -464,7 +469,7 @@ theme_inflation_report <- function(
 #' package \code{ggplot2}, will apply styling to a plot.
 #' 
 #' @inheritParams theme_overground
-#' @param axis_col,ticks_col axis & ticks colours
+#' @param axis_colour,ticks_colour axis & ticks colours
 #'
 #' @examples \dontrun{
 #'
@@ -481,22 +486,27 @@ theme_inflation_report <- function(
 #' @export
 
 theme_mcg_pub <- function(
-  base_family = "Arial", base_size = 16, base_colour = "#2b2b2b",
+  base_family = "Arial", base_size = 11.5, base_colour = "#2b2b2b",
   plot_title_face = "bold", plot_title_size = 18, 
-  plot_title_margin = 10, plot_title_position = c("plot", "panel"),
-  subtitle_size = base_size, subtitle_face = "plain", subtitle_margin = 15,
-  axis_title_size = base_size, axis_title_face = "plain",
-  axis_text_size = base_size,
-  caption_size = 9, caption_margin = 10, caption_face = "plain",
-  strip_text_size = 12, strip_text_face = "plain",
-  plot_margin = c(10, 10, 10, 10),
-  axis_col = base_colour, ticks_col = base_colour
-) {
+  plot_title_position = c("plot", "panel"),
+  subtitle_face = "plain", subtitle_size = 14,
+  axis_title_face = "plain", axis_title_size = base_size, 
+  axis_title_colour = base_colour,
+  axis_text_size = base_size, axis_text_colour = base_colour,
+  legend_title_size = base_size, legend_title_colour = base_colour, 
+  legend_title_face = "plain", 
+  legend_text_size = base_size, legend_text_colour = base_colour, 
+  legend_position = "top", legend_just = "center",
+  caption_face = "plain", caption_size = 9, caption_colour = base_colour,
+  strip_text_face = "plain", strip_text_size = subtitle_size, 
+  axis_colour = base_colour, ticks_colour = base_colour
+  ) {
   
+  half_line <- base_size / 2
   title_pos <- match.arg(plot_title_position)
   
   # create theme, based on classic
-  theme_classic(base_size = base_size) +
+  theme_classic(base_size = base_size, base_family = base_family) +
     
     theme(
       
@@ -505,58 +515,60 @@ theme_mcg_pub <- function(
       
       # background attributes
       panel.background = element_blank(),
-      plot.margin = ggplot2::margin(plot_margin),
-      
-      # tick marks
-      axis.ticks.length = unit(4, "pt"),
-      axis.ticks = element_line(size = 0.5, colour = ticks_col),
-      
-      # axis lines
-      axis.line.x = element_line(size = 0.5, colour = axis_col),
-      axis.line.y = element_line(size = 0.5, colour = axis_col),
+      plot.margin = ggplot2::margin(half_line, half_line, half_line, half_line),
       
       # chart text
       text = element_text(
-        colour = base_colour, size = base_size, family = base_family,
-        hjust = 0.5, vjust = 0.5, angle = 0, lineheight = 0.8
+        colour = base_colour, size = base_size, family = base_family
       ),
-      axis.text.x = element_text(colour = base_colour, size = axis_text_size, 
-                                 margin = ggplot2::margin(t=3)),
-      axis.text.y = element_text(colour = base_colour, size = axis_text_size, 
-                                 margin = ggplot2::margin(r=3)),
-      axis.text.y.right = element_text(colour = base_colour, size = axis_text_size, 
-                                       margin = ggplot2::margin(l=3)),
-      plot.title = element_text(size = plot_title_size, face = plot_title_face, 
-                                hjust = 0, colour = base_colour,
-                                margin = ggplot2::margin(b = plot_title_margin)),
+      
+      # titling
+      plot.title = element_text(
+        size = plot_title_size, face = plot_title_face, hjust = 0, 
+        colour = base_colour, family = base_family, 
+        margin = ggplot2::margin(b = half_line)
+        ),
       plot.title.position = title_pos,
-      plot.subtitle = element_text(colour = base_colour, face = subtitle_face, 
-                                   hjust = 0, size = subtitle_size,
-                                   margin = ggplot2::margin(b = subtitle_margin)),
-      plot.caption = element_text(colour = base_colour, hjust = 1, face = caption_face, 
-                                  size = caption_size, 
-                                  margin = ggplot2::margin(t = caption_margin)),
-      axis.title.x = element_text(angle = 0, vjust = 1, face = axis_title_face, 
-                                  size = axis_title_size, colour = base_colour),
-      axis.title.y = element_text(angle = 0, vjust = 1, face = axis_title_face, 
-                                  size = axis_title_size, colour = base_colour),
-      axis.title.y.right = element_text(angle = 0, vjust = 1, hjust = 1, 
-                                        face = axis_title_face, 
-                                        size = axis_title_size, colour = base_colour),
+      plot.subtitle = element_text(
+        colour = base_colour, face = subtitle_face, hjust = 0, family = base_family,
+        size = subtitle_size, margin = ggplot2::margin(b = half_line)),
       
+      # axis titles
+      axis.title = element_text(
+        size = axis_title_size, colour = axis_title_colour, face = axis_title_face,
+        family = base_family
+      ),
+
+      # axis text
+      axis.text = element_text(
+        size = axis_text_size, colour = axis_text_colour, family = base_family
+      ),
+
+      # axis lines
+      axis.line.x = element_line(size = 0.5, colour = axis_colour),
+      axis.line.y = element_line(size = 0.5, colour = axis_colour),
+      
+      # axis tick marks
+      axis.ticks.length = unit(4, "pt"),
+      axis.ticks = element_line(size = 0.5, colour = ticks_colour),
+    
+      # caption 
+      plot.caption = element_text(
+        colour = caption_colour, hjust = 1, face = caption_face, size = caption_size,
+        margin = ggplot2::margin(t = half_line), family = base_family
+        ),
+
       # legend
-      legend.position = "bottom",
-      legend.title = element_blank(),
+      legend.position = legend_position,
+      legend.justification = legend_just,
       legend.background = element_blank(),
-      legend.key = element_rect(fill = "transparent", colour = "transparent"),
-      legend.spacing.x = ggplot2::unit(5, 'pt'),
-      legend.spacing.y = ggplot2::unit(5, 'pt'),
-      legend.spacing = ggplot2::unit(5, 'pt'),
-      
-      # facet attributes
+      legend.key = element_blank(),
+      legend.margin = ggplot2::margin(half_line, half_line, half_line, half_line),
+
+      # strip text (facetting)
       strip.background = element_blank(),
       strip.text = element_text(color = base_colour, size = strip_text_size, 
-                                face = strip_text_face),
+                                face = strip_text_face, family = base_family),
       strip.text.x = element_text(color = base_colour, size = strip_text_size, 
                                   face = strip_text_face),
       strip.text.y = element_text(color = base_colour, size = strip_text_size, 

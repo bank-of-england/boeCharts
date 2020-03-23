@@ -19,9 +19,9 @@ ggplot(FANG, aes(x = date, y = close, colour = symbol)) +
   labs(x = "date", y = "close", title = "Facebook stock close prices",
        subtitle = "More text") -> multiple_line
 
-multiple_line + theme_mcg_pub() + scale_y_continuous(position = "right")
 multiple_line + theme_mpr() + scale_y_continuous(position = "right")
 multiple_line + theme_overground() + scale_y_continuous(position = "right")
+multiple_line + theme_mcg_pub() + scale_y_continuous(position = "right")
 
 # faceted line charts
 multiple_line + theme_mcg_pub() + scale_y_continuous(position = "right") +

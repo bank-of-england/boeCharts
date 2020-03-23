@@ -6,26 +6,32 @@
 \usage{
 theme_mcg_pub(
   base_family = "Arial",
-  base_size = 16,
+  base_size = 11.5,
   base_colour = "#2b2b2b",
   plot_title_face = "bold",
   plot_title_size = 18,
-  plot_title_margin = 10,
   plot_title_position = c("plot", "panel"),
-  subtitle_size = base_size,
   subtitle_face = "plain",
-  subtitle_margin = 15,
-  axis_title_size = base_size,
+  subtitle_size = 14,
   axis_title_face = "plain",
+  axis_title_size = base_size,
+  axis_title_colour = base_colour,
   axis_text_size = base_size,
-  caption_size = 9,
-  caption_margin = 10,
+  axis_text_colour = base_colour,
+  legend_title_size = base_size,
+  legend_title_colour = base_colour,
+  legend_title_face = "plain",
+  legend_text_size = base_size,
+  legend_text_colour = base_colour,
+  legend_position = "top",
+  legend_just = "center",
   caption_face = "plain",
-  strip_text_size = 12,
+  caption_size = 9,
+  caption_colour = base_colour,
   strip_text_face = "plain",
-  plot_margin = c(10, 10, 10, 10),
-  axis_col = base_colour,
-  ticks_col = base_colour
+  strip_text_size = subtitle_size,
+  axis_colour = base_colour,
+  ticks_colour = base_colour
 )
 }
 \arguments{
@@ -44,31 +50,56 @@ A value of "plot" (the default) means that titles and/or caption are aligned to
 the entire plot (minus any space for margins and plot tag).
 A value of "panel" means that titles and/or caption are aligned to the plot panels}
 
-\item{subtitle_size}{plot subtitle face, size and colour}
-
 \item{subtitle_face}{plot subtitle face, size and colour}
 
-\item{axis_title_size}{axis title font face, 
-size and colour}
+\item{subtitle_size}{plot subtitle face, size and colour}
 
 \item{axis_title_face}{axis title font face, 
 size and colour}
 
+\item{axis_title_size}{axis title font face, 
+size and colour}
+
+\item{axis_title_colour}{axis title font face, 
+size and colour}
+
 \item{axis_text_size}{axis text size and colour}
 
-\item{caption_size}{plot caption 
-face, size, and colour}
+\item{axis_text_colour}{axis text size and colour}
+
+\item{legend_title_size}{legend title 
+font face, size and colour}
+
+\item{legend_title_colour}{legend title 
+font face, size and colour}
+
+\item{legend_title_face}{legend title 
+font face, size and colour}
+
+\item{legend_text_size}{legend text size and colour}
+
+\item{legend_text_colour}{legend text size and colour}
+
+\item{legend_position}{legend position, justification and margins}
+
+\item{legend_just}{legend position, justification and margins}
 
 \item{caption_face}{plot caption 
 face, size, and colour}
 
-\item{strip_text_size}{facet label font 
-face, size and colour}
+\item{caption_size}{plot caption 
+face, size, and colour}
+
+\item{caption_colour}{plot caption 
+face, size, and colour}
 
 \item{strip_text_face}{facet label font 
 face, size and colour}
 
-\item{axis_col, ticks_col}{axis & ticks colours}
+\item{strip_text_size}{facet label font 
+face, size and colour}
+
+\item{axis_colour, ticks_colour}{axis & ticks colours}
 }
 \value{
 Will not return anything of itself, but when used in conjuntion
