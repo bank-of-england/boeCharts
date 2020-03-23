@@ -5,7 +5,7 @@
 \title{A \code{ggplot2} theme for MCG publication-ready charts}
 \usage{
 theme_mcg_pub(
-  base_family = "Arial",
+  base_family = "",
   base_size = 11.5,
   base_colour = "#2b2b2b",
   plot_title_face = "bold",
@@ -31,7 +31,8 @@ theme_mcg_pub(
   strip_text_face = "plain",
   strip_text_size = subtitle_size,
   axis_colour = base_colour,
-  ticks_colour = base_colour
+  ticks_colour = base_colour,
+  plot_margin = c(base_size/2, base_size/2, base_size/2, base_size/2)
 )
 }
 \arguments{
@@ -100,6 +101,8 @@ face, size and colour}
 face, size and colour}
 
 \item{axis_colour, ticks_colour}{axis & ticks colours}
+
+\item{plot_margin}{plot margin (top, right, bottom, left)}
 }
 \value{
 Will not return anything of itself, but when used in conjuntion

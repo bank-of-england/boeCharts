@@ -39,7 +39,8 @@ theme_overground(
   grid_col = "#C8CCCF",
   axis = "X",
   axis_col = grid_col,
-  ticks = axis
+  ticks = axis,
+  plot_margin = c(base_size/2, base_size/2, base_size/2, base_size/2)
 )
 }
 \arguments{
@@ -81,6 +82,8 @@ face, size and colour}
 \item{axis}{add x or y axes? `TRUE` (or `XY`), `FALSE`, `X` or `Y`}
 
 \item{ticks}{axis ticks (`TRUE` (or `XY`), `FALSE`, `X` or `Y`)}
+
+\item{plot_margin}{plot margin (top, right, bottom, left)}
 }
 \value{
 Will not return anything of itself, but when used in conjuntion

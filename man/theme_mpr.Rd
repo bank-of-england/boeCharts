@@ -34,7 +34,8 @@ theme_mpr(
   caption_size = base_size,
   strip_text_face = "plain",
   strip_text_colour = base_colour,
-  strip_text_size = 13
+  strip_text_size = 13,
+  plot_margin = c(base_size/2, base_size/2, base_size/2, base_size)
 )
 
 theme_inflation_report(
@@ -147,6 +148,8 @@ face, size and colour}
 \item{strip_text_size}{facet label font 
 face, size and colour}
 
+\item{plot_margin}{plot margin (top, right, bottom, left)}
+
 \item{axis_title_face}{axis title font face, 
 size and colour}
 
@@ -177,8 +180,9 @@ ggplot(mtcars, aes(x = mpg, y = wt)) +
    labs(title = "A Lovely Plot", subtitle = "Something insightful",
    caption = "Source: R") +
    theme_mpr() +
-   scale_y_continuous(position = "right", 
-                      sec.axis = dup_axis(labels = NULL))
+   scale_y_continuous(
+   position = "right", sec.axis = dup_axis(labels = NULL)
+   )
 }
 
 }

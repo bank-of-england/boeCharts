@@ -36,6 +36,7 @@
 #' @param axis add x or y axes? `TRUE` (or `XY`), `FALSE`, `X` or `Y`
 #' @param grid_col,axis_col grid & axis colors; both default to `#cccccc`
 #' @param ticks axis ticks (`TRUE` (or `XY`), `FALSE`, `X` or `Y`)
+#' @param plot_margin plot margin (top, right, bottom, left)
 #' 
 #' @examples \dontrun{
 #' library(ggplot2)
@@ -64,7 +65,7 @@ theme_overground <- function(
   caption_face = "plain", caption_colour = base_colour, caption_size = base_size,  
   strip_text_face = "plain", strip_text_colour = base_colour, strip_text_size = subtitle_size, 
   grid = "X", grid_col = "#C8CCCF", axis = "X", axis_col = grid_col, 
-  ticks = axis
+  ticks = axis, plot_margin = c(base_size/2, base_size/2, base_size/2, base_size*2)
   ) {
   
   half_line <- base_size / 2
@@ -116,7 +117,7 @@ theme_overground <- function(
         ),
 
       # plot margin
-      plot.margin = ggplot2::margin(half_line, half_line, half_line, half_line),
+      plot.margin = ggplot2::margin(plot_margin),
       
       # caption
       plot.caption = element_text(
@@ -247,8 +248,9 @@ theme_overground <- function(
 #'    labs(title = "A Lovely Plot", subtitle = "Something insightful",
 #'    caption = "Source: R") +
 #'    theme_mpr() +
-#'    scale_y_continuous(position = "right", 
-#'                       sec.axis = dup_axis(labels = NULL))
+#'    scale_y_continuous(
+#'    position = "right", sec.axis = dup_axis(labels = NULL)
+#'    )
 #' }
 #' 
 #' @name theme_mpr
@@ -267,8 +269,8 @@ theme_mpr <- function(
   legend_position = "top", legend_just = "left", legend_margin = c(0, base_size/2, 0, 0),
   caption_face = "plain", caption_colour = base_colour, caption_size = base_size,  
   strip_text_face = "plain", strip_text_colour = base_colour, 
-  strip_text_size = 13) 
-{
+  strip_text_size = 13, plot_margin = c(base_size/2, base_size/2, base_size/2, base_size*2)
+  ) {
 
   half_line <- base_size / 2
   
@@ -326,7 +328,7 @@ theme_mpr <- function(
       panel.background = element_blank(),
       panel.grid.major = element_blank(),
       panel.grid.minor = element_blank(),
-      plot.margin = ggplot2::margin(half_line, half_line, half_line, base_size),
+      plot.margin = ggplot2::margin(plot_margin),
       
       # caption
       plot.caption=element_text(
@@ -436,7 +438,7 @@ theme_inflation_report <- function(
 #' @export
 
 theme_mcg_pub <- function(
-  base_family = "Arial", base_size = 11.5, base_colour = "#2b2b2b",
+  base_family = "", base_size = 11.5, base_colour = "#2b2b2b",
   plot_title_face = "bold", plot_title_size = 18, 
   plot_title_position = c("plot", "panel"),
   subtitle_face = "plain", subtitle_size = 14,
@@ -449,7 +451,8 @@ theme_mcg_pub <- function(
   legend_position = "top", legend_just = "center",
   caption_face = "plain", caption_size = 9, caption_colour = base_colour,
   strip_text_face = "plain", strip_text_size = subtitle_size, 
-  axis_colour = base_colour, ticks_colour = base_colour
+  axis_colour = base_colour, ticks_colour = base_colour,
+  plot_margin = c(base_size/2, base_size/2, base_size/2, base_size*2)
   ) {
   
   half_line <- base_size / 2
@@ -465,7 +468,7 @@ theme_mcg_pub <- function(
       
       # background attributes
       panel.background = element_blank(),
-      plot.margin = ggplot2::margin(half_line, half_line, half_line, half_line),
+      plot.margin = ggplot2::margin(plot_margin),
       
       # chart text
       text = element_text(
