@@ -45,22 +45,18 @@ theme_inflation_report(
   plot_title_face = "plain",
   plot_title_size = 18,
   plot_title_colour = "#00294E",
-  plot_title_margin = 5,
-  plot_title_position = c("plot", "panel"),
+  plot_title_position = c("panel", "plot"),
   subtitle_face = "plain",
-  subtitle_colour = "#1e1e1e",
-  subtitle_size = 13,
-  subtitle_margin = 10,
+  subtitle_colour = base_colour,
+  subtitle_size = 14,
   axis_title_size = base_size,
   axis_title_colour = base_colour,
-  axis_title_face = "plain",
   axis_title_just = "mc",
   axis_text_size = base_size,
   axis_text_colour = base_colour,
   axis_ticks_length = 0.35,
   legend_title_size = base_size,
   legend_title_colour = base_colour,
-  legend_title_face = "plain",
   legend_text_size = base_size,
   legend_text_colour = base_colour,
   legend_position = "top",
@@ -69,11 +65,10 @@ theme_inflation_report(
   caption_face = "plain",
   caption_colour = base_colour,
   caption_size = base_size,
-  caption_margin = 15,
   strip_text_face = "plain",
   strip_text_colour = base_colour,
-  strip_text_size = 22,
-  plot_margin = c(30, 30, 30, 30)
+  strip_text_size = 13,
+  plot_margin = c(base_size/2, base_size/2, base_size/2, base_size * 2)
 )
 }
 \arguments{
@@ -149,12 +144,6 @@ face, size and colour}
 face, size and colour}
 
 \item{plot_margin}{plot margin (top, right, bottom, left)}
-
-\item{axis_title_face}{axis title font face, 
-size and colour}
-
-\item{legend_title_face}{legend title 
-font face, size and colour}
 }
 \value{
 Will not return anything of itself, but when used in conjuntion

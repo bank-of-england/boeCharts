@@ -110,7 +110,7 @@ chart +
 
 ### A more in-depth example
 
-Another `ggplot2` + `boeCharts` creation, this time investigating some more customization options. The [`gghighlight`](https://yutannihilation.github.io/gghighlight/) library is also featured in this example.
+Another `ggplot2` + `boeCharts` creation, this time investigating some more customization options, including automatic axis breaks and limits. The [`gghighlight`](https://yutannihilation.github.io/gghighlight/) library is also featured in this example.
 
 ```{r, example}
 
@@ -122,21 +122,29 @@ ggplot(data = FANG, aes(x = date, y = close, colour = symbol)) +
   # add lines, tweak line width 
   geom_line(size = 0.7, show.legend = FALSE) +
   # highlight netflix stocks
-  gghighlight(symbol == "NFLX", unhighlighted_colour = boe_neutral$stone,
-              use_group_by = FALSE, use_direct_label = FALSE) +
+  gghighlight(
+    symbol == "NFLX", unhighlighted_colour = boe_neutral$stone,
+    use_group_by = FALSE, use_direct_label = FALSE
+    ) +
   # add some chart labels
-  labs(title = "BoE Palette Test",
-       subtitle = "A plot for demonstration purposes",
-       y = "Closing\nprice", x = NULL) +
+  labs(
+    title = "BoE Palette Test", 
+    subtitle = "A plot for demonstration purposes",
+    y = "Closing\nprice", x = NULL
+    ) +
   # use 'highlights' palette
   scale_colour_discrete_boe(palette = "boe_highlights") +
   # add Bank Overground theme
   theme_overground(axis_text_size = 11) +
   # apply custom axis settings
-  scale_y_continuous(expand = c(0, 0), breaks = seq(0, 1250, 250), 
-                     limits = c(0, 1250), position = "right") +
-  scale_x_date(expand = c(0, 0), labels = boe_date_labels(),
-               breaks = seq(min(FANG$date), max(FANG$date), by = "3 months"))
+  scale_y_continuous(
+    expand = c(0, 0), breaks = boe_breaks_numeric(), 
+    limits = boe_limits_numeric(), position = "right"
+    ) +
+  scale_x_date(
+    expand = c(0, 0), labels = boe_date_labels(),
+    breaks = boe_breaks_date(), limits = boe_limits_date()
+    )
   
 ```
 

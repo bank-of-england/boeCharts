@@ -26,7 +26,7 @@ theme_mcg_pub(
   legend_position = "top",
   legend_just = "center",
   caption_face = "plain",
-  caption_size = 9,
+  caption_size = base_size,
   caption_colour = base_colour,
   strip_text_face = "plain",
   strip_text_size = subtitle_size,
