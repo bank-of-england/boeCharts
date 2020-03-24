@@ -29,6 +29,7 @@ Imports:
 Suggests: 
     dplyr,
     knitr,
+    gghighlight,
     rmarkdown,
     testthat (>= 2.1.0),
     vdiffr
