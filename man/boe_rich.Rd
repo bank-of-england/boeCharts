@@ -17,6 +17,7 @@ Provides a vector of named colours taken from the
 update.
 }
 \examples{
+\dontrun{
 
 library(ggplot2)
 library(boeCharts)
@@ -28,6 +29,7 @@ library(boeCharts)
    ) +
    geom_point(colour=boe_rich$rich_red) +
    theme_mcg_pub()
+}
 
 }
 \keyword{datasets}

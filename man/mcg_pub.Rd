@@ -16,6 +16,7 @@ Provides a vector of named colours
 from current Money & Credit Group (MCG) publication colours.
 }
 \examples{
+\dontrun{
 
 library(ggplot2)
 library(boeCharts)
@@ -27,6 +28,7 @@ library(boeCharts)
    ) +
    geom_point(colour = mcg_pub$fuchsia) +
    theme_mcg_pub()
+}
 
 }
 \keyword{datasets}

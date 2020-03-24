@@ -1,3 +1,36 @@
+# boeCharts 1.2.0
+
+## Breaking changes
+
+- `plot_title_position` argument introduced to all themes (following introduction of `plot.title.position` in `ggplot2` [3.3.0 update](https://www.tidyverse.org/blog/2020/03/ggplot2-3-3-0/#grab-bag)), titles now fixed left ("plot") by default 
+- `theme_overground()`:
+    - Base font size (`base_size`) 11.5 (was 18), `plot_title_size` now 18 (was 28), `subtitle_size` now 14 (was 22)
+    - `legend_position` now "top" (was "bottom")
+    - Margin arguments removed (bar `plot_margin` and `legend_margin`, which are now sized relatively)
+- `theme_mpr|inflation_report()` (h/t to Adam Brinley Codd for suggestions):
+    - All text elements in Calibri font by default, and resized to be in-line with `theme_overground()`
+    - Title, subtitle and caption left-justified by default
+    - Legend position top-left of plot area (and left-justified)
+    - `x` and `y` labels are *not* removed by default
+- `theme_mcg_pub()`:
+    - All text elements resized to be in-line with `theme_overground()`
+    
+
+## New features
+
+- Added axis breaks/limits helper functions for numeric (`boe_breaks|limits_numeric()`) and date/time (`boe_breaks_limits_date()`) variables
+- Added font import utilities (`import_arial|calibri()`) and aliases for commonly used fonts (`font_arial|calibri|calibri_light`) across all OS' and devices (inc. PDF)
+- Added `move_ylab()`, allows y-axis title to be positioned above the axis line and plot area
+- Added *pre-MPC* colour palettes, `pre_mpc` and `pre_mpc_light`
+- Added all parameters in `theme_overground()` to `theme_mpr|inflation_report()`
+
+## Minor changes
+
+- Added `xxx` arguments to `theme_mpr|inflation_report()`
+- Deprecated `theme_inflation_report()` in favour of `theme_mpr()`
+- System library installation of `Rttf2pt1` handled (reasoning explained in [this note](http://collaborate/workspaces/RHelpCentre/R%20Markdown/Importing_Custom_Fonts.html))
+- Deprecated `left_align_titles()` in favour of setting `plot_title_position` argument in custom theme functions
+
 # boeCharts 1.1.0
 
 ## Breaking changes

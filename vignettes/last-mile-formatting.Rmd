@@ -56,17 +56,17 @@ p +
 
 #### End on tick marks
 
-Make sure your axes start and end on tick marks by explicitly setting the `expand`, `limits` and `breaks` settings in `scale...` functions of `ggplot2`. There are utility functions provided for setting limits to complement existing ones for setting breaks in the `scales` package:
+Make sure your axes start and end on tick marks by explicitly setting the `expand`, `limits` and `breaks` settings in `scale...` functions of `ggplot2`. There are utility functions provided for setting breaks and limits:
 
-- `limits_extended()` for numeric axes (use in conjunction with `scales::breaks_extended()`)
-- `limits_pretty()` for date/time axes (use in conjunction with `scales::breaks_pretty()`)
+- `boe_breaks|limits_numeric()` for numeric axes
+- `boe_breaks|limits_date()` for date/time axes
 
 ```{r}
 p +
   # apply MCG theme
   theme_mcg_pub() +
   # apply axis scale settings
-  scale_y_continuous(expand = c(0, 0), breaks = scales::breaks_extended(), limits = limits_extended(), position = "right") +
-  scale_x_date(expand = c(0, 0), breaks = scales::breaks_pretty(), limits = limits_pretty(), labels = boe_date_labels())
+  scale_y_continuous(expand = c(0, 0), breaks = boe_breaks_numeric(), limits = boe_limits_numeric(), position = "right") +
+  scale_x_date(expand = c(0, 0), breaks = boe_breaks_date(), limits = boe_limits_date(), labels = boe_date_labels())
 ```
 

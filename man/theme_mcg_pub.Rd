@@ -5,54 +5,104 @@
 \title{A \code{ggplot2} theme for MCG publication-ready charts}
 \usage{
 theme_mcg_pub(
-  base_size = 12,
+  base_family = "",
+  base_size = 11.5,
   base_colour = "#2b2b2b",
-  plot_title_size = 18,
   plot_title_face = "bold",
+  plot_title_size = 18,
   plot_title_position = c("plot", "panel"),
-  subtitle_size = 12,
   subtitle_face = "plain",
-  axis_title_size = base_size,
+  subtitle_size = 14,
   axis_title_face = "plain",
+  axis_title_size = base_size,
+  axis_title_colour = base_colour,
   axis_text_size = base_size,
-  caption_size = 9,
-  caption_margin = 10,
+  axis_text_colour = base_colour,
+  legend_title_size = base_size,
+  legend_title_colour = base_colour,
+  legend_title_face = "plain",
+  legend_text_size = base_size,
+  legend_text_colour = base_colour,
+  legend_position = "top",
+  legend_just = "center",
   caption_face = "plain",
-  strip_text_size = 12,
+  caption_size = base_size,
+  caption_colour = base_colour,
   strip_text_face = "plain",
-  plot_margin = c(10, 10, 10, 10),
-  axis_col = "#2b2b2b",
-  ticks_col = "#2b2b2b"
+  strip_text_size = subtitle_size,
+  axis_colour = base_colour,
+  ticks_colour = base_colour,
+  plot_margin = c(base_size/2, base_size/2, base_size/2, base_size * 2)
 )
 }
 \arguments{
-\item{base_size}{Sets the base size of text for the plot.
-Defaults to \code{12}}
+\item{base_family}{base font family, size and colour}
 
-\item{base_colour}{Sets the default colour of titles and labels.
-Must be a named R colour or hexadecimal colour code
-(e.g. "#FF0000"). Defaults to \code{#2b2b2b}}
+\item{base_size}{base font family, size and colour}
 
-\item{plot_title_size, plot_title_face}{plot title size and face}
+\item{base_colour}{base font family, size and colour}
+
+\item{plot_title_face}{plot title face, size and colour}
+
+\item{plot_title_size}{plot title face, size and colour}
 
 \item{plot_title_position}{Alignment of the plot title/subtitle and caption.
 A value of "plot" (the default) means that titles and/or caption are aligned to 
 the entire plot (minus any space for margins and plot tag).
 A value of "panel" means that titles and/or caption are aligned to the plot panels}
 
-\item{subtitle_size, subtitle_face}{subtitle size and face}
+\item{subtitle_face}{plot subtitle face, size and colour}
 
-\item{axis_title_size, axis_title_face}{axis title size and face}
+\item{subtitle_size}{plot subtitle face, size and colour}
 
-\item{axis_text_size}{axis text size}
+\item{axis_title_face}{axis title font face, 
+size and colour}
 
-\item{caption_size, caption_margin, caption_face}{caption size, margin (top) and face}
+\item{axis_title_size}{axis title font face, 
+size and colour}
 
-\item{strip_text_size, strip_text_face}{facet label size and face}
+\item{axis_title_colour}{axis title font face, 
+size and colour}
+
+\item{axis_text_size}{axis text size and colour}
+
+\item{axis_text_colour}{axis text size and colour}
+
+\item{legend_title_size}{legend title 
+font face, size and colour}
+
+\item{legend_title_colour}{legend title 
+font face, size and colour}
+
+\item{legend_title_face}{legend title 
+font face, size and colour}
+
+\item{legend_text_size}{legend text size and colour}
+
+\item{legend_text_colour}{legend text size and colour}
+
+\item{legend_position}{legend position, justification and margins}
+
+\item{legend_just}{legend position, justification and margins}
+
+\item{caption_face}{plot caption 
+face, size, and colour}
+
+\item{caption_size}{plot caption 
+face, size, and colour}
+
+\item{caption_colour}{plot caption 
+face, size, and colour}
+
+\item{strip_text_face}{facet label font 
+face, size and colour}
+
+\item{strip_text_size}{facet label font 
+face, size and colour}
+
+\item{axis_colour, ticks_colour}{axis & ticks colours}
 
 \item{plot_margin}{plot margin (top, right, bottom, left)}
-
-\item{axis_col, ticks_col}{axis & ticks colours; both default to `#2b2b2b`}
 }
 \value{
 Will not return anything of itself, but when used in conjuntion
@@ -70,6 +120,7 @@ ggplot2. Applying \code{theme_mcg_pub()} will adjust graphical parameters
 to give a plot a feel more in line with MCG publications.
 }
 \examples{
+\dontrun{
 
 library(ggplot2)
 
@@ -79,5 +130,6 @@ ggplot(mtcars, aes(x = mpg, y = wt)) +
         subtitle = "A thought-provoking subtitle.") +
    theme_mcg_pub() +
    scale_y_continuous(position = "right")
+}
 
 }

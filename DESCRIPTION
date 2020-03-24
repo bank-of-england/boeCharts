@@ -16,18 +16,10 @@ Description: A compilation of 'ggplot2' themes, scales and helpers to create Ban
 Maintainer: Ewen Henderson <ewen.henderson@bankofengland.co.uk>
 License: file LICENSE
 Depends: R (>= 3.3.0)
-<<<<<<< HEAD
 Imports: 
-<<<<<<< HEAD
     labeling (>= 0.3.0),
-=======
-Imports:
-    extrafont,
->>>>>>> 73da0acba3d17ded703c4893901402442ed66fd1
-    ggplot2 (>= 2.2.1),
-=======
+    extrafont (>= 0.17),
     ggplot2 (>= 3.3.0),
->>>>>>> title-position
     grDevices (>= 3.5.0),
     grid (>= 3.5.0),
     gridExtra (>= 2.3),

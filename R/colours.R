@@ -5,7 +5,7 @@
 #'
 #' @return A list of named hexadecimal colours.
 #'
-#' @examples
+#' @examples \dontrun{
 #'
 #' library(ggplot2)
 #' library(boeCharts)
@@ -17,7 +17,8 @@
 #'    ) +
 #'    geom_point(colour=boe$fuchsia) +
 #'    theme_mcg_pub()
-#'
+#' }
+#' 
 #' @export
 boe <- list(
   red            = "#A51140",
@@ -47,7 +48,7 @@ boe <- list(
 #'
 #' @return A list of named hexadecimal colours.
 #'
-#' @examples
+#' @examples \dontrun{
 #'
 #' library(ggplot2)
 #' library(boeCharts)
@@ -59,7 +60,8 @@ boe <- list(
 #'    ) +
 #'    geom_point(colour=boe_rich$rich_red) +
 #'    theme_mcg_pub()
-#'
+#' }
+#' 
 #' @export
 boe_rich <- list(
   rich_blue = "#00294E",
@@ -79,7 +81,7 @@ boe_rich <- list(
 #'
 #' @return A list of named hexadecimal colours.
 #'
-#' @examples
+#' @examples \dontrun{
 #'
 #' library(ggplot2)
 #' library(boeCharts)
@@ -91,7 +93,8 @@ boe_rich <- list(
 #'    ) +
 #'    geom_point(colour=boe_highlights$fuchsia) +
 #'    theme_mcg_pub()
-#'
+#' }
+#' 
 #' @export
 boe_highlights <- list(
   red = "#E9496A",
@@ -111,7 +114,7 @@ boe_highlights <- list(
 #'
 #' @return A list of named hexadecimal colours.
 #'
-#' @examples
+#' @examples \dontrun{
 #'
 #' library(ggplot2)
 #' library(boeCharts)
@@ -123,7 +126,8 @@ boe_highlights <- list(
 #'    ) +
 #'    geom_point(colour=boe_soft$peach) +
 #'    theme_mcg_pub()
-#'
+#' }
+#' 
 #' @export
 boe_soft <- list(
   peach = "#FAD0C5",
@@ -143,7 +147,7 @@ boe_soft <- list(
 #'
 #' @return A list of named hexadecimal colours.
 #'
-#' @examples
+#' @examples \dontrun{
 #'
 #' library(ggplot2)
 #' library(boeCharts)
@@ -155,7 +159,8 @@ boe_soft <- list(
 #'    ) +
 #'    geom_point(colour=boe_neutral$dark_grey) +
 #'    theme_mcg_pub()
-#'
+#' }
+#' 
 #' @export
 boe_neutral <- list(
   light_grey = "#EBEBEB",
@@ -187,7 +192,7 @@ boe_screen <- list(
 #'
 #' @return A list of named hexadecimal colours.
 #'
-#' @examples
+#' @examples \dontrun{
 #'
 #' library(ggplot2)
 #' library(boeCharts)
@@ -199,7 +204,8 @@ boe_screen <- list(
 #'    ) +
 #'    geom_point(colour = mcg_pub$fuchsia) +
 #'    theme_mcg_pub()
-#'
+#' }
+#' 
 #' @export
 mcg_pub <- list(
   fuchsia        = "#ff00ff",

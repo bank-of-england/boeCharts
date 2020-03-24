@@ -16,6 +16,7 @@ Provides a vector of named colours taken from the 'Neutral'
 colour palette, as part of the Bank of England 2018 brand update.
 }
 \examples{
+\dontrun{
 
 library(ggplot2)
 library(boeCharts)
@@ -27,6 +28,7 @@ library(boeCharts)
    ) +
    geom_point(colour=boe_neutral$dark_grey) +
    theme_mcg_pub()
+}
 
 }
 \keyword{datasets}

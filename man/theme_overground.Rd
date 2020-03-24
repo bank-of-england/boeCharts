@@ -6,17 +6,15 @@
 \usage{
 theme_overground(
   base_family = "Calibri",
-  base_size = 18,
+  base_size = 11.5,
   base_colour = "#6B7E87",
   plot_title_face = "bold",
-  plot_title_size = 28,
+  plot_title_size = 18,
   plot_title_colour = "#00294E",
-  plot_title_margin = 10,
   plot_title_position = c("plot", "panel"),
   subtitle_face = "plain",
   subtitle_colour = "#1e1e1e",
-  subtitle_size = 22,
-  subtitle_margin = 15,
+  subtitle_size = 14,
   axis_title_size = base_size,
   axis_title_colour = base_colour,
   axis_title_face = "plain",
@@ -28,26 +26,27 @@ theme_overground(
   legend_title_face = "plain",
   legend_text_size = base_size,
   legend_text_colour = base_colour,
-  legend_position = "bottom",
+  legend_position = "top",
+  legend_just = "left",
+  legend_margin = c(0, base_size/2, 0, 0),
   caption_face = "plain",
   caption_colour = base_colour,
-  caption_size = 16,
-  caption_margin = 15,
+  caption_size = base_size,
   strip_text_face = "plain",
   strip_text_colour = base_colour,
-  strip_text_size = 22,
-  plot_margin = c(10, 10, 10, 10),
+  strip_text_size = subtitle_size,
   grid = "X",
   grid_col = "#C8CCCF",
   axis = "X",
   axis_col = grid_col,
-  ticks = axis
+  ticks = axis,
+  plot_margin = c(base_size/2, base_size/2, base_size/2, base_size * 2)
 )
 }
 \arguments{
 \item{base_family, base_size, base_colour}{base font family, size and colour}
 
-\item{plot_title_face, plot_title_size, plot_title_colour, plot_title_margin}{plot title face, size, colour and margin}
+\item{plot_title_face, plot_title_size, plot_title_colour}{plot title face, size and colour}
 
 \item{plot_title_position}{Alignment of the plot title/subtitle and caption.
 A value of "plot" (the default) means that titles and/or caption are aligned to 
@@ -56,25 +55,25 @@ A value of "panel" means that titles and/or caption are aligned to the plot pane
 
 \item{subtitle_face, subtitle_size, subtitle_colour}{plot subtitle face, size and colour}
 
-\item{subtitle_margin}{plot subtitle bottom margin (single numeric value)}
-
-\item{axis_title_face, axis_title_size, axis_title_colour}{axis title font face, size and colour}
+\item{axis_title_face, axis_title_size, axis_title_colour}{axis title font face, 
+size and colour}
 
 \item{axis_title_just}{axis title font justification, one of `[blmcrt]`}
 
 \item{axis_text_size, axis_text_colour}{axis text size and colour}
 
-\item{legend_title_face, legend_title_size, legend_title_colour}{legend title font face, size and colour}
+\item{legend_title_face, legend_title_size, legend_title_colour}{legend title 
+font face, size and colour}
 
 \item{legend_text_size, legend_text_colour}{legend text size and colour}
 
-\item{legend_position}{legend position ("none", "left", "right", "bottom", "top", or two-element numeric vector)}
+\item{legend_position, legend_just, legend_margin}{legend position, justification and margins}
 
-\item{caption_face, caption_size, caption_colour, caption_margin}{plot caption face, size, colour and margin}
+\item{caption_face, caption_size, caption_colour}{plot caption 
+face, size, and colour}
 
-\item{strip_text_face, strip_text_size, strip_text_colour}{facet label font face, size and colour}
-
-\item{plot_margin}{plot margin (top, right, bottom, left)}
+\item{strip_text_face, strip_text_size, strip_text_colour}{facet label font 
+face, size and colour}
 
 \item{grid}{panel grid (`TRUE`, `FALSE`, or a combination of `X`, `x`, `Y`, `y`)}
 
@@ -82,15 +81,9 @@ A value of "panel" means that titles and/or caption are aligned to the plot pane
 
 \item{axis}{add x or y axes? `TRUE` (or `XY`), `FALSE`, `X` or `Y`}
 
-\item{ticks}{axis ticks (`TRUE` (or `XY`), `FALSE`, `X` or `Y`)
+\item{ticks}{axis ticks (`TRUE` (or `XY`), `FALSE`, `X` or `Y`)}
 
-library(ggplot2)
-
-ggplot(mtcars, aes(x = mpg, y = wt)) +
-   geom_point() +
-   labs(title = "A Lovely Plot",
-        subtitle = "A thought-provoking subtitle.") +
-   theme_overground()}
+\item{plot_margin}{plot margin (top, right, bottom, left)}
 }
 \value{
 Will not return anything of itself, but when used in conjuntion
@@ -101,14 +94,21 @@ package \code{ggplot2}, will apply styling to a plot.
 Provides a theme to produce
 \href{https://www.bankofengland.co.uk/bank-overground}{Bank Overground} 
 style visualisations in \code{ggplot2}.
-See \code{left_align_titles()} for full left-alignment of chart titles.
 }
 \details{
-If you are running under Windows, the package calls an internal function
-to register the Calibri font with the Windows graphics device. Other systems
-will require manual font registering, currently.
-
 Builds on the 'grammar of graphics' framework implement in
 ggplot2. Applying \code{theme_overground()} will adjust graphical parameters
 to give a plot a feel more in line with Bank Overground publications.
+}
+\examples{
+\dontrun{
+library(ggplot2)
+
+ggplot(mtcars, aes(x = mpg, y = wt)) +
+geom_point() +
+labs(title = "A Lovely Plot",
+subtitle = "A thought-provoking subtitle.") +
+theme_overground()
+}
+
 }
