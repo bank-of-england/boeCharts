@@ -170,6 +170,10 @@ N.B. the font import step only needs to be run once on your machine. Fonts will 
 More guides/examples
 --------------------
 
+Talks:
+
+-   [Bank-style data viz made simple](http://intranet/Banknav/IML.asp?svr=BOE-DMS&db=Analytical&id=8093829&v=0)
+
 Vignettes:
 
 -   [Using boeCharts](http://collaborate/workspaces/RHelpCentre/R%20Markdown/using-boeCharts.html)
