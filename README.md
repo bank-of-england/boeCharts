@@ -101,19 +101,23 @@ chart
 
 ![](man/figures/README-unnamed-chunk-8-1.png)
 
-Now, switching in the [Monetary Policy Report](https://www.bankofengland.co.uk/monetary-policy-report/2019/november-2019) theme and pre-MPC colours.
+Now, switching in the [Monetary Policy Report](https://www.bankofengland.co.uk/monetary-policy-report/2019/november-2019) theme and pre-MPC colours. Additionally, `scale_y_continuous()` is used to move the y-axis across to the right.
 
 ``` r
 chart +
   # add MPR theme
   theme_mpr() +
   # add a "vibrant" Bank colour combination
-  scale_colour_discrete_boe(palette = "pre_mpc")
+  scale_colour_discrete_boe(palette = "pre_mpc") +
+  # move the y-axis to the right
+  scale_y_continuous(
+    position = "right", sec.axis = dup_axis(labels = NULL)
+    )
 ```
 
 ![](man/figures/README-unnamed-chunk-9-1.png)
 
-#### A more in-depth example
+#### An in-depth example
 
 Another `ggplot2` + `boeCharts` creation, this time investigating some more customization options, including automatic axis breaks/limits (using `boe_breaks|limits_date|numeric()`) and above-plot y-axis title positioning (using `move_ylab()`). The [`gghighlight`](https://yutannihilation.github.io/gghighlight/) library is also featured in this example.
 
@@ -127,7 +131,8 @@ chart_nflx <- ggplot(data = FANG, aes(x = date, y = close, colour = symbol)) +
   geom_line(show.legend = FALSE) +
   # highlight netflix stocks
   gghighlight(
-    symbol == "NFLX", unhighlighted_colour = boe_neutral$stone,
+    symbol == "NFLX", 
+    unhighlighted_params = list(colour = boe_neutral$stone),
     use_group_by = FALSE, use_direct_label = FALSE
     ) +
   # add some chart labels
