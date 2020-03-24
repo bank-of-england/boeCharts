@@ -61,7 +61,8 @@ theme_overground <- function(
   legend_title_size = base_size, legend_title_colour = base_colour, 
   legend_title_face = "plain", 
   legend_text_size = base_size, legend_text_colour = base_colour, 
-  legend_position = "top", legend_just = "left", legend_margin = c(0, base_size/2, 0, 0),
+  legend_position = "top", legend_just = "left", 
+  legend_margin = c(base_size/2, base_size/2, base_size/2, 0),
   caption_face = "plain", caption_colour = base_colour, caption_size = base_size,  
   strip_text_face = "plain", strip_text_colour = base_colour, strip_text_size = subtitle_size, 
   grid = "X", grid_col = "#C8CCCF", axis = "X", axis_col = grid_col, 
@@ -266,7 +267,8 @@ theme_mpr <- function(
   axis_ticks_length = 0.35,
   legend_title_size = base_size, legend_title_colour = base_colour, 
   legend_text_size = base_size, legend_text_colour = base_colour, 
-  legend_position = "top", legend_just = "left", legend_margin = c(0, base_size/2, 0, 0),
+  legend_position = "top", legend_just = "left", 
+  legend_margin = c(base_size/2, base_size/2, base_size/2, 0),
   caption_face = "plain", caption_colour = base_colour, caption_size = base_size,  
   strip_text_face = "plain", strip_text_colour = base_colour, 
   strip_text_size = 13, plot_margin = c(base_size/2, base_size/2, base_size/2, base_size*2)
@@ -372,7 +374,8 @@ theme_inflation_report <- function(
   axis_ticks_length = 0.35,
   legend_title_size = base_size, legend_title_colour = base_colour, 
   legend_text_size = base_size, legend_text_colour = base_colour, 
-  legend_position = "top", legend_just = "left", legend_margin = c(0, base_size/2, 0, 0),
+  legend_position = "top", legend_just = "left", 
+  legend_margin = c(base_size/2, base_size/2, base_size/2, 0),
   caption_face = "plain", caption_colour = base_colour, caption_size = base_size,  
   strip_text_face = "plain", strip_text_colour = base_colour, 
   strip_text_size = 13, plot_margin = c(base_size/2, base_size/2, base_size/2, base_size*2)
@@ -445,7 +448,8 @@ theme_mcg_pub <- function(
   legend_title_size = base_size, legend_title_colour = base_colour, 
   legend_title_face = "plain", 
   legend_text_size = base_size, legend_text_colour = base_colour, 
-  legend_position = "top", legend_just = "center",
+  legend_position = "bottom", legend_just = "center",
+  legend_margin = c(base_size/2, base_size/2, base_size/2, base_size/2),
   caption_face = "plain", caption_size = base_size, caption_colour = base_colour,
   strip_text_face = "plain", strip_text_size = subtitle_size, 
   axis_colour = base_colour, ticks_colour = base_colour,
@@ -513,7 +517,7 @@ theme_mcg_pub <- function(
       legend.justification = legend_just,
       legend.background = element_blank(),
       legend.key = element_blank(),
-      legend.margin = ggplot2::margin(half_line, half_line, half_line, half_line),
+      legend.margin = ggplot2::margin(legend_margin),
 
       # strip text (facetting)
       strip.background = element_blank(),
