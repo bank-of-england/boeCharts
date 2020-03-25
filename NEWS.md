@@ -22,11 +22,10 @@
 - Added font import utilities (`import_arial|calibri()`) and aliases for commonly used fonts (`font_arial|calibri|calibri_light`) across all OS' and devices (inc. PDF)
 - Added `move_ylab()`, allows y-axis title to be positioned above the axis line and plot area
 - Added *pre-MPC* colour palettes, `pre_mpc` and `pre_mpc_light`
-- Added all parameters in `theme_overground()` to `theme_mpr|inflation_report()`
+- Added all parameters in `theme_overground()` to `theme_mpr|inflation_report|mcg_pub()`
 
 ## Minor changes
 
-- Added `xxx` arguments to `theme_mpr|inflation_report()`
 - Deprecated `theme_inflation_report()` in favour of `theme_mpr()`
 - System library installation of `Rttf2pt1` handled (reasoning explained in [this note](http://collaborate/workspaces/RHelpCentre/R%20Markdown/Importing_Custom_Fonts.html))
 - Deprecated `left_align_titles()` in favour of setting `plot_title_position` argument in custom theme functions

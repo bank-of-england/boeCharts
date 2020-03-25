@@ -23,8 +23,9 @@ theme_mcg_pub(
   legend_title_face = "plain",
   legend_text_size = base_size,
   legend_text_colour = base_colour,
-  legend_position = "top",
+  legend_position = "bottom",
   legend_just = "center",
+  legend_margin = c(base_size/2, base_size/2, base_size/2, base_size/2),
   caption_face = "plain",
   caption_size = base_size,
   caption_colour = base_colour,
@@ -84,6 +85,8 @@ font face, size and colour}
 \item{legend_position}{legend position, justification and margins}
 
 \item{legend_just}{legend position, justification and margins}
+
+\item{legend_margin}{legend position, justification and margins}
 
 \item{caption_face}{plot caption 
 face, size, and colour}
