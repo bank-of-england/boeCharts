@@ -1,4 +1,13 @@
-# load arial fonts
+#' Import Arial font for use in charts
+#' 
+#' Import Arial font for use in charts
+#' 
+#' There is an option `boeCharts.loadfonts` which -- if set to `TRUE` -- will
+#' call `extrafont::loadfonts()` to register non-core fonts with R PDF & PostScript
+#' devices. If you are running under Windows, the package calls the same function
+#' to register non-core fonts with the Windows graphics device.
+#'
+#' @export
 import_arial <- function() {
   
   install_rttf2pt1()

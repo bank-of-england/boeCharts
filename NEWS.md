@@ -1,3 +1,7 @@
+# boeCharts 1.2.1
+
+- Simple patch to add font import helpers (`import_arial|calibri()`)
+
 # boeCharts 1.2.0
 
 ## Breaking changes
