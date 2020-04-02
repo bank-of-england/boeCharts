@@ -1,3 +1,7 @@
+# boeCharts 1.2.2
+
+- Simple patch to add names to all `pre_mpc`colours
+
 # boeCharts 1.2.1
 
 - Simple patch to add font import helpers (`import_arial|calibri()`)

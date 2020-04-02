@@ -226,13 +226,13 @@ mcg_pub <- list(
 #'
 #' @export
 pre_mpc <- list(
-  boe$red,
-  boe$dark_blue,
+  red = boe$red,
+  dark_blue = boe$dark_blue,
   stone = "#B39F87",
-  boe$dark_green,
-  boe$yellow,
-  boe$fuchsia,
-  boe$orange
+  dark_green = boe$dark_green,
+  yellow = boe$yellow,
+  fuchsia = boe$fuchsia,
+  orange = boe$orange
 )
 
 
