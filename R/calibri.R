@@ -10,8 +10,6 @@
 #' @export
 import_calibri <- function() {
   
-  install_rttf2pt1()
-  
   font_import(pattern = "calibri", prompt = FALSE)
 }
 

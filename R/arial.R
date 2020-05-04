@@ -10,8 +10,6 @@
 #' @export
 import_arial <- function() {
   
-  install_rttf2pt1()
-  
   font_import(pattern = "arial", prompt = FALSE)
 }
 
