@@ -20,11 +20,11 @@ Imports:
     labeling (>= 0.3.0),
     extrafont (>= 0.17),
     ggplot2 (>= 3.3.0),
+    ggplotify (>= 0.0.4),
     grDevices (>= 3.5.0),
     grid (>= 3.5.0),
     gridExtra (>= 2.3),
     gtable (>= 0.3.0),
-    patchwork (>= 1.0.0),
     scales (>= 0.5.0)
 Suggests: 
     dplyr,

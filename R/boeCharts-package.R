@@ -10,6 +10,6 @@
 #' @importFrom scales dollar_format
 #' @importFrom grDevices windowsFont windowsFonts rgb col2rgb
 #' @importFrom graphics rect par image text pie
-#' @importFrom patchwork wrap_ggplot_grob
+#' @importFrom ggplotify as.ggplot
 #' @importFrom labeling extended
 "_PACKAGE"

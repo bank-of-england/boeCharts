@@ -71,5 +71,5 @@ move_ylab <- function(x) {
   
   g <- gtable_trim(g)
   
-  wrap_ggplot_grob(g)
+  ggplotify::as.ggplot(g)
 }
