@@ -1,3 +1,8 @@
+# boeCharts 1.2.3
+
+- Simple patch to use `ggplotify` instead of `patchwork` to convert a `gtable`
+object to a `ggplot` object in `move_ylab()` function
+
 # boeCharts 1.2.2
 
 - Simple patch to add names to all `pre_mpc`colours
