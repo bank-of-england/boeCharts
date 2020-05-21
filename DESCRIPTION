@@ -18,7 +18,7 @@ Authors@R: c(
 Description: A compilation of 'ggplot2' themes, scales and helpers to create Bank-style,
     publication-ready data visualisation.
 Maintainer: Ewen Henderson <ewen.henderson@bankofengland.co.uk>
-License: file LICENSE
+License: GPL-3
 Depends: R (>= 3.3.0)
 Imports: 
     labeling (>= 0.3.0),
