@@ -4,7 +4,9 @@
 \name{boe_harmonious_palettes}
 \alias{boe_harmonious_palettes}
 \title{List of harmonious colour palettes}
-\format{An object of class \code{list} of length 8.}
+\format{
+An object of class \code{list} of length 8.
+}
 \usage{
 boe_harmonious_palettes
 }

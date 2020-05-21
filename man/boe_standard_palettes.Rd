@@ -4,7 +4,9 @@
 \name{boe_standard_palettes}
 \alias{boe_standard_palettes}
 \title{List of boe standard colour palettes: boe, boe_rich, boe_soft, boe_highlights, boe_neutral}
-\format{An object of class \code{list} of length 5.}
+\format{
+An object of class \code{list} of length 5.
+}
 \usage{
 boe_standard_palettes
 }

@@ -4,7 +4,9 @@
 \name{boe_neutral}
 \alias{boe_neutral}
 \title{Colours from the Bank's 'Neutral' colour palette}
-\format{An object of class \code{list} of length 5.}
+\format{
+An object of class \code{list} of length 5.
+}
 \usage{
 boe_neutral
 }

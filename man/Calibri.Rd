@@ -5,7 +5,11 @@
 \alias{font_calibri}
 \alias{font_calibri_light}
 \title{Calibri font name R variable aliases}
-\format{length 1 character vector}
+\format{
+length 1 character vector
+
+An object of class \code{character} of length 1.
+}
 \usage{
 font_calibri
 
