@@ -4,7 +4,9 @@
 \name{boe_soft}
 \alias{boe_soft}
 \title{Colours from the Bank's 'Soft' colour palette}
-\format{An object of class \code{list} of length 7.}
+\format{
+An object of class \code{list} of length 7.
+}
 \usage{
 boe_soft
 }

@@ -4,7 +4,9 @@
 \name{boe_highlights}
 \alias{boe_highlights}
 \title{Colours from the Bank's 'Highlights' colour palette}
-\format{An object of class \code{list} of length 7.}
+\format{
+An object of class \code{list} of length 7.
+}
 \usage{
 boe_highlights
 }

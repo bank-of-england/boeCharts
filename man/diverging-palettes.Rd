@@ -11,7 +11,21 @@
 \alias{purple_green}
 \alias{pink_green}
 \title{Lists of ColorBrewer style diverging colour combinations}
-\format{An object of class \code{list} of length 3.}
+\format{
+An object of class \code{list} of length 3.
+
+An object of class \code{list} of length 3.
+
+An object of class \code{list} of length 3.
+
+An object of class \code{list} of length 3.
+
+An object of class \code{list} of length 3.
+
+An object of class \code{list} of length 3.
+
+An object of class \code{list} of length 3.
+}
 \usage{
 red_blue
 

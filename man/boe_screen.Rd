@@ -4,7 +4,9 @@
 \name{boe_screen}
 \alias{boe_screen}
 \title{Colours from the Bank's 'Screen-use' colour palette}
-\format{An object of class \code{list} of length 1.}
+\format{
+An object of class \code{list} of length 1.
+}
 \usage{
 boe_screen
 }
