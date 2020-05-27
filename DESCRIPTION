@@ -1,6 +1,6 @@
 Package: boeCharts
 Type: Package
-Title: Bank Chart Themes and Styles for 'ggplot2'
+Title: Bank of England Chart Themes and Styles for 'ggplot2'
 Version: 1.2.3.9000
 Authors@R: c(
       person("Ewen", "Henderson", email = "ewen.henderson@bankofengland.co.uk",
@@ -11,8 +11,8 @@ Authors@R: c(
       role = c("aut")),
       person("Bank of England", role = c("cph", "fnd"))
     )
-Description: A compilation of 'ggplot2' themes, scales and helpers to create Bank-style,
-    publication-ready data visualisation.
+Description: A compilation of 'ggplot2' themes, scales and helpers to create 
+    Bank of England style, publication-ready data visualisation.
 Maintainer: Ewen Henderson <ewen.henderson@bankofengland.co.uk>
 License: GPL-3
 Depends: R (>= 3.3.0)
