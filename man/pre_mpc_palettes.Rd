@@ -4,7 +4,9 @@
 \name{pre_mpc_palettes}
 \alias{pre_mpc_palettes}
 \title{List of pre-MPC colour palettes}
-\format{An object of class \code{list} of length 2.}
+\format{
+An object of class \code{list} of length 2.
+}
 \usage{
 pre_mpc_palettes
 }

@@ -4,7 +4,9 @@
 \name{boe_diverging_palettes}
 \alias{boe_diverging_palettes}
 \title{List of diverging ColorBrewer-style colour palettes}
-\format{An object of class \code{list} of length 7.}
+\format{
+An object of class \code{list} of length 7.
+}
 \usage{
 boe_diverging_palettes
 }

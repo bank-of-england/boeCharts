@@ -4,7 +4,9 @@
 \name{boe_rich}
 \alias{boe_rich}
 \title{Colours from the Bank's 'Rich' colour palette}
-\format{An object of class \code{list} of length 7.}
+\format{
+An object of class \code{list} of length 7.
+}
 \usage{
 boe_rich
 }

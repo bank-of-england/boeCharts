@@ -4,7 +4,9 @@
 \name{boe_vibrant_palettes}
 \alias{boe_vibrant_palettes}
 \title{List of vibrant colour palettes}
-\format{An object of class \code{list} of length 8.}
+\format{
+An object of class \code{list} of length 8.
+}
 \usage{
 boe_vibrant_palettes
 }
