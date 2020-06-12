@@ -28,7 +28,7 @@ knitr::opts_chunk$set(
 `boeCharts` is not likely to be submitted to CRAN. Get the latest development version from GitHub:
 
 ```{r, eval=FALSE}
-remotes::install_github('bank-of-england/boeCharts')
+remotes::install_github('bank-of-england/boeCharts', ref = "public")
 ```
 
 ## Usage
