@@ -4,11 +4,10 @@
 #' publication-ready visualisations.
 #' 
 #' @importFrom extrafont font_import loadfonts
-#' @import ggplot2
+#' @import ggplot2 grDevices
 #' @importFrom gtable gtable_add_grob gtable_filter gtable_add_rows gtable_trim
 #' @importFrom grid textGrob gTree gList gpar
 #' @importFrom scales dollar_format
-#' @importFrom grDevices windowsFont windowsFonts rgb col2rgb
 #' @importFrom graphics rect par image text pie
 #' @importFrom ggplotify as.ggplot
 #' @importFrom labeling extended
