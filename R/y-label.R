@@ -23,19 +23,23 @@
 #' }
 
 move_ylab <- function(x) {
+  
+  try_require('grid', "move_ylab")
+  try_require('gtable', "move_ylab")
+  try_require('ggplotify', "move_ylab")
 
   b <- ggplot_build(x)
   g <- ggplotGrob(x)
   
-  right = textGrob(
+  right = grid::textGrob(
     b$plot$labels$y, x = 1, y = 1, just = c("right", "top"), 
-    gp = gpar(
+    gp = grid::gpar(
       fontsize = b$plot$theme$axis.title$size, col =  b$plot$theme$axis.title$colour
     )
   )
-  labs = gTree("Labs", children = gList(right))
+  labs = grid::gTree("Labs", children = grid::gList(right))
   
-  g <- gtable_filter(g, pattern = "ylab", invert = TRUE)
+  g <- gtable::gtable_filter(g, pattern = "ylab", invert = TRUE)
   
   pos = g$layout[grepl("panel", g$layout$name), c('t', 'l')]
   
@@ -65,11 +69,11 @@ move_ylab <- function(x) {
   # }
   
   height = unit(1.5, "grobheight", right)
-  g <- gtable_add_rows(g, height, pos$t-1)
+  g <- gtable::gtable_add_rows(g, height, pos$t-1)
   
-  g = gtable_add_grob(g, labs, t = pos$t, l = pos$l, r = pos$l)
+  g = gtable::gtable_add_grob(g, labs, t = pos$t, l = pos$l, r = pos$l)
   
-  g <- gtable_trim(g)
+  g <- gtable::gtable_trim(g)
   
   ggplotify::as.ggplot(g)
 }
