@@ -1,3 +1,8 @@
+# boeCharts 1.2.3.9000
+
+- Added `position_voronoi()` to support direct line labelling (based on [this outstanding ggplot2 issue](https://github.com/tidyverse/ggplot2/issues/3093))
+- Demoted `grid`, `gtable` and `ggplotify` dependencies to "Suggests" (from "Imports")
+
 # boeCharts 1.2.3
 
 - Simple patch to use `ggplotify` instead of `patchwork` to convert a `gtable`

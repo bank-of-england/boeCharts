@@ -117,30 +117,23 @@ chart +
 
 #### An in-depth example
 
-Another `ggplot2` + `boeCharts` creation, this time investigating some more customization options, including automatic axis breaks/limits (using `boe_breaks|limits_date|numeric()`) and above-plot y-axis title positioning (using `move_ylab()`). The [`gghighlight`](https://yutannihilation.github.io/gghighlight/) library is also featured in this example.
+Another `ggplot2` + `boeCharts` creation, this time investigating some more customization options, including automatic axis breaks/limits (using `boe_breaks|limits_date|numeric()`), direct line labels (using `position_voronoi()`) and above-plot y-axis title positioning (using `move_ylab()`).
 
 ```{r, example}
-# load extra packages
-library(gghighlight)
-
 # create chart
-chart_nflx <- ggplot(data = FANG, aes(x = date, y = close, colour = symbol)) +
+chart_fang <- ggplot(data = FANG, aes(x = date, y = close, colour = symbol)) +
   # add lines
   geom_line(show.legend = FALSE) +
-  # highlight netflix stocks
-  gghighlight(
-    symbol == "NFLX", 
-    unhighlighted_params = list(colour = boe_neutral$stone),
-    use_group_by = FALSE, use_direct_label = FALSE
-    ) +
+  # add series labels + remove legend
+  geom_text(aes(label = symbol), position = position_voronoi()) +
   # add some chart labels
   labs(
     title = "BoE Palette Test", 
     subtitle = "A plot for demonstration purposes",
     y = "Closing price", x = NULL
     ) +
-  # use 'highlights' palette
-  scale_colour_discrete_boe(palette = "boe_highlights") +
+  # use 'highlights' palette + hide legend
+  scale_colour_discrete_boe(palette = "boe_highlights", guide = FALSE) +
   # add Bank Overground theme
   theme_overground() +
   # apply custom axis settings
@@ -154,7 +147,7 @@ chart_nflx <- ggplot(data = FANG, aes(x = date, y = close, colour = symbol)) +
     )
 
 # re-position y axis title above plot
-move_ylab(chart_nflx) 
+move_ylab(chart_fang) 
 ```
 
 ### Using custom fonts
