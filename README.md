@@ -157,18 +157,18 @@ more customization options, including automatic axis breaks/limits
 ``` r
 # create chart
 chart_fang <- ggplot(data = FANG, aes(x = date, y = close, colour = symbol)) +
-  # add lines
+  # add lines + hide legend
   geom_line(show.legend = FALSE) +
-  # add series labels + remove legend
-  geom_text(aes(label = symbol), position = position_voronoi()) +
+  # add series labels + hide legend
+  geom_text(aes(label = symbol), position = position_voronoi(), 
+            family = "Calibri", show.legend = FALSE) +
   # add some chart labels
   labs(
-    title = "BoE Palette Test", 
-    subtitle = "A plot for demonstration purposes",
+    title = "BoE Palette Test", subtitle = "A plot for demonstration purposes",
     y = "Closing price", x = NULL
     ) +
-  # use 'highlights' palette + hide legend
-  scale_colour_discrete_boe(palette = "boe_highlights", guide = FALSE) +
+  # use 'highlights' palette
+  scale_colour_discrete_boe(palette = "boe_highlights") +
   # add Bank Overground theme
   theme_overground() +
   # apply custom axis settings
