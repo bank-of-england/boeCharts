@@ -9,6 +9,8 @@ Authors@R: c(
       role = c("aut")),
       person("Joshua", "Allen", email = "joshua.allen@bankofengland.co.uk", 
       role = c("aut")),
+      person("Sienna", "Holcombe", email = "sienna.holcombe@bankofengland.co.uk", 
+      role = c("aut")),
       person("Bank of England", role = c("cph", "fnd"))
     )
 Description: A compilation of 'ggplot2' themes, scales and helpers to create Bank-style,
@@ -35,5 +37,5 @@ Suggests:
     vdiffr
 Encoding: UTF-8
 LazyData: true
-RoxygenNote: 7.1.0
+RoxygenNote: 7.1.1
 VignetteBuilder: knitr

@@ -164,7 +164,7 @@ See [ylab_mpr()] for help positioning the y-axis title correctly.
 
 library(ggplot2)
 
-ggplot(mtcars, aes(x = mpg, y = wt)) +
+p <- ggplot(mtcars, aes(x = mpg, y = wt)) +
    geom_point() +
    labs(title = "A Lovely Plot", subtitle = "Something insightful",
    caption = "Source: R") +
@@ -172,6 +172,8 @@ ggplot(mtcars, aes(x = mpg, y = wt)) +
    scale_y_continuous(
    position = "right", sec.axis = dup_axis(labels = NULL)
    )
+   
+move_ylab(p)
 }
 
 }

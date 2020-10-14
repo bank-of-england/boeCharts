@@ -249,3 +249,73 @@ pre_mpc_light <- list(
   light_blue = "#6199CB",
   light_stone = "#D9CEC1"
 )
+
+#' @title Colours from the Bank's FSR colour palette
+#'
+#' @description Provides a vector of named colours taken from the Bank's
+#' Financial Stability Report (FSR) guidelines.
+#'
+#' @return A list of named hexadecimal colours.
+#'
+#' @examples \dontrun{
+#'
+#' library(ggplot2)
+#' library(boeCharts)
+#'
+#'    ggplot(mtcars) +
+#'    aes(
+#'    x = mpg,
+#'    y = wt
+#'    ) +
+#'    geom_point(colour = boe_fsr$mid_blue) +
+#'    theme_fsr()
+#' }
+#'
+#' @export
+fsr <- list(
+  mid_blue       = "#165788",
+  dark_pink      = "#A31A7E",
+  golden_yellow  = "#EEAF30",
+  lime_green     = "#7AB800",
+  light_blue     = "#63B1E5",
+  summer_red     = "#d53647",
+  violet         = "#6773B6",
+  deep_turquoise = "#005E6E",
+  leaf_green     = "#69923A",
+  khaki          = "#A79E70",
+  warm_grey      = "#CAC0B6",
+  purple         = "#57068C",
+  plum           = "#752864",
+  lavender       = "#AC98DB",
+  red            = "#A51140",
+  dark_orange    = "#E05206",
+  light_orange   = "#DF7A00"
+)
+
+#' @title Colours from the Bank's FSR colour palette for currencies
+#'
+#' @description Provides a vector of named colours taken from the Bank's
+#' Financial Stability Report (FSR) guidelines.
+#' 
+#' @return A list of named hexadecimal colours.
+#'
+#' @export
+fsr_currency <- list(
+  sterling = "#165788",
+  usd = "#A31A7E",
+  euro = "#EEAF30",
+  yen = "#7AB800"
+)
+
+#' @title Colours from the Bank's FSR colour palette for representing averages
+#'
+#' @description Provides a vector of named colours taken from the Bank's
+#' Financial Stability Report (FSR) guidelines.
+#' 
+#' @return A list of named hexadecimal colours.
+#'
+#' @export
+fsr_average <- list(
+  light_orange = "df7a00",
+  mid_blue = "#165788"
+)

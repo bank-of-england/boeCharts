@@ -17,6 +17,8 @@ for approximating charts found within flagship publications, including:
 -   [Monetary Policy
     Report](https://www.bankofengland.co.uk/monetary-policy-report/2019/november-2019)
     (FKA Inflation Report)
+-   [Financial Stability
+    Report](https://www.bankofengland.co.uk/financial-stability-report/2019/july-2019)
 -   [Statistical
     Releases](https://www.bankofengland.co.uk/statistics/money-and-credit/2019/april-2019)
 
