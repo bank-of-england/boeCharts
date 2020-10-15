@@ -2,7 +2,7 @@
 
 - Added `position_voronoi()` to support direct line labelling (based on [this outstanding ggplot2 issue](https://github.com/tidyverse/ggplot2/issues/3093))
 - Added `theme_fsr()` and `fsr_palettes` for FSR-style charts
-- Added `caption_source()` for formatting chart captions
+- Added `caption_boe()` for formatting data sources and footnotes in chart captions
 - Demoted `grid`, `gtable` and `ggplotify` dependencies to "Suggests" (from "Imports")
 
 # boeCharts 1.2.3

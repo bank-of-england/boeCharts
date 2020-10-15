@@ -85,6 +85,70 @@ caption_source <- function(..., manipulated_data = FALSE) {
   }
 }
 
+#' Format chart footnotes to be captioned
+#' 
+#' Format footnotes for use in chart caption.
+#'
+#' @param ... character vector of footnotes
+#'
+#' @return character vector
+#' @export
+#'
+#' @examples
+#' 
+#' library(ggplot2)
+#'
+#' ggplot(data = FANG, aes(x = date, y = close, colour = symbol)) +
+#'   geom_line() +
+#'   labs(title = "BoE Palette Test",
+#'        subtitle = "A plot for demonstration purposes",
+#'        y = "Closing price", x = NULL,
+#'        caption = caption_footnote("Here's a footnote"))
+caption_footnote <- function(...) {
+  
+  footnotes <- as.list(...)
+  
+  if (length(footnotes) == 0) return(NULL)
+  
+  glue::glue_collapse(
+    glue::glue("({letters[1:length(footnotes)]}) {footnotes}"), sep = "\n"
+    )
+  
+}
+
+
+#' Format chart data sources and footnotes for captioning
+#'
+#' @param source character vector of data sources
+#' @param footnote character vector of footnotes
+#' @param manipulated_data logical; has data been manipulated?
+#'
+#' @return a length 1 vector
+#' @export
+#'
+#' @examples
+#' 
+#' library(ggplot2)
+#'
+#' ggplot(data = FANG, aes(x = date, y = close, colour = symbol)) +
+#'   geom_line() +
+#'   labs(title = "BoE Palette Test",
+#'        subtitle = "A plot for demonstration purposes",
+#'        y = "Closing price", x = NULL,
+#'        caption = caption_boe(
+#'        source = "FANG", footnote = "Here's a footnote", manipulated_data = TRUE
+#'        ))
+caption_boe <- function(source, footnote = NULL, manipulated_data = FALSE) {
+  
+  glue::glue_collapse(
+    c(
+      caption_source(source, manipulated_data = manipulated_data),
+      footnote = caption_footnote(footnote)
+      ), 
+    sep = "\n\n"
+  )
+}
+
 #' @title Currency formatter for use in chart axis labels
 #' 
 #' @description Helper function to format a vector of values as currency.
