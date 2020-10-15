@@ -48,6 +48,8 @@
 #' theme_overground()
 #' }
 #' 
+#' @rdname theme_overground
+#' 
 #' @export
 
 theme_overground <- function(
@@ -256,7 +258,7 @@ theme_overground <- function(
 #' move_ylab(p)
 #' }
 #' 
-#' @name theme_mpr
+#' @rdname theme_mpr
 
 theme_mpr <- function(
   base_family = "Calibri", base_size = 11.5, base_colour = "#1e1e1e",
@@ -386,7 +388,7 @@ theme_mpr <- function(
 #' p <- ggplot(mtcars, aes(x = mpg, y = wt)) +
 #'    geom_point() +
 #'    labs(title = "A Lovely Plot", subtitle = "Something insightful",
-#'    caption = "Source: R") +
+#'    caption = caption_boe(source = "R")) +
 #'    theme_fsr() +
 #'    scale_y_continuous(
 #'    position = "right", sec.axis = dup_axis(labels = NULL)
@@ -395,7 +397,7 @@ theme_mpr <- function(
 #' move_ylab(p)
 #' }
 #'
-#' @name theme_fsr
+#' @rdname theme_fsr
 theme_fsr <- function(
   base_family = "Arial", base_size = 12, base_colour = "#1e1e1e",
   plot_title_face = "plain", plot_title_size = 18, plot_title_colour = "#A31A7E",
@@ -464,6 +466,8 @@ theme_fsr <- function(
 #'    theme_mcg_pub() +
 #'    scale_y_continuous(position = "right")
 #' }
+#' 
+#' @rdname theme_mcg_pub
 #'
 #' @export
 
@@ -516,6 +520,11 @@ theme_mcg_pub <- function(
       plot.subtitle = element_text(
         colour = base_colour, face = subtitle_face, hjust = 0, family = base_family,
         size = subtitle_size, margin = ggplot2::margin(b = half_line)),
+      # caption 
+      plot.caption = element_text(
+        colour = caption_colour, hjust = 1, face = caption_face, size = caption_size,
+        margin = ggplot2::margin(t = half_line), family = base_family
+      ),
       
       # axis titles
       axis.title = element_text(
@@ -535,12 +544,6 @@ theme_mcg_pub <- function(
       # axis tick marks
       axis.ticks.length = unit(4, "pt"),
       axis.ticks = element_line(size = 0.5, colour = ticks_colour),
-    
-      # caption 
-      plot.caption = element_text(
-        colour = caption_colour, hjust = 1, face = caption_face, size = caption_size,
-        margin = ggplot2::margin(t = half_line), family = base_family
-        ),
 
       # legend
       legend.position = legend_position,
