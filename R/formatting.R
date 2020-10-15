@@ -70,16 +70,18 @@ label_year_fsr <- function() {
 #'        caption = caption_source("FANG"))
 caption_source <- function(..., manipulated_data = FALSE) {
   
+  sources <- sort(...)
+  
   if (manipulated_data) {
-    formatted_sources <- glue::glue_collapse(c(..., "Bank calculations"), sep = ", ", last = " and ")
+    formatted_sources <- glue::glue_collapse(c(sources, "Bank calculations"), sep = ", ", last = " and ")
   } else {
-    formatted_sources <- glue::glue_collapse(..., sep = ", ", last = " and ")
+    formatted_sources <- glue::glue_collapse(sources, sep = ", ", last = " and ")
   }
   
-  if (length(...) + manipulated_data == 1) {
-    paste("Source:", formatted_sources)
+  if (length(sources) + manipulated_data == 1) {
+    glue::glue("Source: {formatted_sources}.")
   } else {
-    paste("Sources:", formatted_sources)
+    glue::glue("Sources: {formatted_sources}.")
   }
 }
 
