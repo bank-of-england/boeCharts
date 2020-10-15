@@ -1,3 +1,6 @@
+# Evaluates all arguments (see #81)
+force_all <- function(...) list(...)
+
 #' Get names of available palettes
 #' 
 #' Display available palette names, optionally specifying

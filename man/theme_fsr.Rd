@@ -10,7 +10,7 @@ theme_fsr(
   base_colour = "#1e1e1e",
   plot_title_face = "plain",
   plot_title_size = 18,
-  plot_title_colour = "#165788",
+  plot_title_colour = "#A31A7E",
   plot_title_position = c("panel", "plot"),
   subtitle_face = "plain",
   subtitle_colour = base_colour,
@@ -38,7 +38,78 @@ theme_fsr(
 )
 }
 \arguments{
+\item{base_family}{base font family, size and colour}
+
+\item{base_size}{base font family, size and colour}
+
+\item{base_colour}{base font family, size and colour}
+
+\item{plot_title_face}{plot title face, size and colour}
+
+\item{plot_title_size}{plot title face, size and colour}
+
+\item{plot_title_colour}{plot title face, size and colour}
+
+\item{plot_title_position}{Alignment of the plot title/subtitle and caption.
+A value of "plot" (the default) means that titles and/or caption are aligned to 
+the entire plot (minus any space for margins and plot tag).
+A value of "panel" means that titles and/or caption are aligned to the plot panels}
+
+\item{subtitle_face}{plot subtitle face, size and colour}
+
+\item{subtitle_colour}{plot subtitle face, size and colour}
+
+\item{subtitle_size}{plot subtitle face, size and colour}
+
+\item{axis_title_size}{axis title font face, 
+size and colour}
+
+\item{axis_title_colour}{axis title font face, 
+size and colour}
+
+\item{axis_title_just}{axis title font justification, one of `[blmcrt]`}
+
+\item{axis_text_size}{axis text size and colour}
+
+\item{axis_text_colour}{axis text size and colour}
+
 \item{axis_ticks_length}{length of axis ticks (in centimetres)}
+
+\item{legend_title_size}{legend title 
+font face, size and colour}
+
+\item{legend_title_colour}{legend title 
+font face, size and colour}
+
+\item{legend_text_size}{legend text size and colour}
+
+\item{legend_text_colour}{legend text size and colour}
+
+\item{legend_position}{legend position, justification and margins}
+
+\item{legend_just}{legend position, justification and margins}
+
+\item{legend_margin}{legend position, justification and margins}
+
+\item{caption_face}{plot caption 
+face, size, and colour}
+
+\item{caption_colour}{plot caption 
+face, size, and colour}
+
+\item{caption_size}{plot caption 
+face, size, and colour}
+
+\item{strip_text_face}{facet label font 
+face, size and colour}
+
+\item{strip_text_colour}{facet label font 
+face, size and colour}
+
+\item{strip_text_size}{facet label font 
+face, size and colour}
+
+\item{plot_margin}{plot margin (top, right, bottom, left)}
 }
 \value{
 Will not return anything of itself, but when used in conjuntion

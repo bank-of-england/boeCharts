@@ -415,7 +415,8 @@ theme_inflation_report <- function(
 #' @details See \code{ggplot2::scale_y_continuous} for positioning y-axis on the right.
 #' @details See [ylab_fsr()] for help positioning the y-axis title correctly.
 #'
-#' @param axis_ticks_length length of axis ticks (in centimetres)
+#' @inheritParams theme_overground
+#' @inheritParams theme_mpr
 #'
 #' @return Will not return anything of itself, but when used in conjuntion
 #' with \code{\link{ggplot}} and (e.g.) \code{\link{geom_point}} from the
@@ -442,7 +443,7 @@ theme_inflation_report <- function(
 #' @name theme_fsr
 theme_fsr <- function(
   base_family = "Arial", base_size = 12, base_colour = "#1e1e1e",
-  plot_title_face = "plain", plot_title_size = 18, plot_title_colour = "#165788",
+  plot_title_face = "plain", plot_title_size = 18, plot_title_colour = "#A31A7E",
   plot_title_position = c("panel", "plot"),
   subtitle_face = "plain", subtitle_colour = base_colour, subtitle_size = 14,
   axis_title_size = base_size, axis_title_colour = base_colour,

@@ -6,13 +6,12 @@
 #' @examples
 #'
 #' library(ggplot2)
-#' library(boeCharts)
 #'
 #' ggplot(data = FANG, aes(x = date, y = close, colour = symbol)) +
 #'   geom_line() +
 #'   labs(title = "BoE Palette Test",
-#'        subtitle="A plot for demonstration purposes",
-#'        y="Closing price", x=NULL) +
+#'        subtitle = "A plot for demonstration purposes",
+#'        y = "Closing price", x = NULL) +
 #'   scale_x_date(date_breaks = "3 months", labels = boe_date_labels())
 #'
 #' @export
@@ -35,6 +34,54 @@ boe_date_labels <- function() {
   }
 }
 
+label_year_fsr <- function() {
+  
+  function(x) {
+    
+    year_full <- format(x, "%Y")
+    year_short <- format(x, "%y")
+
+    formats <- ifelse(year_full == min(year_full), year_full, year_short)
+    
+    return(formats)
+    
+  }
+}
+
+#' Format data sources to be captioned
+#' 
+#' Format data sources for use in chart caption.
+#'
+#' @param ... character vector of data source names
+#' @param manipulated_data logical; has data been manipulated?
+#'
+#' @return character vector
+#' @export
+#'
+#' @examples
+#' 
+#' library(ggplot2)
+#'
+#' ggplot(data = FANG, aes(x = date, y = close, colour = symbol)) +
+#'   geom_line() +
+#'   labs(title = "BoE Palette Test",
+#'        subtitle = "A plot for demonstration purposes",
+#'        y = "Closing price", x = NULL,
+#'        caption = caption_source("FANG"))
+caption_source <- function(..., manipulated_data = FALSE) {
+  
+  if (manipulated_data) {
+    formatted_sources <- glue::glue_collapse(c(..., "Bank calculations"), sep = ", ", last = " and ")
+  } else {
+    formatted_sources <- glue::glue_collapse(..., sep = ", ", last = " and ")
+  }
+  
+  if (length(...) + manipulated_data == 1) {
+    paste("Source:", formatted_sources)
+  } else {
+    paste("Sources:", formatted_sources)
+  }
+}
 
 #' @title Currency formatter for use in chart axis labels
 #' 
