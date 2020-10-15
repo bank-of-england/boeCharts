@@ -4,6 +4,8 @@
 - Added `theme_fsr()` and `fsr_palettes` for FSR-style charts
 - Added `caption_boe()` for formatting data sources and footnotes in chart captions
 - Demoted `grid`, `gtable` and `ggplotify` dependencies to "Suggests" (from "Imports")
+- Deprecated `boe_date_labels()` in favour of `scales::label_date_short()`
+- Removed `theme_inflation_report()`
 
 # boeCharts 1.2.3
 

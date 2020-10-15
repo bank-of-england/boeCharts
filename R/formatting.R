@@ -18,6 +18,8 @@
 
 boe_date_labels <- function() {
   
+  .Deprecated("scales::label_date_short()")
+  
   function(x) {
     
     # month label format
@@ -30,20 +32,6 @@ boe_date_labels <- function() {
     date <- ifelse(duplicated(y), m, paste(m, y, sep = "\n"))
     
     return(date)
-    
-  }
-}
-
-label_year_fsr <- function() {
-  
-  function(x) {
-    
-    year_full <- format(x, "%Y")
-    year_short <- format(x, "%y")
-
-    formats <- ifelse(year_full == min(year_full), year_full, year_short)
-    
-    return(formats)
     
   }
 }
