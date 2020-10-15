@@ -11,6 +11,7 @@ Customised month-year date label format for use in \code{ggplot2}. Labels are ab
 (\%b) by default, but new year values sees years with century (\%b \%Y) notation.
 }
 \examples{
+\dontrun{
 
 library(ggplot2)
 
@@ -20,5 +21,6 @@ ggplot(data = FANG, aes(x = date, y = close, colour = symbol)) +
        subtitle = "A plot for demonstration purposes",
        y = "Closing price", x = NULL) +
   scale_x_date(date_breaks = "3 months", labels = boe_date_labels())
+}
 
 }

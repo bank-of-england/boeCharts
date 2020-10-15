@@ -3,8 +3,8 @@
 - Added `position_voronoi()` to support direct line labelling (based on [this outstanding ggplot2 issue](https://github.com/tidyverse/ggplot2/issues/3093))
 - Added `theme_fsr()` and `fsr_palettes` for FSR-style charts
 - Added `caption_boe()` for formatting data sources and footnotes in chart captions
+- Added markdown variants for each {boeCharts} theme `theme_xxx_md()` to support markdown formatting
 - Demoted `grid`, `gtable` and `ggplotify` dependencies to "Suggests" (from "Imports")
-- Deprecated `boe_date_labels()` in favour of `scales::label_date_short()`
 - Removed `theme_inflation_report()`
 
 # boeCharts 1.2.3

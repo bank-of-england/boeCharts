@@ -3,7 +3,7 @@
 #' @description Customised month-year date label format for use in \code{ggplot2}. Labels are abbreviated months
 #' (\%b) by default, but new year values sees years with century (\%b \%Y) notation.
 #'
-#' @examples
+#' @examples \dontrun{
 #'
 #' library(ggplot2)
 #'
@@ -13,12 +13,11 @@
 #'        subtitle = "A plot for demonstration purposes",
 #'        y = "Closing price", x = NULL) +
 #'   scale_x_date(date_breaks = "3 months", labels = boe_date_labels())
+#' }
 #'
 #' @export
 
 boe_date_labels <- function() {
-  
-  .Deprecated("scales::label_date_short()")
   
   function(x) {
     

@@ -8,7 +8,7 @@
 #'
 #' @seealso [as_md_theme()]
 #'
-#' @examples
+#' @examples \dontrun{
 #' library(ggplot2)
 #'
 #' p <- ggplot(mtcars, aes(x = mpg, y = wt)) +
@@ -20,30 +20,31 @@
 #' p + theme_fsr()
 #'
 #' # By adding an 'md' theme the text is rendered properly
-#' p + md_theme_fsr()
+#' p + theme_fsr_md()
+#' }
 #' 
-#' @rdname theme_fsr
+#' @name theme_md
 #' @export
-md_theme_fsr <- function(...) {
+theme_fsr_md <- function(...) {
   as_md_theme(theme_fsr(...))
 }
 
-#' @rdname theme_mpr
+#' @rdname theme_md
 #' @export
-md_theme_mpr <- function(...) {
+theme_mpr_md <- function(...) {
   as_md_theme(theme_mpr(...))
 }
 
-#' @rdname theme_overground
+#' @rdname theme_md
 #' 
 #' @export
-md_theme_overground <- function(...) {
+theme_overground_md <- function(...) {
   as_md_theme(theme_overground(...))
 }
 
-#' @rdname theme_mcg_pub
+#' @rdname theme_md
 #' 
 #' @export
-md_theme_mcg_pub <- function(...) {
+theme_mcg_pub_md <- function(...) {
   as_md_theme(theme_mcg_pub(...))
 }

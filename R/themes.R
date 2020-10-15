@@ -48,7 +48,7 @@
 #' theme_overground()
 #' }
 #' 
-#' @rdname theme_overground
+#' @name theme_overground
 #' 
 #' @export
 
@@ -258,7 +258,7 @@ theme_overground <- function(
 #' move_ylab(p)
 #' }
 #' 
-#' @rdname theme_mpr
+#' @name theme_mpr
 
 theme_mpr <- function(
   base_family = "Calibri", base_size = 11.5, base_colour = "#1e1e1e",
@@ -397,7 +397,7 @@ theme_mpr <- function(
 #' move_ylab(p)
 #' }
 #'
-#' @rdname theme_fsr
+#' @name theme_fsr
 theme_fsr <- function(
   base_family = "Arial", base_size = 12, base_colour = "#1e1e1e",
   plot_title_face = "plain", plot_title_size = 18, plot_title_colour = "#A31A7E",
@@ -467,7 +467,7 @@ theme_fsr <- function(
 #'    scale_y_continuous(position = "right")
 #' }
 #' 
-#' @rdname theme_mcg_pub
+#' @name theme_mcg_pub
 #'
 #' @export
 
@@ -562,4 +562,3 @@ theme_mcg_pub <- function(
                                   face = strip_text_face, angle = -90)
     )
 }
-
