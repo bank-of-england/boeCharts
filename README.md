@@ -203,7 +203,7 @@ fsr_chart_fang <- chart_fang +
     labels = boe_date_labels(),
     breaks = boe_breaks_date()
     ) +
-  theme_fsr_md() +
+  theme_fsr_md(axis_title_size = 9, axis_text_size = 9, caption_size = 9) +
   labs(title = "**Chart A.2** BoE Palette Test",
        subtitle = "A plot for demonstration purposes<sup>(a)</sup>",
        caption = caption_boe(source = "Investopedia", footnote = "A minor data quibble."))
