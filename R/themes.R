@@ -399,7 +399,7 @@ theme_mpr <- function(
 #'
 #' @name theme_fsr
 theme_fsr <- function(
-  base_family = "Calibri", base_size = 12, base_colour = "#1e1e1e",
+  base_family = "Calibri", base_size = 11.5, base_colour = "#1e1e1e",
   plot_title_face = "plain", plot_title_size = 18, plot_title_colour = "#A31A7E",
   plot_title_position = c("panel", "plot"),
   subtitle_face = "plain", subtitle_colour = base_colour, subtitle_size = 14,

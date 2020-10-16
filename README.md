@@ -204,7 +204,9 @@ fsr_chart_fang <- chart_fang +
     breaks = boe_breaks_date()
     ) +
   theme_fsr_md() +
-  labs(title = "**Chart A.2** BoE Palette Test")
+  labs(title = "**Chart A.2** BoE Palette Test",
+       subtitle = "A plot for demonstration purposes<sup>(a)</sup>",
+       caption = caption_boe(source = "Investopedia", footnote = "A minor data quibble."))
 
 move_ylab(fsr_chart_fang)
 ```
