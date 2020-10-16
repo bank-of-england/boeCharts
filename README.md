@@ -158,7 +158,7 @@ more customization options, including automatic axis breaks/limits
 # create chart
 chart_fang <- ggplot(data = FANG, aes(x = date, y = close, colour = symbol)) +
   # add lines + hide legend
-  geom_line(show.legend = FALSE) +
+  geom_line(size = 1, show.legend = FALSE) +
   # add series labels + hide legend
   geom_text(aes(label = symbol), position = position_voronoi(), 
             family = "Calibri", show.legend = FALSE) +
@@ -198,6 +198,11 @@ example:
 
 ``` r
 fsr_chart_fang <- chart_fang +
+  # apply custom axis settings
+  scale_x_date(
+    labels = boe_date_labels(),
+    breaks = boe_breaks_date()
+    ) +
   theme_fsr_md() +
   labs(title = "**Chart A.2** BoE Palette Test")
 

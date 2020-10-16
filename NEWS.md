@@ -4,7 +4,7 @@
 - Added `theme_fsr()` and `fsr_palettes` for FSR-style charts
 - Added `caption_boe()` for formatting data sources and footnotes in chart captions
 - Added markdown variants for each {boeCharts} theme `theme_xxx_md()` to support markdown formatting
-- Demoted `grid`, `gtable` and `ggplotify` dependencies to "Suggests" (from "Imports")
+- Demoted `grid`, `gtable` and `ggplotify` dependencies to "Suggests" (from "Imports"), add `ggtext` and `glue` imports
 - Removed `theme_inflation_report()`
 
 # boeCharts 1.2.3
