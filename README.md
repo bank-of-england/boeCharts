@@ -281,7 +281,4 @@ to:
 
 ### To do
 
--   Create a `theme_fsr()`
 -   Chart export destination helpers (e.g. 16x9 ppt half size)
--   More extensive “using grey” examples, poss a vignette/cookbook
-    demonstrating `gghighlight`
