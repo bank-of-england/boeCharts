@@ -316,6 +316,7 @@ fsr_currency <- list(
 #'
 #' @export
 fsr_average <- list(
-  light_orange = "df7a00",
-  mid_blue = "#165788"
+  light_orange = "#df7a00",
+  mid_blue = "#165788",
+  light_blue = "#63B1E5"
 )
