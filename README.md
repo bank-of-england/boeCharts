@@ -158,7 +158,7 @@ more customization options, including automatic axis breaks/limits
 # create chart
 chart_fang <- ggplot(data = FANG, aes(x = date, y = close, colour = symbol)) +
   # add lines + hide legend
-  geom_line(size = 1, show.legend = FALSE) +
+  geom_line(lwd = 0.75, show.legend = FALSE) +
   # add series labels + hide legend
   geom_text(aes(label = symbol), position = position_voronoi(), 
             family = "Calibri", show.legend = FALSE) +
