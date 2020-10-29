@@ -38,7 +38,7 @@ subtitle = "A *thought-provoking* subtitle.")
 p + theme_fsr()
 
 # By adding an 'md' theme the text is rendered properly
-p + md_theme_fsr()
+p + theme_fsr_md()
 }
 
 }

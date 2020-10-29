@@ -5,8 +5,8 @@
 \title{A \code{ggplot2} theme for Financial Stability Report (FSR) chart styling}
 \usage{
 theme_fsr(
-  base_family = "Arial",
-  base_size = 12,
+  base_family = "Calibri",
+  base_size = 11.5,
   base_colour = "#1e1e1e",
   plot_title_face = "plain",
   plot_title_size = 18,
