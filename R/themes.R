@@ -48,6 +48,8 @@
 #' theme_overground()
 #' }
 #' 
+#' @name theme_overground
+#' 
 #' @export
 
 theme_overground <- function(
@@ -244,7 +246,7 @@ theme_overground <- function(
 #' 
 #' library(ggplot2)
 #'
-#' ggplot(mtcars, aes(x = mpg, y = wt)) +
+#' p <- ggplot(mtcars, aes(x = mpg, y = wt)) +
 #'    geom_point() +
 #'    labs(title = "A Lovely Plot", subtitle = "Something insightful",
 #'    caption = "Source: R") +
@@ -252,6 +254,8 @@ theme_overground <- function(
 #'    scale_y_continuous(
 #'    position = "right", sec.axis = dup_axis(labels = NULL)
 #'    )
+#'    
+#' move_ylab(p)
 #' }
 #' 
 #' @name theme_mpr
@@ -360,29 +364,58 @@ theme_mpr <- function(
       )
 }
 
-
+#' A \code{ggplot2} theme for Financial Stability Report (FSR) chart styling
+#'
+#' @description Provides a theme to produce
+#' Financial Stability Report style visualisations in \code{ggplot2}.
+#'
+#' @details See \code{ggplot2::scale_y_continuous} for positioning y-axis on the right.
+#' @details See [ylab_fsr()] for help positioning the y-axis title correctly.
+#'
+#' @inheritParams theme_overground
+#' @inheritParams theme_mpr
+#'
+#' @return Will not return anything of itself, but when used in conjuntion
+#' with \code{\link{ggplot}} and (e.g.) \code{\link{geom_point}} from the
+#' package \code{ggplot2}, will apply styling to a plot.
+#'
 #' @export
-#' @rdname theme_mpr
-theme_inflation_report <- function(
+#'
+#' @examples \dontrun{
+#'
+#' library(ggplot2)
+#'
+#' p <- ggplot(mtcars, aes(x = mpg, y = wt)) +
+#'    geom_point() +
+#'    labs(title = "A Lovely Plot", subtitle = "Something insightful",
+#'    caption = caption_boe(source = "R")) +
+#'    theme_fsr() +
+#'    scale_y_continuous(
+#'    position = "right", sec.axis = dup_axis(labels = NULL)
+#'    )
+#'    
+#' move_ylab(p)
+#' }
+#'
+#' @name theme_fsr
+theme_fsr <- function(
   base_family = "Calibri", base_size = 11.5, base_colour = "#1e1e1e",
-  plot_title_face = "plain", plot_title_size = 18, plot_title_colour = "#00294E", 
+  plot_title_face = "plain", plot_title_size = 18, plot_title_colour = "#A31A7E",
   plot_title_position = c("panel", "plot"),
-  subtitle_face = "plain", subtitle_colour = base_colour, subtitle_size = 14,  
+  subtitle_face = "plain", subtitle_colour = base_colour, subtitle_size = 14,
   axis_title_size = base_size, axis_title_colour = base_colour,
   axis_title_just = "mc",
   axis_text_size = base_size, axis_text_colour = base_colour,
   axis_ticks_length = 0.35,
-  legend_title_size = base_size, legend_title_colour = base_colour, 
-  legend_text_size = base_size, legend_text_colour = base_colour, 
-  legend_position = "top", legend_just = "left", 
+  legend_title_size = base_size, legend_title_colour = base_colour,
+  legend_text_size = base_size, legend_text_colour = base_colour,
+  legend_position = "top", legend_just = "left",
   legend_margin = c(base_size/2, base_size/2, base_size/2, 0),
-  caption_face = "plain", caption_colour = base_colour, caption_size = base_size,  
-  strip_text_face = "plain", strip_text_colour = base_colour, 
+  caption_face = "plain", caption_colour = base_colour, caption_size = base_size,
+  strip_text_face = "plain", strip_text_colour = base_colour,
   strip_text_size = 13, plot_margin = c(base_size/2, base_size/2, base_size/2, base_size*2)
-  ) {
-    
-  .Deprecated("theme_mpr")
-    
+) {
+  
   theme_mpr(
     base_family = base_family, base_size = base_size, base_colour = base_colour,
     plot_title_face = plot_title_face, plot_title_size = plot_title_size, 
@@ -402,9 +435,8 @@ theme_inflation_report <- function(
     strip_text_face = strip_text_face, strip_text_colour = strip_text_colour, 
     strip_text_size = strip_text_size, 
     plot_margin = plot_margin
-    )
+  )
 }
-
 
 #' A \code{ggplot2} theme for MCG publication-ready charts
 #'
@@ -434,6 +466,8 @@ theme_inflation_report <- function(
 #'    theme_mcg_pub() +
 #'    scale_y_continuous(position = "right")
 #' }
+#' 
+#' @name theme_mcg_pub
 #'
 #' @export
 
@@ -486,6 +520,11 @@ theme_mcg_pub <- function(
       plot.subtitle = element_text(
         colour = base_colour, face = subtitle_face, hjust = 0, family = base_family,
         size = subtitle_size, margin = ggplot2::margin(b = half_line)),
+      # caption 
+      plot.caption = element_text(
+        colour = caption_colour, hjust = 1, face = caption_face, size = caption_size,
+        margin = ggplot2::margin(t = half_line), family = base_family
+      ),
       
       # axis titles
       axis.title = element_text(
@@ -505,12 +544,6 @@ theme_mcg_pub <- function(
       # axis tick marks
       axis.ticks.length = unit(4, "pt"),
       axis.ticks = element_line(size = 0.5, colour = ticks_colour),
-    
-      # caption 
-      plot.caption = element_text(
-        colour = caption_colour, hjust = 1, face = caption_face, size = caption_size,
-        margin = ggplot2::margin(t = half_line), family = base_family
-        ),
 
       # legend
       legend.position = legend_position,
@@ -529,4 +562,3 @@ theme_mcg_pub <- function(
                                   face = strip_text_face, angle = -90)
     )
 }
-

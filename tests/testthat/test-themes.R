@@ -10,4 +10,5 @@ test_that("themes are correct", {
   vdiffr::expect_doppelganger("theme_mcg_pub", plot + theme_mcg_pub())
   vdiffr::expect_doppelganger("theme_overground", plot + theme_overground())
   vdiffr::expect_doppelganger("theme_mpr", plot + theme_mpr())
+  vdiffr::expect_doppelganger("theme_fsr", plot + theme_fsr())
 })

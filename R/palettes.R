@@ -65,6 +65,18 @@ boe_vibrant_palettes = list(vibrant_a = vibrant_a,
 #' @export
 pre_mpc_palettes = list(pre_mpc = pre_mpc, pre_mpc_light = pre_mpc_light)
 
+#' @title List of FSR colour palettes
+#'
+#' @description List of lists of named colours taken from the Bank's
+#' Financial Stability Report (FSR) guidelines.
+#'
+#' @return A named list of lists of named hexadecimal colours.
+#' 
+#' @keywords internal
+#'
+#' @export
+fsr_palettes = list(fsr = fsr, fsr_currency = fsr_currency, fsr_average = fsr_average)
+
 #' @title List of diverging ColorBrewer-style colour palettes
 #'
 #' @description List of lists of named colours taken from the Bank's
@@ -94,7 +106,8 @@ boe_palettes <- c(
   boe_vibrant_palettes,
   boe_diverging_palettes,
   mcg = list(mcg_pub),
-  pre_mpc_palettes
+  pre_mpc_palettes,
+  fsr_palettes
 )
 
 

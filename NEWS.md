@@ -1,7 +1,19 @@
 # boeCharts 1.2.3.9000
 
+## Breaking changes
+
+- Removed `theme_inflation_report()`
+
+## New features
+
 - Added `position_voronoi()` to support direct line labelling (based on [this outstanding ggplot2 issue](https://github.com/tidyverse/ggplot2/issues/3093))
-- Demoted `grid`, `gtable` and `ggplotify` dependencies to "Suggests" (from "Imports")
+- Added `theme_fsr()` and `fsr_palettes` for FSR-style charts
+- Added `caption_boe()` for formatting data sources and footnotes in chart captions
+- Added markdown variants for each {boeCharts} theme `theme_xxx_md()` to support markdown formatting
+
+## Minor changes
+
+- Demoted `grid`, `gtable` and `ggplotify` dependencies to "Suggests" (from "Imports"), add `ggtext` and `glue` imports
 
 # boeCharts 1.2.3
 

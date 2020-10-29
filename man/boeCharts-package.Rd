@@ -16,6 +16,7 @@ Authors:
 \itemize{
   \item Alastair Firrell \email{alastair.firrell@bankofengland.co.uk}
   \item Joshua Allen \email{joshua.allen@bankofengland.co.uk}
+  \item Sienna Holcombe \email{sienna.holcombe@bankofengland.co.uk}
 }
 
 Other contributors:

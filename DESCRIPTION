@@ -9,6 +9,8 @@ Authors@R: c(
       role = c("aut")),
       person("Joshua", "Allen", email = "joshua.allen@bankofengland.co.uk", 
       role = c("aut")),
+      person("Sienna", "Holcombe", email = "sienna.holcombe@bankofengland.co.uk", 
+      role = c("aut")),
       person("Bank of England", role = c("cph", "fnd"))
     )
 Description: A compilation of 'ggplot2' themes, scales and helpers to create Bank-style,
@@ -20,6 +22,8 @@ Imports:
     labeling (>= 0.3.0),
     extrafont (>= 0.17),
     ggplot2 (>= 3.3.0),
+    ggtext (>= 0.1.0),
+    glue (>= 1.4.0),
     grDevices (>= 3.5.0),
     gridExtra (>= 2.3),
     scales (>= 0.5.0)
@@ -30,10 +34,11 @@ Suggests:
     grid (>= 3.5.0),
     gtable (>= 0.3.0),
     knitr,
+    palmerpenguins,
     rmarkdown,
     testthat (>= 2.1.0),
     vdiffr
 Encoding: UTF-8
 LazyData: true
-RoxygenNote: 7.1.0
+RoxygenNote: 7.1.1
 VignetteBuilder: knitr
