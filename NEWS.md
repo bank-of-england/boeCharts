@@ -1,3 +1,9 @@
+# boeCharts 1.3.0.9000
+
+## Minor changes
+
+- Remove `ggplotify` dependency
+
 # boeCharts 1.3.0
 
 ## Breaking changes

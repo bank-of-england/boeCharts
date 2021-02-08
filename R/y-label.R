@@ -26,7 +26,6 @@ move_ylab <- function(x) {
   
   try_require('grid', "move_ylab")
   try_require('gtable', "move_ylab")
-  try_require('ggplotify', "move_ylab")
 
   b <- ggplot_build(x)
   g <- ggplotGrob(x)
@@ -75,5 +74,6 @@ move_ylab <- function(x) {
   
   g <- gtable::gtable_trim(g)
   
-  ggplotify::as.ggplot(g)
+  grid::grid.newpage()
+  gridExtra::grid.arrange(g)
 }

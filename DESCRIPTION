@@ -30,7 +30,6 @@ Imports:
 Suggests: 
     dplyr,
     deldir,
-    ggplotify (>= 0.0.4),
     grid (>= 3.5.0),
     gtable (>= 0.3.0),
     knitr,
