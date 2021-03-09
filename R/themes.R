@@ -1,3 +1,124 @@
+#' @export
+theme_boe <- function(grid = "X", axis = "X") {
+  
+  base_size <- 11
+  base_family = ""
+  stone <- "#C4C9CF"
+  
+  half_line <- base_size / 2
+  base_line_size <- base_size / 22
+  base_rect_size <- base_size / 22
+  
+  # Starts with theme_grey and then modify some parts
+  p <- theme_grey(
+    base_size = base_size, base_family = base_family,
+    base_line_size = base_line_size, base_rect_size = base_rect_size
+  ) %+replace%
+    theme(
+      # global
+      text = element_text(
+        family = base_family, face = "plain",
+        colour = "#ffffff", size = base_size,
+        lineheight = 0.9, hjust = 0.5, vjust = 0.5, angle = 0,
+        margin = margin(), debug = FALSE
+        ),
+      
+      # background
+      panel.background = element_rect(fill = boe_identity$dark_blue, colour = NA),
+      plot.background = element_rect(fill = boe_identity$dark_blue, colour = NA),
+
+      # titling
+      plot.title = element_text(
+        size = rel(1.2), face = "bold",
+        hjust = 0, vjust = 1,
+        margin = margin(b = half_line)
+      ),
+      
+      # axes
+      axis.text = element_text(colour = stone),
+      axis.title = element_text(colour = stone),
+      
+      plot.caption = element_text(
+        colour = stone, size = rel(0.8),
+        hjust = 1, vjust = 1,
+        margin = margin(t = half_line)
+      )
+    )
+  
+  # chart grid
+  if (inherits(grid, "character") | grid == TRUE) {
+    
+    p <- p + theme(
+      panel.grid = element_line(colour = stone, size = 0.2),
+      panel.grid.major = element_line(colour=stone, size = 0.2),
+      panel.grid.minor = element_line(colour=stone, size = 0.15)
+    )
+    
+    if (inherits(grid, "character")) {
+      if (regexpr("X", grid)[1] < 0) p <- p + theme(panel.grid.major.y = element_blank())
+      if (regexpr("Y", grid)[1] < 0) p <- p + theme(panel.grid.major.x = element_blank())
+      if (regexpr("x", grid)[1] < 0) p <- p + theme(panel.grid.minor.y = element_blank())
+      if (regexpr("y", grid)[1] < 0) p <- p + theme(panel.grid.minor.x = element_blank())
+    }
+    
+  } else {
+    p <- p + theme(panel.grid = element_blank())
+  }
+  
+  # axis lines
+  if (inherits(axis, "character") | axis == TRUE) {
+    p <- p + theme(axis.line = element_line(colour=stone, size = 0.15))
+    if (inherits(axis, "character")) {
+      axis <- tolower(axis)
+      if (regexpr("x", axis)[1] < 0) {
+        p <- p + theme(axis.line.x = element_blank())
+      } else {
+        p <- p + theme(axis.line.x = element_line(colour=stone, size = 0.15))
+      }
+      if (regexpr("y", axis)[1] < 0) {
+        p <- p + theme(axis.line.y = element_blank())
+      } else {
+        p <- p + theme(axis.line.y = element_line(colour=stone, size=0.15))
+      }
+    } else {
+      p <- p + theme(axis.line.x = element_line(colour=stone, size=0.15),
+                     axis.line.y = element_line(colour=stone, size=0.15))
+    }
+  } else {
+    p <- p + theme(axis.line = element_blank())
+  }
+  
+  # axis ticks
+  if (inherits(axis, "character") | axis == TRUE) {
+    p <- p + theme(axis.ticks = element_line(size = 0.15, colour = stone),
+                   axis.ticks.length = grid::unit(10, "pt"))
+    if (inherits(axis, "character")) {
+      axis <- tolower(axis)
+      if (regexpr("x", axis)[1] < 0) {
+        p <- p + theme(axis.ticks.x = element_blank())
+      } else {
+        p <- p + theme(axis.ticks.x = element_line(colour=stone, size = 0.15),
+                       axis.ticks.length = grid::unit(10, "pt"))
+      }
+      if (regexpr("y", axis)[1] < 0) {
+        p <- p + theme(axis.ticks.y = element_blank())
+      } else {
+        p <- p + theme(axis.ticks.y = element_line(colour=stone, size = 0.15),
+                       axis.ticks.length = grid::unit(10, "pt"))
+      }
+    } else {
+      p <- p + theme(axis.ticks.x = element_line(colour=stone, size = 0.15),
+                     axis.ticks.y = element_line(colour=stone, size = 0.15),
+                     axis.ticks.length = grid::unit(10, "pt"))
+    }
+  } else {
+    p <- p + theme(axis.ticks = element_blank())
+  }
+  
+  
+  p
+}
+
 #' A \code{ggplot2} theme that approximates Bank Overground charts
 #'
 #' @description Provides a theme to produce
