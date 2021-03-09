@@ -1,3 +1,17 @@
+#' @export
+boe_identity <- list(
+  dark_blue = "#12273F",
+  aqua = "#3CD7D9",
+  orange = "#FF7300",
+  purple = "#9E71FE",
+  gold = "#D4AF37",
+  green = "#A5D700",
+  pink = "#FF33CC",
+  yellow = "#FFD200",
+  red = "#FD015B"
+)
+
+
 #' @title Colours from the Bank's colour palette
 #'
 #' @description Provides a vector of named colours taken from the Bank's
