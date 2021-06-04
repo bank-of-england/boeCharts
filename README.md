@@ -22,6 +22,11 @@ for approximating charts found within flagship publications, including:
 -   [Statistical
     Releases](https://www.bankofengland.co.uk/statistics/money-and-credit/2019/april-2019)
 
+N.B. this is still a maturing project. Feedback/issues/contributions
+appreciated. If you are reporting a bug/error and/or requesting a new
+feature, please try and use [the boeCharts
+backlog](https://almplatform/tfs/UnmanagedCollection/Shared%20Analytical%20Code/_backlogs/backlog/boeCharts/Requirements).
+
 Installation
 ------------
 
