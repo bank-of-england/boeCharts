@@ -26,6 +26,8 @@ N.B. this is still a maturing project. Feedback/issues/contributions
 appreciated. If you are reporting a bug/error and/or requesting a new
 feature, please try and use [the boeCharts
 backlog](https://almplatform/tfs/UnmanagedCollection/Shared%20Analytical%20Code/_backlogs/backlog/boeCharts/Requirements).
+For questions and other discussion, please use the [Data
+Community](https://bankexchange/groups/1067/SitePages/Home.aspx).
 
 Installation
 ------------
@@ -63,15 +65,6 @@ remotes::install_git(
 N.B. the development version should only be used for experimentation.
 Use the latest stable version, released via Artifactory, in any
 production code.
-
-Getting help
-------------
-
-If you encounter a clear bug, please file an issue with a minimal
-reproducible example on [Azure
-DevOps](https://almplatform/tfs/UnmanagedCollection/Shared%20Analytical%20Code/_backlogs/backlog/boeCharts/Requirements).
-For questions and other discussion, please use the [Data
-Community](https://bankexchange/groups/1067/SitePages/Home.aspx).
 
 Usage
 -----
