@@ -1,9 +1,33 @@
+#' A \code{ggplot2} theme for Bank "Visual Identity" chart styling
+#' 
+#' @description Provides a theme to produce
+#' Bank "Visual Identity" style visualisations in \code{ggplot2}.
+#' 
+#' @details See \code{ggplot2::scale_y_continuous} for positioning y-axis on the right.
+#' 
+#' @inheritParams theme_overground
+#' 
+#' @return Will not return anything of itself, but when used in conjuntion
+#' with \code{\link{ggplot}} and (e.g.) \code{\link{geom_point}} from the
+#' package \code{ggplot2}, will apply styling to a plot.
+#' 
 #' @export
-theme_boe <- function(grid = "X", axis = "X") {
-  
-  base_size <- 11
-  base_family = ""
-  stone <- "#C4C9CF"
+#'
+#' @examples \dontrun{
+#' 
+#' library(ggplot2)
+#'
+#' ggplot(mtcars, aes(x = mpg, y = wt)) +
+#'    geom_point() +
+#'    labs(title = "A Lovely Plot", subtitle = "Something insightful",
+#'    caption = "Source: R") +
+#'    theme_boe()
+#'    
+#' }
+#' 
+#' @name theme_boe
+theme_boe <- function(base_family = "Arial", base_size = 11.5, base_colour = "#C4C9CF",
+                      grid = "X", axis = "X") {
   
   half_line <- base_size / 2
   base_line_size <- base_size / 22
@@ -28,7 +52,7 @@ theme_boe <- function(grid = "X", axis = "X") {
       plot.background = element_rect(fill = boe_identity$dark_blue, colour = NA),
       panel.border = element_blank(),
       
-      plot.margin = ggplot2::margin(0, 6, 0, 0),
+      plot.margin = ggplot2::margin(0, 16, 0, 0),
 
       # titling
       plot.title = element_text(
@@ -38,14 +62,11 @@ theme_boe <- function(grid = "X", axis = "X") {
       plot.title.position = "plot",
       
       # axes
-      axis.text = element_text(colour = stone),
-      axis.text.y = element_text(
-        vjust = -0.5, margin = ggplot2::margin(r = -6)
-        ),
-      axis.title = element_text(colour = stone),
+      axis.text = element_text(colour = base_colour),
+      axis.title = element_text(colour = base_colour),
       
       plot.caption = element_text(
-        colour = stone, size = rel(0.8),
+        colour = base_colour, size = rel(0.8),
         hjust = 1, vjust = 1, margin = ggplot2::margin(t = half_line)
       )
     )
@@ -54,9 +75,9 @@ theme_boe <- function(grid = "X", axis = "X") {
   if (inherits(grid, "character") | grid == TRUE) {
     
     p <- p + theme(
-      panel.grid = element_line(colour = stone, size = 0.2),
-      panel.grid.major = element_line(colour=stone, size = 0.2),
-      panel.grid.minor = element_line(colour=stone, size = 0.15)
+      panel.grid = element_line(colour = base_colour, size = 0.2),
+      panel.grid.major = element_line(colour=base_colour, size = 0.2),
+      panel.grid.minor = element_line(colour=base_colour, size = 0.15)
     )
     
     if (inherits(grid, "character")) {
@@ -70,79 +91,65 @@ theme_boe <- function(grid = "X", axis = "X") {
     p <- p + theme(panel.grid = element_blank())
   }
   
-  # axis lines
+  # axis lines + ticks
   
   # if both axes
   if (inherits(axis, "character") | axis == TRUE) {
-    p <- p + theme(axis.line = element_line(colour=stone, size = 0.15))
+    p <- p + theme(
+      axis.line = element_line(colour=base_colour, size = 0.15),
+      axis.ticks = element_line(size = 0.15, colour = base_colour),
+      axis.ticks.length = grid::unit(10, "pt")
+      )
     if (inherits(axis, "character")) {
       axis <- tolower(axis)
       
       # if no x-axis
       if (regexpr("x", axis)[1] < 0) {
-        p <- p + theme(axis.line.x = element_blank())
+        p <- p + theme(
+          axis.line.x = element_blank(), axis.ticks.x = element_blank()
+          )
         
         # if yes x-axis
       } else {
-        p <- p + theme(axis.line.x = element_line(colour=stone, size = 0.15))
-      }
-      
-      # if no y-axis
-      if (regexpr("y", axis)[1] < 0) {
-        p <- p + theme(axis.line.y = element_blank())
-        
-        # if yes y-axis
-      } else {
-        p <- p + theme(axis.line.y = element_line(colour=stone, size=0.15))
-      }
-      
-      # if both axes
-    } else {
-      p <- p + theme(axis.line.x = element_line(colour=stone, size=0.15),
-                     axis.line.y = element_line(colour=stone, size=0.15))
-    }
-    
-    # if no axes
-  } else {
-    p <- p + theme(axis.line = element_blank())
-  }
-  
-  # axis ticks
-  
-  # if both axes
-  if (inherits(axis, "character") | axis == TRUE) {
-    p <- p + theme(axis.ticks = element_line(size = 0.15, colour = stone),
-                   axis.ticks.length = grid::unit(10, "pt"))
-    if (inherits(axis, "character")) {
-      axis <- tolower(axis)
-      
-      # if no x-axis
-      if (regexpr("x", axis)[1] < 0) {
-        p <- p + theme(axis.ticks.x = element_blank())
-        
-        # if yes x-axis
-      } else {
-        p <- p + theme(axis.ticks.x = element_line(colour=stone, size = 0.15),
+        p <- p + theme(axis.line.x = element_line(colour=base_colour, size = 0.15),
+                       axis.ticks.x = element_line(colour=base_colour, size = 0.15),
                        axis.ticks.length = grid::unit(10, "pt"))
       }
       
       # if no y-axis
       if (regexpr("y", axis)[1] < 0) {
-        p <- p + theme(axis.ticks.y = element_line(colour=stone, size = 0.15),
-                       axis.ticks.length.y = grid::unit(10, "pt"),
-                       axis.ticks.length.x = grid::unit(10, "pt"))
-      } 
+        p <- p + theme(
+          axis.ticks.length.x = grid::unit(10, "pt"),
+          axis.line.y = element_blank(),
+          axis.ticks.y = element_blank(),
+          axis.text.y = element_text(
+            vjust = -0.5, margin = ggplot2::margin(r = -16)
+            )
+          )
+        
+        # if yes y-axis
+      } else {
+        p <- p + theme(
+          axis.line.y = element_line(colour=base_colour, size=0.15),
+          axis.ticks.x = element_line(colour=base_colour, size = 0.15),
+          axis.ticks.y = element_line(colour=base_colour, size = 0.15),
+          axis.ticks.length = grid::unit(10, "pt")
+        )
+      }
       
-      # if yes y-axis
+      # if both axes
     } else {
-      p <- p + theme(axis.ticks.x = element_line(colour=stone, size = 0.15),
-                     axis.ticks.y = element_line(colour=stone, size = 0.15),
-                     axis.ticks.length = grid::unit(10, "pt"))
+      p <- p + theme(
+        axis.line.x = element_line(colour=base_colour, size=0.15),
+        axis.line.y = element_line(colour=base_colour, size=0.15),
+        axis.ticks = element_line(size = 0.15, colour = base_colour),
+        axis.ticks.length = grid::unit(10, "pt")
+      )
     }
     
-    # if both axes
+    # if no axes
   } else {
-    p <- p + theme(axis.ticks = element_blank())
+    p <- p + theme(axis.line = element_blank(), axis.ticks = element_blank())
   }
   
   p
