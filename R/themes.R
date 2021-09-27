@@ -280,8 +280,6 @@ theme_mpr <- function(
 
   half_line <- base_size / 2
   
-  tickLabelMargin = 100 * axis_ticks_length - 20
-  
   title_pos <- match.arg(plot_title_position)
   
   # title justification
@@ -312,19 +310,19 @@ theme_mpr <- function(
       axis.title = element_text(
         size = axis_title_size, colour = axis_title_colour, family = base_family
       ),
-      axis.title.x = element_text(hjust = xj),
+      axis.title.x = element_text(hjust = xj, margin = ggplot2::margin(t = half_line)),
       axis.title.y = element_text(hjust = yj),
       axis.title.y.left = element_blank(),
-      axis.title.y.right = element_text(angle=-90),
+      axis.title.y.right = element_text(angle = -90, margin = ggplot2::margin(l = half_line)),
       
       # axis text
       axis.text = element_text(
         size = axis_text_size, colour = axis_text_colour, family = base_family
         ),
-      axis.text.x = element_text(margin = ggplot2::margin(t = tickLabelMargin)),
-      axis.text.y = element_text(margin = ggplot2::margin(r = tickLabelMargin)),
+      axis.text.x = element_text(margin = ggplot2::margin(t = half_line)),
+      axis.text.y = element_text(margin = ggplot2::margin(r = half_line)),
       axis.text.y.right = element_text(
-        margin = ggplot2::margin(l = tickLabelMargin)
+        margin = ggplot2::margin(l = half_line)
         ),
       
       # axis ticks
