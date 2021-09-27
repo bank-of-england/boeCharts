@@ -1,10 +1,8 @@
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-boeCharts
-=========
+# boeCharts
 
-Overview
---------
+## Overview
 
 `boeCharts` is an R package to help you create charts that are in-line
 with [the Bank’s visual identity
@@ -29,8 +27,7 @@ backlog](https://almplatform/tfs/UnmanagedCollection/Shared%20Analytical%20Code/
 For questions and other discussion, please use the [Data
 Community](https://bankexchange/groups/1067/SitePages/Home.aspx).
 
-Installation
-------------
+## Installation
 
 Ensure you are installing R packages via
 [Artifactory](https://binarycentral/artifactory/webapp/#/home) by
@@ -66,8 +63,7 @@ N.B. the development version should only be used for experimentation.
 Use the latest stable version, released via Artifactory, in any
 production code.
 
-Usage
------
+## Usage
 
 ### Complementing a ggplot2 worflow
 
@@ -230,12 +226,16 @@ themes), you should run the `import_calibri()` function. If you want to
 use fonts in PDF (or Postscript) output files, set the
 `boeCharts.loadfonts` option to `TRUE`.
 
+Font import depends on version 1.3.8 of the {rttf2pt1} package being
+available. The `install_rttf2pt1()` function is included in {boeCharts}
+to help handle this, and is run automatically as part of the `import_`
+operations described above.
+
 N.B. the font import step only needs to be run once on your machine.
 Fonts will be loaded automatically when you load `boeCharts` in future
 sessions.
 
-More guides/examples
---------------------
+## More guides/examples
 
 Talks:
 
@@ -261,8 +261,7 @@ Cookbooks:
 -   [Other charts from SPERI
     speech](http://collaborate/workspaces/RHelpCentre/R%20Markdown/ChartsOthers.html)
 
-How to contribute
------------------
+## How to contribute
 
 This is an ongoing project to abstract and consolidate Bank charting
 guidelines, and any/all contributions are encouraged. Inspecting the
