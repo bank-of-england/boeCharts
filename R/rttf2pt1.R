@@ -1,13 +1,15 @@
-# install rttf2pt1 in system library
-# http://collaborate/workspaces/RHelpCentre/R%20Markdown/Importing_Custom_Fonts.html
+#' Install specific rttf2pt1 version
+#' 
+#' Install {rttf2pt1} v1.3.8 so that font import works.
+#'
+#' @export
 install_rttf2pt1 <- function() {
   
-  sys_lib_num <- grep("C:/Program Files",.libPaths())[1]
-  
-  if (!"Rttf2pt1" %in% rownames(
-    utils::installed.packages(lib.loc = .libPaths()[sys_lib_num])
-  )) {
-    
-    utils::install.packages("Rttf2pt1", lib = .libPaths()[sys_lib_num])
+  if (packageVersion("rttf2pt1") != "1.3.8") {
+    remotes::install_version("Rttf2pt1", version = "1.3.8")
   }
+  
+  message(
+    "rttf2pt1 v1.3.8 installed. Run `boeCharts::import_xxx()` to install fonts"
+    )
 }
