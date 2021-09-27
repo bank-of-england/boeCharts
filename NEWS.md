@@ -1,5 +1,11 @@
 # boeCharts 1.3.0.9000
 
+## Breaking changes
+
+- Tweaks to axis text margins in `theme_fsr()` and `theme_mpr()`
+- Edited `base_colour` in `theme_mpr()`
+- Edited `base_colour` in `theme_overground()`
+
 ## New features
 
 - Added `install_rttf2pt1()` to install specific version of {rttf2pt1} that supports custom font import
@@ -7,7 +13,6 @@
 ## Minor changes
 
 - Remove `ggplotify` dependency
-- Tweaks to axis text margins in `theme_fsr()` and `theme_mpr()`
 
 # boeCharts 1.3.0
 

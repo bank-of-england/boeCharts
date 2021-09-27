@@ -53,10 +53,10 @@
 #' @export
 
 theme_overground <- function(
-  base_family = "Calibri", base_size = 11.5, base_colour = "#6B7E87",
-  plot_title_face = "bold", plot_title_size = 18, plot_title_colour = "#00294E", 
+  base_family = "Calibri", base_size = 11.5, base_colour = "#657581",
+  plot_title_face = "bold", plot_title_size = 18, plot_title_colour = "#005e6e", 
   plot_title_position = c("plot", "panel"),
-  subtitle_face = "plain", subtitle_colour = "#1e1e1e", subtitle_size = 14,  
+  subtitle_face = "plain", subtitle_colour = "#657581", subtitle_size = 14,  
   axis_title_size = base_size, axis_title_colour = base_colour,
   axis_title_face = "plain", axis_title_just = "mc",
   axis_text_size = base_size, axis_text_colour = base_colour,
@@ -65,7 +65,7 @@ theme_overground <- function(
   legend_text_size = base_size, legend_text_colour = base_colour, 
   legend_position = "top", legend_just = "left", 
   legend_margin = c(base_size/2, base_size/2, base_size/2, 0),
-  caption_face = "plain", caption_colour = base_colour, caption_size = base_size,  
+  caption_face = "plain", caption_colour = "#1e1e1e", caption_size = base_size,  
   strip_text_face = "plain", strip_text_colour = base_colour, strip_text_size = subtitle_size, 
   grid = "X", grid_col = "#C8CCCF", axis = "X", axis_col = grid_col, 
   ticks = axis, plot_margin = c(base_size/2, base_size/2, base_size/2, base_size*2)
@@ -262,7 +262,7 @@ theme_overground <- function(
 
 theme_mpr <- function(
   base_family = "Calibri", base_size = 11.5, base_colour = "#1e1e1e",
-  plot_title_face = "plain", plot_title_size = 18, plot_title_colour = "#00294E", 
+  plot_title_face = "plain", plot_title_size = 18, plot_title_colour = "#005e6e", 
   plot_title_position = c("panel", "plot"),
   subtitle_face = "plain", subtitle_colour = base_colour, subtitle_size = 14,  
   axis_title_size = base_size, axis_title_colour = base_colour,
@@ -319,10 +319,12 @@ theme_mpr <- function(
       axis.text = element_text(
         size = axis_text_size, colour = axis_text_colour, family = base_family
         ),
-      axis.text.x = element_text(margin = ggplot2::margin(t = half_line)),
+      axis.text.x = element_text(
+        margin = ggplot2::margin(t = half_line)
+        ),
       axis.text.y = element_text(margin = ggplot2::margin(r = half_line)),
       axis.text.y.right = element_text(
-        margin = ggplot2::margin(l = half_line)
+        margin = ggplot2::margin(l = half_line), hjust = 1
         ),
       
       # axis ticks

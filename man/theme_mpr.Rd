@@ -10,7 +10,7 @@ theme_mpr(
   base_colour = "#1e1e1e",
   plot_title_face = "plain",
   plot_title_size = 18,
-  plot_title_colour = "#00294E",
+  plot_title_colour = "#005e6e",
   plot_title_position = c("panel", "plot"),
   subtitle_face = "plain",
   subtitle_colour = base_colour,
