@@ -7,6 +7,7 @@
 ## Minor changes
 
 - Remove `ggplotify` dependency
+- Tweaks to axis text margins in `theme_fsr()` and `theme_mpr()`
 
 # boeCharts 1.3.0
 
