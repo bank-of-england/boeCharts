@@ -284,7 +284,3 @@ to:
     for how to create a branch from within R Studio) & [pull
     request](https://docs.microsoft.com/en-us/azure/devops/repos/git/pullrequest?view=azure-devops)
     model, or [contact Ewen](mailto:ewen.henderson@bankofengland.co.uk)
-
-### To do
-
--   Chart export destination helpers (e.g. 16x9 ppt half size)
