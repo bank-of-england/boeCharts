@@ -25,7 +25,6 @@ Imports:
     ggtext (>= 0.1.0),
     glue (>= 1.4.0),
     grDevices (>= 3.5.0),
-    gridExtra (>= 2.3),
     scales (>= 0.5.0)
 Suggests: 
     dplyr,

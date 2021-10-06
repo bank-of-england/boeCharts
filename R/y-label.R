@@ -44,30 +44,8 @@ move_ylab <- function(x) {
   
   if (nrow(pos) > 1)
     stop("move_ylab not available for facetted charts, yet.")
-  
-  # # select correct facet panel
-  # if (nrow(pos) > 1) {
-  #   
-  #   # which side is y axis
-  #   axis_grobs <- gtable_filter(g, pattern = "axis-l|axis-r")
-  #   axis_names <- axis_grobs$layout$name[!sapply(
-  #     axis_grobs$grobs, grepl, "zeroGrob[NULL]", fixed = TRUE
-  #     )]
-  #   
-  #   # select panel if y-axis on right
-  #   if (any(grepl("axis-r", axis_names))) {
-  #     
-  #     pos <- subset(pos, l == max(l) & t == max(t))
-  #     
-  #     # y-axis on left
-  #   } else {
-  #     
-  #     pos <- subset(pos, l == min(l) & t == max(t))
-  #   }
-  #   
-  # }
-  
-  height = unit(1.5, "grobheight", right)
+
+  height = ggplot2::unit(2, "grobheight", right)
   g <- gtable::gtable_add_rows(g, height, pos$t-1)
   
   g = gtable::gtable_add_grob(g, labs, t = pos$t, l = pos$l, r = pos$l)
@@ -75,5 +53,5 @@ move_ylab <- function(x) {
   g <- gtable::gtable_trim(g)
   
   grid::grid.newpage()
-  gridExtra::grid.arrange(g)
+  grid::grid.draw(g)
 }
