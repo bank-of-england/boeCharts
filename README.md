@@ -194,7 +194,7 @@ move_ylab(chart_fang)
 #### Markdown theme variants
 
 A Markdown variant of each {boeCharts} theme has been made with a `md_`
-suffix, like `theme_fsr_md()`. These themes add support for rendering
+suffix, like `theme_mpr_md()`. These themes add support for rendering
 text as markdown, thanks to the
 [ggtext](https://wilkelab.org/ggtext/index.html) package. Here’s an
 example:
@@ -206,7 +206,7 @@ fsr_chart_fang <- chart_fang +
     labels = boe_date_labels(),
     breaks = boe_breaks_date()
     ) +
-  theme_fsr_md(axis_title_size = 9, axis_text_size = 9, caption_size = 9) +
+  theme_mpr_md(axis_title_size = 9, axis_text_size = 9, caption_size = 9) +
   labs(title = "**Chart A.2** BoE Palette Test",
        subtitle = "A plot for demonstration purposes<sup>(a)</sup>",
        caption = caption_boe(source = "Investopedia", footnote = "A minor data quibble."))
