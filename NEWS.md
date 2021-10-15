@@ -4,6 +4,7 @@
 
 - Tweaks to axis text margins in `theme_fsr()` and `theme_mpr()`
 - Edited `base_colour` in `theme_fsr()`, `theme_mpr()` and `theme_overground()`
+- Edited caption justification in `theme_overground()`
 
 ## New features
 

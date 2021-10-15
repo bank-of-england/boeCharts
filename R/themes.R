@@ -56,7 +56,7 @@ theme_overground <- function(
   base_family = "Calibri", base_size = 11.5, base_colour = "#657581",
   plot_title_face = "bold", plot_title_size = 18, plot_title_colour = "#005e6e", 
   plot_title_position = c("plot", "panel"),
-  subtitle_face = "bold", subtitle_colour = "#657581", subtitle_size = 14,  
+  subtitle_face = "bold", subtitle_colour = base_colour, subtitle_size = 14,  
   axis_title_size = base_size, axis_title_colour = base_colour,
   axis_title_face = "plain", axis_title_just = "mc",
   axis_text_size = base_size, axis_text_colour = base_colour,
@@ -124,7 +124,7 @@ theme_overground <- function(
       
       # caption
       plot.caption = element_text(
-        hjust = 1, size = caption_size, margin = margin(t = half_line),
+        hjust = 0, size = caption_size, margin = margin(t = half_line),
         face = caption_face, colour = caption_colour, family = base_family
       ),
       
