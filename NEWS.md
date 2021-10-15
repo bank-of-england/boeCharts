@@ -3,8 +3,7 @@
 ## Breaking changes
 
 - Tweaks to axis text margins in `theme_fsr()` and `theme_mpr()`
-- Edited `base_colour` in `theme_mpr()`
-- Edited `base_colour` in `theme_overground()`
+- Edited `base_colour` in `theme_fsr()`, `theme_mpr()` and `theme_overground()`
 
 ## New features
 
