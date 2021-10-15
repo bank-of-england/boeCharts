@@ -10,7 +10,7 @@ theme_fsr(
   base_colour = "#1e1e1e",
   plot_title_face = "plain",
   plot_title_size = 18,
-  plot_title_colour = "#A31A7E",
+  plot_title_colour = "#005e6e",
   plot_title_position = c("panel", "plot"),
   subtitle_face = "plain",
   subtitle_colour = base_colour,
@@ -31,6 +31,7 @@ theme_fsr(
   caption_face = "plain",
   caption_colour = base_colour,
   caption_size = base_size,
+  caption_position = c("panel", "plot"),
   strip_text_face = "plain",
   strip_text_colour = base_colour,
   strip_text_size = 13,
@@ -50,10 +51,10 @@ theme_fsr(
 
 \item{plot_title_colour}{plot title face, size and colour}
 
-\item{plot_title_position}{Alignment of the plot title/subtitle and caption.
-A value of "plot" (the default) means that titles and/or caption are aligned to 
+\item{plot_title_position}{Alignment of the plot title/subtitle.
+A value of "plot" (the default) means that titles are aligned to 
 the entire plot (minus any space for margins and plot tag).
-A value of "panel" means that titles and/or caption are aligned to the plot panels}
+A value of "panel" means that titles are aligned to the plot panels}
 
 \item{subtitle_face}{plot subtitle face, size and colour}
 
@@ -99,6 +100,8 @@ face, size, and colour}
 
 \item{caption_size}{plot caption 
 face, size, and colour}
+
+\item{caption_position}{Alignment of the plot caption}
 
 \item{strip_text_face}{facet label font 
 face, size and colour}

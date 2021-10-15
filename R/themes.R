@@ -15,10 +15,10 @@
 #' @param base_family,base_size,base_colour base font family, size and colour
 #' @param plot_title_face,plot_title_size,plot_title_colour 
 #' plot title face, size and colour
-#' @param plot_title_position Alignment of the plot title/subtitle and caption.
-#' A value of "plot" (the default) means that titles and/or caption are aligned to 
+#' @param plot_title_position Alignment of the plot title/subtitle.
+#' A value of "plot" (the default) means that titles are aligned to 
 #' the entire plot (minus any space for margins and plot tag).
-#' A value of "panel" means that titles and/or caption are aligned to the plot panels 
+#' A value of "panel" means that titles are aligned to the plot panels 
 #' @param subtitle_face,subtitle_size,subtitle_colour plot subtitle face, size and colour
 #' @param axis_title_face,axis_title_size,axis_title_colour axis title font face, 
 #' size and colour
@@ -30,6 +30,7 @@
 #' @param legend_position,legend_just,legend_margin legend position, justification and margins
 #' @param caption_face,caption_size,caption_colour plot caption 
 #' face, size, and colour
+#' @param caption_position Alignment of the plot caption
 #' @param strip_text_face,strip_text_size,strip_text_colour facet label font 
 #' face, size and colour
 #' @param grid panel grid (`TRUE`, `FALSE`, or a combination of `X`, `x`, `Y`, `y`)
@@ -65,7 +66,8 @@ theme_overground <- function(
   legend_text_size = base_size, legend_text_colour = base_colour, 
   legend_position = "top", legend_just = "left", 
   legend_margin = c(base_size/2, base_size/2, base_size/2, 0),
-  caption_face = "plain", caption_colour = "#1e1e1e", caption_size = base_size,  
+  caption_face = "plain", caption_colour = "#1e1e1e", caption_size = base_size, 
+  caption_position = c("plot", "panel"),
   strip_text_face = "plain", strip_text_colour = base_colour, strip_text_size = subtitle_size, 
   grid = "X", grid_col = "#C8CCCF", axis = "X", axis_col = grid_col, 
   ticks = axis, plot_margin = c(base_size/2, base_size/2, base_size/2, base_size*2)
@@ -78,6 +80,7 @@ theme_overground <- function(
   yj <- switch(tolower(substr(axis_title_just, 2, 2)), b=0, l=0, m=0.5, c=0.5, r=1, t=1)
   
   title_pos <- match.arg(plot_title_position)
+  caption_pos <- match.arg(caption_position)
 
   # base theme
   p <- theme_minimal(base_family = base_family, base_size = base_size) %+replace% 
@@ -127,6 +130,7 @@ theme_overground <- function(
         hjust = 0, size = caption_size, margin = margin(t = half_line),
         face = caption_face, colour = caption_colour, family = base_family
       ),
+      plot.caption.position = caption_pos,
       
       # legend
       legend.title = element_text(
@@ -273,7 +277,8 @@ theme_mpr <- function(
   legend_text_size = base_size, legend_text_colour = base_colour, 
   legend_position = "top", legend_just = "left", 
   legend_margin = c(base_size/2, base_size/2, base_size/2, 0),
-  caption_face = "plain", caption_colour = base_colour, caption_size = base_size,  
+  caption_face = "plain", caption_colour = base_colour, caption_size = base_size, 
+  caption_position = c("panel", "plot"),
   strip_text_face = "plain", strip_text_colour = base_colour, 
   strip_text_size = 13, plot_margin = c(base_size/2, base_size/2, base_size/2, base_size*2)
   ) {
@@ -281,6 +286,7 @@ theme_mpr <- function(
   half_line <- base_size / 2
   
   title_pos <- match.arg(plot_title_position)
+  caption_pos <- match.arg(caption_position)
   
   # title justification
   xj <- switch(tolower(substr(axis_title_just, 1, 1)), b=0, l=0, m=0.5, c=0.5, r=1, t=1)
@@ -341,6 +347,7 @@ theme_mpr <- function(
         hjust = 0, size = caption_size, margin = ggplot2::margin(t = half_line),
         face = caption_face, colour = caption_colour, family = base_family
         ),
+      plot.caption.position = caption_pos,
       
       # legend
       legend.title = element_text(
@@ -412,6 +419,7 @@ theme_fsr <- function(
   legend_position = "top", legend_just = "left",
   legend_margin = c(base_size/2, base_size/2, base_size/2, 0),
   caption_face = "plain", caption_colour = base_colour, caption_size = base_size,
+  caption_position = c("panel", "plot"),
   strip_text_face = "plain", strip_text_colour = base_colour,
   strip_text_size = 13, plot_margin = c(base_size/2, base_size/2, base_size/2, base_size*2)
 ) {
