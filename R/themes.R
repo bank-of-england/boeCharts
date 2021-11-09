@@ -28,7 +28,8 @@
 #'    labs(title = "A Lovely Plot", subtitle = "Something insightful") +
 #'    theme_boe_identity() +
 #'    scale_y_continuous(position = "right") +
-#'    guides(colour = guide_legend(title = NULL, override.aes = list(size = 5)))
+#'    guides(colour = guide_legend(title = NULL, override.aes = list(size = 5))) +
+#'    scale_colour_discrete_boe(palette = "boe_identity")
 #'    
 #' }
 #' 
@@ -59,8 +60,8 @@ theme_boe_identity <- function(base_family = "Arial", base_size = 16, base_colou
         ),
       
       # background
-      panel.background = element_rect(fill = boe_identity$dark_blue, colour = NA),
-      plot.background = element_rect(fill = boe_identity$dark_blue, colour = NA),
+      panel.background = element_rect(fill = boe_brand_main$boe_dark_blue, colour = NA),
+      plot.background = element_rect(fill = boe_brand_main$boe_dark_blue, colour = NA),
       panel.border = element_blank(),
       
       plot.margin = ggplot2::margin(half_line, half_line, half_line, half_line),
