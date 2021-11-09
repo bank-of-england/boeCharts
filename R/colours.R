@@ -334,3 +334,29 @@ fsr_average <- list(
   mid_blue = "#165788",
   light_blue = "#63B1E5"
 )
+
+cols_brand <- list(
+  boe_aqua = "#3CD7D9",
+  boe_orange = "#FF7300",
+  boe_purple = "#9E71FE",
+  boe_gold = "D4AF37",
+  boe_green,
+  boe_pink,
+  boe_blue,
+  boe_yellow,
+  boe_peach,
+  boe_red
+)
+
+cols_brand_main <- list(
+  boe_dark_blue,
+  boe_aqua,
+  boe_stone
+)
+
+cols_brand_secondary <- list(
+  boe_orange,
+  boe_purple,
+  boe_gold
+)
+
