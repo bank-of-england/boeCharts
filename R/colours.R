@@ -1,17 +1,3 @@
-#' @export
-boe_identity <- list(
-  dark_blue = "#12273F",
-  aqua = "#3CD7D9",
-  orange = "#FF7300",
-  purple = "#9E71FE",
-  gold = "#D4AF37",
-  green = "#A5D700",
-  pink = "#FF33CC",
-  yellow = "#FFD200",
-  red = "#FD015B"
-)
-
-
 #' @title Colours from the Bank's colour palette
 #'
 #' @description Provides a vector of named colours taken from the Bank's
@@ -335,28 +321,52 @@ fsr_average <- list(
   light_blue = "#63B1E5"
 )
 
-cols_brand <- list(
+#' @title Colours from the Bank's "Visual Identity" chart palette
+#'
+#' @description Provides a vector of named colours taken from the Bank's
+#' "Visual Identity" chart palette.
+#' 
+#' @return A list of named hexadecimal colours.
+#'
+#' @export
+boe_identity <- list(
   boe_aqua = "#3CD7D9",
   boe_orange = "#FF7300",
   boe_purple = "#9E71FE",
   boe_gold = "D4AF37",
-  boe_green,
-  boe_pink,
-  boe_blue,
-  boe_yellow,
-  boe_peach,
-  boe_red
+  boe_green = "#A5D700",
+  boe_pink = "#FF50C8",
+  boe_azure = "#5297FF",
+  boe_yellow = "#FFD200",
+  boe_peach = "#FF9173",
+  boe_red = "#FD015B"
 )
 
-cols_brand_main <- list(
-  boe_dark_blue,
-  boe_aqua,
-  boe_stone
+#' @title Colours from the Bank's "Visual Identity" main brand palette
+#'
+#' @description Provides a vector of named colours taken from the Bank's
+#' "Visual Identity" main brand palette.
+#' 
+#' @return A list of named hexadecimal colours.
+#'
+#' @export
+boe_brand_main <- list(
+  boe_dark_blue = "#12273F",
+  boe_aqua = boe_identity$boe_aqua,
+  boe_stone = "#C4C9CF"
 )
 
-cols_brand_secondary <- list(
-  boe_orange,
-  boe_purple,
-  boe_gold
+#' @title Colours from the Bank's "Visual Identity" secondary brand palette
+#'
+#' @description Provides a vector of named colours taken from the Bank's
+#' "Visual Identity" secondary brand palette.
+#' 
+#' @return A list of named hexadecimal colours.
+#'
+#' @export
+boe_brand_secondary <- list(
+  boe_orange = boe_identity$boe_orange,
+  boe_purple = boe_identity$boe_purple,
+  boe_gold = boe_identity$boe_gold
 )
 
