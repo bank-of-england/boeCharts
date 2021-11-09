@@ -19,23 +19,21 @@
 #'
 #' ggplot(mtcars, aes(x = mpg, y = wt)) +
 #'    geom_point() +
-#'    labs(title = "A Lovely Plot", subtitle = "Something insightful",
-#'    caption = "Source: R") +
-#'    theme_boe() +
+#'    labs(title = "A Lovely Plot", subtitle = "Something insightful") +
+#'    theme_boe_identity() +
 #'    scale_y_continuous(position = "right")
 #'    
 #' ggplot(mtcars, aes(x = mpg, y = wt, colour = factor(cyl))) +
 #'    geom_point() +
-#'    labs(title = "A Lovely Plot", subtitle = "Something insightful",
-#'    caption = "Source: R") +
-#'    theme_boe() +
+#'    labs(title = "A Lovely Plot", subtitle = "Something insightful") +
+#'    theme_boe_identity() +
 #'    scale_y_continuous(position = "right") +
 #'    guides(colour = guide_legend(title = NULL, override.aes = list(size = 5)))
 #'    
 #' }
 #' 
-#' @name theme_boe
-theme_boe <- function(base_family = "Arial", base_size = 16, base_colour = "#C4C9CE",
+#' @name theme_boe_identity
+theme_boe_identity <- function(base_family = "Arial", base_size = 16, base_colour = "#C4C9CE",
                       grid = "X", axis = "X") {
   
   half_line <- base_size / 2
@@ -105,6 +103,7 @@ theme_boe <- function(base_family = "Arial", base_size = 16, base_colour = "#C4C
       legend.key = element_rect(fill = NA, colour = NA),
       legend.direction = "vertical", legend.justification = "left",
       legend.margin = margin(l = 0),
+      legend.box.margin = margin(l = 0),
       legend.box.spacing = ggplot2::unit(half_line, "pt")
     )
   

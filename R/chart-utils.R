@@ -59,13 +59,12 @@ move_ylab <- function(x) {
 
 #' Add a strong horizontal line at zero
 #'
-#' @return
 #' @export
-add_hline0 <- function() {
+add_hline0 <- function(colour = "#C4C9CE", size = 1.5) {
   
   layers <- list(
     ggplot2::geom_hline(
-      yintercept = 0, linetype = "solid", colour = "#C4C9CE", size = 1.5,
+      yintercept = 0, linetype = "solid", colour = colour, size = size,
       )
   )
   
