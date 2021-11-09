@@ -21,7 +21,16 @@
 #'    geom_point() +
 #'    labs(title = "A Lovely Plot", subtitle = "Something insightful",
 #'    caption = "Source: R") +
-#'    theme_boe()
+#'    theme_boe() +
+#'    scale_y_continuous(position = "right")
+#'    
+#' ggplot(mtcars, aes(x = mpg, y = wt, colour = factor(cyl))) +
+#'    geom_point() +
+#'    labs(title = "A Lovely Plot", subtitle = "Something insightful",
+#'    caption = "Source: R") +
+#'    theme_boe() +
+#'    scale_y_continuous(position = "right") +
+#'    guides(colour = guide_legend(title = NULL, override.aes = list(size = 5)))
 #'    
 #' }
 #' 
@@ -33,7 +42,6 @@ theme_boe <- function(base_family = "Arial", base_size = 16, base_colour = "#C4C
   base_line_size <- base_size / 22
   base_rect_size <- base_size / 22
   plot_titling_size <- 18
-  standard_margin <- 25
   gridline_size <- 0.5
   axis_tick_size <- 0.5
   axis_ticks_length <- 8
@@ -57,9 +65,7 @@ theme_boe <- function(base_family = "Arial", base_size = 16, base_colour = "#C4C
       plot.background = element_rect(fill = boe_identity$dark_blue, colour = NA),
       panel.border = element_blank(),
       
-      plot.margin = ggplot2::margin(
-        standard_margin, standard_margin, standard_margin, standard_margin
-        ),
+      plot.margin = ggplot2::margin(half_line, half_line, half_line, half_line),
 
       # titling
       plot.title = element_text(
@@ -69,24 +75,21 @@ theme_boe <- function(base_family = "Arial", base_size = 16, base_colour = "#C4C
       plot.title.position = "plot",
       plot.subtitle = element_text(
         size = plot_titling_size, face = "plain", hjust = 0, vjust = 1,
-        margin = ggplot2::margin(b = standard_margin)
+        margin = ggplot2::margin(b = half_line)
       ),
-      
-      # axes
-      axis.text = element_text(colour = base_colour, size = base_size),
-      axis.text.y.left = element_text(
-        colour = base_colour, size = base_size, margin = margin(r = 10), 
-        hjust = 1, vjust = 0.5
-        ),
-      axis.text.y.right = element_text(
-        colour = base_colour, size = base_size, margin = margin(l = 10), 
-        hjust = 0
-      ),
-      axis.title = element_text(colour = base_colour, size = base_size),
-      
       plot.caption = element_text(
         colour = base_colour, size = base_size,
         hjust = 1, vjust = 1, margin = ggplot2::margin(t = half_line)
+      ),
+      
+      # axes
+      axis.title = element_text(colour = base_colour, size = base_size),
+      axis.text = element_text(colour = base_colour, size = base_size),
+      axis.text.y.left = element_text(
+        colour = base_colour, size = base_size, hjust = 1, vjust = 0.5
+        ),
+      axis.text.y.right = element_text(
+        colour = base_colour, size = base_size, hjust = 0
       ),
       
       # legend
@@ -102,7 +105,7 @@ theme_boe <- function(base_family = "Arial", base_size = 16, base_colour = "#C4C
       legend.key = element_rect(fill = NA, colour = NA),
       legend.direction = "vertical", legend.justification = "left",
       legend.margin = margin(l = 0),
-      legend.box.spacing = ggplot2::unit(standard_margin, "pt")
+      legend.box.spacing = ggplot2::unit(half_line, "pt")
     )
   
   # chart grid
@@ -152,20 +155,20 @@ theme_boe <- function(base_family = "Arial", base_size = 16, base_colour = "#C4C
   # axis ticks
   if (inherits(axis, "character") | axis == TRUE) {
     p <- p + theme(axis.ticks = element_line(size = axis_tick_size / .pt, colour = base_colour),
-                   axis.ticks.length = grid::unit(axis_ticks_length, "pt"))
+                   axis.ticks.length = grid::unit(half_line, "pt"))
     if (inherits(axis, "character")) {
       axis <- tolower(axis)
       if (regexpr("x", axis)[1] < 0) {
         p <- p + theme(axis.ticks.x = element_blank())
       } else {
         p <- p + theme(axis.ticks.x = element_line(colour=base_colour, size = axis_tick_size / .pt),
-                       axis.ticks.length = grid::unit(axis_ticks_length, "pt"))
+                       axis.ticks.length = grid::unit(half_line, "pt"))
       }
       if (regexpr("y", axis)[1] < 0) {
         p <- p + theme(axis.ticks.y = element_blank())
       } else {
         p <- p + theme(axis.ticks.y = element_line(colour=base_colour, size = axis_tick_size / .pt),
-                       axis.ticks.length = grid::unit(axis_ticks_length, "pt"))
+                       axis.ticks.length = grid::unit(half_line, "pt"))
       }
     } else {
       p <- p + theme(axis.ticks.x = element_line(colour=base_colour, size = axis_tick_size / .pt),
