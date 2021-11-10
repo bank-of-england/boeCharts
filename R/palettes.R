@@ -1,109 +1,104 @@
+#' List of bank identity colour palettes
+#'
+#' @keywords internal
+#'
+#' @export
 boe_identity_palettes <- list(
   boe_identity = boe_identity,
   boe_brand_main = boe_brand_main,
   boe_brand_secondary = boe_brand_secondary
 )
 
+#' List of shades colour palettes
+#'
+#' @keywords internal
+#'
+#' @export
 boe_shades_palettes <- list(
   boe_shades_aqua = boe_shades_aqua
 )
 
-#' @title List of boe standard colour palettes: boe, boe_rich, boe_soft, boe_highlights, boe_neutral
+#' List of standard colour palettes
 #'
-#' @description List of lists of named colours taken from the Bank's
-#' \href{https://bankofengland.frontify.com/d/RPk6pMZziBFw/bank-standards#/brand-elements/colour-palette/colour-combinations}{colours}.
-#'
-#' @return A named list of lists of named hexadecimal colours.
-#' 
 #' @keywords internal
 #'
 #' @export
-boe_standard_palettes <- list(boe = boe,
-                              boe_rich = boe_rich,
-                              boe_highlights = boe_highlights,
-                              boe_soft = boe_soft,
-                              boe_neutral = boe_neutral)
+boe_standard_palettes <- list(
+  boe = boe,
+  boe_rich = boe_rich,
+  boe_highlights = boe_highlights,
+  boe_soft = boe_soft,
+  boe_neutral = boe_neutral
+)
 
 #' @title List of harmonious colour palettes
-#'
-#' @description List of lists of named colours taken from the Bank's
-#' \href{https://bankofengland.frontify.com/d/RPk6pMZziBFw/bank-standards#/brand-elements/colour-palette/colour-combinations}{Harmonious colour combinations}.
-#'
-#' @return A named list of lists of named hexadecimal colours.
 #' 
 #' @keywords internal
 #'
 #' @export
-boe_harmonious_palettes <- list(harmonious_blue = harmonious_blue,
-                                harmonious_teal = harmonious_teal,
-                                harmonious_green = harmonious_green,
-                                harmonious_orange = harmonious_orange,
-                                harmonious_purple = harmonious_purple,
-                                harmonious_pink = harmonious_pink,
-                                harmonious_red = harmonious_red,
-                                harmonious_grey = harmonious_grey)
+boe_harmonious_palettes <- list(
+  harmonious_blue = harmonious_blue,
+  harmonious_teal = harmonious_teal,
+  harmonious_green = harmonious_green,
+  harmonious_orange = harmonious_orange,
+  harmonious_purple = harmonious_purple,
+  harmonious_pink = harmonious_pink,
+  harmonious_red = harmonious_red,
+  harmonious_grey = harmonious_grey
+)
 
 
 #' @title List of vibrant colour palettes
-#'
-#' @description List of lists of named colours taken from the Bank's
-#' \href{https://bankofengland.frontify.com/d/RPk6pMZziBFw/bank-standards#/brand-elements/colour-palette/colour-combinations}{Vibrant colour combinations}.
-#'
-#' @return A named list of lists of named hexadecimal colours.
 #' 
 #' @keywords internal
 #'
 #' @export
-boe_vibrant_palettes = list(vibrant_a = vibrant_a,
-                            vibrant_b = vibrant_b,
-                            vibrant_c = vibrant_c,
-                            vibrant_d = vibrant_d,
-                            vibrant_e = vibrant_e,
-                            vibrant_f = vibrant_f,
-                            vibrant_g = vibrant_g,
-                            vibrant_h = vibrant_h)
+boe_vibrant_palettes = list(
+  vibrant_a = vibrant_a,
+  vibrant_b = vibrant_b,
+  vibrant_c = vibrant_c,
+  vibrant_d = vibrant_d,
+  vibrant_e = vibrant_e,
+  vibrant_f = vibrant_f,
+  vibrant_g = vibrant_g,
+  vibrant_h = vibrant_h
+)
 
 #' @title List of pre-MPC colour palettes
-#'
-#' @description List of lists of named colours taken from the Bank's
-#' pre Monetary Policy Committee (MPC) guidelines.
-#'
-#' @return A named list of lists of named hexadecimal colours.
 #' 
 #' @keywords internal
 #'
 #' @export
-pre_mpc_palettes = list(pre_mpc = pre_mpc, pre_mpc_light = pre_mpc_light)
+pre_mpc_palettes = list(
+  pre_mpc = pre_mpc, 
+  pre_mpc_light = pre_mpc_light
+  )
 
 #' @title List of FSR colour palettes
-#'
-#' @description List of lists of named colours taken from the Bank's
-#' Financial Stability Report (FSR) guidelines.
-#'
-#' @return A named list of lists of named hexadecimal colours.
 #' 
 #' @keywords internal
 #'
 #' @export
-fsr_palettes = list(fsr = fsr, fsr_currency = fsr_currency, fsr_average = fsr_average)
+fsr_palettes = list(
+  fsr = fsr, 
+  fsr_currency = fsr_currency, 
+  fsr_average = fsr_average
+  )
 
 #' @title List of diverging ColorBrewer-style colour palettes
-#'
-#' @description List of lists of named colours taken from the Bank's
-#' \href{https://bankofengland.frontify.com/d/RPk6pMZziBFw/bank-standards#/brand-elements/colour-palette/colour-combinations}{colours}.
-#'
-#' @return A named list of lists of named hexadecimal colours.
 #' 
 #' @keywords internal
 #'
 #' @export
-boe_diverging_palettes <- list(red_blue = red_blue,
-                               red_green = red_green,
-                               red_gray = red_gray,
-                               red_yellow_green = red_yellow_green,
-                               red_yellow_blue = red_yellow_blue,
-                               purple_green = purple_green,
-                               pink_green = pink_green)
+boe_diverging_palettes <- list(
+  red_blue = red_blue,
+  red_green = red_green,
+  red_gray = red_gray,
+  red_yellow_green = red_yellow_green,
+  red_yellow_blue = red_yellow_blue,
+  purple_green = purple_green,
+  pink_green = pink_green
+)
 
 #' List of Bank colour palettes
 #'

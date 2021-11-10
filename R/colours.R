@@ -237,7 +237,7 @@ fsr_average <- list(
 #'  theme_boe_identity()
 #' }
 #' 
-#' @name palettes_brand
+#' @name palettes_identity
 #' @export
 boe_identity <- list(
   boe_aqua = "#3CD7D9",
@@ -252,7 +252,7 @@ boe_identity <- list(
   boe_red = "#FD015B"
 )
 
-#' @rdname palettes_brand
+#' @rdname palettes_identity
 #' @export
 boe_brand_main <- list(
   boe_dark_blue = "#12273F",
@@ -260,7 +260,7 @@ boe_brand_main <- list(
   boe_stone = "#C4C9CF"
 )
 
-#' @rdname palettes_brand
+#' @rdname palettes_identity
 #' @export
 boe_brand_secondary <- list(
   boe_orange = boe_identity$boe_orange,
