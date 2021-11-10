@@ -1,7 +1,7 @@
-#' A \code{ggplot2} theme for Bank "Visual Identity" chart styling
+#' A \code{ggplot2} theme for the Bank's 2022 brand update chart design
 #' 
-#' @description Provides a theme to produce
-#' Bank "Visual Identity" style visualisations in \code{ggplot2}.
+#' Provides a theme to produce approximations of the Bank's 2022 brand update 
+#' chart design guidelines in \code{ggplot2}.
 #' 
 #' @details See \code{ggplot2::scale_y_continuous} for positioning y-axis on the right.
 #' 
