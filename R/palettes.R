@@ -4,6 +4,10 @@ boe_identity_palettes <- list(
   boe_brand_secondary = boe_brand_secondary
 )
 
+boe_shades_palettes <- list(
+  boe_shades_aqua = boe_shades_aqua
+)
+
 #' @title List of boe standard colour palettes: boe, boe_rich, boe_soft, boe_highlights, boe_neutral
 #'
 #' @description List of lists of named colours taken from the Bank's
@@ -108,6 +112,7 @@ boe_diverging_palettes <- list(red_blue = red_blue,
 #' @export
 boe_palettes <- c(
   boe_identity_palettes,
+  boe_shades_palettes,
   boe_standard_palettes,
   boe_harmonious_palettes,
   boe_vibrant_palettes,
@@ -117,8 +122,6 @@ boe_palettes <- c(
   fsr_palettes
 )
 
-
-# Functions ---------------------------------------------------------------
 
 #' A Bank colour palette generator
 #'
