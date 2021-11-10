@@ -16,7 +16,7 @@
 #' @examples \dontrun{
 #' 
 #' library(ggplot2)
-#'
+#' 
 #' ggplot(mtcars, aes(x = mpg, y = wt)) +
 #'    geom_point() +
 #'    labs(title = "A Lovely Plot", subtitle = "Something insightful") +
