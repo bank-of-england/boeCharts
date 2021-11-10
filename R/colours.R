@@ -4,20 +4,6 @@
 #' \href{http://intranet/BankNews/Pages/Updated-visual-identity-g-636195499604295252.aspx}{2017 visual identity guidelines}.
 #'
 #' @return A list of named hexadecimal colours.
-#'
-#' @examples \dontrun{
-#'
-#' library(ggplot2)
-#' library(boeCharts)
-#'
-#' ggplot(mtcars) +
-#'  aes(
-#'    x = mpg,
-#'    y = wt
-#'  ) +
-#'  geom_point(colour=boe$fuchsia) +
-#'  theme_mcg_pub()
-#' }
 #' 
 #' @name palettes_2017
 #' @export
@@ -43,7 +29,7 @@ boe <- list(
 
 #' Colour palettes from the Bank's 2018 brand update
 #'
-#' Named colours taken from the Bank's
+#' Colour palettes from the Bank's
 #' \href{https://bankofengland.frontify.com/d/RPk6pMZziBFw/bank-standards#/brand-elements/colour-palette}{2018 brand update}.
 #'
 #' @return A list of named hexadecimal colours.
@@ -59,6 +45,16 @@ boe <- list(
 #'    y = wt
 #'  ) +
 #'  geom_point(colour=boe_rich$rich_red) +
+#'  theme_mcg_pub()
+#'  
+#' ggplot(mtcars) +
+#'  aes(
+#'    x = mpg,
+#'    y = wt,
+#'    colour = factor(cyl)
+#'  ) +
+#'  geom_point() +
+#'  scale_colour_discrete_boe(palette = "boe_rich") +
 #'  theme_mcg_pub()
 #' }
 #' 
@@ -210,14 +206,38 @@ fsr_average <- list(
   light_blue = "#63B1E5"
 )
 
-#' Colour palettes from the Bank's 2022 brand update
+#' Brand colour palettes from the Bank's 2022 brand update
 #'
-#' Named colours taken from the Bank's
+#' Colour palettes taken from the Bank's
 #' \href{https://company-140087.frontify.com/document/351383#/brand-elements/colours}{2022 brand update}.
 #' 
 #' @return A list of named hexadecimal colours.
 #' 
-#' @name palettes_2022
+#' @examples \dontrun{
+#'
+#' library(ggplot2)
+#' library(boeCharts)
+#'
+#' ggplot(mtcars) +
+#'  aes(
+#'    x = mpg,
+#'    y = wt
+#'  ) +
+#'  geom_point(colour=boe_identity$boe_purple) +
+#'  theme_boe_identity()
+#'  
+#' ggplot(mtcars) +
+#'  aes(
+#'    x = mpg,
+#'    y = wt,
+#'    colour = factor(cyl)
+#'  ) +
+#'  geom_point() +
+#'  scale_colour_discrete_boe(palette = "boe_identity") +
+#'  theme_boe_identity()
+#' }
+#' 
+#' @name palettes_brand
 #' @export
 boe_identity <- list(
   boe_aqua = "#3CD7D9",
@@ -232,7 +252,7 @@ boe_identity <- list(
   boe_red = "#FD015B"
 )
 
-#' @rdname palettes_2022
+#' @rdname palettes_brand
 #' @export
 boe_brand_main <- list(
   boe_dark_blue = "#12273F",
@@ -240,7 +260,7 @@ boe_brand_main <- list(
   boe_stone = "#C4C9CF"
 )
 
-#' @rdname palettes_2022
+#' @rdname palettes_brand
 #' @export
 boe_brand_secondary <- list(
   boe_orange = boe_identity$boe_orange,
@@ -248,13 +268,30 @@ boe_brand_secondary <- list(
   boe_gold = boe_identity$boe_gold
 )
 
-#' @title Colours from the Bank's "Visual Identity" aqua shades palette
+#' Colour shades palettes from the Bank's 2022 brand update
 #'
-#' @description Provides a vector of named colours taken from the Bank's
-#' "Visual Identity" aqua shades palette.
+#' Colour palettes taken from the Bank's
+#' \href{https://company-140087.frontify.com/document/351383#/brand-elements/colours}{2022 brand update}.
 #' 
 #' @return A list of named hexadecimal colours.
+#' 
+#' @examples \dontrun{
 #'
+#' library(ggplot2)
+#' library(boeCharts)
+#'
+#' ggplot(mtcars) +
+#'  aes(
+#'    x = mpg,
+#'    y = wt,
+#'    colour = factor(cyl)
+#'  ) +
+#'  geom_point() +
+#'  scale_colour_discrete_boe(palette = "boe_shades_aqua") +
+#'  theme_boe_identity()
+#' }
+#' 
+#' @name palettes_shades
 #' @export
 boe_shades_aqua <- list(
   boe_dark_aqua = "#34BCC1",
