@@ -64,27 +64,6 @@ boe_vibrant_palettes = list(
   vibrant_h = vibrant_h
 )
 
-#' @title List of pre-MPC colour palettes
-#' 
-#' @keywords internal
-#'
-#' @export
-pre_mpc_palettes = list(
-  pre_mpc = pre_mpc, 
-  pre_mpc_light = pre_mpc_light
-  )
-
-#' @title List of FSR colour palettes
-#' 
-#' @keywords internal
-#'
-#' @export
-fsr_palettes = list(
-  fsr = fsr, 
-  fsr_currency = fsr_currency, 
-  fsr_average = fsr_average
-  )
-
 #' @title List of diverging ColorBrewer-style colour palettes
 #' 
 #' @keywords internal
@@ -100,6 +79,26 @@ boe_diverging_palettes <- list(
   pink_green = pink_green
 )
 
+#' @title List of publication colour palettes
+#' 
+#' @keywords internal
+#'
+#' @export
+boe_publication_palettes = list(
+  boe_website = boe_website,
+  boe_overground = boe_overground,
+  pre_mpc = pre_mpc, 
+  pre_mpc_light = pre_mpc_light,
+  fsr = fsr,
+  fsr_main = fsr_main,
+  fsr_currency = fsr_currency, 
+  fsr_average = fsr_average,
+  mpr_main = mpr_main,
+  mcg_pub = mcg_pub
+)
+
+
+
 #' List of Bank colour palettes
 #'
 #' Bank colour palettes made accessible via a single list.
@@ -112,9 +111,7 @@ boe_palettes <- c(
   boe_harmonious_palettes,
   boe_vibrant_palettes,
   boe_diverging_palettes,
-  mcg = list(mcg_pub),
-  pre_mpc_palettes,
-  fsr_palettes
+  boe_publication_palettes
 )
 
 

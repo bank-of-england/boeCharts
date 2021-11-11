@@ -200,6 +200,36 @@ fsr_currency <- list(
 
 #' @rdname palettes_publication
 #' @export
+boe_website <- list(
+  boe_rich_blue = boe_rich$rich_blue,
+  boe_red = boe_highlights$red,
+  boe_rich_teal = boe_rich$rich_teal
+)
+
+#' @rdname palettes_publication
+#' @export
+boe_overground <- list(
+  boe_purple = boe_highlights$purple,
+  boe_red = boe_highlights$red,
+  boe_rich_purple = boe_rich$rich_purple
+)
+
+#' @rdname palettes_publication
+#' @export
+mpr_main <- list(
+  boe_teal = boe_highlights$teal,
+  boe_green = boe_highlights$green
+)
+
+#' @rdname palettes_publication
+#' @export
+fsr_main <- list(
+  boe_purple = boe_highlights$purple,
+  boe_rich_purple = boe_rich$rich_purple
+)
+
+#' @rdname palettes_publication
+#' @export
 fsr_average <- list(
   light_orange = "#df7a00",
   mid_blue = "#165788",
