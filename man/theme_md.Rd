@@ -6,6 +6,7 @@
 \alias{theme_mpr_md}
 \alias{theme_overground_md}
 \alias{theme_mcg_pub_md}
+\alias{theme_boe_identity_md}
 \title{Bank ggplot2 Markdown Themes}
 \usage{
 theme_fsr_md(...)
@@ -15,6 +16,8 @@ theme_mpr_md(...)
 theme_overground_md(...)
 
 theme_mcg_pub_md(...)
+
+theme_boe_identity_md(...)
 }
 \arguments{
 \item{...}{Arguments passed on to the corresponding `{boeCharts}` theme}
