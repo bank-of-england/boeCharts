@@ -3,18 +3,14 @@
 \docType{data}
 \name{boe_standard_palettes}
 \alias{boe_standard_palettes}
-\title{List of boe standard colour palettes: boe, boe_rich, boe_soft, boe_highlights, boe_neutral}
+\title{List of standard colour palettes}
 \format{
 An object of class \code{list} of length 5.
 }
 \usage{
 boe_standard_palettes
 }
-\value{
-A named list of lists of named hexadecimal colours.
-}
 \description{
-List of lists of named colours taken from the Bank's
-\href{https://bankofengland.frontify.com/d/RPk6pMZziBFw/bank-standards#/brand-elements/colour-palette/colour-combinations}{colours}.
+List of standard colour palettes
 }
 \keyword{internal}

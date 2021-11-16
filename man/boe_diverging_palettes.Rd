@@ -10,11 +10,7 @@ An object of class \code{list} of length 7.
 \usage{
 boe_diverging_palettes
 }
-\value{
-A named list of lists of named hexadecimal colours.
-}
 \description{
-List of lists of named colours taken from the Bank's
-\href{https://bankofengland.frontify.com/d/RPk6pMZziBFw/bank-standards#/brand-elements/colour-palette/colour-combinations}{colours}.
+List of diverging ColorBrewer-style colour palettes
 }
 \keyword{internal}
