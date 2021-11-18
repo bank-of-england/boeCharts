@@ -1,8 +1,6 @@
 .Rproj.user
 .Rhistory
 *.html
-*.xlsx
-*.xls
 *.tar.gz
 *.zip
 doc/
