@@ -25,7 +25,6 @@ FANG
 }
 \description{
 A dataset containing the daily historical stock prices for the "FANG" tech stocks,
-"FB", "AMZN", "NFLX", and "GOOG", spanning from the beginning of
-2013 through the end of 2016.
+"FB", "AMZN", "NFLX", and "GOOG", from 2013 to 2016.
 }
 \keyword{datasets}

@@ -2,6 +2,7 @@ devtools::load_all()
 
 library(dplyr)
 library(tidyr)
+library(readxl)
 
 # save FANG data (needs tidyquant pkg)
 FANG <- tidyquant::FANG
@@ -9,13 +10,12 @@ FANG <- tidyquant::FANG
 # load gold data
 gold_holdings <- readxl::read_excel(
   path = system.file("extdata", "gold-data.XLSX", package = "boeCharts"),
-  skip = 5
+  skip = 6
   ) %>% 
-  select(
-    date = Date, holdings = `Holdings (‘000s)`, percent_change = `% change`
-    ) %>% 
+  unite("date", .:...2, na.rm = TRUE) %>% 
+  select(date, amount = ...3) %>% 
   dplyr::filter(!is.na(date)) %>% 
-  mutate(percent_change = as.numeric(percent_change), date = as.Date(date))
+  mutate(date = as.Date(date))
 
 # load sovereign debt defaults
 sovereign_defaults <- readxl::read_excel(
