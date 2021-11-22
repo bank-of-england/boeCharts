@@ -80,10 +80,6 @@ First, load packages:
 
 ``` r
 library(boeCharts)
-#> boeCharts: Bank Chart Themes and Styles for 'ggplot2'. 
-#>      For more information visit:
-#>      https://almplatform/tfs/UnmanagedCollection/Shared%20Analytical%20Code/_git/boeCharts?path=%2FREADME.md
-#> 
 library(ggplot2)
 library(palmerpenguins) # for example purposes only
 ```
@@ -91,11 +87,8 @@ library(palmerpenguins) # for example purposes only
 Here is an out-of-the-box `ggplot2` chart.
 
 ``` r
-# build chart
-(chart <- ggplot(penguins, aes(flipper_length_mm, body_mass_g, color = species)) +
-  # jittery scatter
-  geom_jitter(size = 3)
-)
+ggplot(penguins, aes(flipper_length_mm, body_mass_g, color = species)) +
+  geom_jitter()
 ```
 
 ![](man/figures/README-unnamed-chunk-6-1.png)
@@ -107,10 +100,10 @@ Overground](https://www.bankofengland.co.uk/bank-overground) chart
 theme:
 
 ``` r
-(chart <- chart +
+ggplot(penguins, aes(flipper_length_mm, body_mass_g, color = species)) +
+  geom_jitter() +
   # add Bank Overground theme
   theme_overground()
-)
 ```
 
 ![](man/figures/README-unnamed-chunk-7-1.png)
@@ -121,11 +114,11 @@ combination variant, via `scale_colour_discrete_boe()`, again as an
 additional ggplot layer:
 
 ``` r
-chart <- chart +
+ggplot(penguins, aes(flipper_length_mm, body_mass_g, color = species)) +
+  geom_jitter() +
+  theme_overground() +
   # add a "vibrant" Bank colour combination
   scale_colour_discrete_boe(palette = "vibrant_c")
-
-chart
 ```
 
 ![](man/figures/README-unnamed-chunk-8-1.png)
@@ -136,7 +129,8 @@ theme and pre-MPC colours. Additionally, `scale_y_continuous()` is used
 to move the y-axis across to the right.
 
 ``` r
-chart +
+ggplot(penguins, aes(flipper_length_mm, body_mass_g, color = species)) +
+  geom_jitter() +
   # add MPR theme
   theme_mpr() +
   # add a "vibrant" Bank colour combination
@@ -152,24 +146,30 @@ chart +
 #### An in-depth example
 
 Another `ggplot2` + `boeCharts` creation, this time investigating some
-more customization options, including automatic axis breaks/limits
-(using `boe_breaks|limits_date|numeric()`), direct line labels (using
-`position_voronoi()`) and above-plot y-axis title positioning (using
-`move_ylab()`).
+more customization options, including:
+
+-   automatic axis breaks/limits (using
+    `boe_breaks|limits_date|numeric()`)
+-   direct line labels (using `position_voronoi()`)
+-   non-standard y-axis title positioning (using `move_ylab()`)
+-   markdown
 
 ``` r
 # create chart
-chart_fang <- ggplot(data = FANG, aes(x = date, y = close, colour = symbol)) +
+chart <- ggplot(data = FANG, aes(x = date, y = close, colour = symbol)) +
   # add lines + hide legend
-  geom_line(lwd = 0.75, show.legend = FALSE) +
+  geom_line(lwd = 0.75, lineend = "round", show.legend = FALSE) +
   # add series labels + hide legend
-  geom_text(aes(label = symbol), position = position_voronoi(), 
-            family = "Calibri", show.legend = FALSE) +
+  geom_text(
+    aes(label = symbol), position = position_voronoi(), 
+    family = "Calibri", show.legend = FALSE
+    ) +
   # add some chart labels
   labs(
-    title = "BoE Palette Test", subtitle = "A plot for demonstration purposes",
+    title = "Chart 1.2: Historical FANG stock prices", 
+    subtitle = 'Daily stock prices for "FB", "AMZN", "NFLX" and "GOOG" (FANG), 2013-2016',
     caption = caption_boe(source = "Investopedia"),
-    y = "Closing price", x = NULL
+    y = "Stock price at the close of trading (USD)", x = NULL
     ) +
   # use 'highlights' palette
   scale_colour_discrete_boe(palette = "boe_highlights") +
@@ -186,7 +186,7 @@ chart_fang <- ggplot(data = FANG, aes(x = date, y = close, colour = symbol)) +
     )
 
 # re-position y axis title above plot
-move_ylab(chart_fang)
+move_ylab(chart)
 ```
 
 ![](man/figures/README-example-1.png)
@@ -200,18 +200,20 @@ text as markdown, thanks to the
 example:
 
 ``` r
-fsr_chart_fang <- chart_fang +
+mpr_chart <- chart +
   # apply custom axis settings
   scale_x_date(
     labels = boe_date_labels(),
     breaks = boe_breaks_date()
     ) +
   theme_mpr_md(axis_title_size = 9, axis_text_size = 9, caption_size = 9) +
-  labs(title = "**Chart A.2** BoE Palette Test",
-       subtitle = "A plot for demonstration purposes<sup>(a)</sup>",
-       caption = caption_boe(source = "Investopedia", footnote = "A minor data quibble."))
+  labs(
+    title = "**Chart A.2** Historical FANG stock prices",
+    subtitle = 'Daily stock prices for "FB", "AMZN", "NFLX" and "GOOG" (FANG), 2013-2016<sup>(a)</sup>',
+    caption = caption_boe(source = "Investopedia", footnote = "A minor data detail.")
+    )
 
-move_ylab(fsr_chart_fang)
+move_ylab(mpr_chart)
 ```
 
 ![](man/figures/README-unnamed-chunk-10-1.png)
