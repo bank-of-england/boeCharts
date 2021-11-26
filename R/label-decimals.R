@@ -21,12 +21,12 @@
 #' 
 #' ggplot(mtcars, aes(x = disp, y = wt, color = carb)) +
 #'     geom_point() +
-#'     scale_y_continuous(labels = format_decimal_places(4), position = "right")
+#'     scale_y_continuous(labels = label_decimal_places(4), position = "right")
 #'     
 #' ggplot(mtcars, aes(x = disp, y = wt, color = carb)) +
 #'  geom_point() +
-#'  scale_y_continuous(labels = format_one_dp, position = "right")
-format_decimal_places = function(dp) {
+#'  scale_y_continuous(labels = label_one_dp, position = "right")
+label_decimal_places <- function(dp) {
   
   function(x) {
     
@@ -35,9 +35,21 @@ format_decimal_places = function(dp) {
 }
 
 #' @export
-#' @rdname format_decimal_places
-format_one_dp = format_decimal_places(1)
+#' @rdname label_decimal_places
+label_one_dp <- label_decimal_places(1)
 
 #' @export
-#' @rdname format_decimal_places
-format_zero_dp = format_decimal_places(0)
+#' @rdname label_decimal_places
+label_zero_dp = label_decimal_places(0)
+
+#' @export
+#' @rdname label_decimal_places
+format_decimal_places <- label_decimal_places
+
+#' @export
+#' @rdname label_decimal_places
+format_one_dp <- label_one_dp
+
+#' @export
+#' @rdname label_decimal_places
+format_zero_dp <- label_zero_dp
