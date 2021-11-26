@@ -18,6 +18,12 @@
 #' ggplot(gold_holdings, aes(x = date, y = amount)) +
 #' geom_line() +
 #' scale_x_date(labels = label_year_short())
+#' @name label_date
+#' @aliases NULL
+NULL
+
+#' @export
+#' @rdname label_date
 label_year_short <- function() {
   
   function(x) {
@@ -31,7 +37,7 @@ label_year_short <- function() {
 }
 
 #' @export
-#' @rdname label_year_short
+#' @rdname label_date
 boe_date_labels <- function() {
   
   .Deprecated("scales::label_date_short", package = "scales")

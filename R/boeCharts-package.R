@@ -5,7 +5,6 @@
 #' 
 #' @importFrom extrafont font_import loadfonts
 #' @import ggplot2
-#' @importFrom scales dollar_format
 #' @importFrom grDevices windowsFont windowsFonts rgb col2rgb
 #' @importFrom graphics rect par image text pie
 #' @importFrom labeling extended
