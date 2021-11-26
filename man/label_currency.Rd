@@ -3,6 +3,7 @@
 \name{label_currency}
 \alias{label_currency}
 \alias{label_pound}
+\alias{label_euro}
 \alias{format_currency}
 \alias{format_pound}
 \title{Label currencies}
@@ -17,6 +18,15 @@ label_currency(
 )
 
 label_pound(
+  suffix = "",
+  largest_with_pence = 1e+05,
+  ...,
+  big.mark = ",",
+  negative_parens = FALSE
+)
+
+label_euro(
+  prefix = intToUtf8(8364),
   suffix = "",
   largest_with_pence = 1e+05,
   ...,
@@ -71,4 +81,7 @@ label_currency(prefix ="EUR")(100)
 
 label_pound()(100.75)
 label_pound(negative_parens = TRUE)(c(100.75, 251))
+
+label_euro()(100.75)
+label_euro(negative_parens = TRUE)(c(100.75, 251))
 }

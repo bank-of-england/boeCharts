@@ -22,6 +22,9 @@
 #' 
 #' label_pound()(100.75)
 #' label_pound(negative_parens = TRUE)(c(100.75, 251))
+#' 
+#' label_euro()(100.75)
+#' label_euro(negative_parens = TRUE)(c(100.75, 251))
 label_currency <- function(
   prefix = intToUtf8(0x00A3), suffix = "", largest_with_pence = 1e+05, ...,
   big.mark = ",", negative_parens = FALSE
@@ -39,6 +42,22 @@ label_pound = function(suffix = "", largest_with_pence = 1e+05, ...,
                         big.mark = ",", negative_parens = FALSE) {
   
   label_currency(
+    suffix = suffix,
+    largest_with_pence = largest_with_pence,
+    ...,
+    big.mark = big.mark,
+    negative_parens = negative_parens
+  )
+}
+
+#' @export
+#' @rdname label_currency
+label_euro = function(
+  prefix = intToUtf8(0x20AC), suffix = "", largest_with_pence = 1e+05, ...,
+  big.mark = ",", negative_parens = FALSE) {
+  
+  label_currency(
+    prefix = prefix,
     suffix = suffix,
     largest_with_pence = largest_with_pence,
     ...,
