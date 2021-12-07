@@ -3,9 +3,5 @@
 #' A compilation of 'ggplot2' themes, scales and helpers to create Bank-style, 
 #' publication-ready visualisations.
 #' 
-#' @importFrom extrafont font_import loadfonts
-#' @import ggplot2
-#' @importFrom grDevices windowsFont windowsFonts rgb col2rgb
-#' @importFrom graphics rect par image text pie
-#' @importFrom labeling extended
+#' @import ggplot2 grDevices
 "_PACKAGE"

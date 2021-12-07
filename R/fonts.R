@@ -13,7 +13,7 @@ import_arial <- function() {
   
   install_rttf2pt1()
   
-  font_import(pattern = "arial", prompt = FALSE)
+  extrafont::font_import(pattern = "arial", prompt = FALSE)
 }
 
 #' @export
@@ -22,7 +22,7 @@ import_calibri <- function() {
   
   install_rttf2pt1()
   
-  font_import(pattern = "calibri", prompt = FALSE)
+  extrafont::font_import(pattern = "calibri", prompt = FALSE)
 }
 
 #' @rdname Arial
@@ -55,6 +55,10 @@ font_calibri_light <- "Calibri Light"
 #' @export
 update_geom_font_defaults <- function(family, face="plain", size=3.5,
                                       color = "#1e1e1e") {
-  update_geom_defaults("text", list(family=family, face=face, size=size, color=color))
-  update_geom_defaults("label", list(family=family, face=face, size=size, color=color))
+  ggplot2::update_geom_defaults(
+    "text", list(family=family, face=face, size=size, color=color)
+    )
+  ggplot2::update_geom_defaults(
+    "label", list(family=family, face=face, size=size, color=color)
+    )
 }
