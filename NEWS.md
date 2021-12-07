@@ -1,4 +1,30 @@
-# boeCharts 1.3.0.9000
+# boeCharts (development version)
+
+## New features
+
+- Added a [Bank identity]() theme. See `theme_boe_identity()`
+- Added new Bank identity colour palettes:
+        - Core: `boe_identity`, `boe_brand_main`, `boe_brand_secondary`
+        - Shades: `boe_shades_aqua`
+
+# boeCharts 1.3.1.9000
+
+## New features
+
+- Added `gold_holdings` and `sovereign_defaults` example datasets
+- `label_year_short()` for formatting year labels as specified in new identity 
+guidelines
+- `label_euro()` for formatting euro currency labels
+- `scale_x|y_year()` for formatting year labels with `label_year_short()`
+
+## Minor changes
+
+- Fix linux machine installation issues (#1308)
+- Renamed existing labeller functions to match {scales} package API
+- More unit testing for breaks, labelling and scales
+- Rationalised documentation pages in a few places
+
+# boeCharts 1.3.1
 
 ## Breaking changes
 
