@@ -47,7 +47,7 @@ show_palette_cols <- function(palette) {
   
   cols <- colours_from_palette(palette, strip_names = F)
   
-  pie(
+  graphics::pie(
     rep(1, length(cols)),
     col = cols,
     labels = names(cols))
@@ -157,11 +157,11 @@ colours_from_palette <- function(palette, strip_names = TRUE) {
 # convert rgb colours into hexidecimal
 rgb2hex <- function(r, g, b) {
   
-  rgb(red = r, green = g, blue = b, maxColorValue = 255)
+ grDevices::rgb(red = r, green = g, blue = b, maxColorValue = 255)
 } 
 
 # convert hexidecimal colours into rgb
-hex2rgb <- function(x) as.vector(col2rgb(x))
+hex2rgb <- function(x) as.vector(grDevices::col2rgb(x))
 
 #' Left-align chart titles
 #' 
