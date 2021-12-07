@@ -11,6 +11,8 @@ Authors@R: c(
       role = c("aut")),
       person("Sienna", "Holcombe", email = "sienna.holcombe@bankofengland.co.uk", 
       role = c("aut")),
+      person("James", "Laird-Smith", email = "James.Laird-Smith@bankofengland.co.uk", 
+      role = c("aut")),
       person("Bank of England", role = c("cph", "fnd"))
     )
 Description: A compilation of 'ggplot2' themes, scales and helpers to create Bank-style,
