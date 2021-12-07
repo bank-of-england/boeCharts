@@ -268,4 +268,3 @@ scale_continuous_boe <- function(palette,
   }
  
 }
-
