@@ -12,14 +12,11 @@
 #' work similarly for all scales, including those that generate legends rather 
 #' than axes.
 #' 
-#' @export
-#'
 #' @examples
 #' ggplot(gold_holdings, aes(x = date, y = amount)) +
 #' geom_line() +
 #' scale_x_date(labels = label_year_short())
 #' @name label_date
-#' @aliases NULL
 NULL
 
 #' @export

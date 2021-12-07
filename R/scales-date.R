@@ -6,14 +6,11 @@
 #' by default)
 #' @param ... Other arguments passed on to [ggplot2::scale_x_date()]
 #'
-#' @export
-#'
 #' @examples
 #' ggplot(gold_holdings, aes(x = date, y = amount)) +
 #' geom_line() +
 #' scale_x_year()
 #' @name scale_date
-#' @aliases NULL
 NULL
 
 #' @export
