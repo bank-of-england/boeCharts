@@ -13,6 +13,8 @@
 #' than axes.
 #' 
 #' @examples
+#' library(ggplot2)
+#' 
 #' ggplot(gold_holdings, aes(x = date, y = amount)) +
 #' geom_line() +
 #' scale_x_date(labels = label_year_short())

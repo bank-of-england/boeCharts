@@ -4,6 +4,8 @@
 #'
 #' @param prefix Symbol to display before amount, defaults to 
 #' \code{intToUtf8(0x00A3)} (aka a pound sign)
+#' @param largest_with_pence value that all values must be less than in order 
+#' for pence to be displayed
 #' @inheritParams scales::label_dollar
 #'
 #' @return All [label_()] functions return a "labelling" function, i.e. a function 

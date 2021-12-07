@@ -25,6 +25,8 @@ sufficient to uniquely identify labels, keeping a full year format string for
 the first label.
 }
 \examples{
+library(ggplot2)
+
 ggplot(gold_holdings, aes(x = date, y = amount)) +
 geom_line() +
 scale_x_date(labels = label_year_short())

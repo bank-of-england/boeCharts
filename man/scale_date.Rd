@@ -20,6 +20,8 @@ by default)}
 Opinionated presets for date/time [ggplot2] scales.
 }
 \examples{
+library(ggplot2)
+
 ggplot(gold_holdings, aes(x = date, y = amount)) +
 geom_line() +
 scale_x_year()

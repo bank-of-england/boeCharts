@@ -57,6 +57,9 @@ format_pound(
 
 \item{suffix}{Symbols to display before and after value.}
 
+\item{largest_with_pence}{value that all values must be less than in order 
+for pence to be displayed}
+
 \item{...}{Other arguments passed on to \code{\link[base:format]{base::format()}}.}
 
 \item{big.mark}{Character used between every 3 digits to separate thousands.}
