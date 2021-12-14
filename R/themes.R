@@ -84,12 +84,6 @@ theme_boe_identity <- function(base_family = "Arial", base_size = 16, base_colou
       # axes
       axis.title = element_text(colour = base_colour, size = base_size),
       axis.text = element_text(colour = base_colour, size = base_size),
-      axis.text.y.left = element_text(
-        colour = base_colour, size = base_size, hjust = 1, vjust = 0.5
-        ),
-      axis.text.y.right = element_text(
-        colour = base_colour, size = base_size, hjust = 0
-      ),
       
       # legend
       legend.position = "top", 
