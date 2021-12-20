@@ -4,7 +4,7 @@
 \name{boeCharts-package}
 \alias{boeCharts}
 \alias{boeCharts-package}
-\title{Bank Chart Themes and Styling for 'ggplot2'}
+\title{Bank of England Chart Themes and Styling for 'ggplot2'}
 \description{
 A compilation of 'ggplot2' themes, scales and helpers to create Bank-style, 
 publication-ready visualisations.
@@ -16,6 +16,8 @@ Authors:
 \itemize{
   \item Alastair Firrell \email{alastair.firrell@bankofengland.co.uk}
   \item Joshua Allen \email{joshua.allen@bankofengland.co.uk}
+  \item Sienna Holcombe \email{sienna.holcombe@bankofengland.co.uk}
+  \item James Laird-Smith \email{James.Laird-Smith@bankofengland.co.uk}
 }
 
 Other contributors:

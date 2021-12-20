@@ -1,3 +1,62 @@
+# boeCharts (development version)
+
+## New features
+
+- Added a [Bank identity]() theme. See `theme_boe_identity()`
+- Added new Bank identity colour palettes:
+        - Core: `boe_identity`, `boe_brand_main`, `boe_brand_secondary`
+        - Shades: `boe_shades_aqua`
+
+# boeCharts 1.3.1.9000
+
+## New features
+
+- Added `gold_holdings` and `sovereign_defaults` example datasets
+- `label_year_short()` for formatting year labels as specified in new identity 
+guidelines
+- `label_euro()` for formatting euro currency labels
+- `scale_x|y_year()` for formatting year labels with `label_year_short()`
+
+## Minor changes
+
+- Fix linux machine installation issues (#1308)
+- Renamed existing labeller functions to match {scales} package API
+- More unit testing for breaks, labelling and scales
+- Rationalised documentation pages in a few places
+
+# boeCharts 1.3.1
+
+## Breaking changes
+
+- Tweaks to axis text margins in `theme_fsr()` and `theme_mpr()`
+- Edited `base_colour` in `theme_fsr()`, `theme_mpr()` and `theme_overground()`
+- Edited caption justification in `theme_overground()`
+
+## New features
+
+- Added `install_rttf2pt1()` to install specific version of {rttf2pt1} that supports custom font import
+
+## Minor changes
+
+- Remove `ggplotify` dependency
+
+# boeCharts 1.3.0
+
+## Breaking changes
+
+- Removed `theme_inflation_report()`
+
+## New features
+
+- Added `position_voronoi()` to support direct line labelling (based on [this outstanding ggplot2 issue](https://github.com/tidyverse/ggplot2/issues/3093))
+- Added `theme_fsr()` and `fsr_palettes` for FSR-style charts
+- Added `caption_boe()` for formatting data sources and footnotes in chart captions
+- Added markdown variants for each {boeCharts} theme `theme_xxx_md()` to support markdown formatting
+
+## Minor changes
+
+- Demoted `grid`, `gtable` and `ggplotify` dependencies to "Suggests" (from "Imports"), add `ggtext` and `glue` imports
+
 # boeCharts 1.2.3
 
 - Simple patch to use `ggplotify` instead of `patchwork` to convert a `gtable`

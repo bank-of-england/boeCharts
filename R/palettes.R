@@ -65,6 +65,18 @@ boe_vibrant_palettes = list(vibrant_a = vibrant_a,
 #' @export
 pre_mpc_palettes = list(pre_mpc = pre_mpc, pre_mpc_light = pre_mpc_light)
 
+#' @title List of FSR colour palettes
+#'
+#' @description List of lists of named colours taken from the Bank's
+#' Financial Stability Report (FSR) guidelines.
+#'
+#' @return A named list of lists of named hexadecimal colours.
+#' 
+#' @keywords internal
+#'
+#' @export
+fsr_palettes = list(fsr = fsr, fsr_currency = fsr_currency, fsr_average = fsr_average)
+
 #' @title List of diverging ColorBrewer-style colour palettes
 #'
 #' @description List of lists of named colours taken from the Bank's
@@ -94,7 +106,8 @@ boe_palettes <- c(
   boe_vibrant_palettes,
   boe_diverging_palettes,
   mcg = list(mcg_pub),
-  pre_mpc_palettes
+  pre_mpc_palettes,
+  fsr_palettes
 )
 
 
@@ -166,12 +179,12 @@ check_pal_n <- function(n, pal) {
 print.palette <- function(x, ...) {
   
   n <- length(x)
-  old <- par(mar = c(0.5, 0.5, 0.5, 0.5))
-  on.exit(par(old))
+  old <- graphics::par(mar = c(0.5, 0.5, 0.5, 0.5))
+  on.exit(graphics::par(old))
   
-  image(1:n, 1, as.matrix(1:n), col = x,
+  graphics::image(1:n, 1, as.matrix(1:n), col = x,
         ylab = "", xaxt = "n", yaxt = "n", bty = "n")
   
-  rect(0, 0.9, n + 1, 1.1, col = rgb(1, 1, 1, 0.8), border = NA)
-  text((n + 1) / 2, 1, labels = attr(x, "palette"), cex = 1, family = "serif")
+  graphics::rect(0, 0.9, n + 1, 1.1, col = grDevices::rgb(1, 1, 1, 0.8), border = NA)
+  graphics::text((n + 1) / 2, 1, labels = attr(x, "palette"), cex = 1, family = "serif")
 }

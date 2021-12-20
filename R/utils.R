@@ -1,3 +1,6 @@
+# Evaluates all arguments (see #81)
+force_all <- function(...) list(...)
+
 #' Get names of available palettes
 #' 
 #' Display available palette names, optionally specifying
@@ -44,7 +47,7 @@ show_palette_cols <- function(palette) {
   
   cols <- colours_from_palette(palette, strip_names = F)
   
-  pie(
+  graphics::pie(
     rep(1, length(cols)),
     col = cols,
     labels = names(cols))
@@ -154,11 +157,11 @@ colours_from_palette <- function(palette, strip_names = TRUE) {
 # convert rgb colours into hexidecimal
 rgb2hex <- function(r, g, b) {
   
-  rgb(red = r, green = g, blue = b, maxColorValue = 255)
+ grDevices::rgb(red = r, green = g, blue = b, maxColorValue = 255)
 } 
 
 # convert hexidecimal colours into rgb
-hex2rgb <- function(x) as.vector(col2rgb(x))
+hex2rgb <- function(x) as.vector(grDevices::col2rgb(x))
 
 #' Left-align chart titles
 #' 
@@ -180,4 +183,36 @@ left_align_titles <- function(x) {
   grob$layout$l[grob$layout$name %in% c("title", "subtitle")] <- 2
   
   grob
+}
+
+# Test whether package `package` is available. `fun` provides
+# the name of the ggplot2 function that uses this package, and is
+# used only to produce a meaningful error message if the
+# package is not available.
+try_require <- function(package, fun) {
+  if (requireNamespace(package, quietly = TRUE)) {
+    return(invisible())
+  }
+  
+  stop("Package `", package, "` required for `", fun, "`.\n",
+       "Please install and try again.",
+       call. = FALSE
+  )
+}
+
+# Use chartr() for safety since toupper() fails to convert i to I in Turkish locale
+lower_ascii <- "abcdefghijklmnopqrstuvwxyz"
+upper_ascii <- "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+to_lower_ascii <- function(x) chartr(upper_ascii, lower_ascii, x)
+to_upper_ascii <- function(x) chartr(lower_ascii, upper_ascii, x)
+
+snakeize <- function(x) {
+  x <- gsub("([A-Za-z])([A-Z])([a-z])", "\\1_\\2\\3", x)
+  x <- gsub(".", "_", x, fixed = TRUE)
+  x <- gsub("([a-z])([A-Z])", "\\1_\\2", x)
+  to_lower_ascii(x)
+}
+
+snake_class <- function(x) {
+  snakeize(class(x)[1])
 }
