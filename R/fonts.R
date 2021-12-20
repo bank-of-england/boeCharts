@@ -11,16 +11,12 @@
 #' @export
 import_arial <- function() {
   
-  install_rttf2pt1()
-  
   extrafont::font_import(pattern = "arial", prompt = FALSE)
 }
 
 #' @export
 #' @rdname import_arial
 import_calibri <- function() {
-  
-  install_rttf2pt1()
   
   extrafont::font_import(pattern = "calibri", prompt = FALSE)
 }
