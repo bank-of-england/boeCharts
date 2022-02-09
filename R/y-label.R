@@ -46,6 +46,7 @@ move_ylab <- function(x) {
     stop("move_ylab not available for facetted charts, yet.")
 
   height = ggplot2::unit(2, "grobheight", right)
+
   g <- gtable::gtable_add_rows(g, height, pos$t-1)
   
   g = gtable::gtable_add_grob(g, labs, t = pos$t, l = pos$l, r = pos$l)
