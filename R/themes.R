@@ -69,7 +69,7 @@ theme_boe <- function(base_family = "Arial", base_size = 16, base_colour = "#C4C
       plot.title.position = "plot",
       plot.subtitle = element_text(
         size = plot_titling_size, face = "plain", hjust = 0, vjust = 1,
-        margin = ggplot2::margin(b = 38)
+        margin = ggplot2::margin(b = standard_margin)
       ),
       
       # axes

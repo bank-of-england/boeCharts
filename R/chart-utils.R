@@ -26,7 +26,7 @@ move_ylab <- function(x) {
   
   try_require('grid', "move_ylab")
   try_require('gtable', "move_ylab")
-
+  
   b <- ggplot_build(x)
   g <- ggplotGrob(x)
   
@@ -55,4 +55,19 @@ move_ylab <- function(x) {
   
   grid::grid.newpage()
   grid::grid.draw(g)
+}
+
+#' Add a strong horizontal line at zero
+#'
+#' @return
+#' @export
+add_hline0 <- function() {
+  
+  layers <- list(
+    ggplot2::geom_hline(
+      yintercept = 0, linetype = "solid", colour = "#C4C9CE", size = 1.5,
+      )
+  )
+  
+  return(layers)
 }
