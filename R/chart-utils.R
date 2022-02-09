@@ -70,3 +70,17 @@ add_hline0 <- function(colour = "#C4C9CE", size = 1.5) {
   
   return(layers)
 }
+
+#' Add a strong horizontal line at zero
+#'
+#' @export
+add_hline0 <- function(colour = "#C4C9CE", size = 1.5) {
+  
+  layers <- list(
+    ggplot2::geom_hline(
+      yintercept = 0, linetype = "solid", colour = colour, size = size,
+      )
+  )
+  
+  return(layers)
+}
