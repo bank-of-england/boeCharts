@@ -140,7 +140,7 @@ more customization options, including:
 -   automatic axis breaks/limits (using
     `boe_breaks|limits_date|numeric()`)
 -   direct line labels (using `position_voronoi()`)
--   markdown
+-   strong horizontal line at zero
 
 ``` r
 # create chart
@@ -171,7 +171,8 @@ chart <- ggplot(data = FANG, aes(x = date, y = close, colour = symbol)) +
   scale_x_date(
     expand = c(0, 0), labels = scales::label_date_short(),
     breaks = boe_breaks_date(), limits = boe_limits_date()
-    )
+    ) +
+  add_hline0() # strong line at zero
 
 chart
 ```
@@ -187,21 +188,13 @@ text as markdown, thanks to the
 example:
 
 ``` r
-mpr_chart <- chart +
-  # apply custom axis settings
-  scale_x_date(
-    labels = scales::label_date_short(),
-    breaks = boe_breaks_date()
-    ) +
-  theme_mpr_md(axis_title_size = 9, axis_text_size = 9, caption_size = 9) +
+chart +
+  theme_boe_identity_md() +
   labs(
     title = "**Chart A.2** Historical FANG stock prices",
-    subtitle = NULL,
-    y = 'Stock price at the close of trading (USD), 2013-2016<sup>(a)</sup>',
+    subtitle = 'Stock price at the close of trading (USD), 2013-2016<sup>(a)</sup>',
     caption = caption_boe(source = "Investopedia", footnote = "A minor data detail.")
     )
-
-move_ylab(mpr_chart)
 ```
 
 ![](man/figures/README-unnamed-chunk-9-1.png)<!-- -->

@@ -87,7 +87,7 @@ theme_boe_identity <- function(
       ),
       plot.caption = element_text(
         colour = base_colour, size = base_size,
-        hjust = 1, vjust = 1, margin = ggplot2::margin(t = half_line)
+        hjust = 0, vjust = 1, margin = ggplot2::margin(t = half_line)
       ),
       
       # axes
