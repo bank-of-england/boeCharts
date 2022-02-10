@@ -38,13 +38,13 @@ theme_boe_identity <- function(
   base_family = "Arial", 
   base_size = 16, 
   base_colour = "#C4C9CE",
+  title_size = 18,
   grid = "X", 
   axis = "X") {
   
   half_line <- base_size / 2
   base_line_size <- base_size / 22
   base_rect_size <- base_size / 22
-  plot_titling_size <- 18
   gridline_size <- 0.5
   axis_tick_size <- 0.5
   axis_ticks_length <- 8
@@ -64,8 +64,12 @@ theme_boe_identity <- function(
         ),
       
       # background
-      panel.background = element_rect(fill = boe_brand_main$boe_dark_blue, colour = NA),
-      plot.background = element_rect(fill = boe_brand_main$boe_dark_blue, colour = NA),
+      panel.background = element_rect(
+        fill = boe_brand_main$boe_dark_blue, colour = NA
+        ),
+      plot.background = element_rect(
+        fill = boe_brand_main$boe_dark_blue, colour = NA
+        ),
       panel.border = element_blank(),
       
       plot.margin = ggplot2::margin(half_line, half_line, half_line, half_line),
@@ -73,12 +77,12 @@ theme_boe_identity <- function(
       # titling
       plot.title = element_text(
         colour = "#ffffff",
-        size = plot_titling_size, face = "bold", hjust = 0, vjust = 1,
+        size = title_size, face = "bold", hjust = 0, vjust = 1,
         margin = ggplot2::margin(b = half_line)
       ),
       plot.title.position = "plot",
       plot.subtitle = element_text(
-        size = plot_titling_size, face = "plain", hjust = 0, vjust = 1,
+        size = title_size, face = "plain", hjust = 0, vjust = 1,
         margin = ggplot2::margin(b = half_line)
       ),
       plot.caption = element_text(
@@ -88,15 +92,24 @@ theme_boe_identity <- function(
       
       # axes
       axis.title = element_text(colour = base_colour, size = base_size),
+      axis.title.x = element_text(
+        margin = margin(t = half_line), vjust = 1
+      ),
+      axis.title.y = element_text(
+        margin = margin(r = half_line), vjust = 1, angle = 90
+      ),
+      axis.title.y.right = element_text(
+        angle = -90, margin = margin(l = half_line), vjust = 0
+      ),
       axis.text = element_text(colour = base_colour, size = base_size),
       
       # legend
       legend.position = "top", 
       legend.title = element_text(
-        colour = base_colour, size = plot_titling_size, hjust = 0
+        colour = base_colour, size = base_size, hjust = 0
       ),
       legend.text = element_text(
-        colour = base_colour, size = plot_titling_size, hjust = 0
+        colour = base_colour, size = base_size, hjust = 0
       ),
       legend.background = element_rect(fill = NA, colour = NA),
       legend.box.background = element_rect(fill = NA, colour = NA),
@@ -129,23 +142,38 @@ theme_boe_identity <- function(
   
   # axis lines
   if (inherits(axis, "character") | axis == TRUE) {
-    p <- p + theme(axis.line.y = element_line(colour=base_colour, size = gridline_size / .pt),
-                   axis.line.x = element_line(colour=base_colour, size = gridline_size / .pt))
+    p <- p + theme(
+      axis.line.y = element_line(colour=base_colour, size = gridline_size / .pt),
+      axis.line.x = element_line(colour=base_colour, size = gridline_size / .pt)
+      )
     if (inherits(axis, "character")) {
       axis <- tolower(axis)
       if (regexpr("x", axis)[1] < 0) {
         p <- p + theme(axis.line.x = element_blank())
       } else {
-        p <- p + theme(axis.line.x = element_line(colour=base_colour, size = gridline_size / .pt))
+        p <- p + theme(
+          axis.line.x = element_line(
+            colour=base_colour, size = gridline_size / .pt
+            )
+          )
       }
       if (regexpr("y", axis)[1] < 0) {
         p <- p + theme(axis.line.y = element_blank())
       } else {
-        p <- p + theme(axis.line.y = element_line(colour=base_colour, size = gridline_size / .pt))
+        p <- p + theme(
+          axis.line.y = element_line(
+            colour=base_colour, size = gridline_size / .pt
+            )
+          )
       }
     } else {
-      p <- p + theme(axis.line.x = element_line(colour=base_colour, size = gridline_size / .pt),
-                     axis.line.y = element_line(colour=base_colour, size = gridline_size / .pt))
+      p <- p + theme(
+        axis.line.x = element_line(
+          colour=base_colour, size = gridline_size / .pt
+          ),
+        axis.line.y = element_line(
+          colour=base_colour, size = gridline_size / .pt)
+        )
     }
   } else {
     p <- p + theme(axis.line = element_blank())
@@ -153,26 +181,36 @@ theme_boe_identity <- function(
   
   # axis ticks
   if (inherits(axis, "character") | axis == TRUE) {
-    p <- p + theme(axis.ticks = element_line(size = axis_tick_size / .pt, colour = base_colour),
-                   axis.ticks.length = grid::unit(half_line, "pt"))
+    p <- p + theme(
+      axis.ticks = element_line(
+        size = axis_tick_size / .pt, colour = base_colour
+        ),
+      axis.ticks.length = grid::unit(half_line, "pt"))
     if (inherits(axis, "character")) {
       axis <- tolower(axis)
       if (regexpr("x", axis)[1] < 0) {
         p <- p + theme(axis.ticks.x = element_blank())
       } else {
-        p <- p + theme(axis.ticks.x = element_line(colour=base_colour, size = axis_tick_size / .pt),
-                       axis.ticks.length = grid::unit(half_line, "pt"))
+        p <- p + theme(
+          axis.ticks.x = element_line(
+            colour=base_colour, size = axis_tick_size / .pt
+            ),
+          axis.ticks.length = grid::unit(half_line, "pt")
+          )
       }
       if (regexpr("y", axis)[1] < 0) {
         p <- p + theme(axis.ticks.y = element_blank())
       } else {
-        p <- p + theme(axis.ticks.y = element_line(colour=base_colour, size = axis_tick_size / .pt),
-                       axis.ticks.length = grid::unit(half_line, "pt"))
+        p <- p + theme(
+          axis.ticks.y = element_line(colour=base_colour, size = axis_tick_size / .pt),
+          axis.ticks.length = grid::unit(half_line, "pt"))
       }
     } else {
-      p <- p + theme(axis.ticks.x = element_line(colour=base_colour, size = axis_tick_size / .pt),
-                     axis.ticks.y = element_line(colour=base_colour, size = axis_tick_size / .pt),
-                     axis.ticks.length = grid::unit(axis_ticks_length, "pt"))
+      p <- p + theme(
+        axis.ticks.x = element_line(colour=base_colour, size = axis_tick_size / .pt),
+        axis.ticks.y = element_line(colour=base_colour, size = axis_tick_size / .pt),
+        axis.ticks.length = grid::unit(axis_ticks_length, "pt")
+        )
     }
   } else {
     p <- p + theme(axis.ticks = element_blank())
@@ -291,13 +329,13 @@ theme_overground <- function(
         family = base_family
         ),
       axis.title.x = element_text(
-        hjust = xj, margin = margin(t = half_line / 2), vjust = 1
+        hjust = xj, margin = margin(t = half_line), vjust = 1
         ),
       axis.title.y = element_text(
-        hjust = yj, margin = margin(r = half_line / 2), vjust = 1, angle = 90
+        hjust = yj, margin = margin(r = half_line), vjust = 1, angle = 90
         ),
       axis.title.y.right = element_text(
-        hjust = yj, angle = -90, margin = margin(l = half_line / 2), vjust = 0
+        hjust = yj, angle = -90, margin = margin(l = half_line), vjust = 0
         ),
       
       # axis text

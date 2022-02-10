@@ -111,22 +111,23 @@ ggplot(penguins, aes(flipper_length_mm, body_mass_g, color = species)) +
 
 ![](man/figures/README-unnamed-chunk-7-1.png)<!-- -->
 
-Now, switching in the [Monetary Policy
-Report](https://www.bankofengland.co.uk/monetary-policy-report/2019/november-2019)
-theme and pre-MPC colours. Additionally, `scale_y_continuous()` is used
-to move the y-axis across to the right.
+Now, switching in the [Bank’s chart design
+guidelines](https://www.bankofengland.co.uk/monetary-policy-report/2019/november-2019)
+theme and colours. Additionally, `scale_y_continuous()` is used to move
+the y-axis across to the right.
 
 ``` r
 ggplot(penguins, aes(flipper_length_mm, body_mass_g, color = species)) +
   geom_jitter() +
-  # add MPR theme
-  theme_mpr() +
+  # add visual identity theme
+  theme_boe_identity() +
   # add a "vibrant" Bank colour combination
-  scale_colour_discrete_boe(palette = "pre_mpc") +
+  scale_colour_discrete_boe(palette = "boe_identity") +
   # move the y-axis to the right
   scale_y_continuous(
     position = "right", sec.axis = dup_axis(labels = NULL)
-    )
+    ) +
+  theme(axis.title.y.left = element_blank())
 ```
 
 ![](man/figures/README-unnamed-chunk-8-1.png)<!-- -->
@@ -139,7 +140,6 @@ more customization options, including:
 -   automatic axis breaks/limits (using
     `boe_breaks|limits_date|numeric()`)
 -   direct line labels (using `position_voronoi()`)
--   non-standard y-axis title positioning (using `move_ylab()`)
 -   markdown
 
 ``` r
@@ -155,7 +155,7 @@ chart <- ggplot(data = FANG, aes(x = date, y = close, colour = symbol)) +
   # add some chart labels
   labs(
     title = "Chart 1.2: Historical FANG stock prices",
-    subtitle = "Stock price at the close of trading (USD)",
+    subtitle = "Stock price at the close of trading (USD), 2013-2016",
     caption = caption_boe(source = "Investopedia"),
     x = NULL, y = NULL
     ) +
@@ -173,8 +173,7 @@ chart <- ggplot(data = FANG, aes(x = date, y = close, colour = symbol)) +
     breaks = boe_breaks_date(), limits = boe_limits_date()
     )
 
-# re-position y axis title above plot
-move_ylab(chart)
+chart
 ```
 
 ![](man/figures/README-example-1.png)<!-- -->
@@ -197,7 +196,8 @@ mpr_chart <- chart +
   theme_mpr_md(axis_title_size = 9, axis_text_size = 9, caption_size = 9) +
   labs(
     title = "**Chart A.2** Historical FANG stock prices",
-    subtitle = 'Daily stock prices for "FB", "AMZN", "NFLX" and "GOOG" (FANG), 2013-2016<sup>(a)</sup>',
+    subtitle = NULL,
+    y = 'Stock price at the close of trading (USD), 2013-2016<sup>(a)</sup>',
     caption = caption_boe(source = "Investopedia", footnote = "A minor data detail.")
     )
 
