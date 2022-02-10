@@ -273,7 +273,7 @@ boe_identity <- list(
   boe_aqua = "#3CD7D9",
   boe_orange = "#FF7300",
   boe_purple = "#9E71FE",
-  boe_gold = "D4AF37",
+  boe_gold = "#D4AF37",
   boe_green = "#A5D700",
   boe_pink = "#FF50C8",
   boe_azure = "#5297FF",

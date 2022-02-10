@@ -34,8 +34,12 @@
 #' }
 #' 
 #' @name theme_boe_identity
-theme_boe_identity <- function(base_family = "Arial", base_size = 16, base_colour = "#C4C9CE",
-                      grid = "X", axis = "X") {
+theme_boe_identity <- function(
+  base_family = "Arial", 
+  base_size = 16, 
+  base_colour = "#C4C9CE",
+  grid = "X", 
+  axis = "X") {
   
   half_line <- base_size / 2
   base_line_size <- base_size / 22
@@ -54,7 +58,7 @@ theme_boe_identity <- function(base_family = "Arial", base_size = 16, base_colou
       # global
       text = element_text(
         family = base_family, face = "plain",
-        colour = "#ffffff", size = base_size,
+        colour = base_colour, size = base_size,
         lineheight = 0.9, hjust = 0.5, vjust = 0.5, angle = 0,
         margin = ggplot2::margin(), debug = FALSE
         ),
@@ -68,6 +72,7 @@ theme_boe_identity <- function(base_family = "Arial", base_size = 16, base_colou
 
       # titling
       plot.title = element_text(
+        colour = "#ffffff",
         size = plot_titling_size, face = "bold", hjust = 0, vjust = 1,
         margin = ggplot2::margin(b = half_line)
       ),
