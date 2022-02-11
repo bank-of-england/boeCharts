@@ -3,7 +3,7 @@
 \docType{data}
 \name{palettes_publication}
 \alias{palettes_publication}
-\alias{mcg_pub}
+\alias{mcg}
 \alias{pre_mpc}
 \alias{pre_mpc_light}
 \alias{fsr}
@@ -36,7 +36,7 @@ An object of class \code{list} of length 2.
 An object of class \code{list} of length 3.
 }
 \usage{
-mcg_pub
+mcg
 
 pre_mpc
 

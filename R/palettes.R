@@ -94,7 +94,7 @@ boe_publication_palettes = list(
   fsr_currency = fsr_currency, 
   fsr_average = fsr_average,
   mpr_main = mpr_main,
-  mcg_pub = mcg_pub
+  mcg = mcg
 )
 
 

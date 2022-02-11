@@ -8,6 +8,7 @@ theme_boe_identity(
   base_family = "Arial",
   base_size = 16,
   base_colour = "#C4C9CE",
+  plot_title_size = 18,
   grid = "X",
   axis = "X"
 )
@@ -18,6 +19,8 @@ theme_boe_identity(
 \item{base_size}{base font family, size and colour}
 
 \item{base_colour}{base font family, size and colour}
+
+\item{plot_title_size}{plot title face, size and colour}
 
 \item{grid}{panel grid (`TRUE`, `FALSE`, or a combination of `X`, `x`, `Y`, `y`)}
 

@@ -5,7 +5,16 @@
 \title{Add a strong horizontal line at zero}
 \usage{
 add_hline0(colour = "#C4C9CE", size = 1.5)
+
+add_hline0(colour = "#C4C9CE", size = 1.5)
+}
+\arguments{
+\item{colour}{line colour ("#C4C9CE" by default)}
+
+\item{size}{line size (1.5 by default)}
 }
 \description{
+Add a strong horizontal line at zero
+
 Add a strong horizontal line at zero
 }

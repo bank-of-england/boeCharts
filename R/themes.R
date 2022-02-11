@@ -38,7 +38,7 @@ theme_boe_identity <- function(
   base_family = "Arial", 
   base_size = 16, 
   base_colour = "#C4C9CE",
-  title_size = 18,
+  plot_title_size = 18,
   grid = "X", 
   axis = "X") {
   

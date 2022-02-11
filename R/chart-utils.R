@@ -72,6 +72,9 @@ add_hline0 <- function(colour = "#C4C9CE", size = 1.5) {
 }
 
 #' Add a strong horizontal line at zero
+#' 
+#' @param colour line colour ("#C4C9CE" by default)
+#' @param size line size (1.5 by default)
 #'
 #' @export
 add_hline0 <- function(colour = "#C4C9CE", size = 1.5) {

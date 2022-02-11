@@ -138,7 +138,7 @@ boe_screen <- list(
 #' @name palettes_publication
 #' 
 #' @export
-mcg_pub <- list(
+mcg <- list(
   fuchsia        = "#ff00ff",
   dark_blue      = "#000066",
   green          = "#008000",
