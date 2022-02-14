@@ -26,7 +26,7 @@ move_ylab <- function(x) {
   
   try_require('grid', "move_ylab")
   try_require('gtable', "move_ylab")
-
+  
   b <- ggplot_build(x)
   g <- ggplotGrob(x)
   
@@ -46,6 +46,7 @@ move_ylab <- function(x) {
     stop("move_ylab not available for facetted charts, yet.")
 
   height = ggplot2::unit(2, "grobheight", right)
+
   g <- gtable::gtable_add_rows(g, height, pos$t-1)
   
   g = gtable::gtable_add_grob(g, labs, t = pos$t, l = pos$l, r = pos$l)
@@ -54,4 +55,35 @@ move_ylab <- function(x) {
   
   grid::grid.newpage()
   grid::grid.draw(g)
+}
+
+#' Add a strong horizontal line at zero
+#'
+#' @export
+add_hline0 <- function(colour = "#C4C9CE", size = 1.5) {
+  
+  layers <- list(
+    ggplot2::geom_hline(
+      yintercept = 0, linetype = "solid", colour = colour, size = size,
+      )
+  )
+  
+  return(layers)
+}
+
+#' Add a strong horizontal line at zero
+#' 
+#' @param colour line colour ("#C4C9CE" by default)
+#' @param size line size (1.5 by default)
+#'
+#' @export
+add_hline0 <- function(colour = "#C4C9CE", size = 1.5) {
+  
+  layers <- list(
+    ggplot2::geom_hline(
+      yintercept = 0, linetype = "solid", colour = colour, size = size,
+      )
+  )
+  
+  return(layers)
 }

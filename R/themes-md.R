@@ -103,3 +103,10 @@ theme_overground_md <- function(...) {
 theme_mcg_pub_md <- function(...) {
   as_md_theme(theme_mcg_pub(...))
 }
+
+#' @rdname theme_md
+#' 
+#' @export
+theme_boe_identity_md <- function(...) {
+  as_md_theme(theme_boe_identity(...))
+}

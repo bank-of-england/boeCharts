@@ -5,11 +5,13 @@
 ## Overview
 
 `boeCharts` is an R package to help you create charts that are in-line
-with [the Bank’s visual identity
-standards](https://bankofengland.frontify.com/d/RPk6pMZziBFw/bank-standards),
+with [the Bank’s chart design
+guidelines](https://bankofengland.frontify.com/d/KN5KRtH8qzXF/design-guidelines#/brand-applications/chart-design-for-staff),
 recommended (and designed) for use in conjunction with
-[ggplot2](https://ggplot2.tidyverse.org/). It contains design patterns
-for approximating charts found within flagship publications, including:
+[ggplot2](https://ggplot2.tidyverse.org/).
+
+It also contains design patterns for approximating charts found within
+flagship publications, including:
 
 -   [Bank Overground](https://www.bankofengland.co.uk/bank-overground)
 -   [Monetary Policy
@@ -29,22 +31,7 @@ Community](https://bankexchange/groups/1067/SitePages/Home.aspx).
 
 ## Installation
 
-Ensure you are installing R packages via
-[Artifactory](https://binarycentral/artifactory/webapp/#/home) by
-**running this once** (within an R session):
-
-``` r
-local({
-  r <- list("boe-cran-remote-repo" = "https://binarycentral/artifactory/boe-cran-remote-repo/",
-            "boe-cran-local-repo" = "https://binarycentral/artifactory/boe-cran-local-repo/",
-            "rcran" = "http://cran.rstudio.com/"
-  )
-  options(repos = r)
-})
-```
-
-You can then install the latest stable version of `boeCharts` from
-Artifactory with:
+Install the latest stable version of `boeCharts` from Artifactory with:
 
 ``` r
 install.packages("boeCharts")
@@ -82,6 +69,7 @@ First, load packages:
 library(boeCharts)
 library(ggplot2)
 library(palmerpenguins) # for example purposes only
+library(scales) # for date examples
 ```
 
 Here is an out-of-the-box `ggplot2` chart.
@@ -91,7 +79,7 @@ ggplot(penguins, aes(flipper_length_mm, body_mass_g, color = species)) +
   geom_jitter()
 ```
 
-![](man/figures/README-unnamed-chunk-6-1.png)
+![](man/figures/README-unnamed-chunk-5-1.png)<!-- -->
 
 Custom themes can be applied to ggplot objects as additional “layers”.
 As mentioned above, all `boeCharts` theme functions are prefixed by
@@ -106,7 +94,7 @@ ggplot(penguins, aes(flipper_length_mm, body_mass_g, color = species)) +
   theme_overground()
 ```
 
-![](man/figures/README-unnamed-chunk-7-1.png)
+![](man/figures/README-unnamed-chunk-6-1.png)<!-- -->
 
 Custom ggplot scales help with applying Bank colour palettes. In this
 case, the points can be coloured with a “vibrant” Bank colour
@@ -121,27 +109,28 @@ ggplot(penguins, aes(flipper_length_mm, body_mass_g, color = species)) +
   scale_colour_discrete_boe(palette = "vibrant_c")
 ```
 
-![](man/figures/README-unnamed-chunk-8-1.png)
+![](man/figures/README-unnamed-chunk-7-1.png)<!-- -->
 
-Now, switching in the [Monetary Policy
-Report](https://www.bankofengland.co.uk/monetary-policy-report/2019/november-2019)
-theme and pre-MPC colours. Additionally, `scale_y_continuous()` is used
-to move the y-axis across to the right.
+Now, switching in the [Bank’s chart design
+guidelines](https://www.bankofengland.co.uk/monetary-policy-report/2019/november-2019)
+theme and colours. Additionally, `scale_y_continuous()` is used to move
+the y-axis across to the right.
 
 ``` r
 ggplot(penguins, aes(flipper_length_mm, body_mass_g, color = species)) +
   geom_jitter() +
-  # add MPR theme
-  theme_mpr() +
+  # add visual identity theme
+  theme_boe_identity() +
   # add a "vibrant" Bank colour combination
-  scale_colour_discrete_boe(palette = "pre_mpc") +
+  scale_colour_discrete_boe(palette = "boe_identity") +
   # move the y-axis to the right
   scale_y_continuous(
     position = "right", sec.axis = dup_axis(labels = NULL)
-    )
+    ) +
+  theme(axis.title.y.left = element_blank())
 ```
 
-![](man/figures/README-unnamed-chunk-9-1.png)
+![](man/figures/README-unnamed-chunk-8-1.png)<!-- -->
 
 #### An in-depth example
 
@@ -151,8 +140,7 @@ more customization options, including:
 -   automatic axis breaks/limits (using
     `boe_breaks|limits_date|numeric()`)
 -   direct line labels (using `position_voronoi()`)
--   non-standard y-axis title positioning (using `move_ylab()`)
--   markdown
+-   strong horizontal line at zero
 
 ``` r
 # create chart
@@ -166,30 +154,30 @@ chart <- ggplot(data = FANG, aes(x = date, y = close, colour = symbol)) +
     ) +
   # add some chart labels
   labs(
-    title = "Chart 1.2: Historical FANG stock prices", 
-    subtitle = 'Daily stock prices for "FB", "AMZN", "NFLX" and "GOOG" (FANG), 2013-2016',
+    title = "Chart 1.2: Historical FANG stock prices",
+    subtitle = "Stock price at the close of trading (USD), 2013-2016",
     caption = caption_boe(source = "Investopedia"),
-    y = "Stock price at the close of trading (USD)", x = NULL
+    x = NULL, y = NULL
     ) +
   # use 'highlights' palette
-  scale_colour_discrete_boe(palette = "boe_highlights") +
+  scale_colour_discrete_boe(palette = "boe_identity") +
   # add Bank Overground theme
-  theme_overground() +
+  theme_boe_identity() +
   # apply custom axis settings
   scale_y_continuous(
     expand = c(0, 0), breaks = boe_breaks_numeric(), 
     limits = boe_limits_numeric(), position = "right"
     ) +
   scale_x_date(
-    expand = c(0, 0), labels = boe_date_labels(),
+    expand = c(0, 0), labels = scales::label_date_short(),
     breaks = boe_breaks_date(), limits = boe_limits_date()
-    )
+    ) +
+  add_hline0() # strong line at zero
 
-# re-position y axis title above plot
-move_ylab(chart)
+chart
 ```
 
-![](man/figures/README-example-1.png)
+![](man/figures/README-example-1.png)<!-- -->
 
 #### Markdown theme variants
 
@@ -200,23 +188,16 @@ text as markdown, thanks to the
 example:
 
 ``` r
-mpr_chart <- chart +
-  # apply custom axis settings
-  scale_x_date(
-    labels = boe_date_labels(),
-    breaks = boe_breaks_date()
-    ) +
-  theme_mpr_md(axis_title_size = 9, axis_text_size = 9, caption_size = 9) +
+chart +
+  theme_boe_identity_md() +
   labs(
     title = "**Chart A.2** Historical FANG stock prices",
-    subtitle = 'Daily stock prices for "FB", "AMZN", "NFLX" and "GOOG" (FANG), 2013-2016<sup>(a)</sup>',
+    subtitle = 'Stock price at the close of trading (USD), 2013-2016<sup>(a)</sup>',
     caption = caption_boe(source = "Investopedia", footnote = "A minor data detail.")
     )
-
-move_ylab(mpr_chart)
 ```
 
-![](man/figures/README-unnamed-chunk-10-1.png)
+![](man/figures/README-unnamed-chunk-9-1.png)<!-- -->
 
 ### Using custom fonts
 

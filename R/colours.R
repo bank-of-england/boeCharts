@@ -1,24 +1,11 @@
-#' @title Colours from the Bank's colour palette
+#' Colours from the Bank's 2017 visual identity colour palette (deprecated)
 #'
-#' @description Provides a vector of named colours taken from the Bank's
-#' \href{http://intranet/BankNews/Pages/Updated-visual-identity-g-636195499604295252.aspx}{visual identity guidelines}.
+#' Provides a vector of named colours taken from the Bank's
+#' \href{http://intranet/BankNews/Pages/Updated-visual-identity-g-636195499604295252.aspx}{2017 visual identity guidelines}.
 #'
 #' @return A list of named hexadecimal colours.
-#'
-#' @examples \dontrun{
-#'
-#' library(ggplot2)
-#' library(boeCharts)
-#'
-#'    ggplot(mtcars) +
-#'    aes(
-#'    x = mpg,
-#'    y = wt
-#'    ) +
-#'    geom_point(colour=boe$fuchsia) +
-#'    theme_mcg_pub()
-#' }
 #' 
+#' @name palettes_2017
 #' @export
 boe <- list(
   red            = "#A51140",
@@ -40,11 +27,10 @@ boe <- list(
   black          = "#1E1E1E"
 )
 
-#' @title Colours from the Bank's 'Rich' colour palette
+#' Colour palettes from the Bank's 2018 brand update
 #'
-#' @description Provides a vector of named colours taken from the 
-#' 'Rich' colour palette, as part of the Bank of England 2018 brand 
-#' update.
+#' Colour palettes from the Bank's
+#' \href{https://bankofengland.frontify.com/d/RPk6pMZziBFw/bank-standards#/brand-elements/colour-palette}{2018 brand update}.
 #'
 #' @return A list of named hexadecimal colours.
 #'
@@ -53,14 +39,26 @@ boe <- list(
 #' library(ggplot2)
 #' library(boeCharts)
 #'
-#'    ggplot(mtcars) +
-#'    aes(
+#' ggplot(mtcars) +
+#'  aes(
 #'    x = mpg,
 #'    y = wt
-#'    ) +
-#'    geom_point(colour=boe_rich$rich_red) +
-#'    theme_mcg_pub()
+#'  ) +
+#'  geom_point(colour=boe_rich$rich_red) +
+#'  theme_mcg_pub()
+#'  
+#' ggplot(mtcars) +
+#'  aes(
+#'    x = mpg,
+#'    y = wt,
+#'    colour = factor(cyl)
+#'  ) +
+#'  geom_point() +
+#'  scale_colour_discrete_boe(palette = "boe_rich") +
+#'  theme_mcg_pub()
 #' }
+#' 
+#' @name palettes_2018
 #' 
 #' @export
 boe_rich <- list(
@@ -73,28 +71,7 @@ boe_rich <- list(
   rich_red = "#AA0B3C"
 )
 
-
-#' @title Colours from the Bank's 'Highlights' colour palette
-#'
-#' @description Provides a vector of named colours taken from the 'Highlights' 
-#' colour palette, as part of the Bank of England 2018 brand update.
-#'
-#' @return A list of named hexadecimal colours.
-#'
-#' @examples \dontrun{
-#'
-#' library(ggplot2)
-#' library(boeCharts)
-#'
-#'    ggplot(mtcars) +
-#'    aes(
-#'    x = mpg,
-#'    y = wt
-#'    ) +
-#'    geom_point(colour=boe_highlights$fuchsia) +
-#'    theme_mcg_pub()
-#' }
-#' 
+#' @rdname palettes_2018
 #' @export
 boe_highlights <- list(
   red = "#E9496A",
@@ -106,28 +83,7 @@ boe_highlights <- list(
   blue = "#1488CA"
 )
 
-
-#' @title Colours from the Bank's 'Soft' colour palette
-#'
-#' @description Provides a vector of named colours taken from the 'Soft' 
-#' colour palette, as part of the Bank of England 2018 brand update.
-#'
-#' @return A list of named hexadecimal colours.
-#'
-#' @examples \dontrun{
-#'
-#' library(ggplot2)
-#' library(boeCharts)
-#'
-#'    ggplot(mtcars) +
-#'    aes(
-#'    x = mpg,
-#'    y = wt
-#'    ) +
-#'    geom_point(colour=boe_soft$peach) +
-#'    theme_mcg_pub()
-#' }
-#' 
+#' @rdname palettes_2018
 #' @export
 boe_soft <- list(
   peach = "#FAD0C5",
@@ -139,28 +95,7 @@ boe_soft <- list(
   light_blue = "#85C9F0"
 )
 
-
-#' @title Colours from the Bank's 'Neutral' colour palette
-#'
-#' @description Provides a vector of named colours taken from the 'Neutral' 
-#' colour palette, as part of the Bank of England 2018 brand update.
-#'
-#' @return A list of named hexadecimal colours.
-#'
-#' @examples \dontrun{
-#'
-#' library(ggplot2)
-#' library(boeCharts)
-#'
-#'    ggplot(mtcars) +
-#'    aes(
-#'    x = mpg,
-#'    y = wt
-#'    ) +
-#'    geom_point(colour=boe_neutral$dark_grey) +
-#'    theme_mcg_pub()
-#' }
-#' 
+#' @rdname palettes_2018
 #' @export
 boe_neutral <- list(
   light_grey = "#EBEBEB",
@@ -170,24 +105,16 @@ boe_neutral <- list(
   stone = "#D9CEC1"
 )
 
-
-#' @title Colours from the Bank's 'Screen-use' colour palette
-#'
-#' @description Provides a vector of named colours
-#' taken from the 'Screen-use' colour palette, as part of the Bank of England
-#' 2018 brand update. For use as background colours on screens only.
-#'
-#' @return A list of named hexadecimal colours.
-#'
+#' @rdname palettes_2018
 #' @export
 boe_screen <- list(
   boe_background = "#F6F6F6"
 )
 
 
-#' @title Colours from MCG publication's colour palette
+#' Publication colour palettes 
 #'
-#' @description Provides a vector of named colours
+#' Provides a vector of named colours
 #' from current Money & Credit Group (MCG) publication colours.
 #'
 #' @return A list of named hexadecimal colours.
@@ -197,17 +124,21 @@ boe_screen <- list(
 #' library(ggplot2)
 #' library(boeCharts)
 #'
-#'    ggplot(mtcars) +
-#'    aes(
+#' ggplot(mtcars) +
+#'  aes(
 #'    x = mpg,
-#'    y = wt
-#'    ) +
-#'    geom_point(colour = mcg_pub$fuchsia) +
-#'    theme_mcg_pub()
+#'    y = wt,
+#'    colour = factor(cyl)
+#'  ) +
+#'  geom_point() +
+#'  scale_colour_discrete_boe(palette = "mcg") +
+#'  theme_mcg_pub()
 #' }
 #' 
+#' @name palettes_publication
+#' 
 #' @export
-mcg_pub <- list(
+mcg <- list(
   fuchsia        = "#ff00ff",
   dark_blue      = "#000066",
   green          = "#008000",
@@ -216,14 +147,7 @@ mcg_pub <- list(
   orange         = "#fd9900"
 )
 
-
-#' @title Colours from the pre-MPC colour palette
-#'
-#' @description Provides a vector of named colours taken from the Bank's
-#' pre Monetary Policy Committee (MPC) guidelines.
-#'
-#' @return A list of named hexadecimal colours.
-#'
+#' @rdname palettes_publication
 #' @export
 pre_mpc <- list(
   red = boe$red,
@@ -235,14 +159,7 @@ pre_mpc <- list(
   orange = boe$orange
 )
 
-
-#' @title Colours from the pre-MPC light colour palette
-#'
-#' @description Provides a vector of named colours taken from the Bank's
-#' pre Monetary Policy Committee (MPC) guidelines.
-#' 
-#' @return A list of named hexadecimal colours.
-#'
+#' @rdname palettes_publication
 #' @export
 pre_mpc_light <- list(
   light_red = "#D182AB",
@@ -250,27 +167,7 @@ pre_mpc_light <- list(
   light_stone = "#D9CEC1"
 )
 
-#' @title Colours from the Bank's FSR colour palette
-#'
-#' @description Provides a vector of named colours taken from the Bank's
-#' Financial Stability Report (FSR) guidelines.
-#'
-#' @return A list of named hexadecimal colours.
-#'
-#' @examples \dontrun{
-#'
-#' library(ggplot2)
-#' library(boeCharts)
-#'
-#'    ggplot(mtcars) +
-#'    aes(
-#'    x = mpg,
-#'    y = wt
-#'    ) +
-#'    geom_point(colour = boe_fsr$mid_blue) +
-#'    theme_fsr()
-#' }
-#'
+#' @rdname palettes_publication
 #' @export
 fsr <- list(
   mid_blue       = "#165788",
@@ -292,13 +189,7 @@ fsr <- list(
   light_orange   = "#DF7A00"
 )
 
-#' @title Colours from the Bank's FSR colour palette for currencies
-#'
-#' @description Provides a vector of named colours taken from the Bank's
-#' Financial Stability Report (FSR) guidelines.
-#' 
-#' @return A list of named hexadecimal colours.
-#'
+#' @rdname palettes_publication
 #' @export
 fsr_currency <- list(
   sterling = "#165788",
@@ -307,16 +198,136 @@ fsr_currency <- list(
   yen = "#7AB800"
 )
 
-#' @title Colours from the Bank's FSR colour palette for representing averages
-#'
-#' @description Provides a vector of named colours taken from the Bank's
-#' Financial Stability Report (FSR) guidelines.
-#' 
-#' @return A list of named hexadecimal colours.
-#'
+#' @rdname palettes_publication
+#' @export
+boe_website <- list(
+  boe_rich_blue = boe_rich$rich_blue,
+  boe_red = boe_highlights$red,
+  boe_rich_teal = boe_rich$rich_teal
+)
+
+#' @rdname palettes_publication
+#' @export
+boe_overground <- list(
+  boe_purple = boe_highlights$purple,
+  boe_red = boe_highlights$red,
+  boe_rich_purple = boe_rich$rich_purple
+)
+
+#' @rdname palettes_publication
+#' @export
+mpr_main <- list(
+  boe_teal = boe_highlights$teal,
+  boe_green = boe_highlights$green
+)
+
+#' @rdname palettes_publication
+#' @export
+fsr_main <- list(
+  boe_purple = boe_highlights$purple,
+  boe_rich_purple = boe_rich$rich_purple
+)
+
+#' @rdname palettes_publication
 #' @export
 fsr_average <- list(
   light_orange = "#df7a00",
   mid_blue = "#165788",
   light_blue = "#63B1E5"
 )
+
+#' Brand colour palettes from the Bank's 2022 brand update
+#'
+#' Colour palettes taken from the Bank's
+#' \href{https://company-140087.frontify.com/document/351383#/brand-elements/colours}{2022 brand update}.
+#' 
+#' @return A list of named hexadecimal colours.
+#' 
+#' @examples \dontrun{
+#'
+#' library(ggplot2)
+#' library(boeCharts)
+#'
+#' ggplot(mtcars) +
+#'  aes(
+#'    x = mpg,
+#'    y = wt
+#'  ) +
+#'  geom_point(colour=boe_identity$boe_purple) +
+#'  theme_boe_identity()
+#'  
+#' ggplot(mtcars) +
+#'  aes(
+#'    x = mpg,
+#'    y = wt,
+#'    colour = factor(cyl)
+#'  ) +
+#'  geom_point() +
+#'  scale_colour_discrete_boe(palette = "boe_identity") +
+#'  theme_boe_identity()
+#' }
+#' 
+#' @name palettes_identity
+#' @export
+boe_identity <- list(
+  boe_aqua = "#3CD7D9",
+  boe_orange = "#FF7300",
+  boe_purple = "#9E71FE",
+  boe_gold = "#D4AF37",
+  boe_green = "#A5D700",
+  boe_pink = "#FF50C8",
+  boe_azure = "#5297FF",
+  boe_yellow = "#FFD200",
+  boe_peach = "#FF9173",
+  boe_red = "#FD015B"
+)
+
+#' @rdname palettes_identity
+#' @export
+boe_brand_main <- list(
+  boe_dark_blue = "#12273F",
+  boe_aqua = boe_identity$boe_aqua,
+  boe_stone = "#C4C9CF"
+)
+
+#' @rdname palettes_identity
+#' @export
+boe_brand_secondary <- list(
+  boe_orange = boe_identity$boe_orange,
+  boe_purple = boe_identity$boe_purple,
+  boe_gold = boe_identity$boe_gold
+)
+
+#' Colour shades palettes from the Bank's 2022 brand update
+#'
+#' Colour palettes taken from the Bank's
+#' \href{https://company-140087.frontify.com/document/351383#/brand-elements/colours}{2022 brand update}.
+#' 
+#' @return A list of named hexadecimal colours.
+#' 
+#' @examples \dontrun{
+#'
+#' library(ggplot2)
+#' library(boeCharts)
+#'
+#' ggplot(mtcars) +
+#'  aes(
+#'    x = mpg,
+#'    y = wt,
+#'    colour = factor(cyl)
+#'  ) +
+#'  geom_point() +
+#'  scale_colour_discrete_boe(palette = "boe_shades_aqua") +
+#'  theme_boe_identity()
+#' }
+#' 
+#' @name palettes_shades
+#' @export
+boe_shades_aqua <- list(
+  boe_dark_aqua = "#34BCC1",
+  boe_aqua = "#3CD7D9",
+  boe_mid_aqua = "#77E3E4",
+  boe_light_aqua = "#A7EDEE",
+  boe_extra_light_aqua = "#CEF5F5"
+)
+

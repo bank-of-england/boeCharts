@@ -1,4 +1,4 @@
-# boeCharts (development version)
+# boeCharts 1.3.2.9000 (development version)
 
 ## New features
 
@@ -6,8 +6,9 @@
 - Added new Bank identity colour palettes:
         - Core: `boe_identity`, `boe_brand_main`, `boe_brand_secondary`
         - Shades: `boe_shades_aqua`
+- `add_hline0()` utility function for strong horizontal rule at "zero"
 
-# boeCharts 1.3.1.9000
+# boeCharts 1.3.2
 
 ## New features
 

@@ -1,3 +1,224 @@
+#' A \code{ggplot2} theme for the Bank's 2022 brand update chart design
+#' 
+#' Provides a theme to produce approximations of the Bank's 2022 brand update 
+#' chart design guidelines in \code{ggplot2}.
+#' 
+#' @details See \code{ggplot2::scale_y_continuous} for positioning y-axis on the right.
+#' 
+#' @inheritParams theme_overground
+#' 
+#' @return Will not return anything of itself, but when used in conjuntion
+#' with \code{\link{ggplot}} and (e.g.) \code{\link{geom_point}} from the
+#' package \code{ggplot2}, will apply styling to a plot.
+#' 
+#' @export
+#'
+#' @examples \dontrun{
+#' 
+#' library(ggplot2)
+#' 
+#' ggplot(mtcars, aes(x = mpg, y = wt)) +
+#'    geom_point() +
+#'    labs(title = "A Lovely Plot", subtitle = "Something insightful") +
+#'    theme_boe_identity() +
+#'    scale_y_continuous(position = "right")
+#'    
+#' ggplot(mtcars, aes(x = mpg, y = wt, colour = factor(cyl))) +
+#'    geom_point() +
+#'    labs(title = "A Lovely Plot", subtitle = "Something insightful") +
+#'    theme_boe_identity() +
+#'    scale_y_continuous(position = "right") +
+#'    guides(colour = guide_legend(title = NULL, override.aes = list(size = 5))) +
+#'    scale_colour_discrete_boe(palette = "boe_identity")
+#'    
+#' }
+#' 
+#' @name theme_boe_identity
+theme_boe_identity <- function(
+  base_family = "Arial", 
+  base_size = 16, 
+  base_colour = "#C4C9CE",
+  plot_title_size = 18,
+  grid = "X", 
+  axis = "X") {
+  
+  half_line <- base_size / 2
+  base_line_size <- base_size / 22
+  base_rect_size <- base_size / 22
+  gridline_size <- 0.5
+  axis_tick_size <- 0.5
+  axis_ticks_length <- 8
+  
+  # Starts with theme_grey and then modify some parts
+  p <- theme_grey(
+    base_size = base_size, base_family = base_family,
+    base_line_size = base_line_size, base_rect_size = base_rect_size
+  ) %+replace%
+    theme(
+      # global
+      text = element_text(
+        family = base_family, face = "plain",
+        colour = base_colour, size = base_size,
+        lineheight = 0.9, hjust = 0.5, vjust = 0.5, angle = 0,
+        margin = ggplot2::margin(), debug = FALSE
+        ),
+      
+      # background
+      panel.background = element_rect(
+        fill = boe_brand_main$boe_dark_blue, colour = NA
+        ),
+      plot.background = element_rect(
+        fill = boe_brand_main$boe_dark_blue, colour = NA
+        ),
+      panel.border = element_blank(),
+      
+      plot.margin = ggplot2::margin(half_line, half_line, half_line, half_line),
+
+      # titling
+      plot.title = element_text(
+        colour = "#ffffff",
+        size = title_size, face = "bold", hjust = 0, vjust = 1,
+        margin = ggplot2::margin(b = half_line)
+      ),
+      plot.title.position = "plot",
+      plot.subtitle = element_text(
+        size = title_size, face = "plain", hjust = 0, vjust = 1,
+        margin = ggplot2::margin(b = half_line)
+      ),
+      plot.caption = element_text(
+        colour = base_colour, size = base_size,
+        hjust = 0, vjust = 1, margin = ggplot2::margin(t = half_line)
+      ),
+      
+      # axes
+      axis.title = element_text(colour = base_colour, size = base_size),
+      axis.title.x = element_text(
+        margin = margin(t = half_line), vjust = 1
+      ),
+      axis.title.y = element_text(
+        margin = margin(r = half_line), vjust = 1, angle = 90
+      ),
+      axis.title.y.right = element_text(
+        angle = -90, margin = margin(l = half_line), vjust = 0
+      ),
+      axis.text = element_text(colour = base_colour, size = base_size),
+      
+      # legend
+      legend.position = "top", 
+      legend.title = element_text(
+        colour = base_colour, size = base_size, hjust = 0
+      ),
+      legend.text = element_text(
+        colour = base_colour, size = base_size, hjust = 0
+      ),
+      legend.background = element_rect(fill = NA, colour = NA),
+      legend.box.background = element_rect(fill = NA, colour = NA),
+      legend.key = element_rect(fill = NA, colour = NA),
+      legend.direction = "vertical", legend.justification = "left",
+      legend.margin = margin(l = 0),
+      legend.box.margin = margin(l = 0),
+      legend.box.spacing = ggplot2::unit(half_line, "pt")
+    )
+  
+  # chart grid
+  if (inherits(grid, "character") | grid == TRUE) {
+    
+    p <- p + theme(
+      panel.grid = element_line(colour = base_colour, size = gridline_size / .pt),
+      panel.grid.major = element_line(colour=base_colour, size = gridline_size / .pt),
+      panel.grid.minor = element_line(colour=base_colour, size = gridline_size / .pt)
+    )
+    
+    if (inherits(grid, "character")) {
+      if (regexpr("X", grid)[1] < 0) p <- p + theme(panel.grid.major.y = element_blank())
+      if (regexpr("Y", grid)[1] < 0) p <- p + theme(panel.grid.major.x = element_blank())
+      if (regexpr("x", grid)[1] < 0) p <- p + theme(panel.grid.minor.y = element_blank())
+      if (regexpr("y", grid)[1] < 0) p <- p + theme(panel.grid.minor.x = element_blank())
+    }
+    
+  } else {
+    p <- p + theme(panel.grid = element_blank())
+  }
+  
+  # axis lines
+  if (inherits(axis, "character") | axis == TRUE) {
+    p <- p + theme(
+      axis.line.y = element_line(colour=base_colour, size = gridline_size / .pt),
+      axis.line.x = element_line(colour=base_colour, size = gridline_size / .pt)
+      )
+    if (inherits(axis, "character")) {
+      axis <- tolower(axis)
+      if (regexpr("x", axis)[1] < 0) {
+        p <- p + theme(axis.line.x = element_blank())
+      } else {
+        p <- p + theme(
+          axis.line.x = element_line(
+            colour=base_colour, size = gridline_size / .pt
+            )
+          )
+      }
+      if (regexpr("y", axis)[1] < 0) {
+        p <- p + theme(axis.line.y = element_blank())
+      } else {
+        p <- p + theme(
+          axis.line.y = element_line(
+            colour=base_colour, size = gridline_size / .pt
+            )
+          )
+      }
+    } else {
+      p <- p + theme(
+        axis.line.x = element_line(
+          colour=base_colour, size = gridline_size / .pt
+          ),
+        axis.line.y = element_line(
+          colour=base_colour, size = gridline_size / .pt)
+        )
+    }
+  } else {
+    p <- p + theme(axis.line = element_blank())
+  }
+  
+  # axis ticks
+  if (inherits(axis, "character") | axis == TRUE) {
+    p <- p + theme(
+      axis.ticks = element_line(
+        size = axis_tick_size / .pt, colour = base_colour
+        ),
+      axis.ticks.length = grid::unit(half_line, "pt"))
+    if (inherits(axis, "character")) {
+      axis <- tolower(axis)
+      if (regexpr("x", axis)[1] < 0) {
+        p <- p + theme(axis.ticks.x = element_blank())
+      } else {
+        p <- p + theme(
+          axis.ticks.x = element_line(
+            colour=base_colour, size = axis_tick_size / .pt
+            ),
+          axis.ticks.length = grid::unit(half_line, "pt")
+          )
+      }
+      if (regexpr("y", axis)[1] < 0) {
+        p <- p + theme(axis.ticks.y = element_blank())
+      } else {
+        p <- p + theme(
+          axis.ticks.y = element_line(colour=base_colour, size = axis_tick_size / .pt),
+          axis.ticks.length = grid::unit(half_line, "pt"))
+      }
+    } else {
+      p <- p + theme(
+        axis.ticks.x = element_line(colour=base_colour, size = axis_tick_size / .pt),
+        axis.ticks.y = element_line(colour=base_colour, size = axis_tick_size / .pt),
+        axis.ticks.length = grid::unit(axis_ticks_length, "pt")
+        )
+    }
+  } else {
+    p <- p + theme(axis.ticks = element_blank())
+  }
+  
+  p
+}
+
 #' A \code{ggplot2} theme that approximates Bank Overground charts
 #'
 #' @description Provides a theme to produce
@@ -108,13 +329,13 @@ theme_overground <- function(
         family = base_family
         ),
       axis.title.x = element_text(
-        hjust = xj, margin = margin(t = half_line / 2), vjust = 1
+        hjust = xj, margin = margin(t = half_line), vjust = 1
         ),
       axis.title.y = element_text(
-        hjust = yj, margin = margin(r = half_line / 2), vjust = 1, angle = 90
+        hjust = yj, margin = margin(r = half_line), vjust = 1, angle = 90
         ),
       axis.title.y.right = element_text(
-        hjust = yj, angle = -90, margin = margin(l = half_line / 2), vjust = 0
+        hjust = yj, angle = -90, margin = margin(l = half_line), vjust = 0
         ),
       
       # axis text
