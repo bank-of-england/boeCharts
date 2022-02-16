@@ -5,26 +5,56 @@
 \title{A \code{ggplot2} theme for the Bank's 2022 brand update chart design}
 \usage{
 theme_boe_identity(
-  base_family = "Arial",
-  base_size = 16,
-  base_colour = "#C4C9CE",
-  plot_title_size = 18,
+  axis = "X",
   grid = "X",
-  axis = "X"
+  base_family = "Arial",
+  plot_title_size = 18,
+  subtitle_size = 18,
+  axis_title_size = 16,
+  axis_text_size = 16,
+  legend_title_size = 16,
+  legend_text_size = 16,
+  facet_title_size = 16,
+  caption_size = 16,
+  base_colour = "#C4C9CE",
+  plot_title_color = "#ffffff",
+  subtitle_color = "#ffffff",
+  axis_title_color = "#C4C9CE",
+  axis_text_color = "#C4C9CE",
+  legend_title_color = "#C4C9CE",
+  legend_text_color = "#C4C9CE",
+  facet_title_color = "#C4C9CE",
+  caption_color = "#C4C9CE",
+  background_color = "#12273F",
+  axis_line_color = "#C4C9CE",
+  grid_color = "#C4C9CE"
 )
 }
 \arguments{
-\item{base_family}{base font family, size and colour}
-
-\item{base_size}{base font family, size and colour}
-
-\item{base_colour}{base font family, size and colour}
-
-\item{plot_title_size}{plot title face, size and colour}
+\item{axis}{add x or y axes? `TRUE` (or `XY`), `FALSE`, `X` or `Y`}
 
 \item{grid}{panel grid (`TRUE`, `FALSE`, or a combination of `X`, `x`, `Y`, `y`)}
 
-\item{axis}{add x or y axes? `TRUE` (or `XY`), `FALSE`, `X` or `Y`}
+\item{base_family}{base font family, size and colour}
+
+\item{plot_title_size}{plot title face, size and colour}
+
+\item{subtitle_size}{plot subtitle face, size and colour}
+
+\item{axis_title_size}{axis title font face, 
+size and colour}
+
+\item{axis_text_size}{axis text size and colour}
+
+\item{legend_title_size}{legend title 
+font face, size and colour}
+
+\item{legend_text_size}{legend text size and colour}
+
+\item{caption_size}{plot caption 
+face, size, and colour}
+
+\item{base_colour}{base font family, size and colour}
 }
 \value{
 Will not return anything of itself, but when used in conjuntion

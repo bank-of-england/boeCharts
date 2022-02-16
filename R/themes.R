@@ -35,185 +35,211 @@
 #' 
 #' @name theme_boe_identity
 theme_boe_identity <- function(
+  axis = "X",
+  grid = "X",
   base_family = "Arial", 
-  base_size = 16, 
-  base_colour = "#C4C9CE",
   plot_title_size = 18,
-  grid = "X", 
-  axis = "X") {
+  subtitle_size = 18,
+  axis_title_size = 16,
+  axis_text_size = 16,
+  legend_title_size = 16,
+  legend_text_size = 16,
+  facet_title_size = 16,
+  caption_size = 16,
+  base_colour = "#C4C9CE",
+  plot_title_color = "#ffffff",
+  subtitle_color = "#ffffff",
+  axis_title_color = "#C4C9CE",
+  axis_text_color = "#C4C9CE",
+  legend_title_color = "#C4C9CE",
+  legend_text_color = "#C4C9CE",
+  facet_title_color = "#C4C9CE",
+  caption_color = "#C4C9CE",
+  background_color = "#12273F",
+  axis_line_color = "#C4C9CE",
+  grid_color = "#C4C9CE"
+  ) {
   
-  half_line <- base_size / 2
-  base_line_size <- base_size / 22
-  base_rect_size <- base_size / 22
   gridline_size <- 0.5
   axis_tick_size <- 0.5
   axis_ticks_length <- 8
   
   # Starts with theme_grey and then modify some parts
-  p <- theme_grey(
-    base_size = base_size, base_family = base_family,
-    base_line_size = base_line_size, base_rect_size = base_rect_size
+  p <- ggplot2::theme_grey(
+    base_family = base_family
   ) %+replace%
-    theme(
+    ggplot2::theme(
+      
       # global
-      text = element_text(
+      text = ggplot2::element_text(
         family = base_family, face = "plain",
-        colour = base_colour, size = base_size,
-        lineheight = 0.9, hjust = 0.5, vjust = 0.5, angle = 0,
-        margin = ggplot2::margin(), debug = FALSE
+        hjust = 0.5, vjust = 0.5, angle = 0,
+        debug = FALSE
         ),
       
       # background
-      panel.background = element_rect(
-        fill = boe_brand_main$boe_dark_blue, colour = NA
+      panel.background = ggplot2::element_rect(
+        fill = background_color, colour = NA
         ),
-      plot.background = element_rect(
-        fill = boe_brand_main$boe_dark_blue, colour = NA
+      plot.background = ggplot2::element_rect(
+        fill = background_color, colour = NA
         ),
-      panel.border = element_blank(),
-      
-      plot.margin = ggplot2::margin(half_line, half_line, half_line, half_line),
+      panel.border = ggplot2::element_blank(),
+      plot.margin = ggplot2::margin(20, 20, 20, 20, unit = "pt"),
 
       # titling
-      plot.title = element_text(
-        colour = "#ffffff",
-        size = title_size, face = "bold", hjust = 0, vjust = 1,
-        margin = ggplot2::margin(b = half_line)
+      plot.title = ggplot2::element_text(
+        colour = plot_title_color, size = plot_title_size, face = "bold", 
+        hjust = 0, vjust = 1, margin = ggplot2::margin(b = 5)
       ),
       plot.title.position = "plot",
-      plot.subtitle = element_text(
-        size = title_size, face = "plain", hjust = 0, vjust = 1,
-        margin = ggplot2::margin(b = half_line)
+      plot.subtitle = ggplot2::element_text(
+        colour = subtitle_color, size = subtitle_size, face = "plain", 
+        hjust = 0, vjust = 1, margin = ggplot2::margin(b = 24)
       ),
-      plot.caption = element_text(
-        colour = base_colour, size = base_size,
-        hjust = 0, vjust = 1, margin = ggplot2::margin(t = half_line)
+      plot.caption = ggplot2::element_text(
+        colour = caption_color, size = caption_size,
+        hjust = 0, vjust = 1, margin = ggplot2::margin(t = 24)
       ),
       
       # axes
-      axis.title = element_text(colour = base_colour, size = base_size),
-      axis.title.x = element_text(
-        margin = margin(t = half_line), vjust = 1
+      axis.title = ggplot2::element_text(
+        colour = axis_title_color, size = axis_title_size
+        ),
+      axis.title.x = ggplot2::element_text(
+        margin = ggplot2::margin(t = 12), vjust = 1
       ),
-      axis.title.y = element_text(
-        margin = margin(r = half_line), vjust = 1, angle = 90
+      axis.title.y = ggplot2::element_text(
+        margin = ggplot2::margin(r = 12), vjust = 1, angle = 90
       ),
-      axis.title.y.right = element_text(
-        angle = -90, margin = margin(l = half_line), vjust = 0
+      axis.title.y.right = ggplot2::element_text(
+        angle = -90, margin = ggplot2::margin(l = 12), vjust = 0
       ),
-      axis.text = element_text(colour = base_colour, size = base_size),
+      axis.text = ggplot2::element_text(
+        colour = axis_text_color, size = axis_text_size
+        ),
       
       # legend
       legend.position = "top", 
-      legend.title = element_text(
-        colour = base_colour, size = base_size, hjust = 0
+      legend.title = ggplot2::element_text(
+        colour = legend_title_color, size = legend_title_size, hjust = 0
       ),
-      legend.text = element_text(
-        colour = base_colour, size = base_size, hjust = 0
+      legend.text = ggplot2::element_text(
+        colour = legend_text_color, size = legend_text_size, hjust = 0
       ),
-      legend.background = element_rect(fill = NA, colour = NA),
-      legend.box.background = element_rect(fill = NA, colour = NA),
-      legend.key = element_rect(fill = NA, colour = NA),
+      legend.background = ggplot2::element_rect(fill = NA, colour = NA),
+      legend.box.background = ggplot2::element_rect(fill = NA, colour = NA),
+      legend.key = ggplot2::element_rect(fill = NA, colour = NA),
       legend.direction = "vertical", legend.justification = "left",
-      legend.margin = margin(l = 0),
-      legend.box.margin = margin(l = 0),
-      legend.box.spacing = ggplot2::unit(half_line, "pt")
+      legend.margin = ggplot2::margin(l = 0),
+      legend.box.margin = ggplot2::margin(l = 0)
+      # legend.box.spacing = ggplot2::unit(half_line, "pt")
     )
   
   # chart grid
   if (inherits(grid, "character") | grid == TRUE) {
     
     p <- p + theme(
-      panel.grid = element_line(colour = base_colour, size = gridline_size / .pt),
-      panel.grid.major = element_line(colour=base_colour, size = gridline_size / .pt),
-      panel.grid.minor = element_line(colour=base_colour, size = gridline_size / .pt)
+      panel.grid = ggplot2::element_line(colour = grid_color, size = gridline_size / .pt),
+      panel.grid.major = ggplot2::element_line(colour=grid_color, size = gridline_size / .pt),
+      panel.grid.minor = ggplot2::element_line(colour=grid_color, size = gridline_size / .pt)
     )
     
     if (inherits(grid, "character")) {
-      if (regexpr("X", grid)[1] < 0) p <- p + theme(panel.grid.major.y = element_blank())
-      if (regexpr("Y", grid)[1] < 0) p <- p + theme(panel.grid.major.x = element_blank())
-      if (regexpr("x", grid)[1] < 0) p <- p + theme(panel.grid.minor.y = element_blank())
-      if (regexpr("y", grid)[1] < 0) p <- p + theme(panel.grid.minor.x = element_blank())
+      if (regexpr("X", grid)[1] < 0) p <- p + ggplot2::theme(panel.grid.major.y = element_blank())
+      if (regexpr("Y", grid)[1] < 0) p <- p + ggplot2::theme(panel.grid.major.x = element_blank())
+      if (regexpr("x", grid)[1] < 0) p <- p + ggplot2::theme(panel.grid.minor.y = element_blank())
+      if (regexpr("y", grid)[1] < 0) p <- p + ggplot2::theme(panel.grid.minor.x = element_blank())
     }
     
   } else {
-    p <- p + theme(panel.grid = element_blank())
+    p <- p + ggplot2::theme(panel.grid = ggplot2::element_blank())
   }
   
   # axis lines
   if (inherits(axis, "character") | axis == TRUE) {
-    p <- p + theme(
-      axis.line.y = element_line(colour=base_colour, size = gridline_size / .pt),
-      axis.line.x = element_line(colour=base_colour, size = gridline_size / .pt)
+    p <- p + ggplot2::theme(
+      axis.line.y = ggplot2::element_line(
+        colour=axis_line_color, size = gridline_size / .pt
+        ),
+      axis.line.x = ggplot2::element_line(
+        colour=axis_line_color, size = gridline_size / .pt
+        )
       )
     if (inherits(axis, "character")) {
       axis <- tolower(axis)
       if (regexpr("x", axis)[1] < 0) {
-        p <- p + theme(axis.line.x = element_blank())
+        p <- p + ggplot2::theme(axis.line.x = ggplot2::element_blank())
       } else {
-        p <- p + theme(
-          axis.line.x = element_line(
-            colour=base_colour, size = gridline_size / .pt
+        p <- p + ggplot2::theme(
+          axis.line.x = ggplot2::element_line(
+            colour=axis_line_color, size = gridline_size / .pt
             )
           )
       }
       if (regexpr("y", axis)[1] < 0) {
-        p <- p + theme(axis.line.y = element_blank())
+        p <- p + ggplot2::theme(axis.line.y = ggplot2::element_blank())
       } else {
-        p <- p + theme(
-          axis.line.y = element_line(
-            colour=base_colour, size = gridline_size / .pt
+        p <- p + ggplot2::theme(
+          axis.line.y = ggplot2::element_line(
+            colour=axis_line_color, size = gridline_size / .pt
             )
           )
       }
     } else {
-      p <- p + theme(
-        axis.line.x = element_line(
-          colour=base_colour, size = gridline_size / .pt
+      p <- p + ggplot2::theme(
+        axis.line.x = ggplot2::element_line(
+          colour=axis_line_color, size = gridline_size / .pt
           ),
-        axis.line.y = element_line(
-          colour=base_colour, size = gridline_size / .pt)
+        axis.line.y = ggplot2::element_line(
+          colour=axis_line_color, size = gridline_size / .pt)
         )
     }
   } else {
-    p <- p + theme(axis.line = element_blank())
+    p <- p + ggplot2::theme(axis.line = ggplot2::element_blank())
   }
   
   # axis ticks
   if (inherits(axis, "character") | axis == TRUE) {
-    p <- p + theme(
-      axis.ticks = element_line(
-        size = axis_tick_size / .pt, colour = base_colour
+    p <- p + ggplot2::theme(
+      axis.ticks = ggplot2::element_line(
+        size = axis_tick_size / .pt, colour = axis_line_color
         ),
-      axis.ticks.length = grid::unit(half_line, "pt"))
+      axis.ticks.length = grid::unit(axis_ticks_length, "pt"))
     if (inherits(axis, "character")) {
       axis <- tolower(axis)
       if (regexpr("x", axis)[1] < 0) {
-        p <- p + theme(axis.ticks.x = element_blank())
+        p <- p + ggplot2::theme(axis.ticks.x = ggplot2::element_blank())
       } else {
-        p <- p + theme(
-          axis.ticks.x = element_line(
-            colour=base_colour, size = axis_tick_size / .pt
+        p <- p + ggplot2::theme(
+          axis.ticks.x = ggplot2::element_line(
+            colour=axis_line_color, size = axis_tick_size / .pt
             ),
-          axis.ticks.length = grid::unit(half_line, "pt")
+          axis.ticks.length = grid::unit(axis_ticks_length, "pt")
           )
       }
       if (regexpr("y", axis)[1] < 0) {
-        p <- p + theme(axis.ticks.y = element_blank())
+        p <- p + ggplot2::theme(axis.ticks.y = ggplot2::element_blank())
       } else {
-        p <- p + theme(
-          axis.ticks.y = element_line(colour=base_colour, size = axis_tick_size / .pt),
-          axis.ticks.length = grid::unit(half_line, "pt"))
+        p <- p + ggplot2::theme(
+          axis.ticks.y = ggplot2::element_line(
+            colour=axis_line_color, size = axis_tick_size / .pt
+            ),
+          axis.ticks.length = grid::unit(axis_ticks_length, "pt"))
       }
     } else {
-      p <- p + theme(
-        axis.ticks.x = element_line(colour=base_colour, size = axis_tick_size / .pt),
-        axis.ticks.y = element_line(colour=base_colour, size = axis_tick_size / .pt),
+      p <- p + ggplot2::theme(
+        axis.ticks.x = ggplot2::element_line(
+          colour=axis_line_color, size = axis_tick_size / .pt
+          ),
+        axis.ticks.y = ggplot2::element_line(
+          colour=axis_line_color, size = axis_tick_size / .pt
+          ),
         axis.ticks.length = grid::unit(axis_ticks_length, "pt")
         )
     }
   } else {
-    p <- p + theme(axis.ticks = element_blank())
+    p <- p + ggplot2::theme(axis.ticks = ggplot2::element_blank())
   }
   
   p
