@@ -35,8 +35,7 @@
 #' 
 #' @name theme_boe_identity
 theme_boe_identity <- function(
-  axis = "X",
-  grid = "X",
+  axis = "X", grid = "X",
   base_family = "Arial", 
   plot_title_size = 18,
   subtitle_size = 18,
