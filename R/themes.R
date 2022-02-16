@@ -1,41 +1,103 @@
-#' A \code{ggplot2} theme for the Bank's 2022 brand update chart design
+#' Bank of England [ggplot2] themes
 #' 
-#' Provides a theme to produce approximations of the Bank's 2022 brand update 
-#' chart design guidelines in \code{ggplot2}.
+#' These are complete chart styles to produce approximations of charts found in
+#' the Bank. Use [ggplot2::theme()] if you just need to tweak the display of an 
+#' existing theme.
+#' 
+#' @details 
+#' \describe{
+#'
+#' \item{`theme_boe_identity()`}{
+#' A ggplot2 theme for the Bank's 
+#' \href{https://boeguidelines.frontify.com/d/KN5KRtH8qzXF/design-guidelines#/brand-applications/chart-design-for-staff}{2022 brand update chart design guidelines} 
+#' }
+#' 
+#' \item{`theme_overground()`}{
+#' A ggplot2 theme to produce
+#' \href{https://www.bankofengland.co.uk/bank-overground}{Bank Overground} 
+#' style visualisations}
+#' 
+#' \item{`theme_mpr()`}{
+#' A ggplot2 theme for Monetary Policy Report (MPR) chart styling}
+#' 
+#' \item{`theme_fsr()`}{
+#' A ggplot2 theme for Financial Stability Report (FSR) chart styling}
+#' 
+#' \item{`theme_mcg_pub()`}{
+#' A ggplot2 theme for Money & Credit Group (MCG) publication chart styling}
+#' 
+#' }
 #' 
 #' @details See \code{ggplot2::scale_y_continuous} for positioning y-axis on the right.
-#' 
-#' @inheritParams theme_overground
-#' 
-#' @return Will not return anything of itself, but when used in conjuntion
-#' with \code{\link{ggplot}} and (e.g.) \code{\link{geom_point}} from the
-#' package \code{ggplot2}, will apply styling to a plot.
-#' 
-#' @export
 #'
+#' @param base_family,base_size,base_colour base font family, size and colour
+#' @param plot_title_face,plot_title_size,plot_title_colour 
+#' plot title face, size and colour
+#' @param plot_title_position Alignment of the plot title/subtitle.
+#' A value of "plot" (the default) means that titles are aligned to 
+#' the entire plot (minus any space for margins and plot tag).
+#' A value of "panel" means that titles are aligned to the plot panels 
+#' @param subtitle_face,subtitle_size,subtitle_colour plot subtitle face, size and colour
+#' @param axis_title_face,axis_title_size,axis_title_colour axis title font face, 
+#' size and colour
+#' @param axis_title_just axis title font justification, one of `[blmcrt]`
+#' @param axis_text_size,axis_text_colour axis text size and colour
+#' @param axis_ticks_length axis ticks length
+#' @param legend_title_face,legend_title_size,legend_title_colour legend title 
+#' font face, size and colour
+#' @param legend_text_size,legend_text_colour legend text size and colour
+#' @param legend_position,legend_just,legend_margin,legend_direction 
+#' legend position, justification, margin and direction
+#' @param caption_face,caption_size,caption_colour plot caption 
+#' face, size, and colour
+#' @param caption_position Alignment of the plot caption
+#' @param strip_text_face,strip_text_size,strip_text_colour facet label font 
+#' face, size and colour
+#' @param grid panel grid (`TRUE`, `FALSE`, or a combination of `X`, `x`, `Y`, `y`)
+#' @param axis add x or y axes? `TRUE` (or `XY`), `FALSE`, `X` or `Y`
+#' @param grid_col,axis_col,grid_colour,axis_line_colour 
+#' grid & axis colours
+#' @param ticks axis ticks (`TRUE` (or `XY`), `FALSE`, `X` or `Y`)
+#' @param plot_margin plot margin (top, right, bottom, left)
+#' 
 #' @examples \dontrun{
 #' 
 #' library(ggplot2)
 #' 
-#' ggplot(mtcars, aes(x = mpg, y = wt)) +
+#' p1 <- ggplot(mtcars, aes(x = mpg, y = wt)) +
 #'    geom_point() +
-#'    labs(title = "A Lovely Plot", subtitle = "Something insightful") +
-#'    theme_boe_identity() +
-#'    scale_y_continuous(position = "right")
+#'    labs(title = "A Lovely Plot", subtitle = "Something insightful")
 #'    
-#' ggplot(mtcars, aes(x = mpg, y = wt, colour = factor(cyl))) +
+#' p1 + theme_boe_identity()
+#' p1 + theme_overground()
+#' p1 + theme_mpr()
+#' p1 + theme_fsr()
+#' p1 + theme_mcg_pub()
+#' 
+#' p2 <- ggplot(mtcars, aes(x = mpg, y = wt, colour = factor(cyl))) +
 #'    geom_point() +
 #'    labs(title = "A Lovely Plot", subtitle = "Something insightful") +
-#'    theme_boe_identity() +
-#'    scale_y_continuous(position = "right") +
-#'    guides(colour = guide_legend(title = NULL, override.aes = list(size = 5))) +
-#'    scale_colour_discrete_boe(palette = "boe_identity")
+#'    scale_y_continuous(position = "right")
+#' 
+#' p2 + 
+#'   theme_boe_identity() +
+#'   scale_colour_discrete_boe(palette = "boe_identity", name = NULL) +
+#'   guides(colour = guide_legend(override.aes = list(size = 4)))
 #'    
 #' }
 #' 
-#' @name theme_boe_identity
+#' @name boetheme
+#' @aliases NULL
+NULL
+
+#' @export
+#' @rdname boetheme
 theme_boe_identity <- function(
   axis = "X", grid = "X",
+  legend_position = c("top-left", "top-right", "bottom-left", "bottom-right",
+                      "top", "right", "bottom", "left", "none"),
+  legend_direction = c("vertical", "horizontal"),
+  caption_position = c("left", "right"),
   base_family = "Arial", 
   plot_title_size = 18,
   subtitle_size = 18,
@@ -43,25 +105,37 @@ theme_boe_identity <- function(
   axis_text_size = 16,
   legend_title_size = 16,
   legend_text_size = 16,
-  facet_title_size = 16,
+  strip_text_size = 16,
   caption_size = 16,
   base_colour = "#C4C9CE",
-  plot_title_color = "#ffffff",
-  subtitle_color = "#ffffff",
-  axis_title_color = "#C4C9CE",
-  axis_text_color = "#C4C9CE",
-  legend_title_color = "#C4C9CE",
-  legend_text_color = "#C4C9CE",
-  facet_title_color = "#C4C9CE",
-  caption_color = "#C4C9CE",
-  background_color = "#12273F",
-  axis_line_color = "#C4C9CE",
-  grid_color = "#C4C9CE"
+  plot_title_colour = "#ffffff",
+  subtitle_colour = "#ffffff",
+  axis_title_colour = "#C4C9CE",
+  axis_text_colour = "#C4C9CE",
+  legend_title_colour = "#C4C9CE",
+  legend_text_colour = "#C4C9CE",
+  strip_text_colour = "#C4C9CE",
+  caption_colour = "#C4C9CE",
+  background_colour = "#12273F",
+  axis_line_colour = "#C4C9CE",
+  grid_colour = "#C4C9CE"
   ) {
   
   gridline_size <- 0.5
   axis_tick_size <- 0.5
   axis_ticks_length <- 8
+  legend_position <- match.arg(legend_position)
+  caption_position <- match.arg(caption_position)
+  legend_direction <- match.arg(legend_direction)
+  
+  # Set the caption horizontal justification
+  if (caption_position == "left") {
+    caption_hjust = 0
+  } else if (caption_position == "right") {
+    caption_hjust = 1
+  }
+  
+  
   
   # Starts with theme_grey and then modify some parts
   p <- ggplot2::theme_grey(
@@ -78,32 +152,32 @@ theme_boe_identity <- function(
       
       # background
       panel.background = ggplot2::element_rect(
-        fill = background_color, colour = NA
+        fill = background_colour, colour = NA
         ),
       plot.background = ggplot2::element_rect(
-        fill = background_color, colour = NA
+        fill = background_colour, colour = NA
         ),
       panel.border = ggplot2::element_blank(),
       plot.margin = ggplot2::margin(20, 20, 20, 20, unit = "pt"),
 
       # titling
       plot.title = ggplot2::element_text(
-        colour = plot_title_color, size = plot_title_size, face = "bold", 
-        hjust = 0, vjust = 1, margin = ggplot2::margin(b = 5)
+        colour = plot_title_colour, size = plot_title_size, face = "bold", 
+        hjust = 0, margin = ggplot2::margin(b = 5)
       ),
       plot.title.position = "plot",
       plot.subtitle = ggplot2::element_text(
-        colour = subtitle_color, size = subtitle_size, face = "plain", 
-        hjust = 0, vjust = 1, margin = ggplot2::margin(b = 24)
+        colour = subtitle_colour, size = subtitle_size, face = "plain", 
+        hjust = 0, margin = ggplot2::margin(b = 24)
       ),
       plot.caption = ggplot2::element_text(
-        colour = caption_color, size = caption_size,
-        hjust = 0, vjust = 1, margin = ggplot2::margin(t = 24)
+        colour = caption_colour, size = caption_size,
+        hjust = caption_hjust, margin = ggplot2::margin(t = 24, l = 0)
       ),
       
       # axes
       axis.title = ggplot2::element_text(
-        colour = axis_title_color, size = axis_title_size
+        colour = axis_title_colour, size = axis_title_size
         ),
       axis.title.x = ggplot2::element_text(
         margin = ggplot2::margin(t = 12), vjust = 1
@@ -115,33 +189,84 @@ theme_boe_identity <- function(
         angle = -90, margin = ggplot2::margin(l = 12), vjust = 0
       ),
       axis.text = ggplot2::element_text(
-        colour = axis_text_color, size = axis_text_size
+        colour = axis_text_colour, size = axis_text_size
         ),
       
       # legend
-      legend.position = "top", 
       legend.title = ggplot2::element_text(
-        colour = legend_title_color, size = legend_title_size, hjust = 0
+        colour = legend_title_colour, size = legend_title_size
       ),
       legend.text = ggplot2::element_text(
-        colour = legend_text_color, size = legend_text_size, hjust = 0
+        colour = legend_text_colour, size = legend_text_size
       ),
       legend.background = ggplot2::element_rect(fill = NA, colour = NA),
       legend.box.background = ggplot2::element_rect(fill = NA, colour = NA),
       legend.key = ggplot2::element_rect(fill = NA, colour = NA),
-      legend.direction = "vertical", legend.justification = "left",
+      legend.direction = legend_direction,
       legend.margin = ggplot2::margin(l = 0),
-      legend.box.margin = ggplot2::margin(l = 0)
-      # legend.box.spacing = ggplot2::unit(half_line, "pt")
+      legend.box.margin = ggplot2::margin(l = 0),
+      # legend.box.spacing = ggplot2::unit(half_line, "pt"),
+      
+      # facets
+      strip.background = ggplot2::element_rect(
+        colour = background_colour,
+        fill = background_colour
+        ),
+      strip.text = ggplot2::element_text(
+        family = base_family,
+        colour = strip_text_colour,
+        size = strip_text_size,
+        face = "bold"
+        )
     )
+  
+  # legend position
+  if (legend_position %in% c("top", "right", "bottom", "left", "none")) {
+    
+    p <- p %+replace%
+      ggplot2::theme(legend.position = legend_position)
+    
+  } else if (legend_position == "top-right") {
+    
+    p <- p %+replace%
+      ggplot2::theme(
+        legend.position = "top",
+        legend.direction = legend_direction,
+        legend.justification = c(1, 0))
+    
+  } else if (legend_position == "top-left") {
+    
+    p <- p %+replace%
+      ggplot2::theme(
+        legend.position = "top",
+        legend.direction = legend_direction,
+        legend.justification = c(0,1))
+    
+  } else if (legend_position == "bottom-right") {
+    
+    p <- p %+replace%
+      ggplot2::theme(
+        legend.position = "bottom",
+        legend.direction = legend_direction,
+        legend.justification = c(1,0))
+    
+  } else if (legend_position == "bottom-left") {
+    
+    p <- p %+replace%
+      ggplot2::theme(
+        legend.position = "bottom",
+        legend.direction = legend_direction,
+        legend.justification = c(0,1))
+    
+  }
   
   # chart grid
   if (inherits(grid, "character") | grid == TRUE) {
     
-    p <- p + theme(
-      panel.grid = ggplot2::element_line(colour = grid_color, size = gridline_size / .pt),
-      panel.grid.major = ggplot2::element_line(colour=grid_color, size = gridline_size / .pt),
-      panel.grid.minor = ggplot2::element_line(colour=grid_color, size = gridline_size / .pt)
+    p <- p + ggplot2::theme(
+      panel.grid = ggplot2::element_line(colour = grid_colour, size = gridline_size / .pt),
+      panel.grid.major = ggplot2::element_line(colour=grid_colour, size = gridline_size / .pt),
+      panel.grid.minor = ggplot2::element_line(colour=grid_colour, size = gridline_size / .pt)
     )
     
     if (inherits(grid, "character")) {
@@ -159,10 +284,10 @@ theme_boe_identity <- function(
   if (inherits(axis, "character") | axis == TRUE) {
     p <- p + ggplot2::theme(
       axis.line.y = ggplot2::element_line(
-        colour=axis_line_color, size = gridline_size / .pt
+        colour=axis_line_colour, size = gridline_size / .pt
         ),
       axis.line.x = ggplot2::element_line(
-        colour=axis_line_color, size = gridline_size / .pt
+        colour=axis_line_colour, size = gridline_size / .pt
         )
       )
     if (inherits(axis, "character")) {
@@ -172,7 +297,7 @@ theme_boe_identity <- function(
       } else {
         p <- p + ggplot2::theme(
           axis.line.x = ggplot2::element_line(
-            colour=axis_line_color, size = gridline_size / .pt
+            colour=axis_line_colour, size = gridline_size / .pt
             )
           )
       }
@@ -181,17 +306,17 @@ theme_boe_identity <- function(
       } else {
         p <- p + ggplot2::theme(
           axis.line.y = ggplot2::element_line(
-            colour=axis_line_color, size = gridline_size / .pt
+            colour=axis_line_colour, size = gridline_size / .pt
             )
           )
       }
     } else {
       p <- p + ggplot2::theme(
         axis.line.x = ggplot2::element_line(
-          colour=axis_line_color, size = gridline_size / .pt
+          colour=axis_line_colour, size = gridline_size / .pt
           ),
         axis.line.y = ggplot2::element_line(
-          colour=axis_line_color, size = gridline_size / .pt)
+          colour=axis_line_colour, size = gridline_size / .pt)
         )
     }
   } else {
@@ -202,7 +327,7 @@ theme_boe_identity <- function(
   if (inherits(axis, "character") | axis == TRUE) {
     p <- p + ggplot2::theme(
       axis.ticks = ggplot2::element_line(
-        size = axis_tick_size / .pt, colour = axis_line_color
+        size = axis_tick_size / .pt, colour = axis_line_colour
         ),
       axis.ticks.length = grid::unit(axis_ticks_length, "pt"))
     if (inherits(axis, "character")) {
@@ -212,7 +337,7 @@ theme_boe_identity <- function(
       } else {
         p <- p + ggplot2::theme(
           axis.ticks.x = ggplot2::element_line(
-            colour=axis_line_color, size = axis_tick_size / .pt
+            colour=axis_line_colour, size = axis_tick_size / .pt
             ),
           axis.ticks.length = grid::unit(axis_ticks_length, "pt")
           )
@@ -222,17 +347,17 @@ theme_boe_identity <- function(
       } else {
         p <- p + ggplot2::theme(
           axis.ticks.y = ggplot2::element_line(
-            colour=axis_line_color, size = axis_tick_size / .pt
+            colour=axis_line_colour, size = axis_tick_size / .pt
             ),
           axis.ticks.length = grid::unit(axis_ticks_length, "pt"))
       }
     } else {
       p <- p + ggplot2::theme(
         axis.ticks.x = ggplot2::element_line(
-          colour=axis_line_color, size = axis_tick_size / .pt
+          colour=axis_line_colour, size = axis_tick_size / .pt
           ),
         axis.ticks.y = ggplot2::element_line(
-          colour=axis_line_color, size = axis_tick_size / .pt
+          colour=axis_line_colour, size = axis_tick_size / .pt
           ),
         axis.ticks.length = grid::unit(axis_ticks_length, "pt")
         )
@@ -244,61 +369,8 @@ theme_boe_identity <- function(
   p
 }
 
-#' A \code{ggplot2} theme that approximates Bank Overground charts
-#'
-#' @description Provides a theme to produce
-#' \href{https://www.bankofengland.co.uk/bank-overground}{Bank Overground} 
-#' style visualisations in \code{ggplot2}.
-#'
-#' @details Builds on the 'grammar of graphics' framework implement in
-#' ggplot2. Applying \code{theme_overground()} will adjust graphical parameters
-#' to give a plot a feel more in line with Bank Overground publications.
-#' 
-#' @return Will not return anything of itself, but when used in conjuntion
-#' with \code{\link{ggplot}} and (e.g.) \code{\link{geom_point}} from the
-#' package \code{ggplot2}, will apply styling to a plot.
-#'
-#' @param base_family,base_size,base_colour base font family, size and colour
-#' @param plot_title_face,plot_title_size,plot_title_colour 
-#' plot title face, size and colour
-#' @param plot_title_position Alignment of the plot title/subtitle.
-#' A value of "plot" (the default) means that titles are aligned to 
-#' the entire plot (minus any space for margins and plot tag).
-#' A value of "panel" means that titles are aligned to the plot panels 
-#' @param subtitle_face,subtitle_size,subtitle_colour plot subtitle face, size and colour
-#' @param axis_title_face,axis_title_size,axis_title_colour axis title font face, 
-#' size and colour
-#' @param axis_title_just axis title font justification, one of `[blmcrt]`
-#' @param axis_text_size,axis_text_colour axis text size and colour
-#' @param legend_title_face,legend_title_size,legend_title_colour legend title 
-#' font face, size and colour
-#' @param legend_text_size,legend_text_colour legend text size and colour
-#' @param legend_position,legend_just,legend_margin legend position, justification and margins
-#' @param caption_face,caption_size,caption_colour plot caption 
-#' face, size, and colour
-#' @param caption_position Alignment of the plot caption
-#' @param strip_text_face,strip_text_size,strip_text_colour facet label font 
-#' face, size and colour
-#' @param grid panel grid (`TRUE`, `FALSE`, or a combination of `X`, `x`, `Y`, `y`)
-#' @param axis add x or y axes? `TRUE` (or `XY`), `FALSE`, `X` or `Y`
-#' @param grid_col,axis_col grid & axis colors; both default to `#cccccc`
-#' @param ticks axis ticks (`TRUE` (or `XY`), `FALSE`, `X` or `Y`)
-#' @param plot_margin plot margin (top, right, bottom, left)
-#' 
-#' @examples \dontrun{
-#' library(ggplot2)
-#'
-#' ggplot(mtcars, aes(x = mpg, y = wt)) +
-#' geom_point() +
-#' labs(title = "A Lovely Plot",
-#' subtitle = "A thought-provoking subtitle.") +
-#' theme_overground()
-#' }
-#' 
-#' @name theme_overground
-#' 
 #' @export
-
+#' @rdname boetheme
 theme_overground <- function(
   base_family = "Calibri", base_size = 11.5, base_colour = "#657581",
   plot_title_face = "bold", plot_title_size = 18, plot_title_colour = "#005e6e", 
@@ -475,41 +547,8 @@ theme_overground <- function(
   p
 }
 
-#' A \code{ggplot2} theme for Monetary Policy Report (MPR) chart styling
-#' 
-#' @description Provides a theme to produce
-#' Monetary Policy Report (FKA Inflation Report) style visualisations in \code{ggplot2}.
-#' 
-#' @details See \code{ggplot2::scale_y_continuous} for positioning y-axis on the right.
-#' @details See [ylab_mpr()] for help positioning the y-axis title correctly.
-#' 
-#' @inheritParams theme_overground
-#' @param axis_ticks_length length of axis ticks (in centimetres)
-#' 
-#' @return Will not return anything of itself, but when used in conjuntion
-#' with \code{\link{ggplot}} and (e.g.) \code{\link{geom_point}} from the
-#' package \code{ggplot2}, will apply styling to a plot.
-#' 
 #' @export
-#'
-#' @examples \dontrun{
-#' 
-#' library(ggplot2)
-#'
-#' p <- ggplot(mtcars, aes(x = mpg, y = wt)) +
-#'    geom_point() +
-#'    labs(title = "A Lovely Plot", subtitle = "Something insightful",
-#'    caption = "Source: R") +
-#'    theme_mpr() +
-#'    scale_y_continuous(
-#'    position = "right", sec.axis = dup_axis(labels = NULL)
-#'    )
-#'    
-#' move_ylab(p)
-#' }
-#' 
-#' @name theme_mpr
-
+#' @rdname boetheme
 theme_mpr <- function(
   base_family = "Calibri", base_size = 11.5, base_colour = "#1e1e1e",
   plot_title_face = "plain", plot_title_size = 18, plot_title_colour = "#005e6e", 
@@ -617,40 +656,8 @@ theme_mpr <- function(
       )
 }
 
-#' A \code{ggplot2} theme for Financial Stability Report (FSR) chart styling
-#'
-#' @description Provides a theme to produce
-#' Financial Stability Report style visualisations in \code{ggplot2}.
-#'
-#' @details See \code{ggplot2::scale_y_continuous} for positioning y-axis on the right.
-#' @details See [ylab_fsr()] for help positioning the y-axis title correctly.
-#'
-#' @inheritParams theme_overground
-#' @inheritParams theme_mpr
-#'
-#' @return Will not return anything of itself, but when used in conjuntion
-#' with \code{\link{ggplot}} and (e.g.) \code{\link{geom_point}} from the
-#' package \code{ggplot2}, will apply styling to a plot.
-#'
 #' @export
-#'
-#' @examples \dontrun{
-#'
-#' library(ggplot2)
-#'
-#' p <- ggplot(mtcars, aes(x = mpg, y = wt)) +
-#'    geom_point() +
-#'    labs(title = "A Lovely Plot", subtitle = "Something insightful",
-#'    caption = caption_boe(source = "R")) +
-#'    theme_fsr() +
-#'    scale_y_continuous(
-#'    position = "right", sec.axis = dup_axis(labels = NULL)
-#'    )
-#'    
-#' move_ylab(p)
-#' }
-#'
-#' @name theme_fsr
+#' @rdname boetheme
 theme_fsr <- function(
   base_family = "Calibri", base_size = 11.5, base_colour = "#1e1e1e",
   plot_title_face = "plain", plot_title_size = 18, plot_title_colour = "#005e6e",
@@ -692,39 +699,8 @@ theme_fsr <- function(
   )
 }
 
-#' A \code{ggplot2} theme for MCG publication-ready charts
-#'
-#' @description Provides a theme to produce
-#' Money & Credit Group (MCG) publication style visualisations in \code{ggplot2}.
-#' See \code{ggplot2::scale_y_continuous} for positioning y-axis on the right.
-#'
-#' @details Builds on the 'grammar of graphics' framework implement in
-#' ggplot2. Applying \code{theme_mcg_pub()} will adjust graphical parameters
-#' to give a plot a feel more in line with MCG publications.
-#' 
-#' @return Will not return anything of itself, but when used in conjuntion
-#' with \code{\link{ggplot}} and (e.g.) \code{\link{geom_point}} from the
-#' package \code{ggplot2}, will apply styling to a plot.
-#' 
-#' @inheritParams theme_overground
-#' @param axis_colour,ticks_colour axis & ticks colours
-#'
-#' @examples \dontrun{
-#'
-#' library(ggplot2)
-#'
-#' ggplot(mtcars, aes(x = mpg, y = wt)) +
-#'    geom_point() +
-#'    labs(title = "A Lovely Plot",
-#'         subtitle = "A thought-provoking subtitle.") +
-#'    theme_mcg_pub() +
-#'    scale_y_continuous(position = "right")
-#' }
-#' 
-#' @name theme_mcg_pub
-#'
 #' @export
-
+#' @rdname boetheme
 theme_mcg_pub <- function(
   base_family = "", base_size = 11.5, base_colour = "#2b2b2b",
   plot_title_face = "bold", plot_title_size = 18, 
@@ -808,11 +784,11 @@ theme_mcg_pub <- function(
 
       # strip text (facetting)
       strip.background = element_blank(),
-      strip.text = element_text(color = base_colour, size = strip_text_size, 
+      strip.text = element_text(colour = base_colour, size = strip_text_size, 
                                 face = strip_text_face, family = base_family),
-      strip.text.x = element_text(color = base_colour, size = strip_text_size, 
+      strip.text.x = element_text(colour = base_colour, size = strip_text_size, 
                                   face = strip_text_face),
-      strip.text.y = element_text(color = base_colour, size = strip_text_size, 
+      strip.text.y = element_text(colour = base_colour, size = strip_text_size, 
                                   face = strip_text_face, angle = -90)
     )
 }
