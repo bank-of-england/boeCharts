@@ -7,6 +7,7 @@
         - Core: `boe_identity`, `boe_brand_main`, `boe_brand_secondary`
         - Shades: `boe_shades_aqua`
 - `add_hline0()` utility function for strong horizontal rule at "zero"
+- `geom_text_boe_identity()` and `annotate_boe_identity()` Bank-style wrappers 
 
 # boeCharts 1.3.2
 
