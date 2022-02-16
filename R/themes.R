@@ -42,7 +42,7 @@
 #' size and colour
 #' @param axis_title_just axis title font justification, one of `[blmcrt]`
 #' @param axis_text_size,axis_text_colour axis text size and colour
-#' @param axis_ticks_length axis ticks length
+#' @param axis_ticks_length,ticks_colour axis ticks length and colour
 #' @param legend_title_face,legend_title_size,legend_title_colour legend title 
 #' font face, size and colour
 #' @param legend_text_size,legend_text_colour legend text size and colour
@@ -55,10 +55,11 @@
 #' face, size and colour
 #' @param grid panel grid (`TRUE`, `FALSE`, or a combination of `X`, `x`, `Y`, `y`)
 #' @param axis add x or y axes? `TRUE` (or `XY`), `FALSE`, `X` or `Y`
-#' @param grid_col,axis_col,grid_colour,axis_line_colour 
+#' @param grid_col,axis_col,grid_colour,axis_colour,axis_line_colour 
 #' grid & axis colours
 #' @param ticks axis ticks (`TRUE` (or `XY`), `FALSE`, `X` or `Y`)
 #' @param plot_margin plot margin (top, right, bottom, left)
+#' @param background_colour plot background colour
 #' 
 #' @examples \dontrun{
 #' 
@@ -94,10 +95,6 @@ NULL
 #' @rdname boetheme
 theme_boe_identity <- function(
   axis = "X", grid = "X",
-  legend_position = c("top-left", "top-right", "bottom-left", "bottom-right",
-                      "top", "right", "bottom", "left", "none"),
-  legend_direction = c("vertical", "horizontal"),
-  caption_position = c("left", "right"),
   base_family = "Arial", 
   plot_title_size = 18,
   subtitle_size = 18,
@@ -118,7 +115,12 @@ theme_boe_identity <- function(
   caption_colour = "#C4C9CE",
   background_colour = "#12273F",
   axis_line_colour = "#C4C9CE",
-  grid_colour = "#C4C9CE"
+  grid_colour = "#C4C9CE",
+  legend_position = c("top-left", "top-right", "bottom-left", "bottom-right",
+                      "top", "right", "bottom", "left", "none"),
+  legend_direction = c("vertical", "horizontal"),
+  caption_position = c("left", "right"),
+  plot_title_position = c("plot", "panel")
   ) {
   
   gridline_size <- 0.5
@@ -127,6 +129,7 @@ theme_boe_identity <- function(
   legend_position <- match.arg(legend_position)
   caption_position <- match.arg(caption_position)
   legend_direction <- match.arg(legend_direction)
+  plot_title_position <- match.arg(plot_title_position)
   
   # Set the caption horizontal justification
   if (caption_position == "left") {
@@ -135,12 +138,7 @@ theme_boe_identity <- function(
     caption_hjust = 1
   }
   
-  
-  
-  # Starts with theme_grey and then modify some parts
-  p <- ggplot2::theme_grey(
-    base_family = base_family
-  ) %+replace%
+  p <- ggplot2::theme_grey(base_family = base_family) %+replace%
     ggplot2::theme(
       
       # global
@@ -165,7 +163,7 @@ theme_boe_identity <- function(
         colour = plot_title_colour, size = plot_title_size, face = "bold", 
         hjust = 0, margin = ggplot2::margin(b = 5)
       ),
-      plot.title.position = "plot",
+      plot.title.position = plot_title_position,
       plot.subtitle = ggplot2::element_text(
         colour = subtitle_colour, size = subtitle_size, face = "plain", 
         hjust = 0, margin = ggplot2::margin(b = 24)

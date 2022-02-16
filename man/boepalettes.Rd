@@ -10,7 +10,7 @@
 \alias{boe_diverging_palettes}
 \alias{boe_publication_palettes}
 \alias{boe_palettes}
-\title{Bank of England colour palettes}
+\title{Colour palette collections}
 \format{
 An object of class \code{list} of length 3.
 

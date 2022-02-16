@@ -1,4 +1,4 @@
-#' Bank of England colour palettes
+#' Colour palette collections
 #' 
 #' These are lists of colour palettes.
 #' 

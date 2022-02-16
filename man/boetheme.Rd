@@ -11,10 +11,6 @@
 theme_boe_identity(
   axis = "X",
   grid = "X",
-  legend_position = c("top-left", "top-right", "bottom-left", "bottom-right", "top",
-    "right", "bottom", "left", "none"),
-  legend_direction = c("vertical", "horizontal"),
-  caption_position = c("left", "right"),
   base_family = "Arial",
   plot_title_size = 18,
   subtitle_size = 18,
@@ -35,7 +31,12 @@ theme_boe_identity(
   caption_colour = "#C4C9CE",
   background_colour = "#12273F",
   axis_line_colour = "#C4C9CE",
-  grid_colour = "#C4C9CE"
+  grid_colour = "#C4C9CE",
+  legend_position = c("top-left", "top-right", "bottom-left", "bottom-right", "top",
+    "right", "bottom", "left", "none"),
+  legend_direction = c("vertical", "horizontal"),
+  caption_position = c("left", "right"),
+  plot_title_position = c("plot", "panel")
 )
 
 theme_overground(
@@ -183,22 +184,24 @@ theme_mcg_pub(
 
 \item{grid}{panel grid (`TRUE`, `FALSE`, or a combination of `X`, `x`, `Y`, `y`)}
 
-\item{legend_position, legend_just, legend_margin, legend_direction}{legend position, justification, margin and direction}
-
-\item{caption_position}{Alignment of the plot caption}
-
 \item{base_family, base_size, base_colour}{base font family, size and colour}
 
 \item{axis_text_size, axis_text_colour}{axis text size and colour}
 
 \item{legend_text_size, legend_text_colour}{legend text size and colour}
 
-\item{plot_title_face, plot_title_size, plot_title_colour}{plot title face, size and colour}
+\item{background_colour}{plot background colour}
+
+\item{legend_position, legend_just, legend_margin, legend_direction}{legend position, justification, margin and direction}
+
+\item{caption_position}{Alignment of the plot caption}
 
 \item{plot_title_position}{Alignment of the plot title/subtitle.
 A value of "plot" (the default) means that titles are aligned to 
 the entire plot (minus any space for margins and plot tag).
 A value of "panel" means that titles are aligned to the plot panels}
+
+\item{plot_title_face, plot_title_size, plot_title_colour}{plot title face, size and colour}
 
 \item{subtitle_face, subtitle_size, subtitle_colour}{plot subtitle face, size and colour}
 
@@ -216,13 +219,13 @@ face, size, and colour}
 \item{strip_text_face, strip_text_size, strip_text_colour}{facet label font 
 face, size and colour}
 
-\item{grid_col, axis_col, grid_colour, axis_line_colour}{grid & axis colours}
+\item{grid_col, axis_col, grid_colour, axis_colour, axis_line_colour}{grid & axis colours}
 
 \item{ticks}{axis ticks (`TRUE` (or `XY`), `FALSE`, `X` or `Y`)}
 
 \item{plot_margin}{plot margin (top, right, bottom, left)}
 
-\item{axis_ticks_length}{axis ticks length}
+\item{axis_ticks_length, ticks_colour}{axis ticks length and colour}
 }
 \description{
 These are complete chart styles to produce approximations of charts found in
