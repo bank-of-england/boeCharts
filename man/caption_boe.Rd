@@ -4,7 +4,7 @@
 \alias{caption_boe}
 \title{Format chart data sources and footnotes for captioning}
 \usage{
-caption_boe(source, footnote = NULL, manipulated_data = FALSE)
+caption_boe(source, footnote = NULL, manipulated_data = FALSE, sep = "\\n")
 }
 \arguments{
 \item{source}{character vector of data sources}
@@ -12,6 +12,8 @@ caption_boe(source, footnote = NULL, manipulated_data = FALSE)
 \item{footnote}{character vector of footnotes}
 
 \item{manipulated_data}{logical; has data been manipulated?}
+
+\item{sep}{source/footnote separator ("\\n" by default)}
 }
 \value{
 a length 1 vector

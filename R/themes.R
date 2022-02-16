@@ -104,6 +104,7 @@ theme_boe_identity <- function(
   legend_text_size = 16,
   strip_text_size = 16,
   caption_size = 16,
+  axis_ticks_length = 8,
   base_colour = "#C4C9CE",
   plot_title_colour = "#ffffff",
   subtitle_colour = "#ffffff",
@@ -125,7 +126,6 @@ theme_boe_identity <- function(
   
   gridline_size <- 0.5
   axis_tick_size <- 0.5
-  axis_ticks_length <- 8
   legend_position <- match.arg(legend_position)
   caption_position <- match.arg(caption_position)
   legend_direction <- match.arg(legend_direction)
@@ -172,6 +172,7 @@ theme_boe_identity <- function(
         colour = caption_colour, size = caption_size,
         hjust = caption_hjust, margin = ggplot2::margin(t = 24, l = 0)
       ),
+      plot.caption.position = "plot",
       
       # axes
       axis.title = ggplot2::element_text(

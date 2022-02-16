@@ -192,8 +192,8 @@ chart +
   theme_boe_identity_md() +
   labs(
     title = "**Chart A.2** Historical FANG stock prices",
-    subtitle = 'Stock price at the close of trading (USD), 2013-2016<sup>(a)</sup>',
-    caption = caption_boe(source = "Investopedia", footnote = "A minor data detail.")
+    subtitle = "Stock price at the close of trading (USD), 2013-2016",
+    caption = caption_boe(source = "Investopedia")
     )
 ```
 

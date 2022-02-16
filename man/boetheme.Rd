@@ -20,6 +20,7 @@ theme_boe_identity(
   legend_text_size = 16,
   strip_text_size = 16,
   caption_size = 16,
+  axis_ticks_length = 8,
   base_colour = "#C4C9CE",
   plot_title_colour = "#ffffff",
   subtitle_colour = "#ffffff",
@@ -190,6 +191,8 @@ theme_mcg_pub(
 
 \item{legend_text_size, legend_text_colour}{legend text size and colour}
 
+\item{axis_ticks_length, ticks_colour}{axis ticks length and colour}
+
 \item{background_colour}{plot background colour}
 
 \item{legend_position, legend_just, legend_margin, legend_direction}{legend position, justification, margin and direction}
@@ -224,8 +227,6 @@ face, size and colour}
 \item{ticks}{axis ticks (`TRUE` (or `XY`), `FALSE`, `X` or `Y`)}
 
 \item{plot_margin}{plot margin (top, right, bottom, left)}
-
-\item{axis_ticks_length, ticks_colour}{axis ticks length and colour}
 }
 \description{
 These are complete chart styles to produce approximations of charts found in
