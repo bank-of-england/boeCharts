@@ -1,28 +1,63 @@
-#' List of bank identity colour palettes
+#' Colour palette collections
+#' 
+#' These are lists of colour palettes.
+#' 
+#' @details 
+#' \describe{
+#' 
+#' \item{`boe_palettes`}{
+#' All colour palettes 
+#' }
 #'
-#' @keywords internal
-#'
+#' \item{`boe_identity_palettes`}{
+#' Brand identity colour palettes 
+#' }
+#' 
+#' \item{`boe_shades_palettes`}{
+#' Shades colour palettes 
+#' }
+#' 
+#' \item{`boe_standard_palettes`}{
+#' Standard colour palettes 
+#' }
+#' 
+#' \item{`boe_harmonious_palettes`}{
+#' Harmonious colour palettes 
+#' }
+#' 
+#' \item{`boe_vibrant_palettes`}{
+#' Vibrant colour palettes 
+#' }
+#' 
+#' \item{`boe_diverging_palettes`}{
+#' Diverging colour palettes 
+#' }
+#' 
+#' \item{`boe_publication_palettes`}{
+#' Publication colour palettes 
+#' }
+#' 
+#' }
+#' @name boepalettes
+#' @aliases NULL
+NULL
+
 #' @export
+#' @rdname boepalettes
 boe_identity_palettes <- list(
   boe_identity = boe_identity,
   boe_brand_main = boe_brand_main,
   boe_brand_secondary = boe_brand_secondary
 )
 
-#' List of shades colour palettes
-#'
-#' @keywords internal
-#'
 #' @export
+#' @rdname boepalettes
 boe_shades_palettes <- list(
   boe_shades_aqua = boe_shades_aqua
 )
 
-#' List of standard colour palettes
-#'
-#' @keywords internal
-#'
 #' @export
+#' @rdname boepalettes
 boe_standard_palettes <- list(
   boe = boe,
   boe_rich = boe_rich,
@@ -31,11 +66,8 @@ boe_standard_palettes <- list(
   boe_neutral = boe_neutral
 )
 
-#' @title List of harmonious colour palettes
-#' 
-#' @keywords internal
-#'
 #' @export
+#' @rdname boepalettes
 boe_harmonious_palettes <- list(
   harmonious_blue = harmonious_blue,
   harmonious_teal = harmonious_teal,
@@ -48,11 +80,8 @@ boe_harmonious_palettes <- list(
 )
 
 
-#' @title List of vibrant colour palettes
-#' 
-#' @keywords internal
-#'
 #' @export
+#' @rdname boepalettes
 boe_vibrant_palettes = list(
   vibrant_a = vibrant_a,
   vibrant_b = vibrant_b,
@@ -64,11 +93,8 @@ boe_vibrant_palettes = list(
   vibrant_h = vibrant_h
 )
 
-#' @title List of diverging ColorBrewer-style colour palettes
-#' 
-#' @keywords internal
-#'
 #' @export
+#' @rdname boepalettes
 boe_diverging_palettes <- list(
   red_blue = red_blue,
   red_green = red_green,
@@ -79,11 +105,8 @@ boe_diverging_palettes <- list(
   pink_green = pink_green
 )
 
-#' @title List of publication colour palettes
-#' 
-#' @keywords internal
-#'
 #' @export
+#' @rdname boepalettes
 boe_publication_palettes = list(
   boe_website = boe_website,
   boe_overground = boe_overground,
@@ -97,13 +120,8 @@ boe_publication_palettes = list(
   mcg = mcg
 )
 
-
-
-#' List of Bank colour palettes
-#'
-#' Bank colour palettes made accessible via a single list.
-#'
 #' @export
+#' @rdname boepalettes
 boe_palettes <- c(
   boe_identity_palettes,
   boe_shades_palettes,
@@ -113,80 +131,3 @@ boe_palettes <- c(
   boe_diverging_palettes,
   boe_publication_palettes
 )
-
-
-#' A Bank colour palette generator
-#'
-#' Create Bank colour palettes for plots.
-#' 
-#' @param palette character string indicating the palette to use. Options
-#' available are in \code{\link[boeCharts]{boe_palettes}} (e.g. "boe rich").
-#' 
-#' @param n Number of palette colours to use
-#' 
-#' @param reverse Logical, sets the order of colours in the scale. If TRUE,
-#' the n colours will be returns in reverse order (FALSE by default).
-#'
-#' @family colour boe
-#'
-#' @export
-#' 
-#' @examples
-#' boe_pal(palette = "boe", n = 4)
-boe_pal <- function(palette, n, reverse = FALSE) {
-  
-  if (!is.logical(reverse)) stop("reverse must be TRUE or FALSE.")
-  
-  pal <- colours_from_palette(palette)
-  
-  if (is.null(pal)) stop("Palette not found.")
-  
-  if (missing(n)) {
-    n <- length(pal)
-  }
-  
-  check_pal_n(n, pal)
-  
-  out <- pal[1:n]
-  
-  # returns the same colours in reverse order
-  if (reverse) out <- rev(out)
-  
-  structure(out, class = "palette", palette = palette)
-}
-
-pal_pal <- function(palette, reverse) {
-  
-  function(n) {
-    boe_pal(palette = palette, reverse = reverse)
-  }
-  
-}
-
-# check palette length
-check_pal_n <- function(n, pal) {
-  if (n > length(pal)) {
-    warning("This palette can handle a maximum of ", length(pal), " values.",
-            "You have supplied ", n, ".")
-  } else if (n < 0) {
-    stop("`n` must be a non-negative integer.")
-  }
-}
-
-#' Display colours when printing palette objects
-#'
-#' @param x a palette object
-#' @param ... ignored
-#' @export
-print.palette <- function(x, ...) {
-  
-  n <- length(x)
-  old <- graphics::par(mar = c(0.5, 0.5, 0.5, 0.5))
-  on.exit(graphics::par(old))
-  
-  graphics::image(1:n, 1, as.matrix(1:n), col = x,
-        ylab = "", xaxt = "n", yaxt = "n", bty = "n")
-  
-  graphics::rect(0, 0.9, n + 1, 1.1, col = grDevices::rgb(1, 1, 1, 0.8), border = NA)
-  graphics::text((n + 1) / 2, 1, labels = attr(x, "palette"), cex = 1, family = "serif")
-}
