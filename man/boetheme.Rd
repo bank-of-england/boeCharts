@@ -265,6 +265,10 @@ p1 <- ggplot(mtcars, aes(x = mpg, y = wt)) +
    labs(title = "A Lovely Plot", subtitle = "Something insightful")
    
 p1 + theme_boe_identity()
+p1 + theme_overground()
+p1 + theme_mpr()
+p1 + theme_fsr()
+p1 + theme_mcg_pub()
 
 p2 <- ggplot(mtcars, aes(x = mpg, y = wt, colour = factor(cyl))) +
    geom_point() +
