@@ -110,9 +110,9 @@ theme_boe_identity <- function(
   subtitle_colour = "#ffffff",
   axis_title_colour = "#C4C9CE",
   axis_text_colour = "#C4C9CE",
-  legend_title_colour = "#C4C9CE",
-  legend_text_colour = "#C4C9CE",
-  strip_text_colour = "#C4C9CE",
+  legend_title_colour = "#ffffff",
+  legend_text_colour = "#ffffff",
+  strip_text_colour = "#ffffff",
   caption_colour = "#C4C9CE",
   background_colour = "#12273F",
   axis_line_colour = "#C4C9CE",
@@ -193,10 +193,10 @@ theme_boe_identity <- function(
       
       # legend
       legend.title = ggplot2::element_text(
-        colour = legend_title_colour, size = legend_title_size
+        colour = legend_title_colour, size = legend_title_size, face = "bold"
       ),
       legend.text = ggplot2::element_text(
-        colour = legend_text_colour, size = legend_text_size
+        colour = legend_text_colour, size = legend_text_size, face = "bold",
       ),
       legend.background = ggplot2::element_rect(fill = NA, colour = NA),
       legend.box.background = ggplot2::element_rect(fill = NA, colour = NA),
