@@ -24,6 +24,6 @@ test_that("caption_footnote() formats footnotes correctly", {
 
 test_that("caption_boe() formats sources and footnotes correctly", {
   expect_equal(
-    caption_boe(single_source, footnote = two_source), "Source: foo.\n\n(a) foo\n(b) bar"
+    caption_boe(single_source, footnote = two_source), "Source: foo.\n(a) foo\n(b) bar"
     )
 })
