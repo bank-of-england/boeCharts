@@ -1,4 +1,4 @@
-# boeCharts 1.3.2.9000 (development version)
+# boeCharts 1.3.3
 
 ## New features
 
