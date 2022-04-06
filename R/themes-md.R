@@ -29,6 +29,9 @@
 #'
 #' @export
 as_md_theme <- function(theme, all_plain = TRUE) {
+  
+  try_require('ggtext', "as_md_theme")
+  
   if (all_plain) {
     emd <- ggtext::element_markdown(face = "plain")
   } else {
