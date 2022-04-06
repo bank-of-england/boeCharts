@@ -1,4 +1,4 @@
-# boeCharts 1.3.3.9000
+# boeCharts 1.3.4
 
 ## Minor changes
 
