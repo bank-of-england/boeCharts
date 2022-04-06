@@ -1,3 +1,9 @@
+# boeCharts 1.3.3.9000
+
+## Minor changes
+
+- Remove {ggtext} dependency
+
 # boeCharts 1.3.3
 
 ## New features
