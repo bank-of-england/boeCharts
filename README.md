@@ -197,7 +197,6 @@ themes), you should run the `import_calibri()` function. If you want to
 use fonts in PDF (or Postscript) output files, set the
 `boeCharts.loadfonts` option to `TRUE`.
 
-Font import depends on version 1.3.8 of the {rttf2pt1} package being
-available. The `install_rttf2pt1()` function is included in {boeCharts}
-to help handle this, and is run automatically as part of the `import_`
-operations described above.
+N.B. the font import step only needs to be run once on your machine.
+Fonts will be loaded automatically when you load `boeCharts` in future R
+sessions.
