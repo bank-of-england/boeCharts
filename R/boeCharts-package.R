@@ -4,4 +4,4 @@
 #' publication-ready visualisations.
 #' 
 #' @import ggplot2 grDevices
-"_PACKAGE"
+

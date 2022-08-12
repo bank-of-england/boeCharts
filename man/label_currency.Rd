@@ -55,8 +55,6 @@ format_pound(
 \item{prefix}{Symbol to display before amount, defaults to 
 \code{intToUtf8(0x00A3)} (aka a pound sign)}
 
-\item{suffix}{Symbols to display before and after value.}
-
 \item{largest_with_pence}{value that all values must be less than in order 
 for pence to be displayed}
 
@@ -64,7 +62,8 @@ for pence to be displayed}
 
 \item{big.mark}{Character used between every 3 digits to separate thousands.}
 
-\item{negative_parens}{Display negative using parentheses?}
+\item{negative_parens}{\ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#deprecated}{\figure{lifecycle-deprecated.svg}{options: alt='[Deprecated]'}}}{\strong{[Deprecated]}} Use
+\code{style_negative = "parens"} instead.}
 }
 \value{
 All [label_()] functions return a "labelling" function, i.e. a function 
