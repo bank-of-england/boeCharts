@@ -35,7 +35,7 @@ Community](https://bankexchange/groups/1067/SitePages/Home.aspx).
 development version from GitHub:
 
 ``` r
-remotes::install_github('bank-of-england/boeCharts')
+remotes::install_github('bank-of-england/boeCharts', ref = "public")
 ```
 
 ## Usage
