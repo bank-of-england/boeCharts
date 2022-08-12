@@ -10,8 +10,8 @@
 
 - Added a [Bank identity]() theme. See `theme_boe_identity()`
 - Added new Bank identity colour palettes:
-        - Core: `boe_identity`, `boe_brand_main`, `boe_brand_secondary`
-        - Shades: `boe_shades_aqua`
+    - Core: `boe_identity`, `boe_brand_main`, `boe_brand_secondary`
+    - Shades: `boe_shades_aqua`
 - `add_hline0()` utility function for strong horizontal rule at "zero"
 - `geom_text_boe_identity()` and `annotate_boe_identity()` Bank-style wrappers 
 
